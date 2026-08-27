@@ -19,12 +19,12 @@ export default function Footer() {
 
   return (
     <footer id="contact" className="border-t border-[#ece9e4]/10 px-6 pb-8 pt-24 md:px-10 md:pt-36">
-      <p className="mb-8 font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#ff4d00]">
+      <p className="font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#ff4d00]">
         {t('Got a project?', 'Есть проект?')}
       </p>
 
       <motion.div
-        className="max-w-4xl"
+        className="mt-28 max-w-4xl md:mt-44"
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-100px' }}
