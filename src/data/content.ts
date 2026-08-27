@@ -56,6 +56,23 @@ export interface CaseStudyChart {
   max?: number
 }
 
+export interface StageFlowStep {
+  title: Localized
+  sublabel: Localized
+  active?: boolean
+}
+
+export interface StageFlowRow {
+  label: Localized
+  steps: StageFlowStep[]
+}
+
+export interface StageFlow {
+  title: Localized
+  rows: StageFlowRow[]
+  note?: Localized
+}
+
 export interface CaseStudySection {
   label: Localized
   paragraphs: Localized[]
@@ -64,6 +81,7 @@ export interface CaseStudySection {
   tables?: CaseStudyTable[]
   charts?: CaseStudyChart[]
   diagram?: FlowDiagram
+  stageFlow?: StageFlow
 }
 
 export interface ProjectMetric {
