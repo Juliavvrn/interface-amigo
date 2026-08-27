@@ -303,6 +303,11 @@ export default function ProjectPage() {
 
   const next = nextProject(project.slug)
   const caseVariant = getCaseVariant(project.slug)
+  const diagramOrder: Record<number, number> = {}
+  let diagramCount = 0
+  project.caseStudy?.forEach((s, i) => {
+    if (s.diagram) diagramOrder[i] = diagramCount++
+  })
 
   return (
     <main className="pt-32 md:pt-40">
