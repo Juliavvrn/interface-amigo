@@ -7,21 +7,23 @@ import Awards from "../sections/Awards";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "JULIA VERESOVA — Digital Design Studio" },
+      { title: "Julia Veresova — AI Product Owner Portfolio" },
       {
         name: "description",
         content:
-          "JULIA VERESOVA — an independent digital design studio crafting award-winning brands, websites and experiences.",
+          "Portfolio of Julia Veresova, technical product owner and full-stack AI engineer: voice agents, agentic workflows, RAG orchestration, data architecture and shipped AI products.",
       },
-      { property: "og:title", content: "JULIA VERESOVA — Digital Design Studio" },
+      { property: "og:title", content: "Julia Veresova — AI Product Owner Portfolio" },
       {
         property: "og:description",
         content:
-          "Independent digital design studio crafting award-winning brands, websites and experiences.",
+          "Case studies in AI agents, agentic workflows, RAG orchestration and data architecture — from research to shipped product.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://interface-amigo.lovable.app/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://interface-amigo.lovable.app/" }],
   }),
   component: Home,
 });
