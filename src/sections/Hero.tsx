@@ -29,7 +29,7 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9, duration: 1 }}
         >
-          {t('TECHNICAL PRODUCT OWNER · FULL-STACK AI ENGINEER', 'ТЕХНИЧЕСКИЙ ПРОДАКТ-ОУНЕР · FULL-STACK AI ИНЖЕНЕР')}
+          TECHNICAL PRODUCT OWNER · FULL-STACK AI ENGINEER
         </motion.p>
 
         <div className="select-none">

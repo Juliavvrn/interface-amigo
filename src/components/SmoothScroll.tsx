@@ -17,33 +17,35 @@ export default function SmoothScroll() {
     }
     raf = requestAnimationFrame(loop)
 
-    // anchor navigation through lenis
-    const onClick = (e: MouseEvent) => {
-      if (e.defaultPrevented) return
-      const anchor = (e.target as HTMLElement).closest('a[href^="#"]')
-      if (!anchor) return
-      const id = anchor.getAttribute('href')
-      if (!id || id === '#') return
-      const el = document.querySelector(id)
-      if (el) {
-        e.preventDefault()
-        lenis.scrollTo(el as HTMLElement)
-      }
-    }
-    document.addEventListener('click', onClick)
-
     return () => {
       cancelAnimationFrame(raf)
       lenis.destroy()
-      document.removeEventListener('click', onClick)
+      delete (window as unknown as { __lenis?: Lenis }).__lenis
     }
   }, [])
 
-  // reset scroll on route change
+  // Handle route and hash navigation after the destination DOM has mounted.
   useEffect(() => {
-    lenisRef.current?.scrollTo(0, { immediate: true })
-    window.scrollTo(0, 0)
-  }, [location.pathname])
+    let frame = 0
+    let attempts = 0
+    const scroll = () => {
+      const hash = location.hash
+      const target = hash ? document.getElementById(hash.replace(/^#/, '')) : null
+      if (target) {
+        lenisRef.current?.scrollTo(target, { offset: hash === '#top' ? 0 : -70, duration: 1.1 })
+        return
+      }
+      if (hash && attempts < 60) {
+        attempts += 1
+        frame = requestAnimationFrame(scroll)
+        return
+      }
+      lenisRef.current?.scrollTo(0, { immediate: true })
+      window.scrollTo(0, 0)
+    }
+    frame = requestAnimationFrame(scroll)
+    return () => cancelAnimationFrame(frame)
+  }, [location.pathname, location.hash])
 
   return null
 }
