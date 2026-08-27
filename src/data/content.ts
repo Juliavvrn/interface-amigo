@@ -1085,6 +1085,14 @@ const _projects: Project[] = [
       ),
     ],
     gallery: [work2, work5],
+    screens: [
+      { src: aiimLanding.url, caption: L('Landing — Advanced Identity & Interaction Model', 'Лендинг — Advanced Identity & Interaction Model') },
+      { src: aiimWhitepaper.url, caption: L('White paper — methodology and structure', 'White paper — методология и структура') },
+      { src: aiimBuilder.url, caption: L('Agent builder — base parameters', 'Конструктор агента — базовые параметры') },
+      { src: aiimBuilder2.url, caption: L('Agent builder — 12 cognitive aspects', 'Конструктор агента — 12 когнитивных аспектов') },
+      { src: aiimDevelopment.url, caption: L('Development — API configurations', 'Development — конфигурации API') },
+      { src: aiimApiDocs.url, caption: L('API documentation — text, voice, realtime', 'Документация API — текст, голос, realtime') },
+    ],
     caseStudy: [
       {
         label: L('Why it exists', 'Зачем это нужно'),
