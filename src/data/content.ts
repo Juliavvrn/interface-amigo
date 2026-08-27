@@ -1,5 +1,6 @@
 import work1 from '@/assets/work1.jpg'
 import work2 from '@/assets/work2.jpg'
+import work3 from '@/assets/work3.jpg'
 import work4 from '@/assets/work4.jpg'
 import work5 from '@/assets/work5.jpg'
 import work6 from '@/assets/work6.jpg'
@@ -119,9 +120,10 @@ function L(en: string, ru: string): Localized {
 const projectOrder: Record<string, number> = {
   'industrial-monitoring': 0,
   'aiim': 1,
-  'clinicscribe': 2,
-  'audit-it': 3,
-  'chromatic-drift': 4,
+  'mindcare': 2,
+  'clinicscribe': 3,
+  'audit-it': 4,
+  'chromatic-drift': 5,
 }
 
 const _projects: Project[] = [
