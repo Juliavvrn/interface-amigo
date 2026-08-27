@@ -1059,6 +1059,296 @@ const _projects: Project[] = [
     ],
   },
   {
+    slug: 'mindcare',
+    title: L('Clinical-Grade Mental Wellness Assessment', 'Клинический скрининг ментального здоровья'),
+    category: L('Open Source · Mental Health Tech', 'Open Source · Ментальное здоровье'),
+    domain: L('HealthTech / Self-Screening', 'HealthTech / Самоскрининг'),
+    stack: L('React · TypeScript · Tailwind CSS · Vite · Lucide Icons', 'React · TypeScript · Tailwind CSS · Vite · Lucide Icons'),
+    year: '2025–2026',
+    img: work3,
+    deliverables: [
+      L('Product Design', 'Продуктовый дизайн'),
+      L('UI / UX Design', 'UI / UX-дизайн'),
+      L('Full-Stack Architecture', 'Full-stack архитектура'),
+      L('Clinical Scoring Model', 'Модель клинического скоринга'),
+    ],
+    description: [
+      L(
+        'Clinical mental health questionnaires (PHQ-9, GAD-7) are often read as cold medical tests, which triggers anxiety and rejection. I designed a private conversational platform that turns clinical validation into an empathetic step-by-step experience with real-time risk stratification and a personalised support plan.',
+        'Клинические опросники ментального здоровья (PHQ-9, GAD-7) часто воспринимаются как холодные медицинские тесты, вызывая у пользователей тревогу и отторжение. Я спроектировала приватную диалоговую платформу, которая переводит клиническую валидацию в эмпатичный пошаговый опыт со стратификацией рисков в реальном времени и персонализированным планом поддержки.'
+      ),
+      L(
+        'The product is a confidential first point of contact: multi-dimensional screening across anxiety, stress, depressive episodes and general wellbeing, normalised on a 0–100 scale, with safe self-help scenarios and no private data ever leaving the device.',
+        'Продукт спроектирован как конфиденциальная точка первого контакта: многомерный скрининг тревожности, стресса, депрессивных эпизодов и общего благополучия, нормализация по 100-балльной шкале и безопасные сценарии самопомощи без отправки приватных данных на внешние серверы.'
+      ),
+    ],
+    gallery: [work3, work5],
+    metrics: [
+      { value: L('94%', '94%'), label: L('Completion rate vs traditional', 'Завершаемость против обычных опросников') },
+      { value: L('100%', '100%'), label: L('Local, client-side privacy', 'Полностью локальная приватность') },
+      { value: L('3.2×', '3,2×'), label: L('Faster time to de-escalation', 'Быстрее переход к самопомощи') },
+      { value: L('0', '0'), label: L('Unencrypted user records', 'Незашифрованных записей пользователя') },
+    ],
+    caseStudy: [
+      {
+        label: L('Context', 'Контекст'),
+        paragraphs: [
+          L(
+            'Traditional mental health platforms demand long registrations, personal data and monotonous tables of dozens of questions. Fear of stigma and of leaking sensitive information makes up to 70% of people abandon self-screening on the very first screens.',
+            'Традиционные платформы психологической помощи требуют длинных регистраций, раскрытия персональных данных и заполнения монотонных таблиц из десятков вопросов. Из-за страха стигматизации и утечки чувствительной информации до 70% людей прерывают самодиагностику на первых экранах.'
+          ),
+          L(
+            'MindCare screens four dimensions at once, normalises them on a 100-point scale and builds a support scenario locally, so the first contact with the topic never feels like a medical record being opened.',
+            'Платформа проводит многомерный скрининг (тревожность, стресс, депрессивные эпизоды, общее благополучие), нормализует результаты по 100-балльной шкале и формирует безопасные сценарии самопомощи локально, чтобы первый контакт с темой не ощущался как заведение медкарты.'
+          ),
+        ],
+        charts: [
+          {
+            type: 'bar',
+            title: L('Triage snapshot · normalised 0–100', 'Срез триажа · нормализация 0–100'),
+            labels: [
+              L('Anxiety index', 'Индекс тревожности'),
+              L('Depression level', 'Уровень депрессии'),
+              L('Stress quotient', 'Коэффициент стресса'),
+              L('Wellbeing', 'Благополучие'),
+            ],
+            series: [{ name: L('Session score', 'Оценка сессии'), values: [62, 28, 54, 78] }],
+            max: 100,
+          },
+        ],
+      },
+      {
+        label: L('The problem', 'Проблема'),
+        paragraphs: [
+          L(
+            'Screening lives between two extremes: invalid entertainment quizzes on one side, dry clinical forms overloaded with terminology on the other.',
+            'Медицинский скрининг страдает от двух крайностей: либо это невалидные развлекательные онлайн-тесты, либо сухие клинические формы, перегруженные сложной терминологией.'
+          ),
+          L(
+            'The interface had to combine an evidence-based clinical core with empathetic microcopy and guarantee full anonymity at the moment of highest vulnerability.',
+            'Интерфейс должен был объединить доказательную клиническую базу с эмпатичным микрокопирайтингом и гарантировать полную анонимность пользователя в моменты наивысшей уязвимости.'
+          ),
+        ],
+        findings: [
+          {
+            title: L('Design principle', 'Принцип дизайна'),
+            body: L(
+              'Anxiety removes cognitive budget. Every screen has to fit inside what is left.',
+              'Тревога забирает когнитивный ресурс. Каждый экран должен помещаться в то, что осталось.'
+            ),
+            quote: L(
+              'In moments of anxiety the interface must not demand cognitive effort. Every question should feel like a safe dialogue, not an interrogation.',
+              '«В моменты тревоги интерфейс не должен требовать когнитивных усилий. Каждый вопрос должен ощущаться не как допрос, а как безопасный диалог».'
+            ),
+          },
+        ],
+      },
+      {
+        label: L('Assessment journey & user states', 'Путь оценки и состояния пользователя'),
+        paragraphs: [
+          L(
+            'A conventional test throws a cold 30-question form at the user, dumps overwhelming results and closes with "consult a doctor". The guided flow replaces that with progressive disclosure, evidence-based scoring and a calm, actionable summary.',
+            'Обычный тест выдаёт холодную форму из 30 вопросов, обрушивает перегруженный результат и заканчивается фразой «обратитесь к врачу». Направляемый поток заменяет это постепенным раскрытием, доказательным скорингом и спокойным итогом с конкретными действиями.'
+          ),
+        ],
+        diagram: {
+          title: L('Guided flow vs conventional test', 'Направляемый поток против обычного теста'),
+          columns: 1,
+          nodes: [
+            { id: 'dialogue', label: L('Step-by-step dialogue', 'Пошаговый диалог'), sublabel: L('One question per screen · micro-validation', 'Один вопрос на экран · микро-подтверждение') },
+            { id: 'scoring', label: L('Evidence-based scoring', 'Доказательный скоринг'), sublabel: L('Normalized 0–100 scale', 'Нормализация по шкале 0–100') },
+            { id: 'summary', label: L('Actionable calm summary', 'Спокойный итог с действиями'), sublabel: L('CBT exercises + resources', 'КПТ-упражнения и ресурсы') },
+          ],
+          edges: [
+            { from: 'dialogue', to: 'scoring' },
+            { from: 'scoring', to: 'summary' },
+          ],
+        },
+      },
+      {
+        label: L('Research & user personas', 'Исследование и персоны'),
+        paragraphs: [
+          L(
+            'Two behavioural poles shaped the flow: the analytical professional who needs an objective baseline, and the acutely anxious student who needs the shortest possible path to relief.',
+            'Поток формировали два поведенческих полюса: аналитичный профессионал, которому нужна объективная точка отсчёта, и студент в остром состоянии, которому нужен максимально короткий путь к облегчению.'
+          ),
+        ],
+        findings: [
+          {
+            title: L('Priya · tech professional, work burnout', 'Прия · ИТ-специалист, выгорание'),
+            body: L(
+              'Goal: an objective, balanced read on her state without going to a clinic. Obstacle: fear that corporate insurance or a service will record a diagnosis.',
+              'Цель: получить объективную и взвешенную оценку состояния без походов в клинику. Барьер: боится, что корпоративная страховка или сервисы зафиксируют диагноз.'
+            ),
+            quote: L(
+              'I constantly feel a lump in my chest, but I do not know if it is ordinary fatigue or the start of depression.',
+              '«Я постоянно чувствую ком в груди, но не знаю, это обычная усталость или начало депрессии».'
+            ),
+          },
+          {
+            title: L('Sam · university student, acute panic', 'Сэм · студент, острая паника'),
+            body: L(
+              'Goal: pass a screening quickly in a clear interface and get a grounding technique. Obstacle: hard to concentrate on bulky pages with many fields.',
+              'Цель: быстро пройти скрининг в понятном интерфейсе и получить технику заземления. Барьер: сложно концентрироваться на громоздких страницах со множеством полей.'
+            ),
+            quote: L(
+              'When panic hits, long texts and complex forms make the stupor even worse.',
+              '«Когда накатывает паника, длинные тексты и сложные формы вызывают ещё больший ступор».'
+            ),
+          },
+        ],
+      },
+      {
+        label: L('What I designed', 'Что я спроектировала'),
+        paragraphs: [
+          L('Five design decisions carry the product.', 'Продукт держится на пяти проектных решениях.'),
+        ],
+        modules: [
+          {
+            title: L('01. Progressive assessment flow', '01. Пошаговый поток оценки'),
+            body: L(
+              'Questions are delivered one per screen with smooth transitions. Progressive disclosure removes visual pressure and lowers cognitive load under stress.',
+              'Пошаговая подача вопросов по одному на экран с плавной анимацией переходов. Это снимает визуальное давление и снижает когнитивную нагрузку в моменты стресса.'
+            ),
+          },
+          {
+            title: L('02. Multi-dimensional wellness radar', '02. Многомерный радар благополучия'),
+            body: L(
+              'Results split into four independent vectors: anxiety, stress, depression level and a resilience index. Even with high stress, the user can see that base resources are intact.',
+              'Результаты разбиваются на 4 независимых вектора: тревожность, стресс, уровень депрессии и индекс жизнестойкости. Это помогает увидеть, что даже при высоком уровне стресса базовые ресурсы сохранны.'
+            ),
+          },
+          {
+            title: L('03. Zero-knowledge privacy architecture', '03. Zero-knowledge приватность'),
+            body: L(
+              'All scoring computation and history storage happen locally in the browser. No answers or personal markers reach third-party trackers.',
+              'Все вычисления скорингового алгоритма и хранение истории происходят локально в браузере. Никакие ответы или персональные маркеры не передаются сторонним трекерам.'
+            ),
+          },
+          {
+            title: L('04. Crisis guard & adaptive escalation', '04. Кризисный контур и эскалация'),
+            body: L(
+              'On critical thresholds the system quietly and instantly opens an emergency panel with crisis lines and one-tap calling.',
+              'При фиксации критических пороговых значений система мгновенно и ненавязчиво активирует панель экстренной помощи с кризисными линиями и вызовом в один тап.'
+            ),
+          },
+          {
+            title: L('05. Actionable de-escalation toolkit', '05. Набор для деэскалации'),
+            body: L(
+              'The results screen never leaves a person alone with numbers: it offers interactive breathing techniques, CBT exercises and a 7-day dynamics tracker.',
+              'Экран результатов не оставляет человека один на один с цифрами: он сразу предлагает интерактивные техники дыхания, упражнения КПТ и трекер динамики на 7 дней.'
+            ),
+          },
+        ],
+      },
+      {
+        label: L('Step-by-step user flow', 'Пошаговый пользовательский поток'),
+        paragraphs: [
+          L(
+            'Screening starts without registration, runs through weighted algorithms in real time and branches by risk tier before landing in on-device retention.',
+            'Скрининг начинается без регистрации, проходит через взвешенные алгоритмы в реальном времени и ветвится по уровню риска, прежде чем перейти в локальное хранение динамики.'
+          ),
+        ],
+        diagram: {
+          title: L('Triage branching', 'Ветвление триажа'),
+          columns: 2,
+          nodes: [
+            { id: 'start', label: L('Start screening', 'Старт скрининга'), sublabel: L('Zero registration', 'Без регистрации') },
+            { id: 'survey', label: L('Progressive survey', 'Пошаговый опрос'), sublabel: L('1 question per step', '1 вопрос на шаг') },
+            { id: 'triage', label: L('Real-time triage', 'Триаж в реальном времени'), sublabel: L('Weighted algorithms', 'Взвешенные алгоритмы') },
+            { id: 'stable', label: L('Tier 1–2: stable', 'Уровень 1–2: стабильно'), sublabel: L('Breakdown & CBT toolkit', 'Разбор и КПТ-инструменты') },
+            { id: 'critical', label: L('Tier 3: critical', 'Уровень 3: критично'), sublabel: L('Crisis guard overlay', 'Кризисный оверлей') },
+            { id: 'retention', label: L('On-device retention', 'Локальное хранение'), sublabel: L('7-day local trend graph', 'График динамики за 7 дней') },
+          ],
+          edges: [
+            { from: 'start', to: 'survey' },
+            { from: 'survey', to: 'triage' },
+            { from: 'triage', to: 'stable' },
+            { from: 'triage', to: 'critical' },
+            { from: 'stable', to: 'retention' },
+            { from: 'critical', to: 'retention' },
+          ],
+        },
+      },
+      {
+        label: L('Design system & empathy architecture', 'Дизайн-система и архитектура эмпатии'),
+        paragraphs: [
+          L(
+            'A calm UI specification governs palette, motion and accessibility, so severity is communicated without alarm colours or abrupt movement.',
+            'Спецификация «спокойного интерфейса» задаёт палитру, motion и доступность, чтобы тяжесть состояния передавалась без тревожных цветов и резких движений.'
+          ),
+        ],
+        tables: [
+          {
+            title: L('Calm UI specification', 'Спецификация спокойного интерфейса'),
+            columns: [L('Layer', 'Слой'), L('Decision', 'Решение'), L('Benchmark', 'Ориентир')],
+            rows: [
+              [L('Palette & tonality', 'Палитра и тональность'), L('Slate base · bio-teal safe · amber non-panic alert', 'Сланцевая база · био-бирюзовый · янтарный без паники'), L('No aggressive red at any risk tier', 'Никакого агрессивного красного на любом уровне риска')],
+              [L('Motion & timing', 'Motion и тайминги'), L('Calm cubic-bezier easing · 350 ms transitions', 'Плавный cubic-bezier · переходы 350 мс'), L('Native reduced-motion support', 'Нативная поддержка reduced motion')],
+              [L('Accessibility', 'Доступность'), L('Touch targets 52 × 52 px · full aria labelling', 'Тач-зоны 52 × 52 px · полная разметка aria'), L('WCAG AAA contrast', 'Контраст WCAG AAA')],
+              [L('Score cards', 'Карточки результатов'), L('Vector score + severity + clinical baseline', 'Вектор, тяжесть и клиническая база'), L('Local encrypted · ready offline', 'Локально зашифровано · работает офлайн')],
+              [L('Action cards', 'Карточки действий'), L('4-7-8 breathing loop · 3-minute grounding', 'Дыхание 4-7-8 · заземление за 3 минуты'), L('One tap from the results screen', 'Один тап с экрана результатов')],
+            ],
+          },
+        ],
+      },
+      {
+        label: L('Constraints & architectural decisions', 'Ограничения и архитектурные решения'),
+        paragraphs: [
+          L(
+            'Three decisions defined the build.',
+            'Три решения определили реализацию.'
+          ),
+        ],
+        findings: [
+          {
+            title: L('Local scoring instead of backend AI', 'Локальный скоринг вместо backend AI'),
+            body: L(
+              'The weighted clinical scoring algorithm runs in TypeScript on the client. That gives an instant response on an unstable network and removes any interception risk for personal data.',
+              'Алгоритм взвешенного клинического скоринга реализован на TypeScript на стороне клиента. Это обеспечивает мгновенный отклик даже при нестабильной сети и исключает риск перехвата персональных данных.'
+            ),
+          },
+          {
+            title: L('Palette calibrated without alarm colours', 'Калибровка палитры без тревожных цветов'),
+            body: L(
+              'Aggressive red is dropped in favour of soft amber and slate tones even at elevated risk levels, so the interface never provokes a panic reaction.',
+              'Отказ от агрессивного красного цвета в пользу мягких янтарных и сланцевых оттенков даже при повышенных уровнях риска, чтобы не провоцировать панические реакции.'
+            ),
+          },
+          {
+            title: L('Structured PDF export', 'Экспорт в структурированный PDF'),
+            body: L(
+              'In one click the user builds a clinical summary for their therapist with dates, scores and dynamics, without handing the therapist access to the device.',
+              'Пользователь может в один клик сформировать клиническое саммари для своего терапевта с датами, баллами и динамикой без необходимости давать врачу доступ к устройству.'
+            ),
+          },
+        ],
+      },
+      {
+        label: L('Impact & metrics', 'Результат и метрики'),
+        paragraphs: [
+          L(
+            '94% screening completion: step-by-step delivery cut drop-off threefold versus standard questionnaires. 3.2× faster path to self-help: a breathing or cognitive exercise starts under 10 seconds after results. 0 bytes of personal data transmitted: full local autonomy and absolute confidentiality.',
+            '94% завершаемость скрининга: пошаговая подача вопросов сократила процент отказов в 3 раза по сравнению со стандартными опросниками. В 3,2 раза быстрее переход к самопомощи: пользователь начинает дыхательное или когнитивное упражнение менее чем через 10 секунд после получения результатов. 0 байт переданных персональных данных: полная локальная автономия и абсолютная защита конфиденциальности.'
+          ),
+        ],
+        charts: [
+          {
+            type: 'bar',
+            title: L('Completion & privacy', 'Завершаемость и приватность'),
+            labels: [
+              L('MindCare completion', 'Завершаемость MindCare'),
+              L('Traditional questionnaire', 'Обычный опросник'),
+              L('Local computation share', 'Доля локальных вычислений'),
+            ],
+            series: [{ name: L('%', '%'), values: [94, 31, 100] }],
+            max: 100,
+          },
+        ],
+      },
+    ],
+  },
+  {
     slug: 'aiim',
     title: L('AI Agent Cognitive OS', 'Когнитивная операционная система для ИИ-агентов'),
     category: L('B2B + B2C · Research Initiative', 'B2B + B2C · Исследовательская инициатива'),
