@@ -1140,7 +1140,7 @@ const _projects: Project[] = [
             ),
             quote: L(
               'In moments of anxiety the interface must not demand cognitive effort. Every question should feel like a safe dialogue, not an interrogation.',
-              '«В моменты тревоги интерфейс не должен требовать когнитивных усилий. Каждый вопрос должен ощущаться не как допрос, а как безопасный диалог».'
+              'В моменты тревоги интерфейс не должен требовать когнитивных усилий. Каждый вопрос должен ощущаться не как допрос, а как безопасный диалог.'
             ),
           },
         ],
@@ -1150,7 +1150,7 @@ const _projects: Project[] = [
         paragraphs: [
           L(
             'A conventional test throws a cold 30-question form at the user, dumps overwhelming results and closes with "consult a doctor". The guided flow replaces that with progressive disclosure, evidence-based scoring and a calm, actionable summary.',
-            'Обычный тест выдаёт холодную форму из 30 вопросов, обрушивает перегруженный результат и заканчивается фразой «обратитесь к врачу». Направляемый поток заменяет это постепенным раскрытием, доказательным скорингом и спокойным итогом с конкретными действиями.'
+            'Обычный тест выдаёт холодную форму из 30 вопросов, обрушивает перегруженный результат и заканчивается фразой: обратитесь к врачу. Направляемый поток заменяет это постепенным раскрытием, доказательным скорингом и спокойным итогом с конкретными действиями.'
           ),
         ],
         diagram: {
@@ -1177,25 +1177,25 @@ const _projects: Project[] = [
         ],
         findings: [
           {
-            title: L('Priya · tech professional, work burnout', 'Прия · ИТ-специалист, выгорание'),
+            title: L('Persona 01 · tech professional, work burnout', 'Персона 01 · ИТ-специалист, выгорание'),
             body: L(
               'Goal: an objective, balanced read on her state without going to a clinic. Obstacle: fear that corporate insurance or a service will record a diagnosis.',
               'Цель: получить объективную и взвешенную оценку состояния без походов в клинику. Барьер: боится, что корпоративная страховка или сервисы зафиксируют диагноз.'
             ),
             quote: L(
               'I constantly feel a lump in my chest, but I do not know if it is ordinary fatigue or the start of depression.',
-              '«Я постоянно чувствую ком в груди, но не знаю, это обычная усталость или начало депрессии».'
+              'Я постоянно чувствую ком в груди, но не знаю, это обычная усталость или начало депрессии.'
             ),
           },
           {
-            title: L('Sam · university student, acute panic', 'Сэм · студент, острая паника'),
+            title: L('Persona 02 · university student, acute panic', 'Персона 02 · студент, острая паника'),
             body: L(
               'Goal: pass a screening quickly in a clear interface and get a grounding technique. Obstacle: hard to concentrate on bulky pages with many fields.',
               'Цель: быстро пройти скрининг в понятном интерфейсе и получить технику заземления. Барьер: сложно концентрироваться на громоздких страницах со множеством полей.'
             ),
             quote: L(
               'When panic hits, long texts and complex forms make the stupor even worse.',
-              '«Когда накатывает паника, длинные тексты и сложные формы вызывают ещё больший ступор».'
+              'Когда накатывает паника, длинные тексты и сложные формы вызывают ещё больший ступор.'
             ),
           },
         ],
@@ -1277,7 +1277,7 @@ const _projects: Project[] = [
         paragraphs: [
           L(
             'A calm UI specification governs palette, motion and accessibility, so severity is communicated without alarm colours or abrupt movement.',
-            'Спецификация «спокойного интерфейса» задаёт палитру, motion и доступность, чтобы тяжесть состояния передавалась без тревожных цветов и резких движений.'
+            'Спецификация спокойного интерфейса задаёт палитру, motion и доступность, чтобы тяжесть состояния передавалась без тревожных цветов и резких движений.'
           ),
         ],
         tables: [
