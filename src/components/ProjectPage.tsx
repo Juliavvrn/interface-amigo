@@ -94,6 +94,63 @@ function DataTable({ table }: { table: CaseStudyTable }) {
   )
 }
 
+function StageFlowBoard({ flow }: { flow: StageFlow }) {
+  const { lang } = useI18n()
+
+  return (
+    <div className="mt-10">
+      <p className="mb-10 font-mono2 text-[11px] uppercase tracking-[0.25em] text-[#ece9e4]/40">
+        {pick(flow.title, lang)}
+      </p>
+
+      <div className="space-y-12 overflow-x-auto pb-2">
+        {flow.rows.map((row, ri) => (
+          <div key={ri}>
+            <p className="mb-5 font-mono2 text-[11px] uppercase tracking-[0.3em] text-[#ece9e4]/45">
+              {pick(row.label, lang)}
+            </p>
+            <div className="flex min-w-max items-stretch">
+              {row.steps.map((step, si) => (
+                <div key={si} className="flex items-stretch">
+                  {si > 0 && (
+                    <div className="flex w-6 items-center md:w-12">
+                      <span className="h-px w-full bg-[#ece9e4]/25" />
+                    </div>
+                  )}
+                  <motion.div
+                    className={`flex min-w-[190px] flex-col justify-center px-6 py-7 md:min-w-[230px] ${
+                      step.active
+                        ? 'border border-[#ece9e4]/60 bg-[#ece9e4]/[0.07]'
+                        : 'border border-[#ece9e4]/15 bg-[#ece9e4]/[0.03]'
+                    }`}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-40px' }}
+                    transition={{ delay: si * 0.07, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <span className={`font-mono2 text-[13px] font-bold uppercase tracking-[0.2em] ${step.active ? 'text-[#ece9e4]' : 'text-[#ece9e4]/85'}`}>
+                      {pick(step.title, lang)}
+                    </span>
+                    <span className="mt-3 font-mono2 text-[11px] uppercase tracking-[0.18em] text-[#ece9e4]/45">
+                      {pick(step.sublabel, lang)}
+                    </span>
+                  </motion.div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {flow.note && (
+        <p className="mt-10 max-w-xl text-sm leading-relaxed text-[#ece9e4]/40">
+          {pick(flow.note, lang)}
+        </p>
+      )}
+    </div>
+  )
+}
+
 type CaseVariant = 'system' | 'signal' | 'audit' | 'timeline' | 'editorial'
 
 function getCaseVariant(slug: string): CaseVariant {
