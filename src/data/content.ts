@@ -4,6 +4,12 @@ import work4 from '@/assets/work4.jpg'
 import work5 from '@/assets/work5.jpg'
 import work6 from '@/assets/work6.jpg'
 import breakImg from '@/assets/break.jpg'
+import aiimLanding from '@/assets/screen-landing.png.asset.json'
+import aiimWhitepaper from '@/assets/screen-whitepaper.png.asset.json'
+import aiimBuilder from '@/assets/dark-builder-constructor.png.asset.json'
+import aiimBuilder2 from '@/assets/dark-builder-constructor-2.png.asset.json'
+import aiimDevelopment from '@/assets/dark-development.png.asset.json'
+import aiimApiDocs from '@/assets/dark-api-documentation-dialog.png.asset.json'
 import type { Lang } from '@/i18n'
 
 export interface Localized {
@@ -101,6 +107,7 @@ export interface Project {
   deliverables: Localized[]
   description: Localized[]
   gallery: string[]
+  screens?: { src: string; caption: Localized }[]
   caseStudy?: CaseStudySection[]
   metrics?: ProjectMetric[]
 }
@@ -131,7 +138,7 @@ const _projects: Project[] = [
       L('CJM', 'CJM'),
       L('Technical Spec', 'ТЗ'),
       L('DB Architecture', 'Архитектура БД'),
-      L('MVP Delivery', 'Сдача MVP'),
+      L('Product Delivery', 'Сдача продукта'),
     ],
     description: [
       L(
@@ -350,7 +357,7 @@ const _projects: Project[] = [
       L('CJM', 'CJM'),
       L('Technical Spec', 'ТЗ'),
       L('DB Architecture', 'Архитектура БД'),
-      L('MVP Delivery', 'Сдача MVP'),
+      L('Product Delivery', 'Сдача продукта'),
     ],
     description: [
       L(
@@ -597,7 +604,7 @@ const _projects: Project[] = [
       L('Technical Specification', 'Техническое задание'),
       L('Database Architecture', 'Архитектура базы данных'),
       L('AI Workflow Design', 'Проектирование ИИ-воркфлоу'),
-      L('MVP Delivery', 'Сдача MVP'),
+      L('Product Delivery', 'Сдача продукта'),
     ],
     description: [
       L(
@@ -1078,6 +1085,14 @@ const _projects: Project[] = [
       ),
     ],
     gallery: [work2, work5],
+    screens: [
+      { src: aiimLanding.url, caption: L('Landing — Advanced Identity & Interaction Model', 'Лендинг — Advanced Identity & Interaction Model') },
+      { src: aiimWhitepaper.url, caption: L('White paper — methodology and structure', 'White paper — методология и структура') },
+      { src: aiimBuilder.url, caption: L('Agent builder — base parameters', 'Конструктор агента — базовые параметры') },
+      { src: aiimBuilder2.url, caption: L('Agent builder — 12 cognitive aspects', 'Конструктор агента — 12 когнитивных аспектов') },
+      { src: aiimDevelopment.url, caption: L('Development — API configurations', 'Development — конфигурации API') },
+      { src: aiimApiDocs.url, caption: L('API documentation — text, voice, realtime', 'Документация API — текст, голос, realtime') },
+    ],
     caseStudy: [
       {
         label: L('Why it exists', 'Зачем это нужно'),

@@ -4,6 +4,7 @@ import { getProject, nextProject, pick } from '@/data/content'
 import { useI18n } from '@/i18n'
 import type { CaseStudyChart, CaseStudyTable, FlowDiagram, FlowNode, StageFlow } from '@/data/content'
 import { ArrowDown, ExternalLink } from 'lucide-react'
+import ScreensSlider from '@/components/ScreensSlider'
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Cell, Tooltip } from 'recharts'
 
 function ChartPanel({ chart }: { chart: CaseStudyChart }) {
@@ -484,6 +485,10 @@ export default function ProjectPage() {
         </div>
         )
       })}
+
+      {project.screens && project.screens.length > 0 && (
+        <ScreensSlider screens={project.screens} />
+      )}
 
       {project.metrics && project.metrics.length > 0 && (
         <div className="border-t border-[#ece9e4]/15 px-6 py-20 md:px-10 md:py-28">
