@@ -17,40 +17,48 @@ export default function Nav() {
   ]
 
   const scrollTo = (href: string) => {
-    const lenis = (window as unknown as { __lenis?: { scrollTo: (t: HTMLElement | number) => void } }).__lenis
+    const lenis = (
+      window as unknown as {
+        __lenis?: { scrollTo: (t: HTMLElement | number, o?: Record<string, unknown>) => void }
+      }
+    ).__lenis
     if (href === '#top') {
-      if (lenis) lenis.scrollTo(0)
+      if (lenis) lenis.scrollTo(0, { duration: 1.1 })
       else window.scrollTo({ top: 0, behavior: 'smooth' })
       return
     }
     const el = document.querySelector(href) as HTMLElement | null
     if (!el) return
-    if (lenis) lenis.scrollTo(el)
-    else el.scrollIntoView({ behavior: 'smooth' })
+    if (lenis) {
+      lenis.scrollTo(el, { offset: -70, duration: 1.1 })
+    } else {
+      const top = el.getBoundingClientRect().top + window.scrollY - 70
+      window.scrollTo({ top, behavior: 'smooth' })
+    }
   }
 
   const go = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
+    e.stopPropagation()
+    const wasOpen = open
     setOpen(false)
+
+    const tryScroll = (deadline: number) => {
+      const el = href === '#top' ? document.body : document.querySelector(href)
+      if (el) {
+        scrollTo(href)
+        return
+      }
+      if (Date.now() < deadline) requestAnimationFrame(() => tryScroll(deadline))
+    }
 
     if (location.pathname !== '/') {
       navigate({ to: '/' })
-      let tries = 0
-      const attempt = () => {
-        tries += 1
-        const el = href === '#top' ? document.body : document.querySelector(href)
-        if (el) {
-          setTimeout(() => scrollTo(href), 120)
-          return
-        }
-        if (tries < 40) requestAnimationFrame(attempt)
-      }
-      requestAnimationFrame(attempt)
+      setTimeout(() => tryScroll(Date.now() + 3000), 100)
       return
     }
 
-    // already on home: wait for the mobile overlay to start closing
-    setTimeout(() => scrollTo(href), open ? 220 : 0)
+    setTimeout(() => tryScroll(Date.now() + 1500), wasOpen ? 250 : 0)
   }
 
   return (
