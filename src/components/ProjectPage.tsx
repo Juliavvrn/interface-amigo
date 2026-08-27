@@ -244,7 +244,7 @@ function Flowchart({ diagram, variant }: { diagram: FlowDiagram; variant: CaseVa
           })}
         </div>
       ) : (
-        <div className={`space-y-0 ${isSignal ? 'rounded-2xl border border-[#ece9e4]/20 bg-[#ece9e4]/[0.03] p-4 md:p-8' : ''}`}>
+        <div className="space-y-0">
           {layers.map((layer, li) => (
             <div key={li}>
               <div className={`flex flex-wrap gap-4 ${cols > 1 ? 'justify-center' : ''}`}>
