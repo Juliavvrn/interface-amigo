@@ -163,7 +163,7 @@ function Flowchart({ diagram, variant }: { diagram: FlowDiagram; variant: CaseVa
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ delay: index * 0.06, duration: 0.5 }}
               >
-                {isTimeline && <span className="absolute -left-[31px] top-8 h-2.5 w-2.5 rounded-full bg-[#ece9e4] ring-4 ring-[#0a0a0a] md:-left-[51px]" />}
+                
                 <span className={`font-mono2 text-[10px] tracking-[0.2em] ${isTimeline ? 'text-[#ece9e4]' : 'text-[#ece9e4]'}`}>
                   {String(index + 1).padStart(2, '0')}
                 </span>
