@@ -9,7 +9,7 @@ export const Route = createFileRoute("/works/$slug")({
       ? `${project.title.en} — Julia Veresova`
       : "Case study — Julia Veresova";
     const description = project
-      ? `${project.title.en}: ${project.intro?.en ?? project.description?.en ?? "AI product case study by Julia Veresova."}`.slice(0, 155)
+      ? (project.description[0]?.en ?? `${project.title.en} — case study by Julia Veresova.`).slice(0, 155)
       : "AI product case study by Julia Veresova — technical product owner and full-stack AI engineer.";
     const url = `https://interface-amigo.lovable.app/works/${params.slug}`;
 
