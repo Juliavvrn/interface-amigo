@@ -509,7 +509,7 @@ export default function ProjectPage() {
           <p className="font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#ece9e4]/50">
             {t('Next project', 'Следующий проект')}
           </p>
-          <span className="mt-4 block font-display text-[7vw] font-extrabold uppercase leading-[0.9] tracking-tighter transition-colors duration-500 group-hover:text-[#ece9e4] md:text-[4vw]">
+          <span className="mt-4 block font-display text-[7vw] font-extrabold uppercase leading-[0.9] tracking-tighter transition-colors duration-500 group-hover:text-[#ff6a1f] md:text-[4vw]">
             {pick(next.title, lang)} →
           </span>
         </Link>
