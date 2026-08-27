@@ -2,7 +2,7 @@ import { Link, useParams } from '@tanstack/react-router'
 import { motion } from 'framer-motion'
 import { getProject, nextProject, pick } from '@/data/content'
 import { useI18n } from '@/i18n'
-import type { CaseStudyChart, CaseStudyTable, FlowDiagram, FlowNode } from '@/data/content'
+import type { CaseStudyChart, CaseStudyTable, FlowDiagram, FlowNode, StageFlow } from '@/data/content'
 import { ArrowDown, ExternalLink } from 'lucide-react'
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Cell, Tooltip } from 'recharts'
 
