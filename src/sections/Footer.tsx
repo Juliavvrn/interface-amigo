@@ -32,8 +32,8 @@ export default function Footer() {
       >
         <p className="font-display text-[5vw] font-medium leading-[1.05] tracking-tight text-[#ece9e4] md:text-[2.6vw]">
           {t(
-            'For collaboration, full-time AI / Full Stack Developer job opportunities, or project work, you can contact me directly via email',
-            'Для сотрудничества, поиска работы на полную ставку в сфере ИИ/Full Stack Developer или для проектной работы вы можете связаться со мной напрямую по электронной почте'
+            'For collaboration, consulting or project work, you can contact me directly via email',
+            'Для сотрудничества, консультаций или проектной работы вы можете связаться со мной напрямую по электронной почте'
           )}
         </p>
 
