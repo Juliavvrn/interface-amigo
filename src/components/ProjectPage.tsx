@@ -22,6 +22,47 @@ function ChartPanel({ chart }: { chart: CaseStudyChart }) {
 
   const seriesColors = ['#ece9e4', '#bdb8b1', '#77726d']
 
+  if (chart.type === 'bar') {
+    return (
+      <div className="mt-10 overflow-hidden rounded-lg border border-[#ece9e4]/15 bg-[#ece9e4]/[0.02] p-6">
+        <div className="mb-8 flex flex-wrap items-baseline justify-between gap-2">
+          <p className="font-mono2 text-[10px] uppercase tracking-[0.2em] text-[#ece9e4]">
+            {pick(chart.title, lang)}
+          </p>
+          <p className="font-mono2 text-[10px] uppercase tracking-[0.2em] text-[#ece9e4]/35">
+            0 — {max}
+          </p>
+        </div>
+        <div className="space-y-6">
+          {labels.map((label, i) => {
+            const value = chart.series[0]?.values[i] ?? 0
+            const pctWidth = Math.max(2, Math.min(100, (value / max) * 100))
+            return (
+              <div key={i}>
+                <div className="mb-2 flex items-baseline justify-between gap-4">
+                  <span className="text-sm text-[#ece9e4]/70">{label}</span>
+                  <span className="font-mono2 text-sm tabular-nums text-[#ece9e4]">
+                    {value}
+                    <span className="text-[#ece9e4]/35"> / {max}</span>
+                  </span>
+                </div>
+                <div className="h-2 w-full overflow-hidden rounded-full bg-[#ece9e4]/10">
+                  <motion.div
+                    className="h-full rounded-full bg-[#ece9e4]"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${pctWidth}%` }}
+                    viewport={{ once: true, margin: '-40px' }}
+                    transition={{ duration: 0.8, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                  />
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="mt-10 overflow-hidden rounded-lg border border-[#ece9e4]/15 bg-[#ece9e4]/[0.02] p-6">
       <p className="mb-6 font-mono2 text-[10px] uppercase tracking-[0.2em] text-[#ece9e4]">
@@ -29,30 +70,15 @@ function ChartPanel({ chart }: { chart: CaseStudyChart }) {
       </p>
       <div className="h-[320px] w-full">
         <ResponsiveContainer width="100%" height="100%">
-          {chart.type === 'radar' ? (
-            <RadarChart data={data}>
-              <PolarGrid stroke="#ece9e4" strokeOpacity={0.15} />
-              <PolarAngleAxis dataKey="label" tick={{ fill: '#ece9e4', opacity: 0.5, fontSize: 10, fontFamily: 'monospace' }} />
-              <PolarRadiusAxis domain={[0, max]} tick={{ fill: '#ece9e4', opacity: 0.3, fontSize: 9 }} stroke="#ece9e4" strokeOpacity={0.1} />
-              {chart.series.map((s, si) => (
-                <Radar key={si} dataKey={pick(s.name, lang)} stroke={seriesColors[si % seriesColors.length]} fill={seriesColors[si % seriesColors.length]} fillOpacity={0.25} strokeWidth={2} />
-              ))}
-              <Tooltip contentStyle={{ background: '#0a0a0a', border: '1px solid #ece9e440', borderRadius: '8px', fontSize: '12px', color: '#ece9e4' }} />
-            </RadarChart>
-          ) : (
-            <BarChart data={data} layout="vertical" margin={{ left: 20, right: 20 }}>
-              <XAxis type="number" domain={[0, max]} tick={{ fill: '#ece9e4', opacity: 0.4, fontSize: 10 }} stroke="#ece9e4" strokeOpacity={0.1} />
-              <YAxis type="category" dataKey="label" tick={{ fill: '#ece9e4', opacity: 0.6, fontSize: 11 }} stroke="#ece9e4" strokeOpacity={0.1} width={140} />
-              <Tooltip contentStyle={{ background: '#0a0a0a', border: '1px solid #ece9e440', borderRadius: '8px', fontSize: '12px', color: '#ece9e4' }} cursor={{ fill: '#ece9e4', fillOpacity: 0.05 }} />
-              {chart.series.map((s, si) => (
-                <Bar key={si} dataKey={pick(s.name, lang)} radius={[0, 4, 4, 0]}>
-                  {data.map((_, di) => (
-                    <Cell key={di} fill={di === data.length - 1 ? '#ece9e4' : seriesColors[(si + 1) % seriesColors.length]} fillOpacity={di === data.length - 1 ? 0.8 : 0.3} />
-                  ))}
-                </Bar>
-              ))}
-            </BarChart>
-          )}
+          <RadarChart data={data}>
+            <PolarGrid stroke="#ece9e4" strokeOpacity={0.15} />
+            <PolarAngleAxis dataKey="label" tick={{ fill: '#ece9e4', opacity: 0.5, fontSize: 10, fontFamily: 'monospace' }} />
+            <PolarRadiusAxis domain={[0, max]} tick={{ fill: '#ece9e4', opacity: 0.3, fontSize: 9 }} stroke="#ece9e4" strokeOpacity={0.1} />
+            {chart.series.map((s, si) => (
+              <Radar key={si} dataKey={pick(s.name, lang)} stroke={seriesColors[si % seriesColors.length]} fill={seriesColors[si % seriesColors.length]} fillOpacity={0.25} strokeWidth={2} />
+            ))}
+            <Tooltip contentStyle={{ background: '#0a0a0a', border: '1px solid #ece9e440', borderRadius: '8px', fontSize: '12px', color: '#ece9e4' }} />
+          </RadarChart>
         </ResponsiveContainer>
       </div>
     </div>
