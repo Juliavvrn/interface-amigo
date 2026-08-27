@@ -29,7 +29,7 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9, duration: 1 }}
         >
-          TECHNICAL PRODUCT OWNER · FULL-STACK AI ENGINEER
+          {t('TECHNICAL PRODUCT OWNER · FULL-STACK AI ENGINEER', 'ТЕХНИЧЕСКИЙ ПРОДАКТ-ОУНЕР · FULL-STACK AI ИНЖЕНЕР')}
         </motion.p>
 
         <div className="select-none">
@@ -42,7 +42,7 @@ export default function Hero() {
                 initial="hidden"
                 animate="show"
               >
-                {line1}
+                {t(LINE1.en, LINE1.ru)}
               </motion.span>
             </span>
             <span className="block overflow-hidden">
@@ -53,7 +53,7 @@ export default function Hero() {
                 initial="hidden"
                 animate="show"
               >
-                {line2}
+                {t(LINE2.en, LINE2.ru)}
               </motion.span>
             </span>
           </h1>
