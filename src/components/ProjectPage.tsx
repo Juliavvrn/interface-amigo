@@ -157,6 +157,7 @@ function getCaseVariant(slug: string): CaseVariant {
   if (slug === 'audit-it') return 'audit'
   if (slug === 'clinicscribe') return 'timeline'
   if (slug === 'aiim') return 'editorial'
+  if (slug === 'mindcare') return 'system'
   return 'system'
 }
 
