@@ -109,7 +109,7 @@ function StageFlowBoard({ flow }: { flow: StageFlow }) {
             <p className="mb-5 font-mono2 text-[11px] uppercase tracking-[0.3em] text-[#ece9e4]/45">
               {pick(row.label, lang)}
             </p>
-            <div className="flex min-w-max items-stretch">
+            <div className="flex flex-col items-stretch sm:flex-row">
               {row.steps.map((step, si) => (
                 <div key={si} className="flex items-stretch">
                   {si > 0 && (
