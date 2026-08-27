@@ -448,7 +448,9 @@ export default function ProjectPage() {
               <ChartPanel key={ci} chart={chart} />
             ))}
 
-            {section.diagram && <Flowchart diagram={section.diagram} variant={caseVariant} />}
+            {section.diagram && (
+              <Flowchart diagram={section.diagram} variant={getDiagramVariant(project.slug, diagramOrder[si] ?? 0)} />
+            )}
 
             {section.stageFlow && <StageFlowBoard flow={section.stageFlow} />}
 
