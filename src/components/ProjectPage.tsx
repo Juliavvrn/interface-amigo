@@ -111,14 +111,14 @@ function StageFlowBoard({ flow }: { flow: StageFlow }) {
             </p>
             <div className="flex flex-col items-stretch sm:flex-row">
               {row.steps.map((step, si) => (
-                <div key={si} className="flex flex-1 flex-col items-stretch sm:flex-row">
+                <div key={si} className="flex min-w-0 flex-1 flex-col items-stretch sm:flex-row">
                   {si > 0 && (
                     <div className="flex h-6 w-full items-center justify-center sm:h-auto sm:w-6 md:w-10">
                       <span className="h-6 w-px bg-[#ece9e4]/25 sm:h-px sm:w-full" />
                     </div>
                   )}
                   <motion.div
-                    className={`flex flex-1 flex-col justify-center px-5 py-6 md:px-6 md:py-7 ${
+                    className={`flex min-w-0 flex-1 flex-col justify-center px-5 py-6 md:px-6 md:py-7 ${
                       step.active
                         ? 'border border-[#ece9e4]/60 bg-[#ece9e4]/[0.07]'
                         : 'border border-[#ece9e4]/15 bg-[#ece9e4]/[0.03]'
