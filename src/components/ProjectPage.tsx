@@ -511,10 +511,10 @@ export default function ProjectPage() {
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ delay: mi * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
               >
-                <p className="font-display text-3xl font-extrabold tracking-tight text-[#ece9e4] md:text-5xl">
+                <p className="font-display text-2xl font-extrabold tracking-tight text-[#ece9e4] md:text-4xl">
                   {pick(metric.value, lang)}
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-[#ece9e4]/50 md:text-base">
+                <p className="mt-3 text-xs leading-relaxed text-[#ece9e4]/50 md:text-sm">
                   {pick(metric.label, lang)}
                 </p>
               </motion.div>
