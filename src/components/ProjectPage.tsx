@@ -103,41 +103,37 @@ function StageFlowBoard({ flow }: { flow: StageFlow }) {
         {pick(flow.title, lang)}
       </p>
 
-      <div className="space-y-12 overflow-x-auto pb-2">
-        {flow.rows.map((row, ri) => (
-          <div key={ri}>
-            <p className="mb-5 font-mono2 text-[11px] uppercase tracking-[0.3em] text-[#ece9e4]/45">
-              {pick(row.label, lang)}
-            </p>
-            <div className="flex flex-col items-stretch sm:flex-row">
-              {row.steps.map((step, si) => (
-                <div key={si} className="flex min-w-0 flex-1 flex-col items-stretch sm:flex-row">
-                  {si > 0 && (
-                    <div className="flex h-6 w-full items-center justify-center sm:h-auto sm:w-6 md:w-10">
-                      <span className="h-6 w-px bg-[#ece9e4]/25 sm:h-px sm:w-full" />
-                    </div>
-                  )}
-                  <motion.div
-                    className={`flex min-w-0 flex-1 flex-col justify-center px-5 py-6 md:px-6 md:py-7 ${
-                      step.active
-                        ? 'border border-[#ece9e4]/60 bg-[#ece9e4]/[0.07]'
-                        : 'border border-[#ece9e4]/15 bg-[#ece9e4]/[0.03]'
-                    }`}
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-40px' }}
-                    transition={{ delay: si * 0.07, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  >
-                    <span className={`font-mono2 text-[13px] font-bold uppercase tracking-[0.2em] ${step.active ? 'text-[#ece9e4]' : 'text-[#ece9e4]/85'}`}>
-                      {pick(step.title, lang)}
-                    </span>
-                    <span className="mt-3 font-mono2 text-[11px] uppercase tracking-[0.18em] text-[#ece9e4]/45">
-                      {pick(step.sublabel, lang)}
-                    </span>
-                  </motion.div>
-                </div>
-              ))}
-            </div>
+      <div className="flex flex-col items-stretch gap-0 sm:flex-row sm:flex-wrap">
+        {flow.rows.flatMap((row, ri) =>
+          row.steps.map((step, si) => ({ step, row, key: `${ri}-${si}` }))
+        ).map(({ step, row, key }, index) => (
+          <div key={key} className="flex min-w-0 flex-1 flex-col items-stretch sm:flex-row sm:basis-[240px]">
+            {index > 0 && (
+              <div className="flex h-6 w-full items-center justify-center sm:h-auto sm:w-6 md:w-8">
+                <span className="h-6 w-px bg-[#ece9e4]/25 sm:h-px sm:w-full" />
+              </div>
+            )}
+            <motion.div
+              className={`flex min-w-0 flex-1 flex-col justify-start px-5 py-6 md:px-6 md:py-7 ${
+                step.active
+                  ? 'border border-[#ece9e4]/60 bg-[#ece9e4]/[0.07]'
+                  : 'border border-[#ece9e4]/15 bg-[#ece9e4]/[0.03]'
+              }`}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ delay: index * 0.05, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <span className="font-mono2 text-[10px] uppercase tracking-[0.3em] text-[#ece9e4]/40">
+                {pick(row.label, lang)}
+              </span>
+              <span className={`mt-4 font-mono2 text-[13px] font-bold uppercase tracking-[0.2em] ${step.active ? 'text-[#ece9e4]' : 'text-[#ece9e4]/85'}`}>
+                {pick(step.title, lang)}
+              </span>
+              <span className="mt-3 font-mono2 text-[11px] uppercase tracking-[0.18em] text-[#ece9e4]/45">
+                {pick(step.sublabel, lang)}
+              </span>
+            </motion.div>
           </div>
         ))}
       </div>
