@@ -614,10 +614,7 @@ const _projects: Project[] = [
     metrics: [
       { value: L('6×', '6×'), label: L('Faster audit cycle', 'Сокращение цикла аудита') },
       { value: L('~83%', '~83%'), label: L('Reduction in audit time', 'Сокращение времени аудита') },
-      { value: L('~300K RUB', '~300 тыс ₽'), label: L('Labor cost saved per audit', 'Экономия на трудозатратах за аудит') },
       { value: L('98%', '98%'), label: L('Document parse success rate', 'Успешность парсинга документов') },
-      { value: L('<15 min', '<15 мин'), label: L('Time to first verdict', 'Время до первого вердикта') },
-      { value: L('10 stages', '10 этапов'), label: L('Guided methodology steps', 'Этапов управляемой методологии') },
     ],
     caseStudy: [
       {
