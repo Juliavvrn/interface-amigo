@@ -82,20 +82,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "JULIA VERESOVA — Digital Design Studio" },
+      { title: "Julia Veresova — AI Product Owner Portfolio" },
       {
         name: "description",
         content:
-          "JULIA VERESOVA — an independent digital design studio crafting award-winning brands, websites and experiences.",
+          "Portfolio of Julia Veresova: technical product owner and full-stack AI engineer. Case studies on voice agents, agentic workflows, RAG systems and data architecture.",
       },
-      { property: "og:title", content: "JULIA VERESOVA — Digital Design Studio" },
+      { property: "og:site_name", content: "Julia Veresova" },
+      { property: "og:title", content: "Julia Veresova — AI Product Owner Portfolio" },
       {
         property: "og:description",
         content:
-          "Independent digital design studio crafting award-winning brands, websites and experiences.",
+          "Portfolio and case studies: AI agents, agentic workflows, RAG orchestration, data architecture and product delivery.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "robots", content: "index, follow" },
     ],
     links: [
       {
