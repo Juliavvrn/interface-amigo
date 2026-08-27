@@ -30,7 +30,7 @@ export default function Footer() {
         viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
       >
-        <p className="font-display text-[6vw] font-extrabold uppercase leading-[0.95] tracking-tighter text-[#ece9e4] md:text-[3.5vw]">
+        <p className="font-display text-[5vw] font-medium leading-[1.05] tracking-tight text-[#ece9e4] md:text-[2.6vw]">
           {t(
             'For collaboration, full-time AI / Full Stack Developer job opportunities, or project work, you can contact me directly via email',
             'Для сотрудничества, поиска работы на полную ставку в сфере ИИ/Full Stack Developer или для проектной работы вы можете связаться со мной напрямую по электронной почте'
@@ -41,7 +41,7 @@ export default function Footer() {
           type="button"
           data-hover
           onClick={copyEmail}
-          className="link-sweep mt-10 inline-block text-left font-mono2 text-lg uppercase tracking-[0.2em] text-[#ece9e4]/80 transition-colors duration-300 hover:text-[#ff4d00]"
+          className="link-sweep mt-10 inline-block text-left font-mono2 text-base uppercase tracking-[0.2em] text-[#ece9e4]/80 transition-colors duration-300 hover:text-[#ff4d00] md:text-lg"
         >
           {copied ? t('Copied', 'Скопировано') : email}
         </button>
