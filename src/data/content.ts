@@ -1150,7 +1150,7 @@ const _projects: Project[] = [
         paragraphs: [
           L(
             'A conventional test throws a cold 30-question form at the user, dumps overwhelming results and closes with "consult a doctor". The guided flow replaces that with progressive disclosure, evidence-based scoring and a calm, actionable summary.',
-            'Обычный тест выдаёт холодную форму из 30 вопросов, обрушивает перегруженный результат и заканчивается фразой «обратитесь к врачу». Направляемый поток заменяет это постепенным раскрытием, доказательным скорингом и спокойным итогом с конкретными действиями.'
+            'Обычный тест выдаёт холодную форму из 30 вопросов, обрушивает перегруженный результат и заканчивается фразой: обратитесь к врачу. Направляемый поток заменяет это постепенным раскрытием, доказательным скорингом и спокойным итогом с конкретными действиями.'
           ),
         ],
         diagram: {
@@ -1277,7 +1277,7 @@ const _projects: Project[] = [
         paragraphs: [
           L(
             'A calm UI specification governs palette, motion and accessibility, so severity is communicated without alarm colours or abrupt movement.',
-            'Спецификация «спокойного интерфейса» задаёт палитру, motion и доступность, чтобы тяжесть состояния передавалась без тревожных цветов и резких движений.'
+            'Спецификация спокойного интерфейса задаёт палитру, motion и доступность, чтобы тяжесть состояния передавалась без тревожных цветов и резких движений.'
           ),
         ],
         tables: [
