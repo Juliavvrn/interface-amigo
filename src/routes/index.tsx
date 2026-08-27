@@ -1,24 +1,38 @@
 import { createFileRoute } from "@tanstack/react-router";
+import Hero from "../sections/Hero";
+import Manifesto from "../sections/Manifesto";
+import Works from "../sections/Works";
+import Awards from "../sections/Awards";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "JULIA VERESOVA — Digital Design Studio" },
+      {
+        name: "description",
+        content:
+          "JULIA VERESOVA — an independent digital design studio crafting award-winning brands, websites and experiences.",
+      },
+      { property: "og:title", content: "JULIA VERESOVA — Digital Design Studio" },
+      {
+        property: "og:description",
+        content:
+          "Independent digital design studio crafting award-winning brands, websites and experiences.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Home() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main>
+      <Hero />
+      <Manifesto />
+      <Works />
+      <Awards />
+    </main>
   );
 }
