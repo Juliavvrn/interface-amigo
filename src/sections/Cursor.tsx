@@ -110,7 +110,7 @@ export default function Cursor() {
         src={cursorShape}
         alt=""
         aria-hidden="true"
-        className="-translate-x-[86%] -translate-y-1/2 object-contain mix-blend-difference"
+        className="-translate-x-[85%] -translate-y-1/2 object-contain mix-blend-difference"
         style={{
           filter: variant === 'default' ? 'invert(1)' : 'invert(1) brightness(2)',
           transformOrigin: 'center center',
