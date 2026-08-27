@@ -138,7 +138,7 @@ const _projects: Project[] = [
       L('CJM', 'CJM'),
       L('Technical Spec', 'ТЗ'),
       L('DB Architecture', 'Архитектура БД'),
-      L('MVP Delivery', 'Сдача MVP'),
+      L('Product Delivery', 'Сдача продукта'),
     ],
     description: [
       L(
@@ -357,7 +357,7 @@ const _projects: Project[] = [
       L('CJM', 'CJM'),
       L('Technical Spec', 'ТЗ'),
       L('DB Architecture', 'Архитектура БД'),
-      L('MVP Delivery', 'Сдача MVP'),
+      L('Product Delivery', 'Сдача продукта'),
     ],
     description: [
       L(
@@ -604,7 +604,7 @@ const _projects: Project[] = [
       L('Technical Specification', 'Техническое задание'),
       L('Database Architecture', 'Архитектура базы данных'),
       L('AI Workflow Design', 'Проектирование ИИ-воркфлоу'),
-      L('MVP Delivery', 'Сдача MVP'),
+      L('Product Delivery', 'Сдача продукта'),
     ],
     description: [
       L(
