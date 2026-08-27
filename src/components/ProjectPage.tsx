@@ -485,6 +485,10 @@ export default function ProjectPage() {
         )
       })}
 
+      {project.screens && project.screens.length > 0 && (
+        <ScreensSlider screens={project.screens} />
+      )}
+
       {project.metrics && project.metrics.length > 0 && (
         <div className="border-t border-[#ece9e4]/15 px-6 py-20 md:px-10 md:py-28">
           <p className="mb-12 font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#ece9e4]">
