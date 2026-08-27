@@ -29,7 +29,7 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9, duration: 1 }}
         >
-          TECHNICAL PRODUCT OWNER · RUSSIA / FINLAND
+          TECHNICAL PRODUCT OWNER · FULL-STACK AI ENGINEER
         </motion.p>
 
         <div className="select-none">
