@@ -2,7 +2,7 @@ import { Link, useParams } from '@tanstack/react-router'
 import { motion } from 'framer-motion'
 import { getProject, nextProject, pick } from '@/data/content'
 import { useI18n } from '@/i18n'
-import type { CaseStudyChart, CaseStudyTable, FlowDiagram, FlowNode } from '@/data/content'
+import type { CaseStudyChart, CaseStudyTable, FlowDiagram, FlowNode, StageFlow } from '@/data/content'
 import { ArrowDown, ExternalLink } from 'lucide-react'
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Cell, Tooltip } from 'recharts'
 
@@ -94,6 +94,63 @@ function DataTable({ table }: { table: CaseStudyTable }) {
   )
 }
 
+function StageFlowBoard({ flow }: { flow: StageFlow }) {
+  const { lang } = useI18n()
+
+  return (
+    <div className="mt-10">
+      <p className="mb-10 font-mono2 text-[11px] uppercase tracking-[0.25em] text-[#ece9e4]/40">
+        {pick(flow.title, lang)}
+      </p>
+
+      <div className="space-y-12 overflow-x-auto pb-2">
+        {flow.rows.map((row, ri) => (
+          <div key={ri}>
+            <p className="mb-5 font-mono2 text-[11px] uppercase tracking-[0.3em] text-[#ece9e4]/45">
+              {pick(row.label, lang)}
+            </p>
+            <div className="flex flex-col items-stretch sm:flex-row">
+              {row.steps.map((step, si) => (
+                <div key={si} className="flex min-w-0 flex-1 flex-col items-stretch sm:flex-row">
+                  {si > 0 && (
+                    <div className="flex h-6 w-full items-center justify-center sm:h-auto sm:w-6 md:w-10">
+                      <span className="h-6 w-px bg-[#ece9e4]/25 sm:h-px sm:w-full" />
+                    </div>
+                  )}
+                  <motion.div
+                    className={`flex min-w-0 flex-1 flex-col justify-center px-5 py-6 md:px-6 md:py-7 ${
+                      step.active
+                        ? 'border border-[#ece9e4]/60 bg-[#ece9e4]/[0.07]'
+                        : 'border border-[#ece9e4]/15 bg-[#ece9e4]/[0.03]'
+                    }`}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-40px' }}
+                    transition={{ delay: si * 0.07, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <span className={`font-mono2 text-[13px] font-bold uppercase tracking-[0.2em] ${step.active ? 'text-[#ece9e4]' : 'text-[#ece9e4]/85'}`}>
+                      {pick(step.title, lang)}
+                    </span>
+                    <span className="mt-3 font-mono2 text-[11px] uppercase tracking-[0.18em] text-[#ece9e4]/45">
+                      {pick(step.sublabel, lang)}
+                    </span>
+                  </motion.div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {flow.note && (
+        <p className="mt-10 max-w-xl text-sm leading-relaxed text-[#ece9e4]/40">
+          {pick(flow.note, lang)}
+        </p>
+      )}
+    </div>
+  )
+}
+
 type CaseVariant = 'system' | 'signal' | 'audit' | 'timeline' | 'editorial'
 
 function getCaseVariant(slug: string): CaseVariant {
@@ -163,7 +220,7 @@ function Flowchart({ diagram, variant }: { diagram: FlowDiagram; variant: CaseVa
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ delay: index * 0.06, duration: 0.5 }}
               >
-                {isTimeline && <span className="absolute -left-[31px] top-8 h-2.5 w-2.5 rounded-full bg-[#ece9e4] ring-4 ring-[#0a0a0a] md:-left-[51px]" />}
+                
                 <span className={`font-mono2 text-[10px] tracking-[0.2em] ${isTimeline ? 'text-[#ece9e4]' : 'text-[#ece9e4]'}`}>
                   {String(index + 1).padStart(2, '0')}
                 </span>
@@ -382,6 +439,8 @@ export default function ProjectPage() {
             ))}
 
             {section.diagram && <Flowchart diagram={section.diagram} variant={caseVariant} />}
+
+            {section.stageFlow && <StageFlowBoard flow={section.stageFlow} />}
 
             {section.modules && section.modules.length > 0 && (
               <div className={isApplications || isAudit ? 'grid gap-4 sm:grid-cols-2' : isEditorial ? 'space-y-0' : 'space-y-6'}>

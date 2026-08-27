@@ -56,6 +56,23 @@ export interface CaseStudyChart {
   max?: number
 }
 
+export interface StageFlowStep {
+  title: Localized
+  sublabel: Localized
+  active?: boolean
+}
+
+export interface StageFlowRow {
+  label: Localized
+  steps: StageFlowStep[]
+}
+
+export interface StageFlow {
+  title: Localized
+  rows: StageFlowRow[]
+  note?: Localized
+}
+
 export interface CaseStudySection {
   label: Localized
   paragraphs: Localized[]
@@ -64,6 +81,7 @@ export interface CaseStudySection {
   tables?: CaseStudyTable[]
   charts?: CaseStudyChart[]
   diagram?: FlowDiagram
+  stageFlow?: StageFlow
 }
 
 export interface ProjectMetric {
@@ -1001,6 +1019,39 @@ const _projects: Project[] = [
             ),
           },
         ],
+        stageFlow: {
+          title: L('The build flow', 'Ход разработки'),
+          rows: [
+            {
+              label: L('Shipped', 'Сделано'),
+              steps: [
+                { title: L('Interface', 'Интерфейс'), sublabel: L('Two-panel prototype', 'Двухпанельный прототип') },
+                { title: L('Capture', 'Захват'), sublabel: L('Web Audio · waveform', 'Web Audio · спектрограмма') },
+                { title: L('Design system', 'Дизайн-система'), sublabel: L('React · Tailwind · shadcn', 'React · Tailwind · shadcn') },
+              ],
+            },
+            {
+              label: L('In progress', 'В работе'),
+              steps: [
+                { title: L('Pipeline', 'Конвейер'), sublabel: L('Supabase · Edge Functions', 'Supabase · Edge Functions'), active: true },
+                { title: L('Extraction', 'Извлечение'), sublabel: L('Prompts · NER · ICD-10', 'Промпты · NER · МКБ-10'), active: true },
+                { title: L('Confidence', 'Уверенность'), sublabel: L('Highlighting logic', 'Логика подсветки'), active: true },
+              ],
+            },
+            {
+              label: L('Next', 'Дальше'),
+              steps: [
+                { title: L('Field test', 'Полевой тест'), sublabel: L('De-identified audio', 'Обезличенное аудио') },
+                { title: L('MIS copy flow', 'Экспорт в МИС'), sublabel: L('Tested across systems', 'Проверка в разных системах') },
+                { title: L('Dictionaries', 'Словари'), sublabel: L('Pharmacology refinement', 'Доработка фармакологии') },
+              ],
+            },
+          ],
+          note: L(
+            'Each phase only unlocks once the previous one holds up in a real consultation.',
+            'Каждая фаза открывается только после того, как предыдущая выдержала реальный приём.'
+          ),
+        },
       },
     ],
   },
