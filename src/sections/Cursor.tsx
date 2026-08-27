@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
-import cursorShape from '@/assets/image copy 11.png'
+
 
 const CLICKABLE_SELECTOR =
   'a, button, [data-hover], [data-cursor], input, textarea, select, label, [role="button"]'
@@ -106,23 +106,27 @@ export default function Cursor() {
       className="pointer-events-none fixed left-0 top-0 z-[300]"
       style={{ x: springX, y: springY, opacity: visible ? 1 : 0 }}
     >
-      <motion.img
-        src={cursorShape}
-        alt=""
+      <motion.svg
+        viewBox="0 0 24 32"
         aria-hidden="true"
-        className="-translate-x-[85%] -translate-y-1/2 object-contain mix-blend-difference"
-        style={{
-          filter: variant === 'default' ? 'invert(1)' : 'invert(1) brightness(2)',
-          transformOrigin: 'center center',
-        }}
+        className="block"
+        style={{ transformOrigin: '0% 0%', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.45))' }}
         animate={{
-          width: variant === 'view' ? 63 : variant === 'hover' ? 51 : 39,
-          height: variant === 'view' ? 90 : variant === 'hover' ? 72 : 54,
+          width: variant === 'view' ? 30 : variant === 'hover' ? 26 : 21,
+          height: variant === 'view' ? 40 : variant === 'hover' ? 35 : 28,
           rotate: variant === 'view' ? -8 : 0,
-          scale: variant === 'view' ? 1.08 : 1,
+          scale: variant === 'view' ? 1.06 : 1,
         }}
         transition={{ type: 'spring', stiffness: 420, damping: 26, mass: 0.45 }}
-      />
+      >
+        <path
+          d="M1 1 L1 25.2 L7.1 19.4 L11.1 28.6 L14.9 27 L11 17.9 L19.4 17.4 Z"
+          fill="#ffffff"
+          stroke="rgba(0,0,0,0.35)"
+          strokeWidth="1"
+          strokeLinejoin="round"
+        />
+      </motion.svg>
     </motion.div>
   )
 }

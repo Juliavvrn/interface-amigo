@@ -404,7 +404,7 @@ export default function ProjectPage() {
           <p className="font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#ece9e4]">
             {pick(section.label, lang)}
           </p>
-          <div className="max-w-3xl space-y-8">
+          <div className="min-w-0 max-w-3xl space-y-8">
             {section.paragraphs.map((para, i) => (
               <p key={i} className="text-lg leading-relaxed text-[#ece9e4]/80 md:text-xl">
                 {pick(para, lang)}
