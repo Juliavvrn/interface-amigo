@@ -7,8 +7,10 @@ import { useI18n } from '@/i18n'
 
 export default function ScreensSlider({
   screens,
+  imgClassName,
 }: {
   screens: { src: string; caption: Localized }[]
+  imgClassName?: string
 }) {
   const { t, lang } = useI18n()
   const [index, setIndex] = useState(0)
@@ -55,7 +57,7 @@ export default function ScreensSlider({
             src={current.src}
             alt={pick(current.caption, lang)}
             loading="lazy"
-            className="block h-auto w-full object-contain"
+            className={imgClassName ?? 'block h-auto w-full object-contain'}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
