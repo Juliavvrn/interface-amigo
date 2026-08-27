@@ -578,7 +578,7 @@ const _projects: Project[] = [
         findings: [
           {
             title: L('The research cycle becomes measurable.', 'Исследовательский цикл становится измеримым.'),
-            body: L('The PRD defines success through time-to-first-insight under 30 minutes, panel diversity, realism, credibility, flag rate, study completion, and controlled token cost, turning product quality into a visible operating dashboard.', 'PRD задаёт успех через time-to-first-insight менее 30 минут, разнообразие панели, реалистичность, достоверность, долю флагов, завершение исследований и контролируемую стоимость токенов, качество продукта превращается в видимую операционную панель.'),
+            body: L('The PRD defines success through time-to-first-insight in days, panel diversity, realism, credibility, flag rate, study completion, and controlled token cost, turning product quality into a visible operating dashboard.', 'PRD задаёт успех через time-to-first-insight в днях, разнообразие панели, реалистичность, достоверность, долю флагов, завершение исследований и контролируемую стоимость токенов, качество продукта превращается в видимую операционную панель.'),
           },
         ],
       },
