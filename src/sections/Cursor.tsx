@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
-import cursorShape from '@/assets/image copy 11.png'
+
 
 const CLICKABLE_SELECTOR =
   'a, button, [data-hover], [data-cursor], input, textarea, select, label, [role="button"]'
