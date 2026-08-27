@@ -441,18 +441,20 @@ export default function ProjectPage() {
         </div>
       )}
 
-      <Link
-        to="/works/$slug" params={{ slug: next.slug }}
-        data-hover
-        className="group block border-t border-[#ece9e4]/15 px-6 py-16 md:px-10 md:py-24"
-      >
-        <p className="font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#ece9e4]/50">
-          {t('Next project', 'Следующий проект')}
-        </p>
-        <span className="mt-4 block font-display text-[7vw] font-extrabold uppercase leading-[0.9] tracking-tighter transition-colors duration-500 group-hover:text-[#ece9e4] md:text-[4vw]">
-          {pick(next.title, lang)} →
-        </span>
-      </Link>
+      {next && (
+        <Link
+          to="/works/$slug" params={{ slug: next.slug }}
+          data-hover
+          className="group block border-t border-[#ece9e4]/15 px-6 py-16 md:px-10 md:py-24"
+        >
+          <p className="font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#ece9e4]/50">
+            {t('Next project', 'Следующий проект')}
+          </p>
+          <span className="mt-4 block font-display text-[7vw] font-extrabold uppercase leading-[0.9] tracking-tighter transition-colors duration-500 group-hover:text-[#ece9e4] md:text-[4vw]">
+            {pick(next.title, lang)} →
+          </span>
+        </Link>
+      )}
     </main>
   )
 }
