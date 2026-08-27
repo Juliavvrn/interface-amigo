@@ -1,4 +1,4 @@
-import { Link } from 'react-router'
+import { Link } from '@tanstack/react-router'
 import { projects, pick } from '@/data/content'
 import { useI18n } from '@/i18n'
 
@@ -16,7 +16,7 @@ export default function Works() {
         {projects.map((p, i) => (
           <Link
             key={p.slug}
-            to={`/works/${p.slug}`}
+            to="/works/$slug" params={{ slug: p.slug }}
             data-cursor="view"
             className="group relative grid grid-cols-[auto_1fr_auto] items-center gap-4 overflow-hidden border-b border-[#ece9e4]/15 py-6 md:grid-cols-[3rem_1fr_auto_5rem] md:gap-8 md:py-9"
           >

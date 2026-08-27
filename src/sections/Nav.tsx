@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useLocation, useNavigate } from 'react-router'
+import { useLocation, useNavigate } from '@tanstack/react-router'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useI18n } from '@/i18n'
 
@@ -20,7 +20,7 @@ export default function Nav() {
     setOpen(false)
     if (location.pathname !== '/') {
       e.preventDefault()
-      navigate('/')
+      navigate({ to: '/' })
       setTimeout(() => {
         const el = document.querySelector(href)
         if (el) el.scrollIntoView()

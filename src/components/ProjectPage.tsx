@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router'
+import { Link, useParams } from '@tanstack/react-router'
 import { motion } from 'framer-motion'
 import { getProject, nextProject, pick } from '@/data/content'
 import { useI18n } from '@/i18n'
@@ -224,7 +224,7 @@ function Flowchart({ diagram, variant }: { diagram: FlowDiagram; variant: CaseVa
 }
 
 export default function ProjectPage() {
-  const { slug } = useParams()
+  const { slug } = useParams({ strict: false })
   const { lang, t } = useI18n()
   const project = getProject(slug ?? '')
 
@@ -442,7 +442,7 @@ export default function ProjectPage() {
       )}
 
       <Link
-        to={`/works/${next.slug}`}
+        to="/works/$slug" params={{ slug: next.slug }}
         data-hover
         className="group block border-t border-[#ece9e4]/15 px-6 py-16 md:px-10 md:py-24"
       >
