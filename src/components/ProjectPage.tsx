@@ -163,7 +163,7 @@ function getCaseVariant(slug: string): CaseVariant {
 // occurrence so no two flowcharts on a page (or across pages) look the same.
 function getDiagramVariant(slug: string, diagramIndex: number): CaseVariant {
   const base = CASE_VARIANTS.indexOf(getCaseVariant(slug))
-  return CASE_VARIANTS[(base + diagramIndex) % CASE_VARIANTS.length]
+  return CASE_VARIANTS[(base + diagramIndex) % CASE_VARIANTS.length] ?? 'system'
 }
 
 function Flowchart({ diagram, variant }: { diagram: FlowDiagram; variant: CaseVariant }) {
