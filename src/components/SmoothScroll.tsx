@@ -9,6 +9,7 @@ export default function SmoothScroll() {
   useEffect(() => {
     const lenis = new Lenis({ lerp: 0.09 })
     lenisRef.current = lenis
+    ;(window as unknown as { __lenis?: Lenis }).__lenis = lenis
     let raf = 0
     const loop = (time: number) => {
       lenis.raf(time)
