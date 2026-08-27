@@ -487,7 +487,12 @@ export default function ProjectPage() {
       })}
 
       {project.screens && project.screens.length > 0 && (
-        <ScreensSlider screens={project.screens} imgClassName={project.slug === 'aiim' ? 'block h-auto w-full object-contain sm:mx-auto sm:w-1/2' : undefined} />
+        <ScreensSlider
+          screens={project.screens}
+          {...(project.slug === 'aiim'
+            ? { imgClassName: 'block h-auto w-full object-contain sm:mx-auto sm:w-1/2' }
+            : {})}
+        />
       )}
 
       {project.metrics && project.metrics.length > 0 && (
