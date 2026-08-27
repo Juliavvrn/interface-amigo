@@ -107,6 +107,7 @@ export interface Project {
   deliverables: Localized[]
   description: Localized[]
   gallery: string[]
+  screens?: { src: string; caption: Localized }[]
   caseStudy?: CaseStudySection[]
   metrics?: ProjectMetric[]
 }
