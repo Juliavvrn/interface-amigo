@@ -440,6 +440,8 @@ export default function ProjectPage() {
 
             {section.diagram && <Flowchart diagram={section.diagram} variant={caseVariant} />}
 
+            {section.stageFlow && <StageFlowBoard flow={section.stageFlow} />}
+
             {section.modules && section.modules.length > 0 && (
               <div className={isApplications || isAudit ? 'grid gap-4 sm:grid-cols-2' : isEditorial ? 'space-y-0' : 'space-y-6'}>
                 {section.modules.map((mod, mi) => (
