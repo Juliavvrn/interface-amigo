@@ -16,17 +16,41 @@ export default function Nav() {
     { label: t('Contact', 'Контакты'), href: '#contact' },
   ]
 
-  const go = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    setOpen(false)
-    if (location.pathname !== '/') {
-      e.preventDefault()
-      navigate({ to: '/' })
-      setTimeout(() => {
-        const el = document.querySelector(href)
-        if (el) el.scrollIntoView()
-        else window.scrollTo(0, 0)
-      }, 450)
+  const scrollTo = (href: string) => {
+    const lenis = (window as unknown as { __lenis?: { scrollTo: (t: HTMLElement | number) => void } }).__lenis
+    if (href === '#top') {
+      if (lenis) lenis.scrollTo(0)
+      else window.scrollTo({ top: 0, behavior: 'smooth' })
+      return
     }
+    const el = document.querySelector(href) as HTMLElement | null
+    if (!el) return
+    if (lenis) lenis.scrollTo(el)
+    else el.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  const go = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    setOpen(false)
+
+    if (location.pathname !== '/') {
+      navigate({ to: '/' })
+      let tries = 0
+      const attempt = () => {
+        tries += 1
+        const el = href === '#top' ? document.body : document.querySelector(href)
+        if (el) {
+          setTimeout(() => scrollTo(href), 120)
+          return
+        }
+        if (tries < 40) requestAnimationFrame(attempt)
+      }
+      requestAnimationFrame(attempt)
+      return
+    }
+
+    // already on home: wait for the mobile overlay to start closing
+    setTimeout(() => scrollTo(href), open ? 220 : 0)
   }
 
   return (
