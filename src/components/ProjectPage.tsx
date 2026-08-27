@@ -149,12 +149,21 @@ function StageFlowBoard({ flow }: { flow: StageFlow }) {
 
 type CaseVariant = 'system' | 'signal' | 'audit' | 'timeline' | 'editorial'
 
+const CASE_VARIANTS: CaseVariant[] = ['system', 'signal', 'audit', 'timeline', 'editorial']
+
 function getCaseVariant(slug: string): CaseVariant {
   if (slug === 'industrial-monitoring') return 'signal'
   if (slug === 'audit-it') return 'audit'
   if (slug === 'clinicscribe') return 'timeline'
   if (slug === 'aiim') return 'editorial'
   return 'system'
+}
+
+// Every diagram gets its own look: base style per case, rotated per diagram
+// occurrence so no two flowcharts on a page (or across pages) look the same.
+function getDiagramVariant(slug: string, diagramIndex: number): CaseVariant {
+  const base = CASE_VARIANTS.indexOf(getCaseVariant(slug))
+  return CASE_VARIANTS[(base + diagramIndex) % CASE_VARIANTS.length]
 }
 
 function Flowchart({ diagram, variant }: { diagram: FlowDiagram; variant: CaseVariant }) {
