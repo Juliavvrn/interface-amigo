@@ -364,10 +364,9 @@ const _projects: Project[] = [
     ],
     gallery: [work5, work4],
     metrics: [
-      { value: L('Weeks → 30 min', 'Недели → 30 мин'), label: L('Time to first insight', 'Время до первых выводов') },
-      { value: L('0–100', '0–100'), label: L('Credibility score per respondent', 'Оценка достоверности каждого респондента') },
-      { value: L('OCEAN', 'OCEAN'), label: L('Trait calibration against population norms', 'Калибровка черт по нормам популяции') },
-      { value: L('Markdown + HTML', 'Markdown + HTML'), label: L('Auditable report export', 'Экспорт проверяемого отчёта') },
+      { value: L('85 — 92%', '85 — 92%'), label: L('Synthetic-organic parity in independent comparison studies. Measured across thematic overlap, depth & qualitative alignment.', 'Синтетико-органическая паритетность в независимых сравнительных исследованиях. Измерено по тематическому перекрытию, глубине и качественному соответствию.') },
+      { value: L('$2-60', '$2-60'), label: L('Per interview, versus $100+ with traditional research agencies. No recruitment fees, no scheduling overhead.', 'За интервью, против $100+ в традиционных исследовательских агентствах. Без рекрутинговых сборов и накладных на планирование.') },
+      { value: L('Your data is private and belongs to you alone.', 'Ваши данные принадлежат только вам'), label: L('Measured across thematic overlap, depth & qualitative alignment.', 'Измерено по тематическому перекрытию, глубине и качественному соответствию.') },
     ],
     caseStudy: [
       {
