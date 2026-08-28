@@ -56,7 +56,7 @@ export interface FlowDiagram {
 }
 
 export interface CaseStudyChart {
-  type: 'radar' | 'bar'
+  type: 'radar' | 'bar' | 'column'
   title: Localized
   labels: Localized[]
   series: { name: Localized; values: number[] }[]
@@ -118,12 +118,13 @@ function L(en: string, ru: string): Localized {
 }
 
 const projectOrder: Record<string, number> = {
-  'industrial-monitoring': 0,
-  'aiim': 1,
-  'mindcare': 2,
-  'clinicscribe': 3,
-  'audit-it': 4,
-  'chromatic-drift': 5,
+  'neurosignal': 0,
+  'industrial-monitoring': 1,
+  'aiim': 2,
+  'mindcare': 3,
+  'clinicscribe': 4,
+  'audit-it': 5,
+  'chromatic-drift': 6,
 }
 
 const _projects: Project[] = [
@@ -1344,6 +1345,325 @@ const _projects: Project[] = [
               L('Local computation share', 'Доля локальных вычислений'),
             ],
             series: [{ name: L('%', '%'), values: [94, 31, 100] }],
+            max: 100,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'neurosignal',
+    title: L('Clinical EEG Analysis & Seizure Prediction', 'Клинический анализ ЭЭГ и предикция приступов'),
+    category: L('Neurotechnology · Applied R&D', 'Нейротехнологии · Прикладной R&D'),
+    domain: L('MedTech / Biosignal Processing', 'MedTech / Обработка биосигналов'),
+    stack: L('React · TypeScript · WebAssembly (DSP) · WebGL · ONNX Runtime · Python / FastAPI', 'React · TypeScript · WebAssembly (DSP) · WebGL · ONNX Runtime · Python / FastAPI'),
+    year: '2026',
+    img: work4,
+    deliverables: [
+      L('Systems Architecture', 'Системная архитектура'),
+      L('Product Design', 'Продуктовый дизайн'),
+      L('DSP Pipeline', 'DSP-конвейер'),
+      L('ML Inference & Calibration', 'ML-инференс и калибровка'),
+    ],
+    description: [
+      L(
+        'High-resolution clinical electroencephalography produces multichannel time series of enormous volume. Manual review of multi-day EEG monitoring takes a neurophysiologist hours of routine visual screening to catch single epileptiform discharges.',
+        'Клиническая электроэнцефалография высокого разрешения генерирует многоканальные временные ряды колоссального объема. Ручная расшифровка многосуточного ЭЭГ-мониторинга врачом-нейрофизиологом требует часов рутинного визуального скрининга для выявления единичных эпилептиформных разрядов.'
+      ),
+      L(
+        'The project sits between applied engineering and a professional upskilling track in neurotechnology: I designed the architecture and built a platform for intelligent analysis and preprocessing of brain bioelectrical activity, adapting Neural Systems Lab (University of Washington) research to Russian clinical protocols and functional diagnostics standards.',
+        'Проект выполнен на стыке практической разработки и программы повышения квалификации в сфере нейротехнологий и программной инженерии: мне удалось спроектировать архитектуру и реализовать платформу интеллектуального анализа и препроцессинга биоэлектрической активности мозга, адаптировав исследовательские наработки Лаборатории нейронных систем Вашингтонского университета (Neural Systems Lab, University of Washington) под клинические протоколы и технологические стандарты российской функциональной диагностики.'
+      ),
+    ],
+    gallery: [work4, work6],
+    metrics: [
+      { value: L('94.6%', '94,6%'), label: L('Seizure prediction sensitivity', 'Чувствительность предикции приступа') },
+      { value: L('3.8×', '3,8×'), label: L('Faster routine screening', 'Ускорение рутинного скрининга') },
+      { value: L('0.12 / h', '0,12 / ч'), label: L('False alarm rate per hour', 'Ложных срабатываний в час') },
+      { value: L('0', '0'), label: L('Data leaks · client-side DSP', 'Утечек данных · DSP на клиенте') },
+    ],
+    caseStudy: [
+      {
+        label: L('Context & adaptation scope', 'Контекст и рамки адаптации'),
+        paragraphs: [
+          L(
+            'Academic seizure detection models validated on reference datasets (CHB-MIT, Temple University Hospital Seizure Corpus) show high sensitivity in the lab, but hit critical barriers on clinical integration in Russia.',
+            'Академические модели распознавания судорожной активности, валидированные на эталонных датасетах (CHB-MIT, Temple University Hospital Seizure Corpus), демонстрируют высокую чувствительность в лабораторных условиях, но сталкиваются с критическими барьерами при клинической интеграции в РФ.'
+          ),
+          L(
+            'Three tasks were solved during the research adaptation: power grid frequency mismatch, montage schemes and standards, and the gap between DSP and rendering.',
+            'В процессе профессионального обучения и исследовательской адаптации были решены три ключевые задачи: несовпадение частоты электросети, монтажные схемы и стандарты, разрыв между DSP и рендерингом.'
+          ),
+        ],
+        findings: [
+          {
+            title: L('Power grid frequency mismatch', 'Несовпадение частоты электросети'),
+            body: L(
+              'Foreign pipelines are hardwired to 60 Hz notch filtering (US standard), which makes them unusable on raw recordings from domestic hardware working on a 50 Hz grid.',
+              'Зарубежные пайплайны жестко ориентированы на 60 Гц режекторную фильтрацию (стандарт США), что делало их неприменимыми для сырых записей отечественных аппаратных комплексов («Нейрософт», «Мицар»), работающих в сети 50 Гц.'
+            ),
+          },
+          {
+            title: L('Montage schemes & standards', 'Монтажные схемы и стандарты'),
+            body: L(
+              'Clinical practice relies strictly on monopolar and bipolar 10–20 schemes, including the longitudinal bipolar Double Banana montage and average reference, while academic scripts often analyse detached channels with no anatomical topology.',
+              'Клиническая практика в РФ строго опирается на монополярные и биполярные схемы по системе «10–20» (включая продольный биполярный монтаж Double Banana и усредненный референт), в то время как университетские исследовательские скрипты зачастую анализируют разрозненные каналы без привязки к анатомической топологии.'
+            ),
+          },
+          {
+            title: L('Gap between DSP and rendering', 'Разрыв между DSP и рендерингом'),
+            body: L(
+              'There was no high-performance interface able to draw dozens of channels at 256–1000 Hz sampling without frame drops on a standard clinician workstation.',
+              'Отсутствие высокопроизводительного интерфейса, способного отрисовывать десятки каналов с частотой дискретизации 256–1000 Гц без потери кадров на стандартных рабочих станциях врачей.'
+            ),
+          },
+        ],
+        charts: [
+          {
+            type: 'column',
+            title: L('Rhythm bands · power distribution, %', 'Ритмические диапазоны · распределение мощности, %'),
+            labels: [
+              L('Delta 0.5–4 Hz', 'Дельта 0,5–4 Гц'),
+              L('Theta 4–8 Hz', 'Тета 4–8 Гц'),
+              L('Alpha 8–13 Hz', 'Альфа 8–13 Гц'),
+              L('Beta 13–30 Hz', 'Бета 13–30 Гц'),
+            ],
+            series: [{ name: L('Pre-ictal window', 'Предиктальное окно'), values: [64, 38, 22, 14] }],
+            max: 100,
+          },
+        ],
+      },
+      {
+        label: L('The problem', 'Проблема'),
+        paragraphs: [
+          L(
+            'A raw EEG signal carries intense physiological (myographic, oculographic, cardiographic) and technical artifacts. Classic neural models mistake muscle spasms or electrode shifts for true paroxysmal activity and generate an unacceptable false alarm rate.',
+            'Сырой сигнал ЭЭГ содержит интенсивные физиологические (миографические, окулографические, кардиографические) и технические артефакты. Классические нейросетевые модели склонны принимать мышечные спазмы или смещения электродов за истинную пароксизмальную активность, генерируя неприемлемое количество ложноположительных срабатываний.'
+          ),
+          L(
+            'The system had to deliver a reliable digital filtering pipeline, give the clinician a fast artifact verification tool and output a probabilistic seizure prediction 3–5 minutes before generalisation.',
+            'Система должна была обеспечить надежный конвейер цифровой фильтрации (DSP), предоставить врачу инструмент быстрой верификации артефактов и выдать вероятностную оценку предикции приступа за 3–5 минут до его генерализации.'
+          ),
+        ],
+        findings: [
+          {
+            title: L('Transparency over black box', 'Прозрачность вместо черного ящика'),
+            body: L(
+              'A clinician needs frequency slices, power spectral density and graphoelement morphology, not a binary label.',
+              'В клинической нейрофизиологии алгоритм черного ящика бесполезен. Врачу необходима не просто бинарная метка приступа, а прозрачная верификация: частотный срез, спектральная плотность мощности и морфология графоэлементов.'
+            ),
+          },
+        ],
+      },
+      {
+        label: L('Signal processing architecture', 'Архитектура обработки сигнала'),
+        paragraphs: [
+          L(
+            'From raw biosignal ingestion to hybrid inference, every stage is explicit and inspectable.',
+            'От приема сырого биосигнала до гибридного инференса — каждая стадия конвейера явная и проверяемая.'
+          ),
+        ],
+        diagram: {
+          title: L('DSP & inference pipeline', 'Конвейер DSP и инференса'),
+          columns: 1,
+          nodes: [
+            { id: 'ingest', label: L('Raw biosignal ingestion', 'Прием сырого биосигнала'), sublabel: L('EDF / BDF / GDF', 'EDF / BDF / GDF') },
+            { id: 'notch', label: L('WASM SIMD notch filter', 'Режекторный фильтр WASM SIMD'), sublabel: L('50 Hz, Q = 30 · grid interference', '50 Гц, Q = 30 · подавление сетевой наводки') },
+            { id: 'band', label: L('Zero-phase Butterworth bandpass', 'Полосовой фильтр Баттерворта'), sublabel: L('0.5–30 Hz physiological rhythms', '0,5–30 Гц · физиологические ритмы') },
+            { id: 'ica', label: L('Independent component analysis', 'Анализ независимых компонент'), sublabel: L('FastICA · blink (EOG) removal', 'FastICA · удаление морганий (EOG)') },
+            { id: 'features', label: L('Feature extraction layer', 'Слой извлечения признаков'), sublabel: L('Welch PSD · ApEn · wavelet power', 'PSD по Уэлчу · ApEn · вейвлет-мощность') },
+            { id: 'classifier', label: L('Hybrid classifier', 'Гибридный классификатор'), sublabel: L('1D-CNN + Bi-LSTM sequence modeling', '1D-CNN + Bi-LSTM моделирование последовательностей') },
+            { id: 'risk', label: L('Risk calibration engine', 'Движок калибровки риска'), sublabel: L('Real-time thresholding', 'Пороговая обработка в реальном времени') },
+          ],
+          edges: [
+            { from: 'ingest', to: 'notch' },
+            { from: 'notch', to: 'band' },
+            { from: 'band', to: 'ica' },
+            { from: 'ica', to: 'features' },
+            { from: 'features', to: 'classifier' },
+            { from: 'classifier', to: 'risk' },
+          ],
+        },
+      },
+      {
+        label: L('Clinical personas & workflows', 'Клинические персоны и сценарии'),
+        paragraphs: [
+          L(
+            'Two clinical roles shaped the workflow: the epileptologist reviewing long-term monitoring and the researcher studying pre-ictal transitions.',
+            'Сценарий формировали две клинические роли: эпилептолог, разбирающий долгосрочный мониторинг, и исследователь, изучающий переход в предиктальную фазу.'
+          ),
+        ],
+        findings: [
+          {
+            title: L('Persona 01 · lead neurophysiologist, epileptology centre', 'Персона 01 · нейрофизиолог, центр эпилептологии'),
+            body: L(
+              'Goal: instant jump to high-risk epileptiform segments with a ready spectrogram. Obstacle: high noise from patient movement in the video-EEG monitoring ward.',
+              'Цель: мгновенный переход к участкам с высоким риском эпилептиформной активности с готовой спектрограммой. Барьер: высокий уровень шума от движений пациента в палате видео-ЭЭГ мониторинга.'
+            ),
+            quote: L(
+              'With 24-hour monitoring a single recording takes up to two hours to review; the eye blurs and short nocturnal patterns are easy to miss.',
+              'При 24-часовом мониторинге на просмотр одной записи уходит до 2 часов. Глаз замыливается, и короткие ночные паттерны легко пропустить.'
+            ),
+          },
+          {
+            title: L('Persona 02 · clinical researcher, applied neuroscience', 'Персона 02 · клинический исследователь, прикладная нейронаука'),
+            body: L(
+              'Goal: analyse precursors of a generalised discharge for timely preventive intervention. Obstacle: academic models are overfitted to one device and fail on heterogeneous data.',
+              'Цель: анализ предвестников генерализованного разряда для своевременного превентивного вмешательства. Барьер: академические модели часто переобучены под один конкретный прибор и дают сбой на гетерогенных данных.'
+            ),
+            quote: L(
+              'We need to predict the transition into the pre-ictal phase, not just state that a seizure happened.',
+              'Нам необходимо не просто констатировать факт приступа, а прогнозировать переход в предиктальную фазу.'
+            ),
+          },
+        ],
+      },
+      {
+        label: L('What I designed & engineered', 'Что спроектировано и реализовано'),
+        paragraphs: [
+          L('Five engineering modules carry the workstation.', 'Рабочая станция держится на пяти инженерных модулях.'),
+        ],
+        modules: [
+          {
+            title: L('01. WebGL-accelerated 32-channel oscilloscope', '01. Осциллограф на 32 канала с WebGL'),
+            body: L(
+              'A high-performance WebGL rendering engine draws up to 32 channels in real time at a stable 60 FPS, with standard clinical sweeps (15, 30, 60 mm/s) and amplitude calibration marks (5, 7, 10, 20 µV/mm).',
+              'Высокопроизводительный движок рендеринга осциллограмм на WebGL отрисовывает до 32 каналов в реальном времени при стабильных 60 FPS с поддержкой стандартных клинических разверток (15, 30, 60 мм/с) и калибровочных меток амплитуды (5, 7, 10, 20 µV/mm).'
+            ),
+          },
+          {
+            title: L('02. Dynamic montage matrix switcher', '02. Матричный коммутатор монтажей'),
+            body: L(
+              'The montage matrix recomputes potential differences between derivations on the fly without re-reading the file: longitudinal bipolar (Double Banana) for focal zones by phase reversal, average reference for diffuse generalised activity, Cz-referential for express screening of cortical rhythms.',
+              'Матричный коммутатор монтажей на лету пересчитывает разность потенциалов между отведениями без повторного чтения файла: продольный биполярный (Double Banana) — локализация фокальных зон по феномену противофазы, усредненный референт — выявление диффузной генерализованной активности, Cz-референциальный — экспресс-скрининг базовых корковых ритмов.'
+            ),
+          },
+          {
+            title: L('03. Client-side WASM preprocessing pipeline', '03. WASM-препроцессинг на клиенте'),
+            body: L(
+              'Spectral cleaning modules moved to WebAssembly with SIMD support. The 50 Hz notch and a 4th-order Butterworth bandpass compute with under 4 ms latency per data chunk.',
+              'Модули спектральной очистки сигнала перенесены в WebAssembly с поддержкой SIMD-инструкций. Вычисление режекторного фильтра 50 Гц и полосовой фильтрации Баттерворта 4-го порядка выполняется с задержкой менее 4 мс на чанк данных.'
+            ),
+          },
+          {
+            title: L('04. Time-frequency wavelet heatmaps', '04. Тепловые карты вейвлет-преобразования'),
+            body: L(
+              'An interactive continuous wavelet transform block with a Morlet mother wavelet lets the clinician decompose a suspicious spike into delta, theta, alpha, beta and gamma components in one click and instantly separate a myographic artifact from a true spike-and-wave complex.',
+              'Интерактивный блок непрерывного вейвлет-преобразования (CWT) с материнским вейвлетом Морле. Позволяет врачу за один клик разложить подозрительный спайк на частотные составляющие (дельта-, тета-, альфа-, бета-, гамма-диапазоны) и мгновенно отличить миографический артефакт от истинного комплекса пик-медленная волна.'
+            ),
+          },
+          {
+            title: L('05. Pre-ictal risk prediction engine', '05. Движок предикции предиктального риска'),
+            body: L(
+              'A hybrid classifier based on temporal convolutional networks, optimised to ONNX. It analyses power spectral density dynamics in a 4-second sliding window with 75% overlap and estimates seizure probability over a 3–5 minute horizon.',
+              'Гибридный классификатор на базе Temporal Convolutional Networks (TCN), оптимизированный в формат ONNX. Модель анализирует динамику спектральной плотности мощности в скользящем окне 4 секунды с перекрытием 75%, рассчитывая вероятность наступления судорожного эпизода за горизонт в 3–5 минут.'
+            ),
+          },
+        ],
+      },
+      {
+        label: L('Diagnostic flow', 'Диагностический поток'),
+        paragraphs: [
+          L(
+            'Ingestion, hardware-adapted DSP and topological montage feed two parallel branches — spectral extraction and hybrid inference — that converge into a clinical report.',
+            'Прием данных, аппаратно-адаптированный DSP и топологический монтаж питают две параллельные ветви — спектральное извлечение и гибридный инференс, — которые сходятся в клиническом отчете.'
+          ),
+        ],
+        diagram: {
+          title: L('From raw stream to clinical report', 'От сырого потока к клиническому отчету'),
+          columns: 2,
+          nodes: [
+            { id: 'data', label: L('Data ingestion', 'Прием данных'), sublabel: L('EDF / raw stream', 'EDF / сырой поток') },
+            { id: 'dsp', label: L('Hardware-adapted DSP', 'Аппаратно-адаптированный DSP'), sublabel: L('50 Hz notch + bandpass', 'Режекция 50 Гц + полоса') },
+            { id: 'montage', label: L('Topological montage', 'Топологический монтаж'), sublabel: L('Double Banana / reference', 'Double Banana / референт') },
+            { id: 'spectral', label: L('Spectral extraction', 'Спектральное извлечение'), sublabel: L('Welch PSD & entropy', 'PSD по Уэлчу и энтропия') },
+            { id: 'inference', label: L('Hybrid AI inference', 'Гибридный ИИ-инференс'), sublabel: L('Pre-ictal prediction', 'Предикция предиктальной фазы') },
+            { id: 'report', label: L('Clinical report & event log', 'Клинический отчет и журнал событий'), sublabel: L('Export to PDF / HL7-FHIR', 'Экспорт в PDF / HL7-FHIR') },
+          ],
+          edges: [
+            { from: 'data', to: 'dsp' },
+            { from: 'dsp', to: 'montage' },
+            { from: 'montage', to: 'spectral' },
+            { from: 'montage', to: 'inference' },
+            { from: 'spectral', to: 'report' },
+            { from: 'inference', to: 'report' },
+          ],
+        },
+      },
+      {
+        label: L('Component system & UI architecture', 'Система компонентов и архитектура интерфейса'),
+        paragraphs: [
+          L(
+            'The clinical workstation density spec defines rhythm colour coding, DSP controls and event labels, so every widget stays readable at monitoring density.',
+            'Спецификация плотности клинической рабочей станции задает цветовое кодирование ритмов, управление DSP и метки событий, чтобы каждый виджет оставался читаемым при мониторинговой плотности.'
+          ),
+        ],
+        tables: [
+          {
+            title: L('Design system specification', 'Спецификация дизайн-системы'),
+            columns: [L('Layer', 'Слой'), L('Specification', 'Спецификация'), L('Clinical reference', 'Клинический ориентир')],
+            rows: [
+              [L('Rhythm colour coding', 'Цветовое кодирование ритмов'), L('Delta 0.5–4 Hz deep blue · Theta 4–8 Hz cyan · Alpha 8–13 Hz green · Beta 13–30 Hz amber', 'Дельта 0,5–4 Гц — глубокий синий · Тета 4–8 Гц — циан · Альфа 8–13 Гц — зеленый · Бета 13–30 Гц — янтарный'), L('IFCN band conventions', 'Диапазоны по конвенции IFCN')],
+              [L('DSP & filter controls', 'Управление DSP и фильтрами'), L('Notch 50 Hz (Q = 30) · high-pass 0.5 Hz / 24 dB · low-pass 30 Hz / 24 dB', 'Режекция 50 Гц (Q = 30) · ФВЧ 0,5 Гц / 24 дБ · ФНЧ 30 Гц / 24 дБ'), L('GOST R IEC 60601-2-26', 'ГОСТ Р МЭК 60601-2-26')],
+              [L('Timebase & calibration', 'Развертка и калибровка'), L('30 mm/s sweep · 7 µV/mm amplitude · measuring grid', 'Развертка 30 мм/с · амплитуда 7 µV/mm · измерительная сетка'), L('Standard clinical montage sheet', 'Стандартный клинический лист монтажа')],
+              [L('Clinical event labels', 'Метки клинических событий'), L('SW spike-and-wave 3 Hz · POLY polyspike complex · EMG muscle artifact suppressed', 'SW — пик-медленная волна 3 Гц · POLY — полиспайк-комплекс · EMG — подавленный мышечный артефакт'), L('Reviewed and confirmed by the clinician', 'Проверяется и подтверждается врачом')],
+              [L('Channel detail widget', 'Виджет детализации канала'), L('Amplitude pk-pk · theta/beta PSD ratio · phase synchrony', 'Амплитуда pk-pk · отношение PSD тета/бета · фазовая синхронность'), L('Verification before labelling an event', 'Верификация до присвоения метки события')],
+              [L('Pre-ictal risk gauge', 'Шкала предиктального риска'), L('State · prediction horizon in seconds · alarm status · sensitivity mode', 'Состояние · горизонт прогноза в секундах · статус тревоги · режим чувствительности'), L('Strict mode sensitivity 94.6%', 'Строгий режим, чувствительность 94,6%')],
+            ],
+          },
+        ],
+      },
+      {
+        label: L('Constraints & architectural decisions', 'Ограничения и архитектурные решения'),
+        paragraphs: [
+          L('Three constraints defined the engineering.', 'Три ограничения определили инженерные решения.'),
+        ],
+        findings: [
+          {
+            title: L('Spectral suppression shifted to 50 Hz', 'Смещение спектрального подавления на 50 Гц'),
+            body: L(
+              'The IIR filter bank was fully reconfigured for 50 Hz suppression with a high quality factor (Q = 30), which removed domestic power grid interference without distorting physiological rhythms.',
+              'Выполнена полная переконфигурация БИХ-фильтров (IIR) цифровой обработки сигналов для подавления частоты 50 Гц с высокой добротностью (Q = 30), что полностью ликвидировало интерференцию от отечественной силовой сети без искажения физиологических ритмов.'
+            ),
+          },
+          {
+            title: L('Local WebAssembly / ONNX inference', 'Локальный WebAssembly / ONNX инференс'),
+            body: L(
+              'Patient medical data falls under strict personal data law. Moving preprocessing and first-pass inference into the client browser removed any need to transmit unencrypted biometric signals across borders.',
+              'Медицинские данные пациентов подпадают под жесткие требования 152-ФЗ. Перенос препроцессинга и первичного инференса непосредственно в браузер клиента исключил необходимость трансграничной передачи незашифрованных биометрических сигналов.'
+            ),
+          },
+          {
+            title: L('GOST R IEC 60601-2-26 compliance', 'Соответствие ГОСТ Р МЭК 60601-2-26'),
+            body: L(
+              'The measuring grid, amplitude scaling and time markers are strictly synchronised with the requirements for medical electroencephalographs.',
+              'Интерфейс измерительной сетки, масштабирование амплитуды и временные метки строго синхронизированы с требованиями к медицинским электроэнцефалографам.'
+            ),
+          },
+        ],
+      },
+      {
+        label: L('Impact & clinical metrics', 'Результат и клинические метрики'),
+        paragraphs: [
+          L(
+            '94.6% detection sensitivity on the validation cohort. 0.12 false alarms per hour: combined spectral-entropy artifact suppression cut the false alarm rate more than fourfold versus baseline academic models. 3.8× faster screening: automatic clustering of pathological epochs removes most of the manual labelling of a 24-hour recording.',
+            '94,6% чувствительность детекции: высокая точность дифференциации предиктального состояния на валидационной когорте данных. 0,12 ложных срабатываний в час: подавление артефактов через комбинированный спектрально-энтропийный анализ снизило False Alarm Rate более чем в 4 раза по сравнению с базовыми академическими моделями. 3,8× ускорение скрининга: врач-нейрофизиолог тратит существенно меньше времени на разметку суточной записи за счет автоматической кластеризации патологических эпох.'
+          ),
+        ],
+        charts: [
+          {
+            type: 'column',
+            title: L('Baseline model vs adapted pipeline', 'Базовая модель против адаптированного конвейера'),
+            labels: [
+              L('Prediction sensitivity, %', 'Чувствительность предикции, %'),
+              L('Artifact rejection, %', 'Отбраковка артефактов, %'),
+              L('Screening speed index', 'Индекс скорости скрининга'),
+              L('False alarms, inverse score', 'Ложные тревоги, обратный балл'),
+            ],
+            series: [
+              { name: L('Baseline academic model', 'Базовая академическая модель'), values: [71, 42, 26, 22] },
+              { name: L('Adapted clinical pipeline', 'Адаптированный клинический конвейер'), values: [95, 88, 98, 88] },
+            ],
             max: 100,
           },
         ],
