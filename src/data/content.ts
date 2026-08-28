@@ -118,12 +118,13 @@ function L(en: string, ru: string): Localized {
 }
 
 const projectOrder: Record<string, number> = {
-  'industrial-monitoring': 0,
-  'aiim': 1,
-  'mindcare': 2,
-  'clinicscribe': 3,
-  'audit-it': 4,
-  'chromatic-drift': 5,
+  'neurosignal': 0,
+  'industrial-monitoring': 1,
+  'aiim': 2,
+  'mindcare': 3,
+  'clinicscribe': 4,
+  'audit-it': 5,
+  'chromatic-drift': 6,
 }
 
 const _projects: Project[] = [
