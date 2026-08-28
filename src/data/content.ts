@@ -56,7 +56,7 @@ export interface FlowDiagram {
 }
 
 export interface CaseStudyChart {
-  type: 'radar' | 'bar'
+  type: 'radar' | 'bar' | 'column'
   title: Localized
   labels: Localized[]
   series: { name: Localized; values: number[] }[]
