@@ -480,42 +480,46 @@ export default function ProjectPage() {
           <p className="font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#ece9e4]">
             {pick(section.label, lang)}
           </p>
-          <div className="min-w-0 max-w-3xl space-y-8">
+          <div className={section.findings?.length ? 'min-w-0 max-w-5xl space-y-8' : 'min-w-0 max-w-3xl space-y-8'}>
             {section.paragraphs.map((para, i) => (
               <p key={i} className="text-lg leading-relaxed text-[#ece9e4]/80 md:text-xl">
                 {pick(para, lang)}
               </p>
             ))}
 
-            {section.findings?.map((finding, fi) => (
-              <motion.div
-                key={fi}
-                className={`${isEditorial ? 'border-t border-[#ece9e4]/15 bg-transparent py-6 md:py-8' : isTimeline ? 'border-l-2 border-[#ece9e4]/45 bg-[#ece9e4]/[0.035] p-6 md:p-8' : isAudit ? 'rounded-none border border-[#ece9e4]/25 bg-[#ece9e4]/[0.035] p-6 md:p-8' : 'rounded-lg border border-[#ece9e4]/12 bg-[#ece9e4]/[0.025] p-6 md:p-8'} transition-colors hover:border-[#ece9e4]/50 hover:bg-[#ece9e4]/[0.06]`}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-60px' }}
-                transition={{ delay: fi * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <h3 className="font-display text-xl font-bold tracking-tight text-[#ece9e4] md:text-2xl">
-                  {pick(finding.title, lang)}
-                </h3>
-                <p className="mt-3 text-base leading-relaxed text-[#ece9e4]/70">
-                  {pick(finding.body, lang)}
-                </p>
-                {finding.quote && (
-                  <blockquote className="mt-5 border-t border-[#ece9e4]/15 pt-5">
-                    <p className="text-lg italic leading-relaxed text-[#ece9e4]/90">
-                      "{pick(finding.quote, lang)}"
+            {section.findings && section.findings.length > 0 && (
+              <div className="grid gap-4 md:grid-cols-2 md:gap-6">
+                {section.findings.map((finding, fi) => (
+                  <motion.div
+                    key={fi}
+                    className={`${isEditorial ? 'border-t border-[#ece9e4]/15 bg-transparent py-6 md:py-8' : isTimeline ? 'border-l-2 border-[#ece9e4]/45 bg-[#ece9e4]/[0.035] p-6 md:p-8' : isAudit ? 'rounded-none border border-[#ece9e4]/25 bg-[#ece9e4]/[0.035] p-6 md:p-8' : 'rounded-lg border border-[#ece9e4]/12 bg-[#ece9e4]/[0.025] p-6 md:p-8'} self-start transition-colors hover:border-[#ece9e4]/50 hover:bg-[#ece9e4]/[0.06]`}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-60px' }}
+                    transition={{ delay: fi * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <h3 className="font-display text-xl font-bold tracking-tight text-[#ece9e4] md:text-2xl">
+                      {pick(finding.title, lang)}
+                    </h3>
+                    <p className="mt-3 text-base leading-relaxed text-[#ece9e4]/70">
+                      {pick(finding.body, lang)}
                     </p>
-                    {finding.quoteAuthor && (
-                      <cite className="mt-3 block font-mono2 text-[11px] not-italic tracking-[0.2em] text-[#ece9e4]">
-                        {pick(finding.quoteAuthor, lang)}
-                      </cite>
+                    {finding.quote && (
+                      <blockquote className="mt-5 border-t border-[#ece9e4]/15 pt-5">
+                        <p className="text-lg italic leading-relaxed text-[#ece9e4]/90">
+                          "{pick(finding.quote, lang)}"
+                        </p>
+                        {finding.quoteAuthor && (
+                          <cite className="mt-3 block font-mono2 text-[11px] not-italic tracking-[0.2em] text-[#ece9e4]">
+                            {pick(finding.quoteAuthor, lang)}
+                          </cite>
+                        )}
+                      </blockquote>
                     )}
-                  </blockquote>
-                )}
-              </motion.div>
-            ))}
+                  </motion.div>
+                ))}
+              </div>
+            )}
 
             {section.tables?.map((table, ti) => (
               <DataTable key={ti} table={table} />

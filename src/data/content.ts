@@ -1353,7 +1353,7 @@ const _projects: Project[] = [
   },
   {
     slug: 'neurosignal',
-    title: L('Clinical EEG Analysis & Seizure Prediction', 'Клинический анализ ЭЭГ и предикция приступов'),
+    title: L('Predictive EEG Monitoring', 'Предиктивный ЭЭГ-мониторинг'),
     category: L('Neurotechnology · Applied R&D', 'Нейротехнологии · Прикладной R&D'),
     domain: L('MedTech / Biosignal Processing', 'MedTech / Обработка биосигналов'),
     stack: L('React · TypeScript · WebAssembly (DSP) · WebGL · ONNX Runtime · Python / FastAPI', 'React · TypeScript · WebAssembly (DSP) · WebGL · ONNX Runtime · Python / FastAPI'),
