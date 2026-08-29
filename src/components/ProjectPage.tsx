@@ -232,6 +232,7 @@ function getCaseVariant(slug: string): CaseVariant {
   if (slug === 'clinicscribe') return 'timeline'
   if (slug === 'aiim') return 'editorial'
   if (slug === 'mindcare') return 'system'
+  if (slug === 'neurosignal') return 'audit'
   return 'system'
 }
 
