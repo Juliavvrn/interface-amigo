@@ -1067,7 +1067,7 @@ const _projects: Project[] = [
     category: L('Open Source · Mental Health Tech', 'Open Source · Ментальное здоровье'),
     domain: L('HealthTech / Self-Screening', 'HealthTech / Самоскрининг'),
     stack: L('React · TypeScript · Tailwind CSS · Vite · Lucide Icons', 'React · TypeScript · Tailwind CSS · Vite · Lucide Icons'),
-    year: '2025–2026',
+    year: '2025',
     img: work3,
     deliverables: [
       L('Product Design', 'Продуктовый дизайн'),
