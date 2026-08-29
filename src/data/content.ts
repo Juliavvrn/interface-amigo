@@ -1067,7 +1067,7 @@ const _projects: Project[] = [
     category: L('Open Source · Mental Health Tech', 'Open Source · Ментальное здоровье'),
     domain: L('HealthTech / Self-Screening', 'HealthTech / Самоскрининг'),
     stack: L('React · TypeScript · Tailwind CSS · Vite · Lucide Icons', 'React · TypeScript · Tailwind CSS · Vite · Lucide Icons'),
-    year: '2025–2026',
+    year: '2025',
     img: work3,
     deliverables: [
       L('Product Design', 'Продуктовый дизайн'),
@@ -1676,7 +1676,7 @@ const _projects: Project[] = [
     category: L('B2B + B2C · Research Initiative', 'B2B + B2C · Исследовательская инициатива'),
     domain: L('AI Infrastructure / Agent Platform', 'AI-инфраструктура / Платформа агентов'),
     stack: L('React 19 · TypeScript · Vite · Tailwind CSS · shadcn/ui · Supabase · PostgreSQL · pgvector · Edge Functions · OpenAI-compatible API', 'React 19 · TypeScript · Vite · Tailwind CSS · shadcn/ui · Supabase · PostgreSQL · pgvector · Edge Functions · OpenAI-compatible API'),
-    year: '2026',
+    year: '2025–2026',
     img: work2,
     link: 'https://ai-im.tech',
     deliverables: [
