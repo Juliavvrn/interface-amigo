@@ -22,6 +22,54 @@ function ChartPanel({ chart }: { chart: CaseStudyChart }) {
 
   const seriesColors = ['#ece9e4', '#bdb8b1', '#77726d']
 
+  if (chart.type === 'column') {
+    return (
+      <div className="mt-10">
+        <div className="mb-8 flex flex-wrap items-baseline justify-between gap-2">
+          <p className="font-mono2 text-[10px] uppercase tracking-[0.2em] text-[#ece9e4]">
+            {pick(chart.title, lang)}
+          </p>
+          <div className="flex flex-wrap gap-4">
+            {chart.series.map((s, si) => (
+              <span key={si} className="flex items-center gap-2 font-mono2 text-[10px] uppercase tracking-[0.15em] text-[#ece9e4]/45">
+                <span className="inline-block h-2 w-2" style={{ background: seriesColors[si % seriesColors.length] }} />
+                {pick(s.name, lang)}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="flex items-end gap-6 border-b border-[#ece9e4]/15 pb-4 overflow-x-auto">
+          {labels.map((label, i) => (
+            <div key={i} className="flex min-w-[64px] flex-1 flex-col items-center gap-3">
+              <div className="flex h-[220px] w-full items-end justify-center gap-1.5">
+                {chart.series.map((s, si) => {
+                  const value = s.values[i] ?? 0
+                  const h = Math.max(2, Math.min(100, (value / max) * 100))
+                  return (
+                    <div key={si} className="flex h-full flex-1 flex-col justify-end">
+                      <span className="mb-2 text-center font-mono2 text-[10px] tabular-nums text-[#ece9e4]/60">{value}</span>
+                      <motion.div
+                        className="w-full"
+                        style={{ background: seriesColors[si % seriesColors.length], opacity: si === 0 ? 0.55 : 1 }}
+                        initial={{ height: 0 }}
+                        whileInView={{ height: `${h}%` }}
+                        viewport={{ once: true, margin: '-40px' }}
+                        transition={{ duration: 0.7, delay: i * 0.06 + si * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                      />
+                    </div>
+                  )
+                })}
+              </div>
+              <span className="text-center font-mono2 text-[10px] uppercase leading-tight tracking-[0.12em] text-[#ece9e4]/45">
+                {label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
   if (chart.type === 'bar') {
     return (
       <div className="mt-10 overflow-hidden rounded-lg border border-[#ece9e4]/15 bg-[#ece9e4]/[0.02] p-6">
@@ -184,6 +232,7 @@ function getCaseVariant(slug: string): CaseVariant {
   if (slug === 'clinicscribe') return 'timeline'
   if (slug === 'aiim') return 'editorial'
   if (slug === 'mindcare') return 'system'
+  if (slug === 'neurosignal') return 'audit'
   return 'system'
 }
 
