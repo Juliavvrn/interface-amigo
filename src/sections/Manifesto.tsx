@@ -1,6 +1,7 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { motion, useScroll, useTransform, MotionValue } from 'framer-motion'
 import { useI18n } from '@/i18n'
+import EducationModal from '@/components/EducationModal'
 
 function Word({
   word,
