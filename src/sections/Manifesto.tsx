@@ -70,6 +70,7 @@ export default function Manifesto() {
           PRODUCT OWNERSHIP · CJM &amp; UX/UI · VOICE AGENTS &amp; AGENTIC WORKFLOWS · RAG &amp; LLM ORCHESTRATION · REACT &amp; SUPABASE · DATA ARCHITECTURE · SYSTEM ARCHITECTURE &amp; APIS · DATA SCIENCE &amp; ML
         </p>
       </div>
+      <EducationModal open={educationOpen} onClose={() => setEducationOpen(false)} />
     </section>
   )
 }
