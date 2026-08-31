@@ -1,6 +1,7 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { motion, useScroll, useTransform, MotionValue } from 'framer-motion'
 import { useI18n } from '@/i18n'
+import EducationModal from '@/components/EducationModal'
 
 function Word({
   word,
@@ -22,6 +23,7 @@ function Word({
 export default function Manifesto() {
   const { t } = useI18n()
   const ref = useRef<HTMLDivElement>(null)
+  const [educationOpen, setEducationOpen] = useState(false)
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start 1.35', 'end 0.85'],
@@ -57,13 +59,18 @@ export default function Manifesto() {
             </p>
           )
         })}
-        <span className="mt-14 block max-w-4xl cursor-pointer font-mono2 text-[10px] uppercase leading-[2] tracking-[0.2em] text-[#ece9e4]/50 transition-colors duration-300 hover:text-[#ff4d00] md:text-[11px]">
+        <button
+          type="button"
+          onClick={() => setEducationOpen(true)}
+          className="mt-14 block max-w-4xl cursor-pointer text-left font-mono2 text-[10px] uppercase leading-[2] tracking-[0.2em] text-[#ece9e4]/50 transition-colors duration-300 hover:text-[#ff4d00] md:text-[11px]"
+        >
           {t('Education', 'Образование')}
-        </span>
+        </button>
         <p className="mt-14 max-w-4xl font-mono2 text-[10px] uppercase leading-[2] tracking-[0.2em] text-[#ece9e4]/50 md:text-[11px]">
           PRODUCT OWNERSHIP · CJM &amp; UX/UI · VOICE AGENTS &amp; AGENTIC WORKFLOWS · RAG &amp; LLM ORCHESTRATION · REACT &amp; SUPABASE · DATA ARCHITECTURE · SYSTEM ARCHITECTURE &amp; APIS · DATA SCIENCE &amp; ML
         </p>
       </div>
+      <EducationModal open={educationOpen} onClose={() => setEducationOpen(false)} />
     </section>
   )
 }
