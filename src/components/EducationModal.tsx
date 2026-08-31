@@ -1,14 +1,23 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useI18n } from '@/i18n'
+import certNeuro from '@/assets/cert-neuro.png'
+import certFmri1 from '@/assets/cert-Coursera_P23W8IJG2FES_1.png'
+import certFmri2 from '@/assets/cert-Coursera_QSC2YYKUAOLI.png'
+import certHbr from '@/assets/cert-hbr.png'
+import certClemson from '@/assets/cert-clemson.png'
+import certHelsinki from '@/assets/cert-helsinki.png'
 
 interface Props {
   open: boolean
   onClose: () => void
 }
 
+type Lenis = { stop: () => void; start: () => void }
+
 export default function EducationModal({ open, onClose }: Props) {
   const { t } = useI18n()
+  const [preview, setPreview] = useState<{ src: string; x: number; y: number } | null>(null)
 
   useEffect(() => {
     if (!open) return
@@ -16,12 +25,36 @@ export default function EducationModal({ open, onClose }: Props) {
       if (e.key === 'Escape') onClose()
     }
     window.addEventListener('keydown', onKey)
-    document.body.style.overflow = 'hidden'
+
+    const lenis = (window as unknown as { __lenis?: Lenis }).__lenis
+    lenis?.stop()
+    const scrollY = window.scrollY
+    const { body } = document
+    const prev = {
+      position: body.style.position,
+      top: body.style.top,
+      width: body.style.width,
+      overflow: body.style.overflow,
+    }
+    body.style.position = 'fixed'
+    body.style.top = `-${scrollY}px`
+    body.style.width = '100%'
+    body.style.overflow = 'hidden'
+
     return () => {
       window.removeEventListener('keydown', onKey)
-      document.body.style.overflow = ''
+      body.style.position = prev.position
+      body.style.top = prev.top
+      body.style.width = prev.width
+      body.style.overflow = prev.overflow
+      window.scrollTo(0, scrollY)
+      lenis?.start()
     }
   }, [open, onClose])
+
+  useEffect(() => {
+    if (!open) setPreview(null)
+  }, [open])
 
   const degrees = [
     {
@@ -39,42 +72,48 @@ export default function EducationModal({ open, onClose }: Props) {
     },
   ]
 
-  const certificates = [
+  const certificates: { title: string; org: string; date: string; url: string; image?: string }[] = [
     {
       title: 'Fundamental Neuroscience for Neuroimaging',
       org: 'Johns Hopkins University · Coursera',
       date: t('Mar 4, 2026', '4 марта 2026'),
       url: 'https://coursera.org/verify/UKJCL0JN2F91',
+      image: certNeuro,
     },
     {
       title: 'Principles of fMRI 1',
       org: 'Johns Hopkins University · Coursera',
       date: t('Mar 6, 2026', '6 марта 2026'),
       url: 'https://coursera.org/verify/P23W8IJG2FES',
+      image: certFmri1,
     },
     {
       title: 'Principles of fMRI 2',
       org: 'Johns Hopkins University · Coursera',
       date: t('Mar 6, 2026', '6 марта 2026'),
       url: 'https://coursera.org/verify/QSC2YYKUAOLI',
+      image: certFmri2,
     },
     {
       title: 'Lead with Technology and AI',
       org: 'Harvard Business Review · Coursera',
       date: t('Feb 18, 2026', '18 февраля 2026'),
       url: 'https://coursera.org/verify/DS9DTA0RV5D6',
+      image: certHbr,
     },
     {
       title: 'Human-Centered Artificial Intelligence',
       org: 'Clemson University · Coursera',
       date: t('Jul 26, 2025', '26 июля 2025'),
       url: 'https://coursera.org/verify/PQQV52E6DWAS',
+      image: certClemson,
     },
     {
       title: 'Ethics of AI (2 ECTS)',
       org: 'University of Helsinki',
       date: t('Jul 4, 2025', '4 июля 2025'),
       url: 'https://certificates.mooc.fi/validate/vjdhc7qpnas',
+      image: certHelsinki,
     },
     {
       title: 'AI Governance and Ethics',
@@ -94,7 +133,7 @@ export default function EducationModal({ open, onClose }: Props) {
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed inset-0 z-[300] flex items-start justify-center overflow-y-auto bg-black/80 px-4 py-10 backdrop-blur-sm md:py-16"
+          className="fixed inset-0 z-[200] flex items-start justify-center overflow-y-auto overscroll-contain bg-black/80 px-4 py-10 backdrop-blur-sm md:py-16"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -144,6 +183,13 @@ export default function EducationModal({ open, onClose }: Props) {
                     target="_blank"
                     rel="noreferrer"
                     className="group block transition-colors"
+                    onMouseEnter={(e) =>
+                      c.image && setPreview({ src: c.image, x: e.clientX, y: e.clientY })
+                    }
+                    onMouseMove={(e) =>
+                      c.image && setPreview({ src: c.image, x: e.clientX, y: e.clientY })
+                    }
+                    onMouseLeave={() => setPreview(null)}
                   >
                     <span className="font-display text-sm font-semibold leading-snug transition-colors group-hover:text-[#ff4d00] md:text-base">
                       {c.title}
@@ -156,6 +202,24 @@ export default function EducationModal({ open, onClose }: Props) {
               ))}
             </ul>
           </motion.div>
+
+          <AnimatePresence>
+            {preview && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.15 }}
+                className="pointer-events-none fixed z-[260] w-[260px] border border-[#ece9e4]/20 bg-[#0a0a0a] p-1 shadow-2xl md:w-[320px]"
+                style={{
+                  left: Math.min(preview.x + 24, window.innerWidth - 340),
+                  top: Math.min(preview.y + 16, window.innerHeight - 260),
+                }}
+              >
+                <img src={preview.src} alt="" className="block h-auto w-full" />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
       )}
     </AnimatePresence>
