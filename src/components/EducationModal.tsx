@@ -1,0 +1,163 @@
+import { useEffect } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useI18n } from '@/i18n'
+
+interface Props {
+  open: boolean
+  onClose: () => void
+}
+
+export default function EducationModal({ open, onClose }: Props) {
+  const { t } = useI18n()
+
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+    }
+    window.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [open, onClose])
+
+  const degrees = [
+    {
+      school: t('Kursk State Medical University', 'Курский государственный медицинский университет'),
+      qualification: t('Qualification: Medical Doctor (General Medicine)', 'Квалификация: Врач-лечебник'),
+      year: '2022',
+    },
+    {
+      school: t('Information and Communication Technologies', 'Информационно-коммуникационные технологии'),
+      qualification: t(
+        'Qualification: Information Systems and Technologies',
+        'Квалификация: Информационные системы и технологии'
+      ),
+      year: '2024',
+    },
+  ]
+
+  const certificates = [
+    {
+      title: 'Fundamental Neuroscience for Neuroimaging',
+      org: 'Johns Hopkins University · Coursera',
+      date: t('Mar 4, 2026', '4 марта 2026'),
+      url: 'https://coursera.org/verify/UKJCL0JN2F91',
+    },
+    {
+      title: 'Principles of fMRI 1',
+      org: 'Johns Hopkins University · Coursera',
+      date: t('Mar 6, 2026', '6 марта 2026'),
+      url: 'https://coursera.org/verify/P23W8IJG2FES',
+    },
+    {
+      title: 'Principles of fMRI 2',
+      org: 'Johns Hopkins University · Coursera',
+      date: t('Mar 6, 2026', '6 марта 2026'),
+      url: 'https://coursera.org/verify/QSC2YYKUAOLI',
+    },
+    {
+      title: 'Lead with Technology and AI',
+      org: 'Harvard Business Review · Coursera',
+      date: t('Feb 18, 2026', '18 февраля 2026'),
+      url: 'https://coursera.org/verify/DS9DTA0RV5D6',
+    },
+    {
+      title: 'Human-Centered Artificial Intelligence',
+      org: 'Clemson University · Coursera',
+      date: t('Jul 26, 2025', '26 июля 2025'),
+      url: 'https://coursera.org/verify/PQQV52E6DWAS',
+    },
+    {
+      title: 'Ethics of AI (2 ECTS)',
+      org: 'University of Helsinki',
+      date: t('Jul 4, 2025', '4 июля 2025'),
+      url: 'https://certificates.mooc.fi/validate/vjdhc7qpnas',
+    },
+    {
+      title: 'AI Governance and Ethics',
+      org: 'Alison',
+      date: t('Jul 4, 2025', '4 июля 2025'),
+      url: 'https://alison.com/certification/check/79e06f9cf2',
+    },
+    {
+      title: 'AI Ethics for Beginners',
+      org: 'Great Learning',
+      date: t('Jul 4, 2025', '4 июля 2025'),
+      url: 'https://www.mygreatlearning.com/certificate/ACZDRKGF',
+    },
+  ]
+
+  return (
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          className="fixed inset-0 z-[300] flex items-start justify-center overflow-y-auto bg-black/80 px-4 py-10 backdrop-blur-sm md:py-16"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={onClose}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 16 }}
+            transition={{ duration: 0.35, ease: [0.76, 0, 0.24, 1] }}
+            onClick={(e) => e.stopPropagation()}
+            className="relative w-full max-w-3xl border border-[#ece9e4]/15 bg-[#0a0a0a] p-7 md:p-12"
+          >
+            <button
+              onClick={onClose}
+              className="absolute right-5 top-5 font-mono2 text-[10px] uppercase tracking-[0.25em] text-[#ece9e4]/50 transition-colors hover:text-[#ff4d00]"
+            >
+              {t('Close', 'Закрыть')}
+            </button>
+
+            <p className="mb-10 font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#ff4d00]">
+              {t('Education', 'Образование')}
+            </p>
+
+            <div className="space-y-7">
+              {degrees.map((d) => (
+                <div key={d.school} className="border-t border-[#ece9e4]/12 pt-5">
+                  <h3 className="font-display text-base font-semibold leading-snug md:text-xl">
+                    {d.school}
+                  </h3>
+                  <p className="mt-2 font-mono2 text-[10px] uppercase tracking-[0.2em] text-[#ece9e4]/55 md:text-[11px]">
+                    {d.qualification} · {d.year}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <p className="mb-6 mt-14 font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#ff4d00]">
+              {t('Certificates', 'Сертификаты')}
+            </p>
+
+            <ul className="space-y-4">
+              {certificates.map((c) => (
+                <li key={c.title} className="border-t border-[#ece9e4]/12 pt-4">
+                  <a
+                    href={c.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group block transition-colors"
+                  >
+                    <span className="font-display text-sm font-semibold leading-snug transition-colors group-hover:text-[#ff4d00] md:text-base">
+                      {c.title}
+                    </span>
+                    <span className="mt-1 block font-mono2 text-[10px] uppercase tracking-[0.2em] text-[#ece9e4]/50">
+                      {c.org} · {c.date}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  )
+}
