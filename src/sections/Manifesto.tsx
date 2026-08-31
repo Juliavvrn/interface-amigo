@@ -23,6 +23,7 @@ function Word({
 export default function Manifesto() {
   const { t } = useI18n()
   const ref = useRef<HTMLDivElement>(null)
+  const [educationOpen, setEducationOpen] = useState(false)
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start 1.35', 'end 0.85'],
