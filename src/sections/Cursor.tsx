@@ -103,7 +103,7 @@ export default function Cursor() {
 
   return (
     <motion.div
-      className="pointer-events-none fixed left-0 top-0 z-[300]"
+      className="pointer-events-none fixed left-0 top-0 z-[9999]"
       style={{ x: springX, y: springY, opacity: visible ? 1 : 0 }}
     >
       <motion.svg
