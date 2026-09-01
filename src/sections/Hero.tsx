@@ -29,7 +29,9 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9, duration: 1 }}
         >
-          TECHNICAL PRODUCT OWNER · FULL-STACK AI ENGINEER
+          <span translate="no" className="notranslate" lang="en">
+            TECHNICAL PRODUCT OWNER · FULL-STACK AI ENGINEER
+          </span>
         </motion.p>
 
         <div className="select-none">
