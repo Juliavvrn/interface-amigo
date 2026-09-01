@@ -57,7 +57,7 @@ export default function Nav() {
             hash="top"
             data-hover
             onClick={() => handleSectionClick('top')}
-            className="font-display text-lg font-extrabold tracking-tight"
+            className="font-display text-sm font-extrabold tracking-tight sm:text-base md:text-lg"
           >
             JULIA VERESOVA
           </Link>
@@ -68,7 +68,7 @@ export default function Nav() {
               </Link>
             ))}
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex shrink-0 items-center gap-4 md:gap-6">
             <button
               type="button"
               data-hover
