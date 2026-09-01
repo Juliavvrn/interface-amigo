@@ -24,6 +24,16 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://interface-amigo.lovable.app/" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: "https://interface-amigo.lovable.app/og-image.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { name: "twitter:image", content: "https://interface-amigo.lovable.app/og-image.png" },
+      { name: "twitter:title", content: "Julia Veresova — Technical Product Owner & Full-Stack AI Engineer" },
+      {
+        name: "twitter:description",
+        content:
+          "Разработка MVP и AI SaaS под ключ, MedTech/NeuroTech платформы, RAG и оркестрация LLM, full-cycle разработка на React и Supabase.",
+      },
     ],
     links: [{ rel: "canonical", href: "https://interface-amigo.lovable.app/" }],
     scripts: [
