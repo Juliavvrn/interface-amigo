@@ -68,7 +68,7 @@ export default function Nav() {
               </Link>
             ))}
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex shrink-0 items-center gap-4 md:gap-6">
             <button
               type="button"
               data-hover
