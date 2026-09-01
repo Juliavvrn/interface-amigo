@@ -21,11 +21,11 @@ export const Route = createFileRoute("/works/$slug")({
         { property: "og:description", content: description },
         { property: "og:type", content: "article" },
         { property: "og:url", content: url },
-        { property: "og:image", content: "https://interface-amigo.lovable.app/og-image.png" },
+        { property: "og:image", content: "https://interface-amigo.lovable.app/og-image.jpg" },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: description },
-        { name: "twitter:image", content: "https://interface-amigo.lovable.app/og-image.png" },
+        { name: "twitter:image", content: "https://interface-amigo.lovable.app/og-image.jpg" },
       ],
       links: [{ rel: "canonical", href: url }],
     };

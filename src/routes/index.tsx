@@ -24,10 +24,10 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://interface-amigo.lovable.app/" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:image", content: "https://interface-amigo.lovable.app/og-image.png" },
+      { property: "og:image", content: "https://interface-amigo.lovable.app/og-image.jpg" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { name: "twitter:image", content: "https://interface-amigo.lovable.app/og-image.png" },
+      { name: "twitter:image", content: "https://interface-amigo.lovable.app/og-image.jpg" },
       { name: "twitter:title", content: "Julia Veresova — Technical Product Owner & Full-Stack AI Engineer" },
       {
         name: "twitter:description",
