@@ -133,6 +133,7 @@ export default function EducationModal({ open, onClose }: Props) {
     <AnimatePresence>
       {open && (
         <motion.div
+          data-lenis-prevent
           className="fixed inset-0 z-[200] flex items-start justify-center overflow-y-auto overscroll-contain bg-black/80 px-4 py-10 backdrop-blur-sm md:py-16"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
