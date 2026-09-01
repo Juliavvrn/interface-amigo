@@ -122,12 +122,14 @@ export default function EducationModal({ open, onClose }: Props) {
       org: 'Alison',
       date: t('Jul 4, 2025', '4 июля 2025'),
       url: 'https://alison.com/certification/check/79e06f9cf2',
+      image: certAlison,
     },
     {
       title: 'AI Ethics for Beginners',
       org: 'Great Learning',
       date: t('Jul 4, 2025', '4 июля 2025'),
       url: 'https://www.mygreatlearning.com/certificate/ACZDRKGF',
+      image: certGreatLearning,
     },
   ]
 
