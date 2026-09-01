@@ -19,7 +19,7 @@ type Lenis = { stop: () => void; start: () => void }
 
 export default function EducationModal({ open, onClose }: Props) {
   const { t } = useI18n()
-  const [preview, setPreview] = useState<{ src: string; x: number; y: number } | null>(null)
+  const [preview, setPreview] = useState<{ src: string; top: number; left: number } | null>(null)
 
   useEffect(() => {
     if (!open) return
