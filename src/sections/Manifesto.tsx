@@ -33,7 +33,7 @@ export default function Manifesto() {
     'Full-cycle software developer and Product Owner with a medical background and hands-on expertise in IT and neurotechnology. I build scalable web and mobile systems and implement AI solutions, including RAG pipelines, multi-provider LLM orchestration and agent-based process automation platforms.\nOver the past three years I have focused on AI-driven MedTech and NeuroTech projects, where complex interdisciplinary challenges must be turned into stable production products.',
     'Разработчик программного обеспечения полного цикла и Product Owner с медицинским образованием и практической экспертизой в IT и нейротехнологиях. Занимаюсь созданием масштабируемых веб- и мобильных систем, а также внедрением ИИ-решений, включая RAG-конвейеры, мультипровайдерную оркестрацию LLM и платформы автоматизации процессов на базе агентов.\nВ последние три года отдаю предпочтение проектам в сферах MedTech и NeuroTech с участием AI, где требуется преобразование сложных междисциплинарных задач в стабильно работающие производственные продукты.'
   )
-  const paragraphs = text.split('\\n')
+  const paragraphs = text.split('\n')
 
   return (
     <section id="studio" ref={ref} className="px-6 py-32 md:px-10 md:py-48">
