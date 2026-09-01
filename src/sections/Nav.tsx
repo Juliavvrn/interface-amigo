@@ -113,7 +113,7 @@ export default function Nav() {
               {links.map((l, i) => (
                 <div key={l.hash} className="overflow-hidden border-b border-[#ece9e4]/10">
                   <motion.div
-                    className="block py-4 font-display text-[clamp(1.9rem,10.5vw,3rem)] font-extrabold uppercase tracking-tighter"
+                    className="block py-4 font-display text-[clamp(1.6rem,7.5vw,3rem)] font-extrabold uppercase tracking-tighter"
                     initial={{ y: '110%' }}
                     animate={{ y: '0%' }}
                     exit={{ y: '110%' }}
