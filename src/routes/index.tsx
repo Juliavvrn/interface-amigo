@@ -15,11 +15,11 @@ export const Route = createFileRoute("/")({
           "Разработка MVP и AI SaaS под ключ, MedTech/NeuroTech платформы, RAG-архитектуры и оркестрация LLM, technical product ownership, full-cycle разработка на React и Supabase. Портфолио и кейсы Юлии Вересовой.",
       },
       { name: "keywords", content: KEYWORDS_META },
-      { property: "og:title", content: "Julia Veresova — AI Product Owner Portfolio" },
+      { property: "og:title", content: "Julia Veresova — Technical Product Owner & Full-Stack AI Engineer" },
       {
         property: "og:description",
         content:
-          "Case studies in AI agents, agentic workflows, RAG orchestration and data architecture — from research to shipped product.",
+          "MVP и AI SaaS под ключ · MedTech/NeuroTech · RAG и LLM-оркестрация · Product Ownership · React & Supabase. Кейсы от исследования до продакшена.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://interface-amigo.lovable.app/" },
