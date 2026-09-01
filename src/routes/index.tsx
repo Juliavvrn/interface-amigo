@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { KEYWORDS_META, SEO_CLUSTERS } from "../lib/seo-keywords";
 import Hero from "../sections/Hero";
 import Manifesto from "../sections/Manifesto";
 import Works from "../sections/Works";
