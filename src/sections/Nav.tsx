@@ -57,7 +57,7 @@ export default function Nav() {
             hash="top"
             data-hover
             onClick={() => handleSectionClick('top')}
-            className="font-display text-lg font-extrabold tracking-tight"
+            className="font-display text-sm font-extrabold tracking-tight sm:text-base md:text-lg"
           >
             JULIA VERESOVA
           </Link>
