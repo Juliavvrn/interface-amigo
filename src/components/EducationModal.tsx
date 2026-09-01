@@ -76,13 +76,6 @@ export default function EducationModal({ open, onClose }: Props) {
 
   const certificates: { title: string; org: string; date: string; url: string; image?: string }[] = [
     {
-      title: 'Fundamental Neuroscience for Neuroimaging',
-      org: 'Johns Hopkins University · Coursera',
-      date: t('Mar 4, 2026', '4 марта 2026'),
-      url: 'https://coursera.org/verify/UKJCL0JN2F91',
-      image: certNeuro,
-    },
-    {
       title: 'Principles of fMRI 1',
       org: 'Johns Hopkins University · Coursera',
       date: t('Mar 6, 2026', '6 марта 2026'),
@@ -95,6 +88,13 @@ export default function EducationModal({ open, onClose }: Props) {
       date: t('Mar 6, 2026', '6 марта 2026'),
       url: 'https://coursera.org/verify/QSC2YYKUAOLI',
       image: certFmri2,
+    },
+    {
+      title: 'Fundamental Neuroscience for Neuroimaging',
+      org: 'Johns Hopkins University · Coursera',
+      date: t('Mar 4, 2026', '4 марта 2026'),
+      url: 'https://coursera.org/verify/UKJCL0JN2F91',
+      image: certNeuro,
     },
     {
       title: 'Lead with Technology and AI',
