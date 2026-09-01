@@ -74,61 +74,53 @@ export default function EducationModal({ open, onClose }: Props) {
     },
   ]
 
-  const certificates: { title: string; org: string; date: string; url: string; image?: string }[] = [
+  const certificates: { title: string; org: string; date: string; image?: string }[] = [
     {
       title: 'Principles of fMRI 1',
       org: 'Johns Hopkins University · Coursera',
       date: t('Mar 6, 2026', '6 марта 2026'),
-      url: 'https://coursera.org/verify/P23W8IJG2FES',
       image: certFmri1,
     },
     {
       title: 'Principles of fMRI 2',
       org: 'Johns Hopkins University · Coursera',
       date: t('Mar 6, 2026', '6 марта 2026'),
-      url: 'https://coursera.org/verify/QSC2YYKUAOLI',
       image: certFmri2,
     },
     {
       title: 'Fundamental Neuroscience for Neuroimaging',
       org: 'Johns Hopkins University · Coursera',
       date: t('Mar 4, 2026', '4 марта 2026'),
-      url: 'https://coursera.org/verify/UKJCL0JN2F91',
       image: certNeuro,
     },
     {
       title: 'Lead with Technology and AI',
       org: 'Harvard Business Review · Coursera',
       date: t('Feb 18, 2026', '18 февраля 2026'),
-      url: 'https://coursera.org/verify/DS9DTA0RV5D6',
       image: certHbr,
     },
     {
       title: 'Human-Centered Artificial Intelligence',
       org: 'Clemson University · Coursera',
       date: t('Jul 26, 2025', '26 июля 2025'),
-      url: 'https://coursera.org/verify/PQQV52E6DWAS',
       image: certClemson,
     },
     {
       title: 'Ethics of AI (2 ECTS)',
       org: 'University of Helsinki',
       date: t('Jul 4, 2025', '4 июля 2025'),
-      url: 'https://certificates.mooc.fi/validate/vjdhc7qpnas',
       image: certHelsinki,
     },
     {
       title: 'AI Governance and Ethics',
       org: 'Alison',
       date: t('Jul 4, 2025', '4 июля 2025'),
-      url: 'https://alison.com/certification/check/79e06f9cf2',
       image: certAlison,
     },
     {
       title: 'AI Ethics for Beginners',
       org: 'Great Learning',
       date: t('Jul 4, 2025', '4 июля 2025'),
-      url: 'https://www.mygreatlearning.com/certificate/ACZDRKGF',
       image: certGreatLearning,
     },
   ]
