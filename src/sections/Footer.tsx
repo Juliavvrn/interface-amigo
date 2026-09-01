@@ -37,14 +37,75 @@ export default function Footer() {
           )}
         </p>
 
-        <button
-          type="button"
-          data-hover
-          onClick={copyEmail}
-          className="link-sweep mt-10 inline-block text-left font-mono2 text-base uppercase tracking-[0.2em] text-[#ece9e4]/80 transition-colors duration-300 hover:text-[#ff4d00] md:text-lg"
-        >
-          {copied ? t('Copied', 'Скопировано') : email}
-        </button>
+        <div className="mt-10 flex flex-wrap items-center gap-6">
+          <button
+            type="button"
+            data-hover
+            onClick={copyEmail}
+            className="link-sweep inline-block text-left font-mono2 text-base uppercase tracking-[0.2em] text-[#ece9e4]/80 transition-colors duration-300 hover:text-[#ff4d00] md:text-lg"
+          >
+            {copied ? t('Copied', 'Скопировано') : email}
+          </button>
+
+          <a
+            href="https://t.me/julianvrn"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-hover
+            aria-label="Telegram"
+            title="Telegram · @julianvrn"
+            className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[#ece9e4]/20 text-[#ece9e4]/60 transition-colors duration-300 hover:border-[#ff4d00]/60 hover:text-[#ff4d00]"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M21.9 4.4 18.9 18.8c-.2 1-.8 1.3-1.7.8l-4.6-3.4-2.2 2.1c-.25.25-.45.45-.9.45l.3-4.6 8.4-7.6c.35-.3-.1-.5-.55-.2L7.4 12.9l-4.5-1.4c-1-.3-1-1 .2-1.45l17.1-6.6c.8-.3 1.5.2 1.7 1.45Z" />
+            </svg>
+          </a>
+        </div>
+      </motion.div>
+
+      <motion.div
+        className="mt-20 max-w-4xl md:mt-24"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <p className="font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#ff4d00]">
+          {t('Engagement Models', 'Форматы работы')}
+        </p>
+
+        <div className="mt-8 divide-y divide-[#ece9e4]/10 border-t border-[#ece9e4]/10">
+          {[
+            {
+              title: 'End-to-End Delivery',
+              desc: t(
+                'Launching an MVP or full product turnkey — from discovery and architecture to production.',
+                'Запуск MVP или продукта под ключ — от Discovery и архитектуры до продакшена.'
+              ),
+            },
+            {
+              title: 'Fractional CPO / Technical PO',
+              desc: t(
+                'Strategic product leadership, architecture oversight, backlog and integrations management.',
+                'Стратегическое ведение продукта, архитектурный надзор, управление бэклогом и интеграциями.'
+              ),
+            },
+            {
+              title: 'Advisory & Architecture Review',
+              desc: t(
+                'Targeted audits of data architecture, RAG pipelines and product strategy.',
+                'Точечный аудит архитектуры данных, RAG-пайплайнов и продуктовой стратегии.'
+              ),
+            },
+          ].map((item) => (
+            <div key={item.title} className="grid gap-2 py-6 md:grid-cols-[minmax(0,320px)_1fr] md:gap-10">
+              <p className="font-mono2 text-xs uppercase tracking-[0.2em] text-[#ece9e4] transition-colors duration-300 md:pt-1">
+                {item.title}
+              </p>
+              <p className="text-sm leading-relaxed text-[#ece9e4]/55">{item.desc}</p>
+            </div>
+          ))}
+        </div>
       </motion.div>
 
       <div className="mt-20 flex items-center justify-between border-t border-[#ece9e4]/10 pt-10 font-mono2 text-[10px] uppercase tracking-[0.25em] text-[#ece9e4]/40">
