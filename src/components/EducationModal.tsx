@@ -74,61 +74,53 @@ export default function EducationModal({ open, onClose }: Props) {
     },
   ]
 
-  const certificates: { title: string; org: string; date: string; url: string; image?: string }[] = [
+  const certificates: { title: string; org: string; date: string; image?: string }[] = [
     {
       title: 'Principles of fMRI 1',
       org: 'Johns Hopkins University · Coursera',
       date: t('Mar 6, 2026', '6 марта 2026'),
-      url: 'https://coursera.org/verify/P23W8IJG2FES',
       image: certFmri1,
     },
     {
       title: 'Principles of fMRI 2',
       org: 'Johns Hopkins University · Coursera',
       date: t('Mar 6, 2026', '6 марта 2026'),
-      url: 'https://coursera.org/verify/QSC2YYKUAOLI',
       image: certFmri2,
     },
     {
       title: 'Fundamental Neuroscience for Neuroimaging',
       org: 'Johns Hopkins University · Coursera',
       date: t('Mar 4, 2026', '4 марта 2026'),
-      url: 'https://coursera.org/verify/UKJCL0JN2F91',
       image: certNeuro,
     },
     {
       title: 'Lead with Technology and AI',
       org: 'Harvard Business Review · Coursera',
       date: t('Feb 18, 2026', '18 февраля 2026'),
-      url: 'https://coursera.org/verify/DS9DTA0RV5D6',
       image: certHbr,
     },
     {
       title: 'Human-Centered Artificial Intelligence',
       org: 'Clemson University · Coursera',
       date: t('Jul 26, 2025', '26 июля 2025'),
-      url: 'https://coursera.org/verify/PQQV52E6DWAS',
       image: certClemson,
     },
     {
       title: 'Ethics of AI (2 ECTS)',
       org: 'University of Helsinki',
       date: t('Jul 4, 2025', '4 июля 2025'),
-      url: 'https://certificates.mooc.fi/validate/vjdhc7qpnas',
       image: certHelsinki,
     },
     {
       title: 'AI Governance and Ethics',
       org: 'Alison',
       date: t('Jul 4, 2025', '4 июля 2025'),
-      url: 'https://alison.com/certification/check/79e06f9cf2',
       image: certAlison,
     },
     {
       title: 'AI Ethics for Beginners',
       org: 'Great Learning',
       date: t('Jul 4, 2025', '4 июля 2025'),
-      url: 'https://www.mygreatlearning.com/certificate/ACZDRKGF',
       image: certGreatLearning,
     },
   ]
@@ -183,19 +175,20 @@ export default function EducationModal({ open, onClose }: Props) {
             <ul className="space-y-4">
               {certificates.map((c) => (
                 <li key={c.title} className="border-t border-[#ece9e4]/12 pt-4">
-                  <a
-                    href={c.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group block transition-colors"
+                  <div
+                    className="group block"
                     onMouseEnter={(e) => {
                       if (!c.image) return
-                      const rect = e.currentTarget.getBoundingClientRect()
+                      const label = e.currentTarget.querySelector('span')
+                      if (!label) return
+                      const rect = label.getBoundingClientRect()
                       setPreview({ src: c.image, top: rect.top, left: rect.right })
                     }}
                     onMouseMove={(e) => {
                       if (!c.image) return
-                      const rect = e.currentTarget.getBoundingClientRect()
+                      const label = e.currentTarget.querySelector('span')
+                      if (!label) return
+                      const rect = label.getBoundingClientRect()
                       setPreview({ src: c.image, top: rect.top, left: rect.right })
                     }}
                     onMouseLeave={() => setPreview(null)}
@@ -206,7 +199,7 @@ export default function EducationModal({ open, onClose }: Props) {
                     <span className="mt-1 block font-mono2 text-[10px] uppercase tracking-[0.2em] text-[#ece9e4]/50">
                       {c.org} · {c.date}
                     </span>
-                  </a>
+                  </div>
                 </li>
               ))}
             </ul>
