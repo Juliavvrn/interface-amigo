@@ -26,6 +26,26 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://interface-amigo.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Services",
+          itemListElement: SEO_CLUSTERS.map((c, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+              "@type": "Service",
+              name: c.cluster,
+              description: c.queries.join("; "),
+              provider: { "@type": "Person", name: "Julia Veresova" },
+            },
+          })),
+        }),
+      },
+    ],
   }),
   component: Home,
 });
