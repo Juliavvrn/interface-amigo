@@ -7,6 +7,8 @@ import certFmri2 from '@/assets/cert-Coursera_QSC2YYKUAOLI.png'
 import certHbr from '@/assets/cert-hbr.png'
 import certClemson from '@/assets/cert-clemson.png'
 import certHelsinki from '@/assets/cert-helsinki.png'
+import certAlison from '@/assets/cert-alison.png'
+import certGreatLearning from '@/assets/cert-greatlearning.png'
 
 interface Props {
   open: boolean
