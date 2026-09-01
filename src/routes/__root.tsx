@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { ALL_KEYWORDS, KEYWORDS_META } from "../lib/seo-keywords";
 import { I18nProvider } from "../i18n";
 import SmoothScroll from "../components/SmoothScroll";
 import Cursor from "../sections/Cursor";
