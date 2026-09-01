@@ -26,7 +26,7 @@ export default function Manifesto() {
   const [educationOpen, setEducationOpen] = useState(false)
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start 1.35', 'end 0.85'],
+    offset: ['start 1.9', 'end 1.05'],
   })
 
   const text = t(
