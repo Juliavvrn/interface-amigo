@@ -8,12 +8,13 @@ import Awards from "../sections/Awards";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Julia Veresova — AI Product Owner Portfolio" },
+      { title: "Julia Veresova — Technical Product Owner & Full-Stack AI Engineer" },
       {
         name: "description",
         content:
-          "Portfolio of Julia Veresova, technical product owner and full-stack AI engineer: voice agents, agentic workflows, RAG orchestration, data architecture and shipped AI products.",
+          "Разработка MVP и AI SaaS под ключ, MedTech/NeuroTech платформы, RAG-архитектуры и оркестрация LLM, technical product ownership, full-cycle разработка на React и Supabase. Портфолио и кейсы Юлии Вересовой.",
       },
+      { name: "keywords", content: KEYWORDS_META },
       { property: "og:title", content: "Julia Veresova — AI Product Owner Portfolio" },
       {
         property: "og:description",
