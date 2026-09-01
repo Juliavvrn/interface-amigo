@@ -85,21 +85,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "google", content: "notranslate" },
       { name: "keywords", content: KEYWORDS_META },
-      { title: "Julia Veresova — AI Product Owner Portfolio" },
+      { title: "Julia Veresova — Technical Product Owner & Full-Stack AI Engineer" },
+      { name: "application-name", content: "Julia Veresova" },
+      { name: "apple-mobile-web-app-title", content: "Julia Veresova" },
+      { name: "theme-color", content: "#0a0a0a" },
       {
         name: "description",
         content:
-          "Portfolio of Julia Veresova: technical product owner and full-stack AI engineer. Case studies on voice agents, agentic workflows, RAG systems and data architecture.",
+          "Портфолио Юлии Вересовой: разработка MVP и AI SaaS под ключ, MedTech и NeuroTech платформы, RAG-архитектуры, оркестрация LLM, full-cycle разработка на React и Supabase.",
       },
       { property: "og:site_name", content: "Julia Veresova" },
-      { property: "og:title", content: "Julia Veresova — AI Product Owner Portfolio" },
+      { property: "og:title", content: "Julia Veresova — Technical Product Owner & Full-Stack AI Engineer" },
       {
         property: "og:description",
         content:
-          "Portfolio and case studies: AI agents, agentic workflows, RAG orchestration, data architecture and product delivery.",
+          "MVP и AI SaaS под ключ · MedTech/NeuroTech · RAG и LLM-оркестрация · Product Ownership · React & Supabase. Кейсы от исследования до продакшена.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "ru_RU" },
+      { property: "og:locale:alternate", content: "en_US" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Julia Veresova — Technical Product Owner & Full-Stack AI Engineer" },
+      {
+        name: "twitter:description",
+        content:
+          "MVP и AI SaaS под ключ · MedTech/NeuroTech · RAG и LLM-оркестрация · Product Ownership · React & Supabase.",
+      },
       { name: "robots", content: "index, follow" },
     ],
     links: [
