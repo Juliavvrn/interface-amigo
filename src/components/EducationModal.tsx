@@ -221,8 +221,8 @@ export default function EducationModal({ open, onClose }: Props) {
                 transition={{ duration: 0.15 }}
                 className="pointer-events-none fixed z-[260] w-[260px] border border-[#ece9e4]/20 bg-[#0a0a0a] p-1 shadow-2xl md:w-[320px]"
                 style={{
-                  left: Math.min(preview.x + 24, window.innerWidth - 340),
-                  top: Math.min(preview.y + 16, window.innerHeight - 260),
+                  left: Math.min(preview.left + 24, window.innerWidth - 340),
+                  top: preview.top,
                 }}
               >
                 <img src={preview.src} alt="" className="block h-auto w-full" />
