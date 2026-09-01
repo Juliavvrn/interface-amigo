@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { ALL_KEYWORDS, KEYWORDS_META } from "../lib/seo-keywords";
 import { I18nProvider } from "../i18n";
 import SmoothScroll from "../components/SmoothScroll";
 import Cursor from "../sections/Cursor";
@@ -83,6 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "google", content: "notranslate" },
+      { name: "keywords", content: KEYWORDS_META },
       { title: "Julia Veresova — AI Product Owner Portfolio" },
       {
         name: "description",
@@ -124,13 +126,49 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           jobTitle: "Technical Product Owner · Full-Stack AI Engineer",
           url: "https://interface-amigo.lovable.app",
           email: "mailto:juliavvrn@gmail.com",
+          address: { "@type": "PostalAddress", addressLocality: "Moscow", addressCountry: "RU" },
+          knowsLanguage: ["ru", "en"],
           knowsAbout: [
+            "MVP development",
+            "AI SaaS",
+            "MedTech",
+            "NeuroTech",
+            "EEG data analysis",
+            "Mental health technology",
             "AI agents",
             "Agentic workflows",
-            "RAG and LLM orchestration",
+            "RAG architecture",
+            "Multi-provider LLM orchestration",
+            "Vector databases",
+            "Cognitive OS",
+            "Synthetic research platforms",
+            "Risk management and audit AI",
+            "Technical Product Ownership",
+            "Fractional CPO",
+            "Product discovery",
+            "Product strategy",
             "Data architecture",
-            "Product management",
+            "React",
+            "Supabase",
+            "PostgreSQL",
+            "Full-cycle product development",
+            ...ALL_KEYWORDS,
           ],
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Product & Engineering Services",
+            itemListElement: [
+              "Быстрая разработка MVP и AI SaaS под ключ",
+              "Разработка MedTech и NeuroTech платформ",
+              "AI-архитектура, RAG и multi-provider LLM orchestration",
+              "Technical Product Ownership и продуктовый консалтинг",
+              "Full-stack разработка и UI/UX сложных систем",
+            ].map((name, i) => ({
+              "@type": "Offer",
+              position: i + 1,
+              itemOffered: { "@type": "Service", name },
+            })),
+          },
         }),
       },
     ],

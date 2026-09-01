@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { KEYWORDS_META, SEO_CLUSTERS } from "../lib/seo-keywords";
 import Hero from "../sections/Hero";
 import Manifesto from "../sections/Manifesto";
 import Works from "../sections/Works";
@@ -7,12 +8,13 @@ import Awards from "../sections/Awards";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Julia Veresova — AI Product Owner Portfolio" },
+      { title: "Julia Veresova — Technical Product Owner & Full-Stack AI Engineer" },
       {
         name: "description",
         content:
-          "Portfolio of Julia Veresova, technical product owner and full-stack AI engineer: voice agents, agentic workflows, RAG orchestration, data architecture and shipped AI products.",
+          "Разработка MVP и AI SaaS под ключ, MedTech/NeuroTech платформы, RAG-архитектуры и оркестрация LLM, technical product ownership, full-cycle разработка на React и Supabase. Портфолио и кейсы Юлии Вересовой.",
       },
+      { name: "keywords", content: KEYWORDS_META },
       { property: "og:title", content: "Julia Veresova — AI Product Owner Portfolio" },
       {
         property: "og:description",
@@ -24,6 +26,26 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://interface-amigo.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Services",
+          itemListElement: SEO_CLUSTERS.map((c, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+              "@type": "Service",
+              name: c.cluster,
+              description: c.queries.join("; "),
+              provider: { "@type": "Person", name: "Julia Veresova" },
+            },
+          })),
+        }),
+      },
+    ],
   }),
   component: Home,
 });
