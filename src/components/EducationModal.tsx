@@ -183,19 +183,20 @@ export default function EducationModal({ open, onClose }: Props) {
             <ul className="space-y-4">
               {certificates.map((c) => (
                 <li key={c.title} className="border-t border-[#ece9e4]/12 pt-4">
-                  <a
-                    href={c.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group block transition-colors"
+                  <div
+                    className="group block"
                     onMouseEnter={(e) => {
                       if (!c.image) return
-                      const rect = e.currentTarget.getBoundingClientRect()
+                      const label = e.currentTarget.querySelector('span')
+                      if (!label) return
+                      const rect = label.getBoundingClientRect()
                       setPreview({ src: c.image, top: rect.top, left: rect.right })
                     }}
                     onMouseMove={(e) => {
                       if (!c.image) return
-                      const rect = e.currentTarget.getBoundingClientRect()
+                      const label = e.currentTarget.querySelector('span')
+                      if (!label) return
+                      const rect = label.getBoundingClientRect()
                       setPreview({ src: c.image, top: rect.top, left: rect.right })
                     }}
                     onMouseLeave={() => setPreview(null)}
@@ -206,7 +207,7 @@ export default function EducationModal({ open, onClose }: Props) {
                     <span className="mt-1 block font-mono2 text-[10px] uppercase tracking-[0.2em] text-[#ece9e4]/50">
                       {c.org} · {c.date}
                     </span>
-                  </a>
+                  </div>
                 </li>
               ))}
             </ul>
