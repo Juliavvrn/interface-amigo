@@ -188,12 +188,16 @@ export default function EducationModal({ open, onClose }: Props) {
                     target="_blank"
                     rel="noreferrer"
                     className="group block transition-colors"
-                    onMouseEnter={(e) =>
-                      c.image && setPreview({ src: c.image, x: e.clientX, y: e.clientY })
-                    }
-                    onMouseMove={(e) =>
-                      c.image && setPreview({ src: c.image, x: e.clientX, y: e.clientY })
-                    }
+                    onMouseEnter={(e) => {
+                      if (!c.image) return
+                      const rect = e.currentTarget.getBoundingClientRect()
+                      setPreview({ src: c.image, top: rect.top, left: rect.right })
+                    }}
+                    onMouseMove={(e) => {
+                      if (!c.image) return
+                      const rect = e.currentTarget.getBoundingClientRect()
+                      setPreview({ src: c.image, top: rect.top, left: rect.right })
+                    }}
                     onMouseLeave={() => setPreview(null)}
                   >
                     <span className="font-display text-sm font-semibold leading-snug transition-colors group-hover:text-[#ff4d00] md:text-base">
