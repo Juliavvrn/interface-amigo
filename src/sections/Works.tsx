@@ -6,6 +6,7 @@ export default function Works() {
   const { lang, t } = useI18n()
   return (
     <section id="works" className="px-6 py-28 md:px-10 md:py-40">
+      <span id="cases" aria-hidden="true" className="sr-only" />
       <div className="mb-14">
         <h2 className="font-display text-5xl font-extrabold uppercase tracking-tighter md:text-7xl">
           {t('Works', 'Кейсы')}
