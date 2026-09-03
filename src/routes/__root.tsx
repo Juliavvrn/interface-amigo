@@ -135,7 +135,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "Person",
           name: "Julia Veresova",
           jobTitle: "Technical Product Owner · Full-Stack AI Engineer",
-          url: "https://interface-amigo.lovable.app",
+          url: "https://juliaveresova.ru",
           email: "mailto:juliavvrn@gmail.com",
           address: { "@type": "PostalAddress", addressLocality: "Moscow", addressCountry: "RU" },
           knowsLanguage: ["ru", "en"],

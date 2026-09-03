@@ -22,12 +22,12 @@ export const Route = createFileRoute("/")({
           "MVP и AI SaaS под ключ · MedTech/NeuroTech · RAG и LLM-оркестрация · Product Ownership · React & Supabase. Кейсы от исследования до продакшена.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://interface-amigo.lovable.app/" },
+      { property: "og:url", content: "https://juliaveresova.ru/" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:image", content: "https://interface-amigo.lovable.app/og-image.jpg" },
+      { property: "og:image", content: "https://juliaveresova.ru/og-image.jpg" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { name: "twitter:image", content: "https://interface-amigo.lovable.app/og-image.jpg" },
+      { name: "twitter:image", content: "https://juliaveresova.ru/og-image.jpg" },
       { name: "twitter:title", content: "Julia Veresova — Technical Product Owner & Full-Stack AI Engineer" },
       {
         name: "twitter:description",
@@ -35,7 +35,7 @@ export const Route = createFileRoute("/")({
           "Разработка MVP и AI SaaS под ключ, MedTech/NeuroTech платформы, RAG и оркестрация LLM, full-cycle разработка на React и Supabase.",
       },
     ],
-    links: [{ rel: "canonical", href: "https://interface-amigo.lovable.app/" }],
+    links: [{ rel: "canonical", href: "https://juliaveresova.ru/" }],
     scripts: [
       {
         type: "application/ld+json",
