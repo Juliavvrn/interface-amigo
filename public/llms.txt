@@ -1,0 +1,21 @@
+# Юлия Вересова
+
+> Портфолио и услуги: разработка MVP и AI SaaS, MedTech и NeuroTech платформ, AI-архитектура (RAG, multi-provider LLM orchestration, agentic workflows), Technical Product Ownership и full-stack разработка.
+
+Сайт-портфолио Юлии Вересовой — Technical Product Owner и Full-Stack AI инженера с медицинским образованием. Специализация: преобразование сложных междисциплинарных задач (MedTech, NeuroTech, AI) в стабильно работающие производственные продукты — от Discovery и архитектуры данных до продакшена. Контакты: juliavvrn@gmail.com, Telegram @julianvrn.
+
+## Pages
+
+- [Главная](/): Обзор компетенций, ключевые кейсы и форматы сотрудничества (End-to-End Delivery, Fractional CPO / Technical PO, Advisory & Architecture Review).
+- [Предиктивный ЭЭГ-мониторинг](/works/neurosignal): Clinical EEG Analysis & Seizure Prediction Platform — анализ ЭЭГ и предсказание эпилептических приступов.
+- [Промышленный мониторинг](/works/industrial-monitoring): Синтетические исследования и AI-агенты для аудита и мониторинга процессов.
+- [Когнитивная операционная система](/works/aiim): Cognitive OS для ИИ-агентов — исследовательская методология и параметры платформы.
+- [Платформа ментального здоровья](/works/mindcare): Clinical-Grade Mental Wellness Assessment Platform — оценка ментального wellness.
+- [Медицинская документация](/works/clinicscribe): AI-ассистент для клинической документации.
+- [Аудит документов](/works/audit-it): AI-платформа автоматизации аудита — парсинг документов и вердикты.
+- [Chromatic Drift](/works/chromatic-drift): Интерактивный веб-проект.
+
+## Optional
+
+- [Sitemap](/sitemap.xml): Полный список страниц сайта.
+- [robots.txt](/robots.txt): Правила индексации для поисковых систем.
