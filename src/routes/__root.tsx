@@ -85,31 +85,31 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "google", content: "notranslate" },
       { name: "keywords", content: KEYWORDS_META },
-      { title: "Julia Veresova — Technical Product Owner & Full-Stack AI Engineer" },
-      { name: "application-name", content: "Julia Veresova" },
-      { name: "apple-mobile-web-app-title", content: "Julia Veresova" },
+      { title: "Юлия Вересова | Разработка MVP, веб-сервисов и AI-решений" },
+      { name: "application-name", content: "Юлия Вересова" },
+      { name: "apple-mobile-web-app-title", content: "Юлия Вересова" },
       { name: "theme-color", content: "#0a0a0a" },
       {
         name: "description",
         content:
-          "Портфолио Юлии Вересовой: разработка MVP и AI SaaS под ключ, MedTech и NeuroTech платформы, RAG-архитектуры, оркестрация LLM, full-cycle разработка на React и Supabase.",
+          "Портфолио и услуги по проектированию и быстрой разработке веб-приложений, запуску MVP и интеграции AI-агентов. Юлия Вересова — IT-архитектура и разработка.",
       },
-      { property: "og:site_name", content: "Julia Veresova" },
-      { property: "og:title", content: "Julia Veresova — Technical Product Owner & Full-Stack AI Engineer" },
+      { property: "og:site_name", content: "Юлия Вересова" },
+      { property: "og:title", content: "Юлия Вересова | Разработка MVP, веб-сервисов и AI-решений" },
       {
         property: "og:description",
         content:
-          "MVP и AI SaaS под ключ · MedTech/NeuroTech · RAG и LLM-оркестрация · Product Ownership · React & Supabase. Кейсы от исследования до продакшена.",
+          "Портфолио и услуги по проектированию и быстрой разработке веб-приложений, запуску MVP и интеграции AI-агентов. Юлия Вересова — IT-архитектура и разработка.",
       },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "ru_RU" },
       { property: "og:locale:alternate", content: "en_US" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Julia Veresova — Technical Product Owner & Full-Stack AI Engineer" },
+      { name: "twitter:title", content: "Юлия Вересова | Разработка MVP, веб-сервисов и AI-решений" },
       {
         name: "twitter:description",
         content:
-          "MVP и AI SaaS под ключ · MedTech/NeuroTech · RAG и LLM-оркестрация · Product Ownership · React & Supabase.",
+          "Портфолио и услуги по проектированию и быстрой разработке веб-приложений, запуску MVP и интеграции AI-агентов. Юлия Вересова — IT-архитектура и разработка.",
       },
       { name: "robots", content: "index, follow" },
       { name: "yandex-verification", content: "cfa8ab9033147c73" },
@@ -138,6 +138,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           jobTitle: "Technical Product Owner · Full-Stack AI Engineer",
           url: "https://interface-amigo.lovable.app",
           email: "mailto:juliavvrn@gmail.com",
+          sameAs: ["https://t.me/julianvrn"],
           address: { "@type": "PostalAddress", addressLocality: "Moscow", addressCountry: "RU" },
           knowsLanguage: ["ru", "en"],
           knowsAbout: [
