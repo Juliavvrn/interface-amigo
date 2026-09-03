@@ -36,10 +36,14 @@ export default function Manifesto() {
   const paragraphs = text.split('\n')
 
   return (
-    <section id="studio" ref={ref} className="px-6 py-32 md:px-10 md:py-48">
+    <section id="studio" ref={ref} aria-labelledby="about-heading" className="px-6 py-32 md:px-10 md:py-48">
+      <h2 id="about-heading" className="sr-only">
+        {t('About Julia Veresova — Technical Product Owner & Full-Stack AI Engineer', 'О Юлии Вересовой — Technical Product Owner и Full-Stack AI Engineer')}
+      </h2>
       <p className="mb-10 font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#ff4d00]">
         {t('About', 'О себе')}
       </p>
+
       <div className="max-w-5xl md:ml-[17%]">
         {paragraphs.map((paragraph, paragraphIndex) => {
           const words = paragraph.split(' ')

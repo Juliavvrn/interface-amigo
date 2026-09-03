@@ -18,8 +18,12 @@ export default function Footer() {
   }
 
   return (
-    <footer id="contact" className="border-t border-[#ece9e4]/10 px-6 pb-8 pt-24 md:px-10 md:pt-36">
+    <footer id="contact" aria-labelledby="contact-heading" className="border-t border-[#ece9e4]/10 px-6 pb-8 pt-24 md:px-10 md:pt-36">
+      <h2 id="contact-heading" className="sr-only">
+        {t('Contact Julia Veresova', 'Контакты Юлии Вересовой')}
+      </h2>
       <p className="font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#ff4d00]">
+
         {t('Got a project?', 'Есть проект?')}
       </p>
 
