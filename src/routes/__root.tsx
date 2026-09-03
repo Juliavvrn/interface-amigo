@@ -112,6 +112,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "MVP и AI SaaS под ключ · MedTech/NeuroTech · RAG и LLM-оркестрация · Product Ownership · React & Supabase.",
       },
       { name: "robots", content: "index, follow" },
+      { name: "yandex-verification", content: "cfa8ab9033147c73" },
     ],
     links: [
       {
