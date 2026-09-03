@@ -11,7 +11,7 @@ export const Route = createFileRoute("/works/$slug")({
     const description = project
       ? (project.description[0]?.en ?? `${project.title.en} — case study by Julia Veresova.`).slice(0, 155)
       : "AI product case study by Julia Veresova — technical product owner and full-stack AI engineer.";
-    const url = `https://interface-amigo.lovable.app/works/${params.slug}`;
+    const url = `https://juliaveresova.ru/works/${params.slug}`;
 
     return {
       meta: [
@@ -21,11 +21,11 @@ export const Route = createFileRoute("/works/$slug")({
         { property: "og:description", content: description },
         { property: "og:type", content: "article" },
         { property: "og:url", content: url },
-        { property: "og:image", content: "https://interface-amigo.lovable.app/og-image.jpg" },
+        { property: "og:image", content: "https://juliaveresova.ru/og-image.jpg" },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: description },
-        { name: "twitter:image", content: "https://interface-amigo.lovable.app/og-image.jpg" },
+        { name: "twitter:image", content: "https://juliaveresova.ru/og-image.jpg" },
       ],
       links: [{ rel: "canonical", href: url }],
     };
