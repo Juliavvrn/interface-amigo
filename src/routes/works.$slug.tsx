@@ -28,7 +28,49 @@ export const Route = createFileRoute("/works/$slug")({
         { name: "twitter:image", content: "https://juliaveresova.ru/og-image.jpg" },
       ],
       links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "CreativeWork",
+                name: title,
+                headline: project?.title.en ?? "Case study",
+                description,
+                url,
+                inLanguage: ["ru", "en"],
+                author: {
+                  "@type": "Person",
+                  name: "Julia Veresova",
+                  url: "https://juliaveresova.ru",
+                },
+                image: "https://juliaveresova.ru/og-image.jpg",
+              },
+              {
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: "Julia Veresova",
+                    item: "https://juliaveresova.ru/",
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: project?.title.en ?? "Case study",
+                    item: url,
+                  },
+                ],
+              },
+            ],
+          }),
+        },
+      ],
     };
   },
+
   component: ProjectPage,
 });
