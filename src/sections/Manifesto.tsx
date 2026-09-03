@@ -37,8 +37,6 @@ export default function Manifesto() {
 
   return (
     <section id="studio" ref={ref} className="px-6 py-32 md:px-10 md:py-48">
-      <span id="about" aria-hidden="true" className="sr-only" />
-      <h2 className="sr-only">Обо мне — опыт и компетенции Юлии Вересовой</h2>
       <p className="mb-10 font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#ff4d00]">
         {t('About', 'О себе')}
       </p>

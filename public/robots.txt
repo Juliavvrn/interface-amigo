@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://juliaveresova.ru/sitemap.xml
+Sitemap: https://interface-amigo.lovable.app/sitemap.xml

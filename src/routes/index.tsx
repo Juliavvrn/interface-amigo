@@ -8,34 +8,34 @@ import Awards from "../sections/Awards";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Юлия Вересова | Разработка MVP, веб-сервисов и AI-решений" },
+      { title: "Julia Veresova — Technical Product Owner & Full-Stack AI Engineer" },
       {
         name: "description",
         content:
-          "Портфолио и услуги по проектированию и быстрой разработке веб-приложений, запуску MVP и интеграции AI-агентов. Юлия Вересова — IT-архитектура и разработка.",
+          "Разработка MVP и AI SaaS под ключ, MedTech/NeuroTech платформы, RAG-архитектуры и оркестрация LLM, technical product ownership, full-cycle разработка на React и Supabase. Портфолио и кейсы Юлии Вересовой.",
       },
       { name: "keywords", content: KEYWORDS_META },
-      { property: "og:title", content: "Юлия Вересова | Разработка MVP, веб-сервисов и AI-решений" },
+      { property: "og:title", content: "Julia Veresova — Technical Product Owner & Full-Stack AI Engineer" },
       {
         property: "og:description",
         content:
-          "Портфолио и услуги по проектированию и быстрой разработке веб-приложений, запуску MVP и интеграции AI-агентов. Юлия Вересова — IT-архитектура и разработка.",
+          "MVP и AI SaaS под ключ · MedTech/NeuroTech · RAG и LLM-оркестрация · Product Ownership · React & Supabase. Кейсы от исследования до продакшена.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://juliaveresova.ru/" },
+      { property: "og:url", content: "https://interface-amigo.lovable.app/" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:image", content: "https://juliaveresova.ru/og-image.jpg" },
+      { property: "og:image", content: "https://interface-amigo.lovable.app/og-image.jpg" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { name: "twitter:image", content: "https://juliaveresova.ru/og-image.jpg" },
-      { name: "twitter:title", content: "Юлия Вересова | Разработка MVP, веб-сервисов и AI-решений" },
+      { name: "twitter:image", content: "https://interface-amigo.lovable.app/og-image.jpg" },
+      { name: "twitter:title", content: "Julia Veresova — Technical Product Owner & Full-Stack AI Engineer" },
       {
         name: "twitter:description",
         content:
-          "Портфолио и услуги по проектированию и быстрой разработке веб-приложений, запуску MVP и интеграции AI-агентов. Юлия Вересова — IT-архитектура и разработка.",
+          "Разработка MVP и AI SaaS под ключ, MedTech/NeuroTech платформы, RAG и оркестрация LLM, full-cycle разработка на React и Supabase.",
       },
     ],
-    links: [{ rel: "canonical", href: "https://juliaveresova.ru/" }],
+    links: [{ rel: "canonical", href: "https://interface-amigo.lovable.app/" }],
     scripts: [
       {
         type: "application/ld+json",
