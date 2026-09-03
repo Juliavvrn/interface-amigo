@@ -1,0 +1,32 @@
+# Julia Veresova
+
+> Портфолио Юлии Вересовой — Technical Product Owner и Full-Stack AI Engineer. Разработка масштабируемых веб- и мобильных продуктов, AI SaaS, MedTech и NeuroTech платформ, RAG-архитектур и мультипровайдерной оркестрации LLM.
+
+Основной сайт: https://juliaveresova.ru/
+Язык сайта: русский и английский
+Контакт: juliavvrn@gmail.com
+Telegram: https://t.me/julianvrn
+
+## Компетенции
+
+- Product Ownership, CJM и UX/UI
+- Голосовые агенты и agentic workflows
+- RAG и оркестрация LLM
+- React и Supabase
+- Архитектура данных, системная архитектура и API
+- Data Science и машинное обучение
+
+## Форматы работы
+
+- End-to-End Delivery: запуск продукта под ключ, от Discovery и архитектуры до продакшена.
+- Fractional CPO / Technical PO: стратегическое ведение продукта, архитектурный надзор, управление бэклогом и интеграциями.
+- Advisory & Architecture Review: аудит архитектуры данных, RAG-пайплайнов и продуктовой стратегии.
+
+## Кейсы
+
+- [Предиктивный ЭЭГ-мониторинг](https://juliaveresova.ru/works/neurosignal): клинический анализ ЭЭГ и прогнозирование приступов.
+- [Платформа синтетических исследований и промышленного мониторинга](https://juliaveresova.ru/works/industrial-monitoring)
+- [Когнитивная операционная система для ИИ-агентов](https://juliaveresova.ru/works/aiim)
+- [MindCare — платформа клинической оценки ментального здоровья](https://juliaveresova.ru/works/mindcare)
+- [ClinicScribe — автоматизация клинической документации](https://juliaveresova.ru/works/clinicscribe)
+- [Audit IT — ИИ-платформа аудита и управления рисками](https://juliaveresova.ru/works/audit-it)
