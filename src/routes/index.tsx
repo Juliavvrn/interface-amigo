@@ -22,12 +22,12 @@ export const Route = createFileRoute("/")({
           "Портфолио и услуги по проектированию и быстрой разработке веб-приложений, запуску MVP и интеграции AI-агентов. Юлия Вересова — IT-архитектура и разработка.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://interface-amigo.lovable.app/" },
+      { property: "og:url", content: "https://juliaveresova.ru/" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:image", content: "https://interface-amigo.lovable.app/og-image.jpg" },
+      { property: "og:image", content: "https://juliaveresova.ru/og-image.jpg" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { name: "twitter:image", content: "https://interface-amigo.lovable.app/og-image.jpg" },
+      { name: "twitter:image", content: "https://juliaveresova.ru/og-image.jpg" },
       { name: "twitter:title", content: "Юлия Вересова | Разработка MVP, веб-сервисов и AI-решений" },
       {
         name: "twitter:description",
@@ -35,7 +35,7 @@ export const Route = createFileRoute("/")({
           "Портфолио и услуги по проектированию и быстрой разработке веб-приложений, запуску MVP и интеграции AI-агентов. Юлия Вересова — IT-архитектура и разработка.",
       },
     ],
-    links: [{ rel: "canonical", href: "https://interface-amigo.lovable.app/" }],
+    links: [{ rel: "canonical", href: "https://juliaveresova.ru/" }],
     scripts: [
       {
         type: "application/ld+json",
