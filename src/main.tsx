@@ -8,8 +8,9 @@ import "./styles.css";
 const queryClient = new QueryClient();
 const router = getRouter();
 
-const rootElement = document.getElementById("root")!;
-if (!rootElement.innerHTML) {
+const rootElement = document.getElementById("root");
+if (rootElement) {
+  rootElement.replaceChildren();
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <React.StrictMode>
