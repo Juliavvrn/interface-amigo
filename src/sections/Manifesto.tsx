@@ -30,8 +30,8 @@ export default function Manifesto() {
   })
 
   const text = t(
-    'Full-cycle software developer and Product Owner with a medical background and hands-on expertise in IT and neurotechnology. I build scalable web and mobile systems and implement AI solutions, including RAG pipelines, multi-provider LLM orchestration and agent-based process automation platforms.',
-    'Разработчик программного обеспечения полного цикла и Product Owner с медицинским образованием и практической экспертизой в IT и нейротехнологиях. Занимаюсь созданием масштабируемых веб- и мобильных систем, а также внедрением ИИ-решений, включая RAG-конвейеры, мультипровайдерную оркестрацию LLM и платформы автоматизации процессов на базе агентов.'
+    'Full-cycle developer, Product Owner and AI ethics & regulatory specialist. Drawing on a medical background and hands-on expertise in neurotechnology, I design scalable architectures and implement complex AI solutions — from RAG pipelines and multi-provider LLM orchestration to agentic platforms. My work spans the full lifecycle of intelligent systems: from research, design and safety validation to production deployment and continuous monitoring.',
+    'Разработчик полного цикла, Product Owner и специалист по этике и правовому регулированию ИИ. Опираясь на медицинское образование и практическую экспертизу в нейротехнологиях, проектирую масштабируемые архитектуры и внедряю сложные ИИ-решения — от RAG-конвейеров и мультипровайдерной оркестрации LLM до агентных платформ. Моя работа охватывает весь жизненный цикл интеллектуальных систем: от исследований, проектирования и валидации безопасности до промышленного развертывания и непрерывного мониторинга.'
   )
   const paragraphs = text.split('\n')
 
