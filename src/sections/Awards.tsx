@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { ArrowUp, ArrowDown } from 'lucide-react'
 import { useI18n } from '@/i18n'
 
 const papers = [
@@ -88,18 +88,7 @@ export default function Awards() {
             </AnimatePresence>
           </div>
 
-          <div className="mt-6 flex justify-end gap-2">
-            <button
-              type="button"
-              aria-label={t('Previous publications', 'Предыдущие публикации')}
-              title={t('Previous publications', 'Предыдущие публикации')}
-              disabled={!canGoBack}
-              onClick={() => setStartIndex((current) => Math.max(0, current - 1))}
-              data-hover
-              className="flex size-11 items-center justify-center border border-[#ece9e4]/20 text-[#ece9e4] transition-colors hover:border-[#ff4d00] hover:text-[#ff4d00] disabled:pointer-events-none disabled:opacity-25"
-            >
-              <ArrowLeft aria-hidden="true" className="size-4" />
-            </button>
+          <div className="mt-6 flex flex-col items-end gap-2">
             <button
               type="button"
               aria-label={t('Next publications', 'Следующие публикации')}
@@ -109,7 +98,18 @@ export default function Awards() {
               data-hover
               className="flex size-11 items-center justify-center border border-[#ece9e4]/20 text-[#ece9e4] transition-colors hover:border-[#ff4d00] hover:text-[#ff4d00] disabled:pointer-events-none disabled:opacity-25"
             >
-              <ArrowRight aria-hidden="true" className="size-4" />
+              <ArrowDown aria-hidden="true" className="size-4" />
+            </button>
+            <button
+              type="button"
+              aria-label={t('Previous publications', 'Предыдущие публикации')}
+              title={t('Previous publications', 'Предыдущие публикации')}
+              disabled={!canGoBack}
+              onClick={() => setStartIndex((current) => Math.max(0, current - 1))}
+              data-hover
+              className="flex size-11 items-center justify-center border border-[#ece9e4]/20 text-[#ece9e4] transition-colors hover:border-[#ff4d00] hover:text-[#ff4d00] disabled:pointer-events-none disabled:opacity-25"
+            >
+              <ArrowUp aria-hidden="true" className="size-4" />
             </button>
           </div>
         </div>
