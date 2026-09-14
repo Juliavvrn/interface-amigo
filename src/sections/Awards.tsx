@@ -50,7 +50,7 @@ export default function Awards() {
           <p className="mb-6 font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#ff4d00]">
             {t('Research', 'Исследования')}
           </p>
-          <p className="max-w-xl text-sm leading-relaxed text-[#ece9e4]/60">
+          <p className="max-w-xl font-display font-semibold text-lg leading-[1.15] tracking-tight text-[#ece9e4]/60 md:text-2xl">
             {t(
               'My research focuses on the epistemology of artificial intelligence, cognitive biases in the perception of language models, and how complex digital systems influence behavior, decision-making, and human–technology interaction. Within this context, I examine the technical foundations of such systems, the psychology of human attachment to AI, trust, safety, action alignment, and the social and political-economic dimensions of interaction at societal scale.',
               'Моя научно-исследовательская деятельность сосредоточена на изучении эпистемологии искусственного интеллекта, анализе когнитивных искажений в восприятии языковых моделей и оценке того, как сложные цифровые системы влияют на паттерны поведения, принятие решений и взаимодействие человека с технологиями. В этом контексте исследуются технические основы систем, психология привязанности человека к ИИ, доверие, безопасность, согласованность действий, а также социальные и политико-экономические аспекты взаимодействия в масштабах общества.'
