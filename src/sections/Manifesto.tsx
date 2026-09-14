@@ -31,7 +31,7 @@ export default function Manifesto() {
 
   const text = t(
     'Full-cycle developer, researcher, AI ethics & regulatory specialist. Drawing on a medical background and hands-on expertise in neurotechnology, I design scalable architectures and implement complex AI solutions — from RAG pipelines and multi-provider LLM orchestration to agentic platforms. My work spans the full lifecycle of intelligent systems: from research, design and safety validation to production deployment and continuous monitoring.',
-    'Разработчик полного цикла, исследователь, специалист по этике и правовому регулированию ИИ. Опираясь на медицинское образование и практическую экспертизу в нейротехнологиях, проектирую масштабируемые архитектуры и внедряю сложные ИИ-решения — от RAG-конвейеров и мультипровайдерной оркестрации LLM до агентных платформ. Моя работа охватывает весь жизненный цикл интеллектуальных систем: от исследований, проектирования и валидации безопасности до промышленного развертывания и непрерывного мониторинга.'
+    'Разработчик полного цикла, исследователь, специалист по этике и правовому регулированию ИИ. Опираясь на медицинское образование и практическую экспертизу в нейротехнологиях, я проектирую масштабируемые архитектуры и внедряю сложные ИИ-решения — от RAG-конвейеров и мультипровайдерной оркестрации LLM до агентных платформ. Моя работа охватывает весь жизненный цикл интеллектуальных систем: от исследований, проектирования и валидации безопасности до промышленного развертывания и непрерывного мониторинга.'
   )
   const paragraphs = text.split('\n')
 
