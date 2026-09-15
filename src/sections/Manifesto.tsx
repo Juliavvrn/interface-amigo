@@ -30,8 +30,8 @@ export default function Manifesto() {
   })
 
   const text = t(
-    'Full-cycle developer, researcher, AI ethics specialist. Drawing on a medical background and hands-on expertise in neurotechnology, I design scalable architectures and implement complex AI solutions — from RAG pipelines and multi-provider LLM orchestration to agentic platforms. My work spans the full lifecycle of intelligent systems: from research, design and safety validation to production deployment and continuous monitoring.',
-    'Разработчик полного цикла, исследователь, специалист по этике ИИ. Опираясь на медицинское образование и практическую экспертизу в нейротехнологиях, я проектирую масштабируемые архитектуры и внедряю сложные ИИ-решения — от RAG-конвейеров и мультипровайдерной оркестрации LLM до агентных платформ. Моя работа охватывает весь жизненный цикл интеллектуальных систем: от исследований, проектирования и валидации безопасности до промышленного развертывания и непрерывного мониторинга.'
+    'Technical Product Owner with an engineering background in applied machine learning and a medical education. I deliver turnkey projects in MedTech, NeuroTech and AI: from applied R&D and self-assembled working MVPs to coordinating the engineering team and bringing solutions to production.\nI define technical specifications, API contracts and acceptance criteria, bridging the gap between business goals and development. I specialize in human-machine interaction design, deploying agentic pipelines (LLM, RAG, multi-agent scenarios), and validating model reliability along with protecting sensitive data.',
+    'Technical Product Owner с инженерным бэкграундом в прикладном машинном обучении и медицинским образованием. Реализую проекты под ключ в сферах MedTech, NeuroTech и AI: от прикладных R&D-исследований и самостоятельной сборки работающих MVP до синхронизации инженерной команды и вывода решений в промышленную эксплуатацию.\nФормирую технические спецификации, API-контракты и критерии приемки, устраняя разрыв между бизнес-задачами и разработкой. Специализируюсь на проектировании взаимодействия человек-машина, внедрении агентных пайплайнов (LLM, RAG, мультиагентные сценарии), а также на валидации надежности моделей и защите чувствительных данных.'
   )
   const paragraphs = text.split('\n')
 
@@ -71,7 +71,7 @@ export default function Manifesto() {
           {t('Education', 'Образование')}
         </button>
         <p className="mt-14 max-w-4xl font-mono2 text-[10px] uppercase leading-[2] tracking-[0.2em] text-[#ece9e4]/50 md:text-[11px]">
-          PRODUCT OWNERSHIP · CJM &amp; UX/UI · VOICE AGENTS &amp; AGENTIC WORKFLOWS · RAG &amp; LLM ORCHESTRATION · REACT &amp; SUPABASE · DATA ARCHITECTURE · SYSTEM ARCHITECTURE &amp; APIS · DATA SCIENCE &amp; ML
+          TECHNICAL PRODUCT OWNERSHIP · END-TO-END DELIVERY · HUMAN-MACHINE INTERACTION · AGENTIC WORKFLOWS & LLM · RAG PIPELINES · PYTHON & REST APIS · DATA SCIENCE & ML · AI SAFETY & COMPLIANCE
         </p>
       </div>
       <EducationModal open={educationOpen} onClose={() => setEducationOpen(false)} />
