@@ -88,7 +88,25 @@ export const SEO_CLUSTERS: { cluster: string; queries: string[] }[] = [
       "разработка b2b saas платформ для автоматизации аудита",
     ],
   },
+  {
+    cluster: "Целевые роли, HMI и этика ИИ",
+    queries: [
+      "technical product owner ai medtech",
+      "технический продакт оунер вакансия контракт",
+      "tpo technical po full-time contract",
+      "r&d product owner наукоемкие продукты",
+      "ai product owner с медицинским образованием",
+      "взаимодействие человек-машина hmi проектирование",
+      "human-machine interaction специалист",
+      "постановка тз acceptance criteria api контракты",
+      "агентные сценарии agentic workflows llm rag",
+      "аудит надежности моделей ai safety этика ии",
+      "консультации по этике искусственного интеллекта",
+      "защита чувствительных данных medtech neurotech",
+    ],
+  },
 ];
+
 
 export const ALL_KEYWORDS = SEO_CLUSTERS.flatMap((c) => c.queries);
 
