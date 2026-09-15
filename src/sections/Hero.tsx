@@ -23,7 +23,7 @@ export default function Hero() {
 
   return (
     <section id="top" ref={ref} className="relative flex min-h-screen flex-col justify-between overflow-hidden px-6 pb-8 pt-28 md:px-10">
-      <motion.div style={{ y, opacity }} className="mt-[30px] flex flex-1 flex-col justify-start gap-8 md:gap-12">
+      <motion.div style={{ y, opacity }} className="flex flex-1 flex-col justify-center gap-8 md:gap-12">
         <motion.p
           className="font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#ece9e4]/60"
           initial={{ opacity: 0 }}
