@@ -50,12 +50,17 @@ export default function Awards() {
           <p className="mb-6 font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#ff4d00]">
             {t('Research', 'Исследования')}
           </p>
-          <p className="max-w-xl font-display font-semibold text-lg leading-[1.15] tracking-tight text-[#ece9e4]/60 md:text-2xl">
-            {t(
-              'My research focuses on the epistemology of artificial intelligence, cognitive biases in the perception of language models, and how complex digital systems influence behavior, decision-making, and human–technology interaction. Within this context, I examine the technical foundations of such systems, the psychology of human attachment to AI, trust, safety, action alignment, and the social and political-economic dimensions of interaction at societal scale.',
-              'Моя научно-исследовательская деятельность сосредоточена на изучении эпистемологии искусственного интеллекта, анализе когнитивных искажений в восприятии языковых моделей и оценке того, как сложные цифровые системы влияют на паттерны поведения, принятие решений и взаимодействие человека с технологиями. В этом контексте исследуются технические основы систем, психология привязанности человека к ИИ, доверие, безопасность, согласованность действий, а также социальные и политико-экономические аспекты взаимодействия в масштабах общества.'
-            )}
-          </p>
+          {t(
+            'My research lies at the intersection of human–machine interaction (HMI), cognitive science, and the reliability of applied ML models. I study the calibration of human trust in neural-network outputs, cognitive biases when working with LLMs, and the permissible boundaries of autonomy for agents and digital personalities.\nThe practical goal of this R&D is translating analytical findings into strict technical requirements: model safety metrics, protection from manipulative mechanics, and algorithmic constraints for the safe deployment of generative AI in real-world products.',
+            'Моя научно-исследовательская деятельность сосредоточена на стыке взаимодействия человек-машина (HMI), когнитивных наук и надежности прикладных ML-моделей. Я исследую калибровку доверия человека к выводам нейросетей, когнитивные искажения при работе с LLM и допустимые границы автономности агентов и цифровых личностей.\nПрактическая цель этих R&D-исследований — перевод аналитических выводов в строгие технические требования: метрики безопасности моделей, защиту от манипулятивных механик и алгоритмические ограничения для безопасного внедрения генеративного ИИ в реальные продукты.'
+          ).split('\n').map((paragraph, i) => (
+            <p
+              key={i}
+              className={`max-w-xl font-display font-semibold leading-[1.15] tracking-tight text-[#ece9e4]/60 ${i === 0 ? 'text-lg md:text-2xl' : 'mt-8 text-base md:text-xl'}`}
+            >
+              {paragraph}
+            </p>
+          ))}
         </div>
 
         <div>
