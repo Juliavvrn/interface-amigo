@@ -39,7 +39,7 @@ export default function Hero() {
           <h1 className="font-display font-extrabold leading-[0.9] tracking-tighter">
             <span className="block overflow-hidden">
               <motion.span
-                className="block text-[7vw] md:text-[5vw]"
+                className="block text-[5vw] md:text-[3.4vw] whitespace-nowrap"
                 custom={0}
                 variants={lineAnim}
                 initial="hidden"
@@ -50,13 +50,24 @@ export default function Hero() {
             </span>
             <span className="block overflow-hidden">
               <motion.span
-                className="block text-[7vw] md:text-[5vw]"
+                className="block text-[5vw] md:text-[3.4vw] whitespace-nowrap"
                 custom={1}
                 variants={lineAnim}
                 initial="hidden"
                 animate="show"
               >
-                {t('and full-cycle product development in ', 'и разработка продуктов полного цикла в ')}
+                {t(LINE2.en, LINE2.ru)}
+              </motion.span>
+            </span>
+            <span className="block overflow-hidden">
+              <motion.span
+                className="block text-[5vw] md:text-[3.4vw] whitespace-nowrap"
+                custom={2}
+                variants={lineAnim}
+                initial="hidden"
+                animate="show"
+              >
+                {t(LINE3_PRE.en, LINE3_PRE.ru)}
                 <span className="text-[#ff4d00]">MedTech, NeuroTech, AI</span>
               </motion.span>
             </span>
