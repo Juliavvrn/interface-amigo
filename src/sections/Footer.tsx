@@ -36,8 +36,8 @@ export default function Footer() {
       >
         <p className="font-display text-[5vw] font-medium leading-[1.05] tracking-tight text-[#ece9e4] md:text-[2.6vw]">
           {t(
-            'Open to Technical Product Owner roles (full-time / contract) and collaboration on targeted projects in MedTech, NeuroTech and applied AI',
-            'Открыта к предложениям на позицию Technical Product Owner (штат / контракт), а также к сотрудничеству над целевыми проектами в MedTech, NeuroTech и прикладном AI'
+            'Open to Technical Product Owner roles (full-time / contract) and collaboration on targeted projects in MedTech, NeuroTech and AI',
+            'Открыта к предложениям на позицию Technical Product Owner (штат / контракт), а также к сотрудничеству над целевыми проектами в MedTech, NeuroTech и AI'
           )}
         </p>
 

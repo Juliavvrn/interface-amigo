@@ -1354,7 +1354,7 @@ const _projects: Project[] = [
   {
     slug: 'neurosignal',
     title: L('Predictive EEG Monitoring', 'Предиктивный ЭЭГ-мониторинг'),
-    category: L('Neurotechnology · Applied R&D', 'Нейротехнологии · Прикладной R&D'),
+    category: L('Neurotechnology · R&D', 'Нейротехнологии · R&D'),
     domain: L('MedTech / Biosignal Processing', 'MedTech / Обработка биосигналов'),
     stack: L('React · TypeScript · WebAssembly (DSP) · WebGL · ONNX Runtime · Python / FastAPI', 'React · TypeScript · WebAssembly (DSP) · WebGL · ONNX Runtime · Python / FastAPI'),
     year: '2026',
@@ -1371,7 +1371,7 @@ const _projects: Project[] = [
         'Клиническая электроэнцефалография высокого разрешения генерирует многоканальные временные ряды колоссального объема. Ручная расшифровка многосуточного ЭЭГ-мониторинга врачом-нейрофизиологом требует часов рутинного визуального скрининга для выявления единичных эпилептиформных разрядов.'
       ),
       L(
-        'The project sits between applied engineering and a professional upskilling track in neurotechnology: I designed the architecture and built a platform for intelligent analysis and preprocessing of brain bioelectrical activity, adapting Neural Systems Lab (University of Washington) research to Russian clinical protocols and functional diagnostics standards.',
+        'The project sits between engineering and a professional upskilling track in neurotechnology: I designed the architecture and built a platform for intelligent analysis and preprocessing of brain bioelectrical activity, adapting Neural Systems Lab (University of Washington) research to Russian clinical protocols and functional diagnostics standards.',
         'Проект выполнен на стыке практической разработки и программы повышения квалификации в сфере нейротехнологий и программной инженерии: мне удалось спроектировать архитектуру и реализовать платформу интеллектуального анализа и препроцессинга биоэлектрической активности мозга, адаптировав исследовательские наработки Лаборатории нейронных систем Вашингтонского университета (Neural Systems Lab, University of Washington) под клинические протоколы и технологические стандарты российской функциональной диагностики.'
       ),
     ],
@@ -1506,7 +1506,7 @@ const _projects: Project[] = [
             ),
           },
           {
-            title: L('Persona 02 · clinical researcher, applied neuroscience', 'Персона 02 · клинический исследователь, прикладная нейронаука'),
+            title: L('Persona 02 · clinical researcher, neuroscience', 'Персона 02 · клинический исследователь, нейронаука'),
             body: L(
               'Goal: analyse precursors of a generalised discharge for timely preventive intervention. Obstacle: academic models are overfitted to one device and fail on heterogeneous data.',
               'Цель: анализ предвестников генерализованного разряда для своевременного превентивного вмешательства. Барьер: академические модели часто переобучены под один конкретный прибор и дают сбой на гетерогенных данных.'
@@ -1946,8 +1946,8 @@ const _projects: Project[] = [
             'Внешний интерфейс спроектирован как совместимый с OpenAI: запрос чата с ключом доступа, моделью, сообщениями, необязательной потоковой передачей и внешней сессией. Запросы записываются в историю диалогов, счётчики увеличиваются, а ошибки преобразуются в понятные ответы клиента. Один и тот же агент становится доступен игровому серверу, веб-приложению, интерфейсу поддержки или рабочему процессу в n8n.'
           ),
           L(
-            'AIIM remains an evolving research initiative and a live implementation of the methodology. The public platform at ai-im.tech provides the applied layer, while the research materials document the model, parameter tables, verification logic, and scenarios developed from medical and psychological practice.',
-            'AIIM остаётся развивающейся исследовательской инициативой и действующей реализацией методологии. Публичная платформа на ai-im.tech представляет прикладной слой, а исследовательские материалы описывают модель, таблицы параметров, логику верификации и сценарии, разработанные на основе медицинской и психологической практики.'
+            'AIIM remains an evolving research initiative and a live implementation of the methodology. The public platform at ai-im.tech provides the practical layer, while the research materials document the model, parameter tables, verification logic, and scenarios developed from medical and psychological practice.',
+            'AIIM остаётся развивающейся исследовательской инициативой и действующей реализацией методологии. Публичная платформа на ai-im.tech представляет практический слой, а исследовательские материалы описывают модель, таблицы параметров, логику верификации и сценарии, разработанные на основе медицинской и психологической практики.'
           ),
         ],
         findings: [

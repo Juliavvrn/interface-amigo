@@ -69,8 +69,8 @@ export default function Hero() {
             transition={{ delay: 1.1, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
             {t(
-              'Full cycle of digital product creation: from applied research and MVP assembly to turnkey project launch with a development team. I design human-machine interaction, validate ML models for medical and neurotechnology tasks, and translate business requirements into strict technical specifications.',
-              'Полный цикл создания цифровых решений: от прикладных исследований и сборки MVP до запуска проектов под ключ с командой разработки. Проектирую взаимодействие человек-машина, валидирую ML-модели для медицинских и нейротехнологических задач, перевожу требования бизнеса в строгие технические спецификации.'
+              'Full cycle of digital product creation: from research and MVP assembly to turnkey project launch with a development team. I design human-machine interaction, validate ML models for medical and neurotechnology tasks, and translate business requirements into strict technical specifications.',
+              'Полный цикл создания цифровых решений: от исследований и сборки MVP до запуска проектов под ключ с командой разработки. Проектирую взаимодействие человек-машина, валидирую ML-модели для медицинских и нейротехнологических задач, перевожу требования бизнеса в строгие технические спецификации.'
             )}
           </motion.p>
 
