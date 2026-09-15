@@ -2,8 +2,8 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import { useI18n } from '@/i18n'
 
-const LINE1 = { en: 'Building complex systems', ru: 'Создаю сложные системы' }
-const LINE2 = { en: 'in MedTech, NeuroTech & AI.', ru: 'в MedTech, NeuroTech и AI.' }
+const LINE1 = { en: 'Turnkey development of science-intensive products:', ru: 'Разработка наукоемких продуктов под ключ:' }
+const LINE2 = { en: 'MedTech, NeuroTech & applied AI', ru: 'MedTech, NeuroTech и прикладной AI' }
 
 const lineAnim = {
   hidden: { y: '110%' },
