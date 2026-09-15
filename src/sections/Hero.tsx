@@ -3,6 +3,8 @@ import { useRef } from 'react'
 import { useI18n } from '@/i18n'
 
 const LINE1 = { en: 'Product strategy consulting', ru: 'Консалтинг по продуктовой стратегии' }
+const LINE2 = { en: 'and full-cycle product development', ru: 'и разработка продуктов полного цикла' }
+const LINE3_PRE = { en: 'in ', ru: 'в ' }
 
 const lineAnim = {
   hidden: { y: '110%' },
