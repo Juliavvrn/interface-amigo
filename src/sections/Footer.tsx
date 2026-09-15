@@ -34,7 +34,7 @@ export default function Footer() {
         viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
       >
-        <p className="font-display text-[5vw] font-medium leading-[1.05] tracking-tight text-[#ece9e4] md:text-[2.6vw]">
+        <p className="font-display text-[clamp(13px,2.9vw,30px)] font-medium leading-[1.05] tracking-tight text-[#ece9e4]">
           {t(
             'Open to Technical Product Owner roles (full-time / contract) and collaboration on targeted projects in MedTech, NeuroTech and AI',
             'Открыта к предложениям на позицию Technical Product Owner (штат / контракт), а также к сотрудничеству над целевыми проектами в MedTech, NeuroTech и AI'
