@@ -36,8 +36,8 @@ export default function Footer() {
       >
         <p className="font-display text-[5vw] font-medium leading-[1.05] tracking-tight text-[#ece9e4] md:text-[2.6vw]">
           {t(
-            'For collaboration, consulting or project work, you can contact me directly via email',
-            'Для сотрудничества, консультаций или проектной работы вы можете связаться со мной напрямую по электронной почте'
+            'Open to Technical Product Owner roles (full-time / contract) and collaboration on targeted projects in MedTech, NeuroTech and applied AI',
+            'Открыта к предложениям на позицию Technical Product Owner (штат / контракт), а также к сотрудничеству над целевыми проектами в MedTech, NeuroTech и прикладном AI'
           )}
         </p>
 
@@ -83,22 +83,22 @@ export default function Footer() {
             {
               title: 'End-to-End Delivery',
               desc: t(
-                'Launching an MVP or full product turnkey — from discovery and architecture to production.',
-                'Запуск MVP или продукта под ключ — от Discovery и архитектуры до продакшена.'
+                'End-to-end delivery of products and MVPs: from hypothesis validation and engineering prototyping to handoff to development and release.',
+                'Реализация продуктов и MVP под ключ: от валидации гипотез и инженерного прототипирования до передачи в разработку и вывода решения в релиз.'
               ),
             },
             {
-              title: 'Fractional CPO / Technical PO',
+              title: 'Technical Product Owner (Full-time / Contract)',
               desc: t(
-                'Strategic product leadership, architecture oversight, backlog and integrations management.',
-                'Стратегическое ведение продукта, архитектурный надзор, управление бэклогом и интеграциями.'
+                'Embedded in the team: decomposing business requirements, drafting technical specs, API contracts and acceptance criteria.',
+                'Работа в контуре команды: декомпозиция бизнес-требований, составление технических спецификаций, API-контрактов и критериев приемки (Acceptance Criteria).'
               ),
             },
             {
-              title: 'Advisory & Architecture Review',
+              title: 'AI Strategy & Ethics Advisory',
               desc: t(
-                'Targeted audits of data architecture, RAG pipelines and product strategy.',
-                'Точечный аудит архитектуры данных, RAG-пайплайнов и продуктовой стратегии.'
+                'Product strategy audit and consulting: ethical risk expertise, reviewing model behavior logic and human-machine interaction scenarios. Defining acceptable AI boundaries, preventing manipulative mechanics and forming recommendations for safe integration into product.',
+                'Аудит продуктовой стратегии и консультации: экспертиза этических рисков, проверка логики поведения моделей и сценариев взаимодействия человек-машина. Определение допустимых границ работы ИИ, предотвращение манипулятивных механик и формирование рекомендаций по безопасной интеграции решений в продукт.'
               ),
             },
           ].map((item) => (
