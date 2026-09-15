@@ -88,7 +88,7 @@ export default function Footer() {
               ),
             },
             {
-              title: 'Technical Product Owner (Full-time / Contract)',
+              title: 'Technical Product Owner\n(Full-time / Contract)',
               desc: t(
                 'Embedded in the team: decomposing business requirements, drafting technical specs, API contracts and acceptance criteria.',
                 'Работа в контуре команды: декомпозиция бизнес-требований, составление технических спецификаций, API-контрактов и критериев приемки (Acceptance Criteria).'
