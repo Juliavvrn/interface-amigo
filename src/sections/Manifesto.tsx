@@ -71,7 +71,7 @@ export default function Manifesto() {
           {t('Education', 'Образование')}
         </button>
         <p className="mt-14 max-w-4xl font-mono2 text-[10px] uppercase leading-[2] tracking-[0.2em] text-[#ece9e4]/50 md:text-[11px]">
-          PRODUCT OWNERSHIP · CJM &amp; UX/UI · VOICE AGENTS &amp; AGENTIC WORKFLOWS · RAG &amp; LLM ORCHESTRATION · REACT &amp; SUPABASE · DATA ARCHITECTURE · SYSTEM ARCHITECTURE &amp; APIS · DATA SCIENCE &amp; ML
+          TECHNICAL PRODUCT OWNERSHIP · END-TO-END DELIVERY · HUMAN-MACHINE INTERACTION · AGENTIC WORKFLOWS & LLM · RAG PIPELINES · PYTHON & REST APIS · DATA SCIENCE & ML · AI SAFETY & COMPLIANCE
         </p>
       </div>
       <EducationModal open={educationOpen} onClose={() => setEducationOpen(false)} />
