@@ -88,7 +88,7 @@ export default function Footer() {
               ),
             },
             {
-              title: 'Technical Product Owner (Full-time / Contract)',
+              title: 'Technical Product Owner\n(Full-time / Contract)',
               desc: t(
                 'Embedded in the team: decomposing business requirements, drafting technical specs, API contracts and acceptance criteria.',
                 'Работа в контуре команды: декомпозиция бизнес-требований, составление технических спецификаций, API-контрактов и критериев приемки (Acceptance Criteria).'
@@ -103,7 +103,7 @@ export default function Footer() {
             },
           ].map((item) => (
             <div key={item.title} className="grid gap-2 py-6 md:grid-cols-[minmax(0,320px)_1fr] md:gap-10">
-              <p className="font-mono2 text-xs uppercase tracking-[0.2em] text-[#ece9e4] transition-colors duration-300 md:pt-1">
+              <p className="font-mono2 text-xs uppercase tracking-[0.2em] text-[#ece9e4] transition-colors duration-300 md:pt-1 whitespace-pre-line">
                 {item.title}
               </p>
               <p className="text-sm leading-relaxed text-[#ece9e4]/55">{item.desc}</p>
