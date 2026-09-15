@@ -2,8 +2,8 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import { useI18n } from '@/i18n'
 
-const LINE1 = { en: 'Turnkey development of science-intensive products:', ru: 'Разработка наукоемких продуктов под ключ:' }
-const LINE2 = { en: 'MedTech, NeuroTech & applied AI', ru: 'MedTech, NeuroTech и прикладной AI' }
+const LINE1 = { en: 'Full cycle of digital product creation:', ru: 'Полный цикл создания цифровых решений:' }
+const LINE2 = { en: 'from research and MVP assembly to turnkey project launch', ru: 'от исследований и сборки MVP до запуска проектов под ключ' }
 
 const lineAnim = {
   hidden: { y: '110%' },
@@ -69,8 +69,8 @@ export default function Hero() {
             transition={{ delay: 1.1, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
             {t(
-              'Full cycle of digital product creation: from research and MVP assembly to turnkey project launch with a development team. I design human-machine interaction, validate ML models for medical and neurotechnology tasks, and translate business requirements into strict technical specifications.',
-              'Полный цикл создания цифровых решений: от исследований и сборки MVP до запуска проектов под ключ с командой разработки. Проектирую взаимодействие человек-машина, валидирую ML-модели для медицинских и нейротехнологических задач, перевожу требования бизнеса в строгие технические спецификации.'
+              'I design human-machine interaction, validate ML models for medical and neurotechnology tasks, and translate business requirements into clear technical specifications.',
+              'Проектирую взаимодействие человек-машина, валидирую ML-модели для медицинских и нейротехнологических задач, перевожу требования бизнеса в понятные технические спецификации.'
             )}
           </motion.p>
 
