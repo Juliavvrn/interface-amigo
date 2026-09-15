@@ -2,8 +2,8 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import { useI18n } from '@/i18n'
 
-const LINE1 = { en: 'Full cycle of digital product creation:', ru: 'Полный цикл создания цифровых решений:' }
-const LINE2 = { en: 'from research and MVP assembly to turnkey project launch', ru: 'от исследований и сборки MVP до запуска проектов под ключ' }
+const LINE1 = { en: 'Product strategy consulting', ru: 'Консалтинг по продуктовой стратегии' }
+const LINE2 = { en: 'and full-cycle product development in MedTech, NeuroTech, AI', ru: 'и разработка продуктов полного цикла в MedTech, NeuroTech, AI' }
 
 const lineAnim = {
   hidden: { y: '110%' },
@@ -61,20 +61,6 @@ export default function Hero() {
           </h1>
         </div>
 
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <motion.p
-            className="max-w-md text-sm leading-relaxed text-[#ece9e4]/70 -mt-2.5 md:mt-0 md:text-base"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.1, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          >
-            {t(
-              'I design human-machine interaction, validate ML models for medical and neurotechnology tasks, and translate business requirements into clear technical specifications.',
-              'Проектирую взаимодействие человек-машина, валидирую ML-модели для медицинских и нейротехнологических задач, перевожу требования бизнеса в понятные технические спецификации.'
-            )}
-          </motion.p>
-
-        </div>
       </motion.div>
     </section>
   )
