@@ -39,7 +39,7 @@ export default function Hero() {
           <h1 className="font-display font-extrabold leading-[0.9] tracking-tighter">
             <span className="block overflow-hidden">
               <motion.span
-                className="block text-[5.5vw] md:text-[4vw]"
+                className="block text-[6vw] md:text-[5vw]"
                 custom={0}
                 variants={lineAnim}
                 initial="hidden"
@@ -50,7 +50,7 @@ export default function Hero() {
             </span>
             <span className="block overflow-hidden">
               <motion.span
-                className="block text-[5.5vw] md:text-[4vw]"
+                className="block text-[6vw] md:text-[5vw]"
                 custom={1}
                 variants={lineAnim}
                 initial="hidden"
@@ -61,7 +61,7 @@ export default function Hero() {
             </span>
             <span className="block overflow-hidden">
               <motion.span
-                className="block text-[5.5vw] md:text-[4vw]"
+                className="block text-[6vw] md:text-[5vw]"
                 custom={2}
                 variants={lineAnim}
                 initial="hidden"
