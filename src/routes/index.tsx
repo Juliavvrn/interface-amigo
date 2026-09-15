@@ -8,14 +8,14 @@ import Awards from "../sections/Awards";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Julia Veresova — Technical Product Owner & Full-Stack AI Engineer" },
+      { title: "Юлия Вересова — Technical Product Owner | AI, MedTech & NeuroTech" },
       {
         name: "description",
         content:
           "Разработка MVP и AI SaaS под ключ, MedTech/NeuroTech платформы, RAG-архитектуры и оркестрация LLM, technical product ownership, full-cycle разработка на React и Supabase. Портфолио и кейсы Юлии Вересовой.",
       },
       { name: "keywords", content: KEYWORDS_META },
-      { property: "og:title", content: "Julia Veresova — Technical Product Owner & Full-Stack AI Engineer" },
+      { property: "og:title", content: "Юлия Вересова — Technical Product Owner | AI, MedTech & NeuroTech" },
       {
         property: "og:description",
         content:
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/")({
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { name: "twitter:image", content: "https://juliaveresova.ru/og-image.jpg" },
-      { name: "twitter:title", content: "Julia Veresova — Technical Product Owner & Full-Stack AI Engineer" },
+      { name: "twitter:title", content: "Юлия Вересова — Technical Product Owner | AI, MedTech & NeuroTech" },
       {
         name: "twitter:description",
         content:

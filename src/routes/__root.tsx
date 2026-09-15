@@ -85,7 +85,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "google", content: "notranslate" },
       { name: "keywords", content: KEYWORDS_META },
-      { title: "Julia Veresova — Technical Product Owner & Full-Stack AI Engineer" },
+      { title: "Юлия Вересова — Technical Product Owner | AI, MedTech & NeuroTech" },
       { name: "application-name", content: "Julia Veresova" },
       { name: "apple-mobile-web-app-title", content: "Julia Veresova" },
       { name: "theme-color", content: "#0a0a0a" },
@@ -95,7 +95,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Портфолио Юлии Вересовой: разработка MVP и AI SaaS под ключ, MedTech и NeuroTech платформы, RAG-архитектуры, оркестрация LLM, full-cycle разработка на React и Supabase.",
       },
       { property: "og:site_name", content: "Julia Veresova" },
-      { property: "og:title", content: "Julia Veresova — Technical Product Owner & Full-Stack AI Engineer" },
+      { property: "og:title", content: "Юлия Вересова — Technical Product Owner | AI, MedTech & NeuroTech" },
       {
         property: "og:description",
         content:
@@ -105,7 +105,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:locale", content: "ru_RU" },
       { property: "og:locale:alternate", content: "en_US" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Julia Veresova — Technical Product Owner & Full-Stack AI Engineer" },
+      { name: "twitter:title", content: "Юлия Вересова — Technical Product Owner | AI, MedTech & NeuroTech" },
       {
         name: "twitter:description",
         content:
@@ -136,7 +136,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "Person",
           name: "Julia Veresova",
-          jobTitle: "Technical Product Owner · Full-Stack AI Engineer",
+          jobTitle: "Technical Product Owner · AI & NeuroTech · Full-Cycle Development",
           url: "https://juliaveresova.ru",
           email: "mailto:juliavvrn@gmail.com",
           address: { "@type": "PostalAddress", addressLocality: "Moscow", addressCountry: "RU" },

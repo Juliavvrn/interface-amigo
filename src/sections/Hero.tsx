@@ -30,7 +30,7 @@ export default function Hero() {
           transition={{ delay: 0.9, duration: 1 }}
         >
           <span translate="no" className="notranslate" lang="en">
-            TECHNICAL PRODUCT OWNER · FULL-STACK AI ENGINEER
+            TECHNICAL PRODUCT OWNER · AI & NEUROTECH · FULL-CYCLE DEVELOPMENT
           </span>
         </motion.p>
 
@@ -69,8 +69,8 @@ export default function Hero() {
             transition={{ delay: 1.1, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
             {t(
-              'Product strategy consulting, database architecture design and full-cycle delivery\nfrom idea to production.',
-              'Консалтинг по продуктовой стратегии, проектирование архитектуры баз данных и запуск решений полного цикла\nот идеи до продакшена.'
+              'Full cycle of digital product creation: from applied research and MVP assembly to turnkey project launch with a development team. I design human-machine interaction, validate ML models for medical and neurotechnology tasks, and translate business requirements into strict technical specifications.',
+              'Полный цикл создания цифровых решений: от прикладных исследований и сборки MVP до запуска проектов под ключ с командой разработки. Проектирую взаимодействие человек-машина, валидирую ML-модели для медицинских и нейротехнологических задач, перевожу требования бизнеса в строгие технические спецификации.'
             )}
           </motion.p>
 
