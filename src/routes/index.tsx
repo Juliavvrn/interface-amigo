@@ -8,32 +8,33 @@ import Awards from "../sections/Awards";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Юлия Вересова — Technical Product Owner | AI, MedTech & NeuroTech" },
+      { title: "Юлия Вересова — Technical Product Owner | AI, MedTech, HMI" },
       {
         name: "description",
         content:
-          "Разработка MVP и AI SaaS под ключ, MedTech/NeuroTech платформы, RAG-архитектуры и оркестрация LLM, technical product ownership, full-cycle разработка на React и Supabase. Портфолио и кейсы Юлии Вересовой.",
+          "Technical Product Owner с инженерным бэкграундом и медицинским образованием. Запуск MVP под ключ, взаимодействие человек-машина (HMI), этика и надежность ИИ-систем.",
       },
       { name: "keywords", content: KEYWORDS_META },
-      { property: "og:title", content: "Юлия Вересова — Technical Product Owner | AI, MedTech & NeuroTech" },
+      { property: "og:title", content: "Юлия Вересова — Technical Product Owner | AI, MedTech, HMI" },
       {
         property: "og:description",
         content:
-          "MVP и AI SaaS под ключ · MedTech/NeuroTech · RAG и LLM-оркестрация · Product Ownership · React & Supabase. Кейсы от исследования до продакшена.",
+          "Разработка продуктов и MVP под ключ: AI, MedTech и NeuroTech. Взаимодействие человек-машина, постановка технических спецификаций, аудит этики и надежности моделей.",
       },
-      { property: "og:type", content: "website" },
+      { property: "og:type", content: "profile" },
       { property: "og:url", content: "https://juliaveresova.ru/" },
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:image", content: "https://juliaveresova.ru/og-image.jpg" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { name: "twitter:image", content: "https://juliaveresova.ru/og-image.jpg" },
-      { name: "twitter:title", content: "Юлия Вересова — Technical Product Owner | AI, MedTech & NeuroTech" },
+      { name: "twitter:title", content: "Юлия Вересова — Technical Product Owner | AI, MedTech, HMI" },
       {
         name: "twitter:description",
         content:
-          "Разработка MVP и AI SaaS под ключ, MedTech/NeuroTech платформы, RAG и оркестрация LLM, full-cycle разработка на React и Supabase.",
+          "Разработка продуктов и MVP под ключ: AI, MedTech и NeuroTech. Взаимодействие человек-машина, технические спецификации, аудит этики и надежности моделей.",
       },
+
     ],
     links: [{ rel: "canonical", href: "https://juliaveresova.ru/" }],
     scripts: [
