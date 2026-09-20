@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { motion, useScroll, useTransform, MotionValue } from 'framer-motion'
 import { useI18n } from '@/i18n'
 import EducationModal from '@/components/EducationModal'
+import portraitAsset from '@/assets/julia-veresova-portrait.png.asset.json'
 
 function Word({
   word,
@@ -44,35 +45,46 @@ export default function Manifesto() {
         {t('About', 'О себе')}
       </p>
 
-      <div className="max-w-5xl md:ml-[17%]">
-        {paragraphs.map((paragraph, paragraphIndex) => {
-          const words = paragraph.split(' ')
-          return (
-            <p
-              key={paragraphIndex}
-              className={`font-display font-semibold leading-[1.15] tracking-tight ${paragraphIndex === 0 ? 'text-lg md:text-2xl' : 'mt-10 text-sm leading-[1.5] text-[#ece9e4]/55 md:text-base'}`}
-            >
-              {words.map((word, i) => (
-                <Word
-                  key={i}
-                  word={word}
-                  progress={scrollYProgress}
-                  range={[i / words.length, (i + 1) / words.length]}
-                />
-              ))}
-            </p>
-          )
-        })}
-        <button
-          type="button"
-          onClick={() => setEducationOpen(true)}
-          className="mt-14 block max-w-4xl cursor-pointer text-left font-mono2 text-[10px] uppercase leading-[2] tracking-[0.2em] text-[#ece9e4]/50 transition-colors duration-300 hover:text-[#ff4d00] md:text-[11px]"
-        >
-          {t('Education', 'Образование')}
-        </button>
-        <p className="mt-14 max-w-4xl font-mono2 text-[10px] uppercase leading-[2] tracking-[0.2em] text-[#ece9e4]/50 md:text-[11px]">
-          TECHNICAL PRODUCT OWNERSHIP · END-TO-END DELIVERY · HUMAN-MACHINE INTERACTION · AGENTIC WORKFLOWS & LLM · RAG PIPELINES · PYTHON & REST APIS · DATA SCIENCE & ML · AI SAFETY & COMPLIANCE
-        </p>
+      <div className="max-w-6xl md:ml-[10%] md:grid md:grid-cols-[minmax(0,1.6fr)_minmax(240px,0.75fr)] md:gap-10 lg:gap-16">
+        <div>
+          {paragraphs.map((paragraph, paragraphIndex) => {
+            const words = paragraph.split(' ')
+            return (
+              <p
+                key={paragraphIndex}
+                className={`font-display font-semibold leading-[1.15] tracking-tight ${paragraphIndex === 0 ? 'text-lg md:text-xl lg:text-2xl' : 'mt-8 text-sm leading-[1.5] text-[#ece9e4]/55 md:text-[15px]'}`}
+              >
+                {words.map((word, i) => (
+                  <Word
+                    key={i}
+                    word={word}
+                    progress={scrollYProgress}
+                    range={[i / words.length, (i + 1) / words.length]}
+                  />
+                ))}
+              </p>
+            )
+          })}
+          <button
+            type="button"
+            onClick={() => setEducationOpen(true)}
+            className="mt-10 block max-w-4xl cursor-pointer text-left font-mono2 text-[10px] uppercase leading-[2] tracking-[0.2em] text-[#ece9e4]/50 transition-colors duration-300 hover:text-[#ff4d00] md:text-[11px]"
+          >
+            {t('Education', 'Образование')}
+          </button>
+          <p className="mt-10 max-w-4xl font-mono2 text-[10px] uppercase leading-[2] tracking-[0.2em] text-[#ece9e4]/50 md:text-[11px]">
+            TECHNICAL PRODUCT OWNERSHIP · END-TO-END DELIVERY · HUMAN-MACHINE INTERACTION · AGENTIC WORKFLOWS & LLM · RAG PIPELINES · PYTHON & REST APIS · DATA SCIENCE & ML · AI SAFETY & COMPLIANCE
+          </p>
+        </div>
+
+        <div className="relative mt-12 aspect-[3/4] overflow-hidden md:mt-0 md:aspect-auto md:min-h-full">
+          <img
+            src={portraitAsset.url}
+            alt={t('Portrait of Julia Veresova', 'Портрет Юлии Вересовой')}
+            className="h-full w-full object-cover object-center md:absolute md:inset-0"
+            loading="lazy"
+          />
+        </div>
       </div>
       <EducationModal open={educationOpen} onClose={() => setEducationOpen(false)} />
     </section>
