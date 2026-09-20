@@ -2,7 +2,6 @@ import { useRef, useState } from 'react'
 import { motion, useScroll, useTransform, MotionValue } from 'framer-motion'
 import { useI18n } from '@/i18n'
 import EducationModal from '@/components/EducationModal'
-import portraitAsset from '@/assets/julia-veresova-portrait.png.asset.json'
 
 function Word({
   word,
@@ -79,7 +78,7 @@ export default function Manifesto() {
 
         <div className="relative mt-12 aspect-[3/4] overflow-hidden md:mt-0 md:aspect-auto md:min-h-full">
           <img
-            src={portraitAsset.url}
+            src="/julia-veresova-portrait.webp"
             alt={t('Portrait of Julia Veresova', 'Портрет Юлии Вересовой')}
             className="h-full w-full object-cover object-center md:absolute md:inset-0"
             loading="lazy"
