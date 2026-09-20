@@ -5,14 +5,19 @@ import { useI18n } from '@/i18n'
 
 const papers = [
   {
+    title: 'Манипулятивные приемы удержания внимания в генеративных интерфейсах',
+    year: '2026',
+    url: 'https://apni.ru/article/16061-manipulyativnye-priemy-uderzhaniya-vnimaniya-v-generativnyh-interfejsah',
+  },
+  {
+    title: 'Технические и нормативные барьеры на пути к полностью автономному искусственному интеллекту',
+    year: '2026',
+    url: 'https://www.internauka.org/journal/science/internauka/445',
+  },
+  {
     title: 'Когнитивные искажения в инфляционных и дефляционных суждениях о больших языковых моделях',
     year: '2025',
     url: 'https://apni.ru/article/12593-kognitivnye-iskazheniya-v-inflyacionnyh-i-deflyacionnyh-suzhdeniyah-o-bolshih-yazykovyh-modelyah',
-  },
-  {
-    title: 'Этические парадоксы в проектировании цифровых личностей: границы ответственности и субъектности в гуманизированном AI',
-    year: '2025',
-    url: 'https://apni.ru/article/12368-eticheskie-paradoksy-v-proektirovanii-cifrovyh-lichnostej-granicy-otvetstvennosti-i-subuektnosti-v-gumanizirovannom-ai',
   },
   {
     title: 'AIIM as a Metamodel for Identity Formation in Humanized AI Systems',
@@ -23,11 +28,6 @@ const papers = [
     title: 'A Metamodel for Constructing Identity in Humanized AI Systems',
     year: '2025',
     url: 'https://zenodo.org/records/15425903',
-  },
-  {
-    title: 'Cognitive Biases in Inflationary and Deflationary Judgments about Large Language Models',
-    year: '2025',
-    url: 'https://zenodo.org/records/16399330',
   },
   {
     title: 'Ethical Paradoxes in the Design of Digital Personalities',
