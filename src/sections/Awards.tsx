@@ -20,16 +20,6 @@ const papers = [
     url: 'https://apni.ru/article/12593-kognitivnye-iskazheniya-v-inflyacionnyh-i-deflyacionnyh-suzhdeniyah-o-bolshih-yazykovyh-modelyah',
   },
   {
-    title: 'AIIM as a Metamodel for Identity Formation in Humanized AI Systems',
-    year: '2025',
-    url: 'https://zenodo.org/records/15260932',
-  },
-  {
-    title: 'A Metamodel for Constructing Identity in Humanized AI Systems',
-    year: '2025',
-    url: 'https://zenodo.org/records/15425903',
-  },
-  {
     title: 'Ethical Paradoxes in the Design of Digital Personalities',
     year: '2025',
     url: 'https://zenodo.org/records/16423061',
