@@ -46,24 +46,30 @@ export default function Manifesto() {
 
       <div className="max-w-6xl md:ml-[10%] md:grid md:grid-cols-[minmax(0,1.6fr)_minmax(240px,0.75fr)] md:gap-10 lg:gap-16">
         <div>
-          {paragraphs.map((paragraph, paragraphIndex) => {
-            const words = paragraph.split(' ')
-            return (
-              <p
-                key={paragraphIndex}
-                className={`font-display font-semibold leading-[1.15] tracking-tight ${paragraphIndex === 0 ? 'text-lg md:text-xl lg:text-2xl' : 'mt-8 text-sm leading-[1.5] text-[#ece9e4]/55 md:text-[15px]'}`}
-              >
-                {words.map((word, i) => (
-                  <Word
-                    key={i}
-                    word={word}
-                    progress={scrollYProgress}
-                    range={[i / words.length, (i + 1) / words.length]}
-                  />
-                ))}
-              </p>
-            )
-          })}
+          {(() => {
+            const total = paragraphs.reduce((n, p) => n + p.split(' ').length, 0)
+            let offset = 0
+            return paragraphs.map((paragraph, paragraphIndex) => {
+              const words = paragraph.split(' ')
+              const start = offset
+              offset += words.length
+              return (
+                <p
+                  key={paragraphIndex}
+                  className={`font-display font-semibold leading-[1.15] tracking-tight text-lg md:text-xl lg:text-2xl ${paragraphIndex === 0 ? '' : 'mt-8'}`}
+                >
+                  {words.map((word, i) => (
+                    <Word
+                      key={i}
+                      word={word}
+                      progress={scrollYProgress}
+                      range={[(start + i) / total, (start + i + 1) / total]}
+                    />
+                  ))}
+                </p>
+              )
+            })
+          })()}
           <button
             type="button"
             onClick={() => setEducationOpen(true)}
