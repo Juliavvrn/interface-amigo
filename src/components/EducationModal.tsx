@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useI18n } from '@/i18n'
+import certHarvard from '@/assets/cert-harvard-ai-healthcare.png.asset.json'
 import certNeuro from '@/assets/cert-neuro.png'
 import certFmri1 from '@/assets/cert-Coursera_P23W8IJG2FES_1.png'
 import certFmri2 from '@/assets/cert-Coursera_QSC2YYKUAOLI.png'
