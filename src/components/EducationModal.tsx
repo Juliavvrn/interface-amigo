@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useI18n } from '@/i18n'
+import certHarvard from '@/assets/cert-harvard-ai-healthcare.png'
 import certNeuro from '@/assets/cert-neuro.png'
 import certFmri1 from '@/assets/cert-Coursera_P23W8IJG2FES_1.png'
 import certFmri2 from '@/assets/cert-Coursera_QSC2YYKUAOLI.png'
@@ -75,6 +76,12 @@ export default function EducationModal({ open, onClose }: Props) {
   ]
 
   const certificates: { title: string; org: string; date: string; image?: string }[] = [
+    {
+      title: 'Certificate of Specialization in AI and Healthcare',
+      org: 'Harvard T.H. Chan School of Public Health',
+      date: t('Oct 8, 2026', '8 октября 2026'),
+      image: certHarvard,
+    },
     {
       title: 'Principles of fMRI 1',
       org: 'Johns Hopkins University · Coursera',
