@@ -67,8 +67,8 @@ export default function EducationModal({ open, onClose }: Props) {
     {
       school: t('Information and Communication Technologies', 'Информационно-коммуникационные технологии'),
       qualification: t(
-        'Qualification: Information Systems and Technologies',
-        'Квалификация: Информационные системы и технологии'
+        'Qualification: Information Systems Specialist',
+        'Квалификация: специалист по ИС'
       ),
       year: '2024',
     },
