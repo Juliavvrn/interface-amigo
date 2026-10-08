@@ -5,12 +5,12 @@ import work4 from '@/assets/work4.jpg'
 import work5 from '@/assets/work5.jpg'
 import work6 from '@/assets/work6.jpg'
 import breakImg from '@/assets/break.jpg'
-import aiimLanding from '@/assets/screen-landing.png.asset.json'
-import aiimWhitepaper from '@/assets/screen-whitepaper.png.asset.json'
-import aiimBuilder from '@/assets/dark-builder-constructor.png.asset.json'
-import aiimBuilder2 from '@/assets/dark-builder-constructor-2.png.asset.json'
-import aiimDevelopment from '@/assets/dark-development.png.asset.json'
-import aiimApiDocs from '@/assets/dark-api-documentation-dialog.png.asset.json'
+const aiimLanding = { url: '/images/aiim/screen-landing.png' }
+const aiimWhitepaper = { url: '/images/aiim/screen-whitepaper.png' }
+const aiimBuilder = { url: '/images/aiim/dark-builder-constructor.png' }
+const aiimBuilder2 = { url: '/images/aiim/dark-builder-constructor-2.png' }
+const aiimDevelopment = { url: '/images/aiim/dark-development.png' }
+const aiimApiDocs = { url: '/images/aiim/dark-api-documentation-dialog.png' }
 import type { Lang } from '@/i18n'
 
 export interface Localized {
