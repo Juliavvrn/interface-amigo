@@ -5,12 +5,6 @@ import work4 from '@/assets/work4.jpg'
 import work5 from '@/assets/work5.jpg'
 import work6 from '@/assets/work6.jpg'
 import breakImg from '@/assets/break.jpg'
-const aiimLanding = { url: '/images/aiim/screen-landing.png' }
-const aiimWhitepaper = { url: '/images/aiim/screen-whitepaper.png' }
-const aiimBuilder = { url: '/images/aiim/dark-builder-constructor.png' }
-const aiimBuilder2 = { url: '/images/aiim/dark-builder-constructor-2.png' }
-const aiimDevelopment = { url: '/images/aiim/dark-development.png' }
-const aiimApiDocs = { url: '/images/aiim/dark-api-documentation-dialog.png' }
 import type { Lang } from '@/i18n'
 
 export interface Localized {
@@ -108,7 +102,6 @@ export interface Project {
   deliverables: Localized[]
   description: Localized[]
   gallery: string[]
-  screens?: { src: string; caption: Localized }[]
   caseStudy?: CaseStudySection[]
   metrics?: ProjectMetric[]
 }
@@ -1697,14 +1690,6 @@ const _projects: Project[] = [
       ),
     ],
     gallery: [work2, work5],
-    screens: [
-      { src: aiimLanding.url, caption: L('Landing — Advanced Identity & Interaction Model', 'Лендинг — Advanced Identity & Interaction Model') },
-      { src: aiimWhitepaper.url, caption: L('White paper — methodology and structure', 'White paper — методология и структура') },
-      { src: aiimBuilder.url, caption: L('Agent builder — base parameters', 'Конструктор агента — базовые параметры') },
-      { src: aiimBuilder2.url, caption: L('Agent builder — 12 cognitive aspects', 'Конструктор агента — 12 когнитивных аспектов') },
-      { src: aiimDevelopment.url, caption: L('Development — API configurations', 'Development — конфигурации API') },
-      { src: aiimApiDocs.url, caption: L('API documentation — text, voice, realtime', 'Документация API — текст, голос, realtime') },
-    ],
     caseStudy: [
       {
         label: L('Why it exists', 'Зачем это нужно'),
