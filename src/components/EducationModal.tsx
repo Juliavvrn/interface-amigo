@@ -77,6 +77,12 @@ export default function EducationModal({ open, onClose }: Props) {
 
   const certificates: { title: string; org: string; date: string; image?: string }[] = [
     {
+      title: 'Certificate of Specialization in AI and Healthcare',
+      org: 'Harvard T.H. Chan School of Public Health',
+      date: t('Oct 8, 2026', '8 октября 2026'),
+      image: certHarvard.url,
+    },
+    {
       title: 'Principles of fMRI 1',
       org: 'Johns Hopkins University · Coursera',
       date: t('Mar 6, 2026', '6 марта 2026'),
