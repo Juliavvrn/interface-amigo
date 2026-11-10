@@ -31,7 +31,7 @@ export default function Hero() {
           transition={{ delay: 0.9, duration: 1 }}
         >
           <span translate="no" className="notranslate" lang="en">
-            TECHNICAL PRODUCT OWNER · AI & NEUROTECH · FULL-CYCLE DEVELOPMENT
+            TECHNICAL PRODUCT OWNER · AI · HMI · AUTONOMOUS SYSTEMS
           </span>
         </motion.p>
 
@@ -68,7 +68,7 @@ export default function Hero() {
                 animate="show"
               >
                 {t(LINE3_PRE.en, LINE3_PRE.ru)}
-                <span className="text-[#ff4d00]">MedTech, NeuroTech, AI</span>
+                <span className="text-[#ff4d00]">{t('AI, HMI & autonomous systems', 'AI, HMI и автономных системах')}</span>
               </motion.span>
             </span>
           </h1>

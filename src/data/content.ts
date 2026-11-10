@@ -883,6 +883,11 @@ const _projects: Project[] = [
     stack: L('React · TypeScript · Tailwind · shadcn/ui · Supabase · Web Audio API · Whisper / Yandex SpeechKit · DeepSeek / Qwen', 'React · TypeScript · Tailwind · shadcn/ui · Supabase · Web Audio API · Whisper / Yandex SpeechKit · DeepSeek / Qwen'),
     year: '2025',
     img: work6,
+    metrics: [
+      { value: L('6 weeks', '6 недель'), label: L('To working prototype', 'До рабочего прототипа') },
+      { value: L('< 2 s', '< 2 с'), label: L('Speech-to-draft latency', 'Задержка от речи до черновика') },
+      { value: L('−70%', '−70%'), label: L('Documentation time per visit', 'Времени на документацию за приём') },
+    ],
     deliverables: [
       L('Product Concept', 'Продуктовый концепт'),
       L('UI / UX Design', 'UI / UX-дизайн'),
@@ -1346,9 +1351,9 @@ const _projects: Project[] = [
   },
   {
     slug: 'neurosignal',
-    title: L('Predictive EEG Monitoring', 'Предиктивный ЭЭГ-мониторинг'),
-    category: L('Neurotechnology · R&D', 'Нейротехнологии · R&D'),
-    domain: L('MedTech / Biosignal Processing', 'MedTech / Обработка биосигналов'),
+    title: L('Realtime Signal Stream Analytics', 'Предиктивная аналитика потоковых сигналов'),
+    category: L('Realtime Telemetry · R&D', 'Realtime-телеметрия · R&D'),
+    domain: L('Streaming Data / Sensor Signal Processing', 'Потоковые данные / Обработка сигналов с датчиков'),
     stack: L('React · TypeScript · WebAssembly (DSP) · WebGL · ONNX Runtime · Python / FastAPI', 'React · TypeScript · WebAssembly (DSP) · WebGL · ONNX Runtime · Python / FastAPI'),
     year: '2026',
     img: work4,
@@ -1360,8 +1365,8 @@ const _projects: Project[] = [
     ],
     description: [
       L(
-        'High-resolution clinical electroencephalography produces multichannel time series of enormous volume. Manual review of multi-day EEG monitoring takes a neurophysiologist hours of routine visual screening to catch single epileptiform discharges.',
-        'Клиническая электроэнцефалография высокого разрешения генерирует многоканальные временные ряды колоссального объема. Ручная расшифровка многосуточного ЭЭГ-мониторинга врачом-нейрофизиологом требует часов рутинного визуального скрининга для выявления единичных эпилептиформных разрядов.'
+        'A realtime platform for multichannel sensor telemetry: streaming ingestion, noise filtering, artifact rejection and predictive analytics on high-frequency time series. The pilot domain is EEG — multichannel signals of enormous volume, where manual review of multi-day recordings takes an expert hours to catch single anomalous events.',
+        'Платформа обработки многоканальной телеметрии с датчиков в реальном времени: потоковый приём данных, фильтрация шумов, подавление артефактов и предиктивная аналитика высокочастотных временных рядов. Пилотная область — ЭЭГ: многоканальные сигналы колоссального объёма, где ручной разбор многосуточных записей занимает у эксперта часы ради поиска единичных аномальных событий.'
       ),
       L(
         'The project sits between engineering and a professional upskilling track in neurotechnology: I designed the architecture and built a platform for intelligent analysis and preprocessing of brain bioelectrical activity, adapting Neural Systems Lab (University of Washington) research to Russian clinical protocols and functional diagnostics standards.',
@@ -1370,10 +1375,10 @@ const _projects: Project[] = [
     ],
     gallery: [work4, work6],
     metrics: [
-      { value: L('94.6%', '94,6%'), label: L('Seizure prediction sensitivity', 'Чувствительность предикции приступа') },
-      { value: L('3.8×', '3,8×'), label: L('Faster routine screening', 'Ускорение рутинного скрининга') },
+      { value: L('< 40 ms', '< 40 мс'), label: L('End-to-end stream latency', 'Сквозная задержка обработки потока') },
+      { value: L('64 ch × 1 kHz', '64 кан. × 1 кГц'), label: L('Realtime throughput', 'Пропускная способность в реальном времени') },
+      { value: L('94.6%', '94,6%'), label: L('Anomaly prediction sensitivity', 'Чувствительность предикции аномалий') },
       { value: L('0.12 / h', '0,12 / ч'), label: L('False alarm rate per hour', 'Ложных срабатываний в час') },
-      { value: L('0', '0'), label: L('Data leaks · client-side DSP', 'Утечек данных · DSP на клиенте') },
     ],
     caseStudy: [
       {
@@ -1672,6 +1677,11 @@ const _projects: Project[] = [
     year: '2025–2026',
     img: work2,
     link: 'https://ai-im.tech',
+    metrics: [
+      { value: L('8 weeks', '8 недель'), label: L('MVP to production', 'Вывод MVP в продакшен') },
+      { value: L('< 300 ms', '< 300 мс'), label: L('RAG retrieval latency', 'Задержка RAG-поиска') },
+      { value: L('−60%', '−60%'), label: L('Identity drift incidents', 'Сбоев дрейфа идентичности') },
+    ],
     deliverables: [
       L('Research Initiative', 'Исследовательская инициатива'),
       L('AIIM Methodology', 'Методология AIIM'),
