@@ -24,7 +24,7 @@ Telegram: https://t.me/julianvrn
 
 ## Кейсы
 
-- [Предиктивный ЭЭГ-мониторинг](https://juliaveresova.ru/works/neurosignal): клинический анализ ЭЭГ и прогнозирование приступов.
+- [Предиктивная аналитика потоковых сигналов](https://juliaveresova.ru/works/neurosignal): обработка телеметрии в реальном времени, фильтрация шумов и предиктивная аналитика.
 - [Платформа синтетических исследований и промышленного мониторинга](https://juliaveresova.ru/works/industrial-monitoring)
 - [Когнитивная операционная система для ИИ-агентов](https://juliaveresova.ru/works/aiim)
 - [MindCare — платформа клинической оценки ментального здоровья](https://juliaveresova.ru/works/mindcare)
