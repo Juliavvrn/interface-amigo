@@ -11,11 +11,11 @@ interface I18nContextValue {
 const I18nContext = createContext<I18nContextValue | null>(null)
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>('en')
+  const [lang, setLangState] = useState<Lang>('ru')
 
   useEffect(() => {
     const saved = typeof localStorage !== 'undefined' ? localStorage.getItem('lang') : null
-    if (saved === 'ru') setLangState('ru')
+    if (saved === 'en') setLangState('en')
   }, [])
 
   const setLang = (l: Lang) => {

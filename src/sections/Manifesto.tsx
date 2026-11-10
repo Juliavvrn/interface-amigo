@@ -30,8 +30,8 @@ export default function Manifesto() {
   })
 
   const text = t(
-    'Technical Product Owner with an engineering background in machine learning and a medical education. I deliver turnkey projects in MedTech, NeuroTech and AI: from R&D and self-assembled working MVPs to coordinating the engineering team and bringing solutions to production.\nI define technical specifications, API contracts and acceptance criteria, bridging the gap between business goals and development. I specialize in human-machine interaction design, deploying agentic pipelines (LLM, RAG, multi-agent scenarios), and validating model reliability along with protecting sensitive data.',
-    'Technical Product Owner с инженерным бэкграундом в машинном обучении и медицинским образованием. Реализую проекты под ключ в сферах MedTech, NeuroTech и AI: от R&D-исследований и самостоятельной сборки работающих MVP до синхронизации инженерной команды и вывода решений в промышленную эксплуатацию.\nФормирую технические спецификации, API-контракты и критерии приемки, устраняя разрыв между бизнес-задачами и разработкой. Специализируюсь на проектировании взаимодействия человек-машина, внедрении агентных пайплайнов (LLM, RAG, мультиагентные сценарии), а также на валидации надежности моделей и защите чувствительных данных.'
+    'Technical Product Owner with an engineering background in machine learning and a medical education. I deliver turnkey complex tech products — AI, autonomous systems, telemetry and HMI: from R&D and self-assembled working MVPs to coordinating the engineering team and bringing solutions to production.\nI define technical specifications, API contracts and acceptance criteria, bridging the gap between business goals and development. I specialize in human-machine interaction design, deploying agentic pipelines (LLM, RAG, multi-agent scenarios), and validating model reliability along with protecting sensitive data. I build for hard constraints: low latency, realtime protocols (WebRTC, WebSockets), edge computing, unstable or offline connectivity and deterministic behavior with no failures or hallucinations in critical scenarios.',
+    'Technical Product Owner с инженерным бэкграундом в машинном обучении и медицинским образованием. Реализую под ключ сложные технологические продукты — AI, автономные системы, телеметрия и HMI: от R&D-исследований и самостоятельной сборки работающих MVP до синхронизации инженерной команды и вывода решений в промышленную эксплуатацию.\nФормирую технические спецификации, API-контракты и критерии приемки, устраняя разрыв между бизнес-задачами и разработкой. Специализируюсь на проектировании взаимодействия человек-машина, внедрении агентных пайплайнов (LLM, RAG, мультиагентные сценарии), а также на валидации надежности моделей и защите чувствительных данных. Проектирую системы для жёстких ограничений: low-latency, realtime-протоколы (WebRTC, WebSockets), edge-вычисления, работа при нестабильной связи и офлайн, детерминированное поведение без сбоев и «галлюцинаций» в критических сценариях.'
   )
   const paragraphs = text.split('\n')
 
@@ -78,7 +78,7 @@ export default function Manifesto() {
             {t('Education', 'Образование')}
           </button>
           <p className="mt-10 max-w-4xl font-mono2 text-[10px] uppercase leading-[2] tracking-[0.2em] text-[#ece9e4]/50 md:text-[11px]">
-            TECHNICAL PRODUCT OWNERSHIP · END-TO-END DELIVERY · HUMAN-MACHINE INTERACTION · AGENTIC WORKFLOWS & LLM · RAG PIPELINES · PYTHON & REST APIS · DATA SCIENCE & ML · AI SAFETY & COMPLIANCE
+            TECHNICAL PRODUCT OWNERSHIP · END-TO-END DELIVERY · HUMAN-MACHINE INTERACTION · AGENTIC WORKFLOWS & LLM · RAG PIPELINES · LOW-LATENCY & REALTIME (WEBRTC, WEBSOCKETS) · EDGE & OFFLINE-FIRST · PYTHON & REST APIS · DATA SCIENCE & ML · AI SAFETY & COMPLIANCE
           </p>
         </div>
 
