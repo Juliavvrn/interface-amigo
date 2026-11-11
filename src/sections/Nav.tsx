@@ -46,7 +46,7 @@ export default function Nav() {
   return (
     <>
       <motion.header
-        className="fixed inset-x-0 top-0 z-[150] mix-blend-difference"
+        className="fixed inset-x-0 top-0 z-[150] bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a]/85 to-transparent"
         initial={{ y: -60, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
