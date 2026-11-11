@@ -1,20 +1,7 @@
-import { motion, useScroll, useTransform, animate, useInView } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
-import { projects } from '@/data/content'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 
 const ease = [0.22, 1, 0.36, 1] as const
-
-function Count({ to }: { to: number }) {
-  const ref = useRef<HTMLSpanElement>(null)
-  const inView = useInView(ref, { once: true })
-  const [v, setV] = useState(0)
-  useEffect(() => {
-    if (!inView) return
-    const c = animate(0, to, { duration: 1.4, ease, onUpdate: (x) => setV(Math.round(x)) })
-    return () => c.stop()
-  }, [inView, to])
-  return <span ref={ref}>{v}</span>
-}
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null)
