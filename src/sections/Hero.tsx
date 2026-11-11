@@ -8,16 +8,6 @@ export default function Hero() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
   const imgY = useTransform(scrollYProgress, [0, 1], ['0%', '12%'])
 
-  return () => c.stop()
-  }, [inView, to])
-  return <span ref={ref}>{v}</span>
-}
-
-export default function Hero() {
-  const ref = useRef<HTMLElement>(null)
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
-  const imgY = useTransform(scrollYProgress, [0, 1], ['0%', '12%'])
-
   return (
     <section id="top" ref={ref} className="relative overflow-hidden md:grid md:min-h-screen md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
       {/* Portrait */}
