@@ -12,7 +12,6 @@ export default function Works() {
 
       <div className="border-t border-[#ece9e4]/15">
         {projects.map((p, i) => {
-          const m = p.metrics?.[0]
           return (
             <motion.div
               key={p.slug}
@@ -38,14 +37,9 @@ export default function Works() {
                     {pick(p.category, lang)} · {p.year}
                   </p>
                 </div>
-                {m ? (
-                  <div className="col-start-2 border-l-2 border-[#ff4d00] pl-4 md:col-start-auto">
-                    <p className="font-display text-2xl font-extrabold tracking-tight md:text-3xl">{pick(m.value, lang)}</p>
-                    <p className="mt-1 line-clamp-2 text-xs leading-snug text-[#ece9e4]/55">{pick(m.label, lang)}</p>
-                  </div>
-                ) : (
-                  <span className="hidden md:block" />
-                )}
+                <span className="col-start-2 font-mono2 text-[10px] uppercase tracking-[0.25em] text-[#ece9e4]/50 transition-colors duration-500 group-hover:text-[#ff4d00] md:col-start-auto md:text-right md:text-[11px]">
+                  Смотреть кейс
+                </span>
                 <span aria-hidden className="hidden text-2xl text-[#ece9e4]/40 transition-all duration-500 group-hover:translate-x-1 group-hover:text-[#ff4d00] md:block">→</span>
               </Link>
             </motion.div>

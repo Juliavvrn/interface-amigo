@@ -18,7 +18,16 @@ function Count({ to }: { to: number }) {
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null)
-  const [copied, setCopied] = useState(false)
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
+  const imgY = useTransform(scrollYProgress, [0, 1], ['0%', '12%'])
+
+  return () => c.stop()
+  }, [inView, to])
+  return <span ref={ref}>{v}</span>
+}
+
+export default function Hero() {
+  const ref = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
   const imgY = useTransform(scrollYProgress, [0, 1], ['0%', '12%'])
 
@@ -105,32 +114,16 @@ export default function Hero() {
           >
             Написать в Telegram
           </a>
-          <button
-            type="button"
+          <a
+            href="mailto:juliavvrn@gmail.com"
             data-hover
-            onClick={copyEmail}
-            className="inline-flex items-center justify-center border border-[#ece9e4]/30 px-6 py-4 text-sm font-semibold transition-colors duration-300 hover:border-[#ff4d00] hover:text-[#ff4d00]"
+            className="inline-flex flex-col items-center justify-center border border-[#ece9e4]/30 px-6 py-3 text-sm font-semibold transition-colors duration-300 hover:border-[#ff4d00] hover:text-[#ff4d00]"
           >
-            {copied ? 'Email скопирован ✓' : 'Скопировать email'}
-          </button>
+            Написать на почту
+            <span className="mt-0.5 font-mono2 text-[11px] font-normal opacity-60">juliavvrn@gmail.com</span>
+          </a>
         </motion.div>
 
-        <motion.dl
-          className="mt-12 grid grid-cols-2 border-t border-[#ece9e4]/15 md:mt-16"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.8 }}
-        >
-          {stats.map((s, i) => (
-            <div key={i} className={`border-b border-[#ece9e4]/15 py-5 ${i % 2 === 0 ? 'pr-4' : 'border-l pl-4'}`}>
-              <dt className="sr-only">{s.label}</dt>
-              <dd className="font-display text-4xl font-extrabold tracking-tight md:text-5xl">
-                <Count to={s.n} />
-              </dd>
-              <dd className="mt-1 text-xs leading-snug text-[#ece9e4]/55 md:text-sm">{s.label}</dd>
-            </div>
-          ))}
-        </motion.dl>
       </div>
     </section>
   )
