@@ -148,10 +148,8 @@ const _projects: Project[] = [
     ],
     gallery: [work5],
     metrics: [
-      { value: L('0', '0'), label: L('Identifiers leaving the perimeter', 'Идентификаторов за пределами контура') },
       { value: L('AES-256', 'AES-256'), label: L('GCM in RAM · SQLCipher at rest', 'GCM в памяти · SQLCipher на диске') },
       { value: L('10', '10'), label: L('Personal data types detected', 'Типов персональных данных распознаётся') },
-      { value: L('~90%', '~90%'), label: L('Pilot readiness, v3.1', 'Готовность пилотной версии 3.1') },
     ],
     caseStudy: [
       {
@@ -225,10 +223,6 @@ const _projects: Project[] = [
           L(
             'Beyond the gateway, the product is a full desktop workstation (Electron, NSIS installer): OCR of paper scans, entity extraction, 24 critical-threshold rules with red-flag alerts, decision support with logged reasoning, scheduling and a shared document library. Records export to HL7 FHIR JSON, Word and PDF, and full databases move between sites as ZIP archives.',
             'Помимо шлюза, продукт — полноценное десктопное рабочее место (Electron, установщик NSIS): OCR бумажных сканов, извлечение сущностей, 24 правила критических порогов с красными флагами, поддержка принятия решений с фиксацией обоснования, расписание и общая база документов. Карты выгружаются в HL7 FHIR JSON, Word и PDF, а база целиком переносится между площадками в ZIP-архиве.'
-          ),
-          L(
-            'Version 3.1 is about 90% ready for pilot deployment. Next steps: code signing, integration with state information systems, and migration to a server DBMS for multi-seat installations.',
-            'Версия 3.1 готова к пилотному внедрению примерно на 90%. Следующие шаги: подпись кода установщика, интеграция с государственными информационными системами и переход на серверную СУБД для многопользовательских установок.'
           ),
         ],
       },
