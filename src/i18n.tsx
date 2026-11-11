@@ -14,14 +14,11 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>('ru')
 
   useEffect(() => {
-    const saved = typeof localStorage !== 'undefined' ? localStorage.getItem('lang') : null
-    if (saved === 'en') setLangState('en')
+    if (typeof localStorage !== 'undefined') localStorage.removeItem('lang')
   }, [])
 
-  const setLang = (l: Lang) => {
-    setLangState(l)
-    if (typeof localStorage !== 'undefined') localStorage.setItem('lang', l)
-  }
+  // Site is Russian-only: language switching is disabled.
+  const setLang = (_l: Lang) => setLangState('ru')
 
   useEffect(() => {
     document.documentElement.lang = lang
