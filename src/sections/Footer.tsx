@@ -113,7 +113,7 @@ export default function Footer() {
       </motion.div>
 
       <div className="mt-20 flex items-center justify-between border-t border-[#ece9e4]/10 pt-10 font-mono2 text-[10px] uppercase tracking-[0.25em] text-[#ece9e4]/40">
-        <span>© 2026 JULIA VERESOVA</span>
+        <span>© 2026 ЮЛИЯ ВЕРЕСОВА</span>
         <a
           href="#top"
           data-hover
