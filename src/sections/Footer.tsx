@@ -81,21 +81,21 @@ export default function Footer() {
         <div className="mt-8 divide-y divide-[#ece9e4]/10 border-t border-[#ece9e4]/10">
           {[
             {
-              title: 'End-to-End Delivery',
+              title: 'Разработка продукта под ключ',
               desc: t(
                 'End-to-end delivery of products and MVPs: from hypothesis validation and engineering prototyping to handoff to development and release.',
                 'Реализация продуктов и MVP под ключ: от валидации гипотез и инженерного прототипирования до передачи в разработку и вывода решения в релиз.'
               ),
             },
             {
-              title: 'Technical Product Owner\n(Full-time / Contract)',
+              title: 'Technical Product Owner\n(полная занятость / контракт)',
               desc: t(
                 'Embedded in the team: decomposing business requirements, drafting technical specs, API contracts and acceptance criteria.',
                 'Работа в контуре команды: декомпозиция бизнес-требований, составление технических спецификаций, API-контрактов и критериев приемки (Acceptance Criteria).'
               ),
             },
             {
-              title: 'AI Strategy & Ethics Advisory',
+              title: 'Консалтинг по AI-стратегии и этике',
               desc: t(
                 'Product strategy audit and consulting: ethical risk expertise, reviewing model behavior logic and human-machine interaction scenarios. Defining acceptable AI boundaries, preventing manipulative mechanics and forming recommendations for safe integration into product.',
                 'Аудит продуктовой стратегии и консультации: экспертиза этических рисков, проверка логики поведения моделей и сценариев взаимодействия человек-машина. Определение допустимых границ работы ИИ, предотвращение манипулятивных механик и формирование рекомендаций по безопасной интеграции решений в продукт.'
@@ -113,7 +113,7 @@ export default function Footer() {
       </motion.div>
 
       <div className="mt-20 flex items-center justify-between border-t border-[#ece9e4]/10 pt-10 font-mono2 text-[10px] uppercase tracking-[0.25em] text-[#ece9e4]/40">
-        <span>© 2026 JULIA VERESOVA</span>
+        <span>© 2026 ЮЛИЯ ВЕРЕСОВА</span>
         <a
           href="#top"
           data-hover

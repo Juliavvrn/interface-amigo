@@ -30,5 +30,4 @@ Telegram: https://t.me/julianvrn
 - [Платформа синтетических исследований и промышленного мониторинга](https://juliaveresova.ru/works/industrial-monitoring)
 - [Когнитивная операционная система для ИИ-агентов](https://juliaveresova.ru/works/aiim)
 - [MindCare — платформа клинической оценки ментального здоровья](https://juliaveresova.ru/works/mindcare)
-- [ClinicScribe — автоматизация клинической документации](https://juliaveresova.ru/works/clinicscribe)
 - [Audit IT — ИИ-платформа аудита и управления рисками](https://juliaveresova.ru/works/audit-it)

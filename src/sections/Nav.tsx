@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useI18n } from '@/i18n'
 
 export default function Nav() {
-  const { lang, setLang, t } = useI18n()
+  const { t } = useI18n()
   const [open, setOpen] = useState(false)
   const location = useLocation()
 
@@ -59,7 +59,7 @@ export default function Nav() {
             onClick={() => handleSectionClick('top')}
             className="font-display text-sm font-extrabold tracking-tight sm:text-base md:text-lg"
           >
-            JULIA VERESOVA
+            ЮЛИЯ ВЕРЕСОВА
           </Link>
           <div className="hidden items-center gap-8 font-mono2 text-[11px] uppercase tracking-[0.25em] md:flex">
             {links.map((l) => (
@@ -69,15 +69,6 @@ export default function Nav() {
             ))}
           </div>
           <div className="flex shrink-0 items-center gap-4 md:gap-6">
-            <button
-              type="button"
-              data-hover
-              onClick={() => setLang(lang === 'en' ? 'ru' : 'en')}
-              className="font-mono2 text-[11px] uppercase tracking-[0.25em] transition-colors duration-300 hover:text-[#ff4d00]"
-              aria-label="Toggle language"
-            >
-              {lang === 'en' ? 'RU' : 'EN'}
-            </button>
             <button
               type="button"
               data-hover
