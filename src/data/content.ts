@@ -83,6 +83,20 @@ export interface CaseStudySection {
   charts?: CaseStudyChart[]
   diagram?: FlowDiagram
   stageFlow?: StageFlow
+  formulas?: CaseStudyFormula[]
+  code?: CaseStudyCode
+}
+
+export interface CaseStudyFormula {
+  name: Localized
+  expr: string
+  note: Localized
+}
+
+export interface CaseStudyCode {
+  title: Localized
+  lang: string
+  source: string
 }
 
 export interface ProjectMetric {
@@ -112,6 +126,7 @@ function L(en: string, ru: string): Localized {
 
 const projectOrder: Record<string, number> = {
   'secure-llm-gateway': -1,
+  'telemetry-diagnostics': -0.5,
   'neurosignal': 0,
   'industrial-monitoring': 1,
   'aiim': 2,
@@ -122,6 +137,169 @@ const projectOrder: Record<string, number> = {
 }
 
 const _projects: Project[] = [
+  {
+    slug: 'telemetry-diagnostics',
+    title: L('Autonomous Telemetry Diagnostics & Incident Analysis', 'Автономный комплекс предиктивной диагностики по бортовой телеметрии'),
+    category: L('Edge · Air-Gap · Predictive Maintenance', 'Edge · Закрытый контур · Предиктивная диагностика'),
+    domain: L('Autonomous Platforms / Flight Data Analysis', 'Автономные платформы / Анализ бортовых журналов'),
+    stack: L('Python · NumPy · Pandas · pymavlink · pyulog · Streamlit · Plotly · PyInstaller', 'Python · NumPy · Pandas · pymavlink · pyulog · Streamlit · Plotly · PyInstaller'),
+    year: '2026',
+    img: work3,
+    deliverables: [
+      L('Diagnostic Rule Engine', 'Диагностический движок'),
+      L('Root Cause Analysis', 'Анализ первопричин (RCA)'),
+      L('Offline Desktop Product', 'Офлайн десктоп-продукт'),
+      L('Technical Specification', 'Техническое задание'),
+    ],
+    description: [
+      L(
+        'A local desktop tool for rapid technical assessment of autonomous platforms based on onboard logs. It evaluates assembly and repair quality, flags degrading components before they fail, and reconstructs the root cause of incidents. It runs fully offline in an air-gapped environment on Windows and Linux laptops.',
+        'Локальное десктоп-приложение для экспресс-оценки технического состояния автономных платформ по бортовым журналам. Комплекс проверяет качество сборки и ремонта, выявляет деградацию узлов до отказа и восстанавливает первопричину происшествий. Работает полностью автономно, в закрытом контуре без выхода в интернет, на ноутбуках под Windows и Linux.'
+      ),
+      L(
+        'Target users: assembly and acceptance-test centers, service workshops, operator training centers and fleet operators. The tool reads the two common open-autopilot log formats, DataFlash (.bin) and ULog (.ulg), and returns a formal verdict: fit, maintenance required, or unfit.',
+        'Пользователи: центры сборки и заводских испытаний, сервисные мастерские, учебные центры подготовки операторов и эксплуатанты парков техники. Комплекс читает два распространённых формата открытых автопилотов, DataFlash (.bin) и ULog (.ulg), и выдаёт формализованный вердикт: годен, требует ТО или не годен.'
+      ),
+    ],
+    gallery: [work3, work6],
+    metrics: [
+      { value: L('50 Hz', '50 Гц'), label: L('Unified time grid, 20 ms step', 'Единая временная сетка, шаг 20 мс') },
+      { value: L('3', '3'), label: L('Levels of checks: thresholds, statistics, RCA graph', 'Уровня проверок: пороги, статистика, граф RCA') },
+      { value: L('5 s', '5 с'), label: L('Retrospective window before the first critical event', 'Окно ретроспекции до первого критического события') },
+    ],
+    caseStudy: [
+      {
+        label: L('Problem & approach', 'Задача и подход'),
+        paragraphs: [
+          L(
+            'After a field incident or a repair, engineers spend hours reading raw logs by hand, and conclusions depend on personal experience. Data cannot be uploaded to cloud services, and sensors write at different rates, from 5 to 400 Hz. The product turns this into a repeatable check with a clear verdict.',
+            'После происшествия или ремонта инженеры часами вручную разбирают сырые журналы, а выводы зависят от личного опыта. Выгружать данные в облачные сервисы нельзя, а датчики пишут с разной частотой — от 5 до 400 Гц. Продукт превращает это в воспроизводимую проверку с понятным вердиктом.'
+          ),
+          L(
+            'All continuous signals are brought to a single 20 ms (50 Hz) grid by linear interpolation. Discrete flight modes and failsafe flags use zero-order hold, so a mode switch is never smeared between two samples.',
+            'Все непрерывные ряды приводятся к единой сетке 20 мс (50 Гц) линейной интерполяцией. Для дискретных режимов и аварийных флагов используется фиксация предыдущего значения (Zero-Order Hold), чтобы переключение режима не «размазывалось» между отсчётами.'
+          ),
+        ],
+        tables: [
+          {
+            title: L('Diagnostic channels', 'Диагностические контуры'),
+            columns: [L('Channel', 'Контур'), L('DataFlash (.bin)', 'DataFlash (.bin)'), L('ULog (.ulg)', 'ULog (.ulg)'), L('Rate', 'Частота')],
+            rows: [
+              [L('Mechanical vibration', 'Механические вибрации'), L('VIBE (X, Y, Z, Clip)', 'VIBE (X, Y, Z, Clip)'), L('vehicle_imu_status', 'vehicle_imu_status'), L('50–200 Hz', '50–200 Гц')],
+              [L('Power battery', 'Силовая батарея'), L('BAT (Volt, Curr, Res)', 'BAT (Volt, Curr, Res)'), L('battery_status', 'battery_status'), L('10–50 Hz', '10–50 Гц')],
+              [L('Motor control', 'Управление двигателями'), L('RCOU (C1–C8)', 'RCOU (C1–C8)'), L('actuator_outputs', 'actuator_outputs'), L('50–400 Hz', '50–400 Гц')],
+              [L('Radio link', 'Радиоканал'), L('RADIO (RSSI, Noise, TxBuf)', 'RADIO (RSSI, Noise, TxBuf)'), L('radio_status', 'radio_status'), L('5–20 Hz', '5–20 Гц')],
+              [L('Satellite navigation', 'Спутниковая навигация'), L('GPS (NSats, HDop)', 'GPS (NSats, HDop)'), L('sensor_gps', 'sensor_gps'), L('5–10 Hz', '5–10 Гц')],
+              [L('State estimator', 'Оценщик состояния'), L('XKF1–XKF4', 'XKF1–XKF4'), L('estimator_innovations', 'estimator_innovations'), L('25–100 Hz', '25–100 Гц')],
+            ],
+          },
+        ],
+        diagram: {
+          title: L('Processing pipeline', 'Конвейер обработки'),
+          columns: 5,
+          nodes: [
+            { id: 'log', label: L('Onboard log', 'Бортовой журнал'), sublabel: L('.bin / .ulg', '.bin / .ulg') },
+            { id: 'parse', label: L('Parsers', 'Парсеры'), sublabel: L('pymavlink · pyulog', 'pymavlink · pyulog') },
+            { id: 'norm', label: L('Normalization', 'Нормализация'), sublabel: L('50 Hz grid · ZOH', 'Сетка 50 Гц · ZOH') },
+            { id: 'diag', label: L('Diagnostic engine', 'Диагностический движок'), sublabel: L('Rules · statistics · RCA', 'Правила · статистика · RCA') },
+            { id: 'rep', label: L('Report', 'Отчёт'), sublabel: L('Verdict · PDF passport', 'Вердикт · PDF-паспорт') },
+          ],
+          edges: [{ from: 'log', to: 'parse' }, { from: 'parse', to: 'norm' }, { from: 'norm', to: 'diag' }, { from: 'diag', to: 'rep' }],
+        },
+      },
+      {
+        label: L('Calculations & detection rules', 'Расчёты и правила выявления дефектов'),
+        paragraphs: [
+          L(
+            'Every rule is a formula with explicit thresholds, so a verdict can be checked by hand and defended in an acceptance protocol.',
+            'Каждое правило — формула с явными порогами, поэтому вердикт можно проверить вручную и обосновать в протоколе приёмки.'
+          ),
+        ],
+        formulas: [
+          {
+            name: L('Frame vibration', 'Вибрация рамы'),
+            expr: 'p99(max(|aX|, |aY|)),  p99(|aZ|)',
+            note: L('Normal ≤ 15 m/s² · warning 15–30 m/s² (worn dampers, play) · critical > 30 m/s². X/Y dominance points to rotor imbalance or bent shafts; Z dominance to blade-plane mismatch or bearing play.', 'Норма ≤ 15 м/с² · предупреждение 15–30 м/с² (износ демпферов, люфты) · критично > 30 м/с². Доминирование X/Y указывает на разбаланс роторов или погнутые валы, доминирование Z — на разнобой плоскостей вращения лопастей или люфт подшипников.'),
+          },
+          {
+            name: L('Accelerometer clipping', 'Клиппинг акселерометра'),
+            expr: 'ΔClip = Clip_end − Clip_start',
+            note: L('Any ΔClip > 0 means sensor saturation: it distorts the state estimate and is treated as a critical defect.', 'Любое ΔClip > 0 означает аппаратное насыщение датчика: оно искажает навигационное счисление и считается критическим дефектом.'),
+          },
+          {
+            name: L('Battery internal resistance', 'Внутреннее сопротивление батареи'),
+            expr: 'R_int = (V_pre − V_post) / (I_post − I_pre)',
+            note: L('Measured on a sharp throttle step: ΔI > 10 A within Δt ≤ 0.5 s. Above 0.045 Ω the pack is degraded or the cells are too cold.', 'Считается на резком наборе газа: ΔI > 10 А за Δt ≤ 0,5 с. Выше 0,045 Ом — деградация аккумулятора или переохлаждение ячеек.'),
+          },
+          {
+            name: L('Thrust asymmetry', 'Асимметрия тяги'),
+            expr: 'ΔPWM = max_i(PWM_i) − min_j(PWM_j)',
+            note: L('In steady hover: 120–250 µs is moderate imbalance; > 250 µs indicates a failed controller phase, a damaged blade or a deformed arm.', 'В установившемся висении: 120–250 мкс — умеренный дисбаланс; > 250 мкс — отказ фазы регулятора, разрушение лопасти или деформация луча.'),
+          },
+          {
+            name: L('Radio link suppression', 'Подавление радиоканала'),
+            expr: 'dRSSI/dt < −20 dBm/s  ∧  SNR < 6 dB  ∧  TxBuf = 0',
+            note: L('All three conditions must hold at once, which separates external interference from ordinary range loss.', 'Все три условия должны выполняться одновременно — так внешние помехи отличаются от обычной потери дальности.'),
+          },
+          {
+            name: L('Satellite field suppression and spoofing', 'Подавление спутникового поля и подмена координат'),
+            expr: 'NSats < 6  ∧  HDop > 2.5  (Δt < 2 s);   ∫a·dt ≠ v_GNSS  ∧  FS > 0',
+            note: L('A synchronous drop in satellites with a geometry jump means suppression. A mismatch between inertial and satellite velocity plus an estimator fault flag means spoofing.', 'Синхронное падение числа спутников со скачком геометрического фактора — подавление. Расхождение инерциальной и спутниковой скорости при аварийном флаге оценщика — подмена координат.'),
+          },
+        ],
+      },
+      {
+        label: L('Root cause analysis', 'Установление первопричины (RCA)'),
+        paragraphs: [
+          L(
+            'The main trap in incident analysis is mistaking impact damage for the cause of a fall. The engine finds the moment T₀ of the first critical event: a failsafe trigger, roll or pitch beyond 60°, or motors stopping in the air.',
+            'Главная ловушка разбора происшествий — принять разрушения от удара о землю за причину падения. Движок находит момент T₀ первого критического события: срабатывание failsafe, крен или тангаж больше 60° либо отключение моторов в воздухе.'
+          ),
+          L(
+            'Only anomalies inside the window [T₀ − 5 s; T₀] are candidates for the root cause. Vibration peaks, voltage sags and sensor faults after T₀ are classified as secondary consequences and excluded from the cause graph.',
+            'Кандидатами в первопричину считаются только аномалии в окне [T₀ − 5 с; T₀]. Пики вибраций, просадки напряжения и отказы датчиков после T₀ классифицируются как вторичные последствия и исключаются из графа первопричины.'
+          ),
+        ],
+        formulas: [
+          {
+            name: L('Retrospective window', 'Окно ретроспекции'),
+            expr: 'T_pre = [T₀ − 5.0 s;  T₀],   T₀ = min{ t : failsafe(t) ∨ |φ|,|θ| > 60° ∨ motors_off(t) }',
+            note: L('Events with t > T₀ are marked as secondary.', 'События с t > T₀ помечаются как вторичные.'),
+          },
+        ],
+        code: {
+          title: L('Verdict logic (excerpt)', 'Логика вердикта (фрагмент)'),
+          lang: 'python',
+          source: `p99_xy = np.percentile(np.maximum(vibe.x, vibe.y), 99)
+p99_z  = np.percentile(vibe.z, 99)
+clip   = int(vibe.clip.iloc[-1] - vibe.clip.iloc[0])
+pwm_imbalance = pwm[["c1","c2","c3","c4"]].mean().pipe(lambda m: m.max() - m.min())
+
+if clip > 0 or max(p99_xy, p99_z) > 30 or pwm_imbalance > 250:
+    verdict = "UNFIT"
+elif max(p99_xy, p99_z) > 15 or pwm_imbalance > 120:
+    verdict = "MAINTENANCE"
+else:
+    verdict = "FIT"`,
+        },
+      },
+      {
+        label: L('Architecture & delivery', 'Архитектура и поставка'),
+        paragraphs: [
+          L(
+            'The product is modular so every layer can be debugged on its own. It ships as a single offline package built with PyInstaller in onedir mode, which keeps start-up fast despite heavy signal-processing libraries. A launcher starts the local interface without a separate browser setup.',
+            'Продукт модульный: каждый слой отлаживается отдельно. Поставляется одним офлайн-дистрибутивом, собранным PyInstaller в режиме onedir, — это сокращает время старта тяжёлых библиотек обработки сигналов. Лаунчер сам открывает локальный интерфейс, без отдельной настройки.'
+          ),
+        ],
+        modules: [
+          { title: L('parsers/', 'parsers/'), body: L('Isolated readers that turn binary messages into NumPy/Pandas arrays.', 'Изолированные классы чтения, превращающие бинарные сообщения в массивы NumPy/Pandas.') },
+          { title: L('processing/', 'processing/'), body: L('Time-series alignment, window filtering and fast rolling statistics.', 'Выравнивание временных рядов, оконная фильтрация, быстрые скользящие статистики.') },
+          { title: L('diagnostics/', 'diagnostics/'), body: L('Vibration, power, radio environment checks and the root cause graph.', 'Проверки вибронагрузки, силовой части, радиообстановки и граф первопричин.') },
+          { title: L('ui/ · reporting/', 'ui/ · reporting/'), body: L('Streamlit interface with time-synced Plotly charts and a formal PDF passport of the inspection.', 'Интерфейс на Streamlit с синхронизированными по времени графиками Plotly и формализованный PDF-паспорт проверки.') },
+        ],
+      },
+    ],
+  },
   {
     slug: 'secure-llm-gateway',
     title: L('Secure On-Premise LLM Gateway', 'Локальный шлюз защищённой работы с данными и облачными LLM'),

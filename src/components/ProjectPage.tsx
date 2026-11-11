@@ -524,6 +524,29 @@ export default function ProjectPage() {
               <DataTable key={ti} table={table} />
             ))}
 
+            {section.formulas && section.formulas.length > 0 && (
+              <div className="divide-y divide-[#ece9e4]/10 border-y border-[#ece9e4]/15">
+                {section.formulas.map((f, fi) => (
+                  <div key={fi} className="grid gap-3 py-6 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.6fr)] md:gap-8">
+                    <p className="font-mono2 text-[10px] uppercase tracking-[0.22em] text-[#ece9e4]/55 md:text-[11px]">{pick(f.name, lang)}</p>
+                    <div className="min-w-0">
+                      <p className="break-words font-mono2 text-sm text-[#ff4d00] md:text-base">{f.expr}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-[#ece9e4]/65 md:text-base">{pick(f.note, lang)}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {section.code && (
+              <div className="border border-[#ece9e4]/15 bg-[#ece9e4]/[0.03]">
+                <p className="border-b border-[#ece9e4]/10 px-5 py-3 font-mono2 text-[10px] uppercase tracking-[0.22em] text-[#ece9e4]/55">
+                  {pick(section.code.title, lang)} · {section.code.lang}
+                </p>
+                <pre className="overflow-x-auto p-5 font-mono2 text-xs leading-relaxed text-[#ece9e4]/80 md:text-sm"><code>{section.code.source}</code></pre>
+              </div>
+            )}
+
             {section.charts?.map((chart, ci) => (
               <ChartPanel key={ci} chart={chart} />
             ))}
