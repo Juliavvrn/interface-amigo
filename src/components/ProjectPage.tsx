@@ -451,6 +451,41 @@ export default function ProjectPage() {
         )}
       </div>
 
+      {project.metrics && project.metrics.length > 0 && (
+        <div className="px-6 pt-14 md:px-10 md:pt-20">
+          <p className="mb-6 font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#ff4d00]">
+            {t('Impact', 'Результат в цифрах')}
+          </p>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {project.metrics.map((metric, mi) => (
+              <motion.div
+                key={mi}
+                className="relative overflow-hidden border border-[#ece9e4]/12 bg-[#ece9e4]/[0.03] p-6 md:p-8"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ delay: mi * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <motion.span
+                  aria-hidden
+                  className="absolute left-0 top-0 h-[2px] bg-[#ff4d00]"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: '100%' }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 + mi * 0.1, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+                />
+                <p className="font-display text-4xl font-extrabold tracking-tight text-[#ece9e4] md:text-5xl">
+                  {pick(metric.value, lang)}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-[#ece9e4]/60">
+                  {pick(metric.label, lang)}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      )}
+
       <div className="grid gap-10 px-6 py-20 md:grid-cols-[1fr_2fr] md:px-10 md:py-28">
         <p className="font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#ece9e4]">
           {t('The brief', 'Задача')}
@@ -525,15 +560,25 @@ export default function ProjectPage() {
             ))}
 
             {section.formulas && section.formulas.length > 0 && (
-              <div className="divide-y divide-[#ece9e4]/10 border-y border-[#ece9e4]/15">
+              <div className="grid gap-3 md:grid-cols-2">
                 {section.formulas.map((f, fi) => (
-                  <div key={fi} className="grid gap-3 py-6 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.6fr)] md:gap-8">
-                    <p className="font-mono2 text-[10px] uppercase tracking-[0.22em] text-[#ece9e4]/55 md:text-[11px]">{pick(f.name, lang)}</p>
-                    <div className="min-w-0">
-                      <p className="break-words font-mono2 text-sm text-[#ff4d00] md:text-base">{f.expr}</p>
-                      <p className="mt-2 text-sm leading-relaxed text-[#ece9e4]/65 md:text-base">{pick(f.note, lang)}</p>
+                  <motion.div
+                    key={fi}
+                    className="relative border border-[#ece9e4]/12 bg-[#ece9e4]/[0.03] p-5 md:p-7"
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-40px' }}
+                    transition={{ delay: (fi % 2) * 0.08, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono2 text-[10px] text-[#ff4d00]">{String(fi + 1).padStart(2, '0')}</span>
+                      <p className="font-mono2 text-[10px] uppercase tracking-[0.2em] text-[#ece9e4]/60 md:text-[11px]">{pick(f.name, lang)}</p>
                     </div>
-                  </div>
+                    <div className="mt-4 border-l-2 border-[#ff4d00] bg-[#0a0a0a]/60 px-4 py-3">
+                      <p className="break-words font-mono2 text-sm leading-relaxed text-[#ff6a1f] md:text-[15px]">{f.expr}</p>
+                    </div>
+                    <p className="mt-4 text-sm leading-relaxed text-[#ece9e4]/70">{pick(f.note, lang)}</p>
+                  </motion.div>
                 ))}
               </div>
             )}
@@ -588,33 +633,6 @@ export default function ProjectPage() {
         )
       })}
 
-
-      {project.metrics && project.metrics.length > 0 && (
-        <div className="border-t border-[#ece9e4]/15 px-6 py-20 md:px-10 md:py-28">
-          <p className="mb-12 font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#ece9e4]">
-            {t('Impact', 'Результат в цифрах')}
-          </p>
-          <div className="grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-[#ece9e4]/15 md:grid-cols-3">
-            {project.metrics.map((metric, mi) => (
-              <motion.div
-                key={mi}
-                className="bg-[#ece9e4]/[0.02] p-6 md:p-10"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ delay: mi * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <p className="font-display text-2xl font-extrabold tracking-tight text-[#ece9e4] md:text-4xl">
-                  {pick(metric.value, lang)}
-                </p>
-                <p className="mt-3 text-xs leading-relaxed text-[#ece9e4]/50 md:text-sm">
-                  {pick(metric.label, lang)}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      )}
 
       {next && (
         <Link

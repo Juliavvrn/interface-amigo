@@ -41,7 +41,7 @@ export default function Works() {
                 {m ? (
                   <div className="col-start-2 border-l-2 border-[#ff4d00] pl-4 md:col-start-auto">
                     <p className="font-display text-2xl font-extrabold tracking-tight md:text-3xl">{pick(m.value, lang)}</p>
-                    <p className="mt-1 text-xs leading-snug text-[#ece9e4]/55">{pick(m.label, lang)}</p>
+                    <p className="mt-1 line-clamp-2 text-xs leading-snug text-[#ece9e4]/55">{pick(m.label, lang)}</p>
                   </div>
                 ) : (
                   <span className="hidden md:block" />
