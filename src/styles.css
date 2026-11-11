@@ -166,7 +166,7 @@ html.lenis body {
 body {
   background: var(--ink);
   color: var(--paper);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Onest', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -181,11 +181,12 @@ body {
 }
 
 .font-display {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Onest', system-ui, sans-serif;
+  letter-spacing: -0.02em;
 }
 
 .font-mono2 {
-  font-family: 'Space Mono', monospace;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
 }
 
 .text-outline {
