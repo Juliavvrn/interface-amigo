@@ -111,6 +111,7 @@ function L(en: string, ru: string): Localized {
 }
 
 const projectOrder: Record<string, number> = {
+  'secure-llm-gateway': -1,
   'neurosignal': 0,
   'industrial-monitoring': 1,
   'aiim': 2,
@@ -121,6 +122,118 @@ const projectOrder: Record<string, number> = {
 }
 
 const _projects: Project[] = [
+  {
+    slug: 'secure-llm-gateway',
+    title: L('Secure On-Premise LLM Gateway', 'Локальный шлюз защищённой работы с данными и облачными LLM'),
+    category: L('InfoSec · On-Premise · Pilot', 'Информационная безопасность · On-premise · Пилот'),
+    domain: L('Data Protection / Closed-Loop Infrastructure', 'Защита данных / Закрытый контур'),
+    stack: L('Python 3.13 · FastAPI · SQLAlchemy 2.0 · SQLCipher · React 19 · TanStack Router · Electron · Tesseract 5 · Natasha · AES-256-GCM · Ed25519', 'Python 3.13 · FastAPI · SQLAlchemy 2.0 · SQLCipher · React 19 · TanStack Router · Electron · Tesseract 5 · Natasha · AES-256-GCM · Ed25519'),
+    year: '2026',
+    img: work5,
+    deliverables: [
+      L('Security Architecture', 'Архитектура безопасности'),
+      L('Pseudonymization Engine', 'Движок псевдонимизации'),
+      L('Desktop Product', 'Десктоп-продукт'),
+      L('Compliance Design', 'Проектирование соответствия 152-ФЗ'),
+    ],
+    description: [
+      L(
+        'A software gateway deployed inside a closed corporate perimeter (on-premise) that lets specialists use cloud LLMs without sending personal data outside. Before a request leaves the perimeter, the gateway performs reversible pseudonymization: names, IDs, policy numbers, addresses and phones are replaced with tokens, and dates are shifted by a random offset. Only de-identified text reaches the model; the answer is re-identified locally.',
+        'Программный шлюз, который разворачивается внутри закрытого контура организации (on-premise) и позволяет специалистам использовать облачные LLM, не вынося персональные данные за периметр. Перед отправкой запроса шлюз выполняет обратимую псевдонимизацию: ФИО, СНИЛС, полисы, адреса и телефоны заменяются токенами, а даты сдвигаются на случайное число дней. В облако уходит только обезличенный текст, а ответ модели восстанавливается локально.'
+      ),
+      L(
+        'The pilot domain is clinical work under 152-FZ (personal data) and 323-FZ (medical confidentiality), one of the strictest regulatory environments for data channels. The same architecture applies to any closed-loop infrastructure where data must not leave the perimeter.',
+        'Пилотная область — клиническая работа в рамках 152-ФЗ о персональных данных и 323-ФЗ о врачебной тайне, одной из самых строгих сред для каналов передачи данных. Та же архитектура применима к любой инфраструктуре закрытого контура, где данные не должны покидать периметр.'
+      ),
+    ],
+    gallery: [work5],
+    metrics: [
+      { value: L('0', '0'), label: L('Identifiers leaving the perimeter', 'Идентификаторов за пределами контура') },
+      { value: L('AES-256', 'AES-256'), label: L('GCM in RAM · SQLCipher at rest', 'GCM в памяти · SQLCipher на диске') },
+      { value: L('10', '10'), label: L('Personal data types detected', 'Типов персональных данных распознаётся') },
+      { value: L('~90%', '~90%'), label: L('Pilot readiness, v3.1', 'Готовность пилотной версии 3.1') },
+    ],
+    caseStudy: [
+      {
+        label: L('Problem & approach', 'Задача и подход'),
+        paragraphs: [
+          L(
+            'Standard cloud AI tools send raw text to third-party servers, which is unacceptable for organizations working with personal data. The gateway acts as an intermediary inside the perimeter: it removes identifiers, controls every outgoing request and restores the full text only on the local workstation.',
+            'Стандартные облачные ИИ-инструменты отправляют исходный текст на сторонние серверы, что недопустимо для организаций, работающих с персональными данными. Шлюз выступает посредником внутри контура: удаляет идентификаторы, контролирует каждый исходящий запрос и восстанавливает полный текст только на локальном рабочем месте.'
+          ),
+        ],
+        findings: [
+          {
+            title: L('Token maps live only in memory', 'Карты токенов живут только в памяти'),
+            body: L('Token-to-value maps are kept in RAM encrypted with AES-256-GCM and destroyed at the end of a session, so they cannot be stolen from disk.', 'Карты соответствия токенов хранятся только в оперативной памяти в зашифрованном виде (AES-256-GCM) и уничтожаются по завершении сессии, что исключает их кражу с диска.'),
+          },
+          {
+            title: L('Domain terms are protected from distortion', 'Предметные термины защищены от искажений'),
+            body: L('A dictionary of 121 eponyms keeps terms like Crohn\'s disease intact, so anonymization does not corrupt the meaning of the request.', 'Словарь из 121 эпонима сохраняет термины вроде «болезнь Крона», чтобы обезличивание не искажало смысл запроса.'),
+          },
+          {
+            title: L('Leaks are blocked at the router', 'Утечки блокируются на уровне роутера'),
+            body: L('If a request that should contain no personal data (for example a drug interaction check) includes a phone number or a name, it is rejected before it leaves the perimeter.', 'Если в запросе, который не должен содержать ПДн (например, проверка лекарственного взаимодействия), обнаружен телефон или ФИО, он отклоняется до выхода за контур.'),
+          },
+        ],
+        diagram: {
+          title: L('Data flow through the perimeter', 'Поток данных через контур'),
+          columns: 6,
+          nodes: [
+            { id: 'in', label: L('Input text / scan', 'Текст / скан'), sublabel: L('Tesseract OCR', 'OCR Tesseract') },
+            { id: 'anon', label: L('Anonymizer', 'Анонимайзер'), sublabel: L('Tokens · date shift', 'Токены · сдвиг дат') },
+            { id: 'ner', label: L('NER check', 'NER-проверка'), sublabel: L('Natasha + Regex', 'Natasha + Regex') },
+            { id: 'llm', label: L('Cloud LLM', 'Облачная LLM'), sublabel: L('De-identified only', 'Только обезличенное') },
+            { id: 'val', label: L('Response validator', 'Валидатор ответа'), sublabel: L('Rules · red flags', 'Правила · красные флаги') },
+            { id: 'out', label: L('Re-identification', 'Депсевдонимизация'), sublabel: L('Local workstation', 'Локальное АРМ') },
+          ],
+          edges: [
+            { from: 'in', to: 'anon' }, { from: 'anon', to: 'ner' }, { from: 'ner', to: 'llm' },
+            { from: 'llm', to: 'val' }, { from: 'val', to: 'out' },
+          ],
+        },
+      },
+      {
+        label: L('Security & access control', 'Безопасность и разграничение доступа'),
+        paragraphs: [
+          L(
+            'Six roles separate duties: administrator, head, specialist, registrar, auditor and observer. A record is visible only to its author, not even to the administrator. Authentication uses JWT and bcrypt with automatic session expiry; licenses are signed with Ed25519.',
+            'Шесть ролей разделяют полномочия: администратор, заведующий, специалист, регистратор, аудитор и наблюдатель. Карту видит только её автор, даже администратор не может её открыть. Аутентификация построена на JWT и bcrypt с автоматическим завершением сессии, лицензии подписываются Ed25519.'
+          ),
+          L(
+            'An append-only audit log records every login, edit, pseudonymization operation and decision, meeting article 18.1 of 152-FZ. A separate access log records who opened a record and when, without storing its contents. Backups are encrypted archives containing the SQLCipher database and key.',
+            'Неизменяемый (append-only) журнал аудита фиксирует каждый вход, изменение, операцию псевдонимизации и принятое решение в соответствии со ст. 18.1 152-ФЗ. Отдельный журнал доступа записывает, кто и когда открывал карту, не сохраняя её содержимое. Резервные копии — зашифрованные архивы с базой SQLCipher и ключом.'
+          ),
+        ],
+        tables: [
+          {
+            title: L('Cryptography & protection layers', 'Криптография и уровни защиты'),
+            columns: [L('Layer', 'Уровень'), L('Mechanism', 'Механизм')],
+            rows: [
+              [L('Data at rest', 'Данные на диске'), L('SQLCipher, AES-256', 'SQLCipher, AES-256')],
+              [L('Session token maps', 'Карты токенов сессии'), L('AES-256-GCM, RAM only', 'AES-256-GCM, только RAM')],
+              [L('Passwords & sessions', 'Пароли и сессии'), L('bcrypt, JWT, auto-logout', 'bcrypt, JWT, автовыход')],
+              [L('Licensing', 'Лицензирование'), L('Ed25519 signatures', 'Подписи Ed25519')],
+              [L('Outgoing channel', 'Исходящий канал'), L('Pseudonymization + router-level blocking', 'Псевдонимизация + блокировка на уровне роутера')],
+            ],
+          },
+        ],
+      },
+      {
+        label: L('Product features & integration', 'Возможности и интеграция'),
+        paragraphs: [
+          L(
+            'Beyond the gateway, the product is a full desktop workstation (Electron, NSIS installer): OCR of paper scans, entity extraction, 24 critical-threshold rules with red-flag alerts, decision support with logged reasoning, scheduling and a shared document library. Records export to HL7 FHIR JSON, Word and PDF, and full databases move between sites as ZIP archives.',
+            'Помимо шлюза, продукт — полноценное десктопное рабочее место (Electron, установщик NSIS): OCR бумажных сканов, извлечение сущностей, 24 правила критических порогов с красными флагами, поддержка принятия решений с фиксацией обоснования, расписание и общая база документов. Карты выгружаются в HL7 FHIR JSON, Word и PDF, а база целиком переносится между площадками в ZIP-архиве.'
+          ),
+          L(
+            'Version 3.1 is about 90% ready for pilot deployment. Next steps: code signing, integration with state information systems, and migration to a server DBMS for multi-seat installations.',
+            'Версия 3.1 готова к пилотному внедрению примерно на 90%. Следующие шаги: подпись кода установщика, интеграция с государственными информационными системами и переход на серверную СУБД для многопользовательских установок.'
+          ),
+        ],
+      },
+    ],
+  },
   {
     slug: 'chromatic-drift',
     title: L('SaaS for Project Risk Management', 'SaaS-решение для управления рисками проекта'),
