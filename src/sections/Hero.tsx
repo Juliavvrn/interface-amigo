@@ -1,80 +1,137 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
-import { useI18n } from '@/i18n'
+import { motion, useScroll, useTransform, animate, useInView } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { projects } from '@/data/content'
 
-const LINE1 = { en: 'Product strategy consulting', ru: 'Консалтинг по продуктовой стратегии' }
-const LINE2 = { en: 'and full-cycle product development', ru: 'и разработка продуктов полного цикла' }
-const LINE3_PRE = { en: 'in ', ru: 'в ' }
+const ease = [0.22, 1, 0.36, 1] as const
 
-const lineAnim = {
-  hidden: { y: '110%' },
-  show: (i: number) => ({
-    y: '0%',
-    transition: { delay: 0.2 + i * 0.15, duration: 1, ease: [0.22, 1, 0.36, 1] as const },
-  }),
+function Count({ to }: { to: number }) {
+  const ref = useRef<HTMLSpanElement>(null)
+  const inView = useInView(ref, { once: true })
+  const [v, setV] = useState(0)
+  useEffect(() => {
+    if (!inView) return
+    const c = animate(0, to, { duration: 1.4, ease, onUpdate: (x) => setV(Math.round(x)) })
+    return () => c.stop()
+  }, [inView, to])
+  return <span ref={ref}>{v}</span>
 }
 
 export default function Hero() {
-  const { t } = useI18n()
-  const ref = useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLElement>(null)
+  const [copied, setCopied] = useState(false)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%'])
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
+  const imgY = useTransform(scrollYProgress, [0, 1], ['0%', '12%'])
+
+  const stats = [
+    { n: projects.length, label: 'кейсов от R&D до продакшена' },
+    { n: 4, label: 'научные публикации по AI Safety' },
+    { n: 9, label: 'международных сертификатов' },
+    { n: 2, label: 'высших образования: медицина и ИС' },
+  ]
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText('juliavvrn@gmail.com')
+      setCopied(true)
+      setTimeout(() => setCopied(false), 1800)
+    } catch {
+      window.location.href = 'mailto:juliavvrn@gmail.com'
+    }
+  }
 
   return (
-    <section id="top" ref={ref} className="relative flex min-h-screen flex-col justify-between overflow-hidden px-6 pb-8 pt-28 md:px-10">
-      <motion.div style={{ y, opacity }} className="flex flex-1 flex-col justify-center gap-8 md:gap-12">
+    <section id="top" ref={ref} className="relative overflow-hidden md:grid md:min-h-screen md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+      {/* Portrait */}
+      <div className="relative h-[62vh] overflow-hidden md:h-auto">
+        <motion.img
+          src="/julia-veresova-portrait.webp"
+          alt="Юлия Вересова — Technical Product Owner, AI и автономные системы"
+          style={{ y: imgY }}
+          initial={{ opacity: 0, scale: 1.06 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.4, ease }}
+          className="absolute inset-0 h-full w-full object-cover object-[50%_20%] grayscale"
+          fetchPriority="high"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0a0a] md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-[#0a0a0a]" />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 -mt-24 flex flex-col justify-center px-6 pb-16 md:mt-0 md:px-12 md:pb-12 md:pt-28 lg:px-16">
         <motion.p
-          className="font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#ece9e4]/60"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.9, duration: 1 }}
+          className="font-mono2 text-[10px] uppercase tracking-[0.3em] text-[#ff4d00] md:text-[11px]"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.8, ease }}
         >
           <span translate="no" className="notranslate" lang="en">
             TECHNICAL PRODUCT OWNER · AI · HMI · AUTONOMOUS SYSTEMS
           </span>
         </motion.p>
 
-        <div className="select-none">
-          <h1 className="font-display font-extrabold leading-[0.9] tracking-tighter">
-            <span className="block overflow-hidden">
-              <motion.span
-                className="block text-[5.5vw] md:text-[4vw]"
-                custom={0}
-                variants={lineAnim}
-                initial="hidden"
-                animate="show"
-              >
-                {t(LINE1.en, LINE1.ru)}
-              </motion.span>
-            </span>
-            <span className="block overflow-hidden">
-              <motion.span
-                className="block text-[5.5vw] md:text-[4vw]"
-                custom={1}
-                variants={lineAnim}
-                initial="hidden"
-                animate="show"
-              >
-                {t(LINE2.en, LINE2.ru)}
-              </motion.span>
-            </span>
-            <span className="block overflow-hidden">
-              <motion.span
-                className="block text-[5.5vw] md:text-[4vw]"
-                custom={2}
-                variants={lineAnim}
-                initial="hidden"
-                animate="show"
-              >
-                {t(LINE3_PRE.en, LINE3_PRE.ru)}
-                <span className="text-[#ff4d00]">{t('AI, HMI & autonomous systems', 'AI, HMI и автономных системах')}</span>
-              </motion.span>
-            </span>
-          </h1>
-        </div>
+        <motion.p
+          aria-hidden="true"
+          className="mt-5 font-display text-[15vw] font-extrabold leading-[0.88] tracking-[-0.04em] md:text-[6.4vw]"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.45, duration: 1, ease }}
+        >
+          Юлия<br />Вересова
+        </motion.p>
 
-      </motion.div>
+        <motion.h1
+          className="mt-7 max-w-xl font-display text-xl font-medium leading-snug text-[#ece9e4]/85 md:text-2xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.65, duration: 0.9, ease }}
+        >
+          <span className="sr-only">Юлия Вересова — </span>
+          Консалтинг по продуктовой стратегии и разработка продуктов полного цикла в{' '}
+          <span className="text-[#ff4d00]">AI, HMI и автономных системах</span>
+        </motion.h1>
+
+        <motion.div
+          className="mt-9 flex flex-col gap-3 sm:flex-row"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.8, ease }}
+        >
+          <a
+            href="https://t.me/julianvrn"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-hover
+            className="inline-flex items-center justify-center bg-[#ece9e4] px-6 py-4 text-sm font-semibold text-[#0a0a0a] transition-colors duration-300 hover:bg-[#ff4d00] hover:text-[#ece9e4]"
+          >
+            Написать в Telegram
+          </a>
+          <button
+            type="button"
+            data-hover
+            onClick={copyEmail}
+            className="inline-flex items-center justify-center border border-[#ece9e4]/30 px-6 py-4 text-sm font-semibold transition-colors duration-300 hover:border-[#ff4d00] hover:text-[#ff4d00]"
+          >
+            {copied ? 'Email скопирован ✓' : 'Скопировать email'}
+          </button>
+        </motion.div>
+
+        <motion.dl
+          className="mt-12 grid grid-cols-2 border-t border-[#ece9e4]/15 md:mt-16"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.8 }}
+        >
+          {stats.map((s, i) => (
+            <div key={i} className={`border-b border-[#ece9e4]/15 py-5 ${i % 2 === 0 ? 'pr-4' : 'border-l pl-4'}`}>
+              <dt className="sr-only">{s.label}</dt>
+              <dd className="font-display text-4xl font-extrabold tracking-tight md:text-5xl">
+                <Count to={s.n} />
+              </dd>
+              <dd className="mt-1 text-xs leading-snug text-[#ece9e4]/55 md:text-sm">{s.label}</dd>
+            </div>
+          ))}
+        </motion.dl>
+      </div>
     </section>
   )
 }
