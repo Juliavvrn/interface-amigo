@@ -22,7 +22,7 @@ export default function Manifesto() {
         {t('About', 'О себе')}
       </p>
 
-      <div className="max-w-6xl md:ml-[10%] md:grid md:grid-cols-[minmax(0,1.6fr)_minmax(240px,0.75fr)] md:gap-10 lg:gap-16">
+      <div className="max-w-6xl md:ml-[10%] ">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -49,14 +49,6 @@ export default function Manifesto() {
           </p>
         </motion.div>
 
-        <div className="relative mt-12 aspect-[3/4] overflow-hidden md:mt-0 md:aspect-auto md:min-h-full">
-          <img
-            src="/julia-veresova-portrait.webp"
-            alt={t('Portrait of Julia Veresova', 'Портрет Юлии Вересовой')}
-            className="h-full w-full object-cover object-center md:absolute md:inset-0"
-            loading="lazy"
-          />
-        </div>
       </div>
       <EducationModal open={educationOpen} onClose={() => setEducationOpen(false)} />
     </section>
