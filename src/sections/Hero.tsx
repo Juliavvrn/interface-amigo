@@ -18,23 +18,6 @@ export default function Hero() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
   const imgY = useTransform(scrollYProgress, [0, 1], ['0%', '12%'])
 
-  const stats = [
-    { n: projects.length, label: 'кейсов от R&D до продакшена' },
-    { n: 4, label: 'научные публикации по AI Safety' },
-    { n: 9, label: 'международных сертификатов' },
-    { n: 2, label: 'высших образования: медицина и ИС' },
-  ]
-
-  const copyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText('juliavvrn@gmail.com')
-      setCopied(true)
-      setTimeout(() => setCopied(false), 1800)
-    } catch {
-      window.location.href = 'mailto:juliavvrn@gmail.com'
-    }
-  }
-
   return (
     <section id="top" ref={ref} className="relative overflow-hidden md:grid md:min-h-screen md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
       {/* Portrait */}
