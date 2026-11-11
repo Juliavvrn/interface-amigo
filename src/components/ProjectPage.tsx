@@ -530,7 +530,7 @@ export default function ProjectPage() {
                   <div key={fi} className="grid gap-3 py-6 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.6fr)] md:gap-8">
                     <p className="font-mono2 text-[10px] uppercase tracking-[0.22em] text-[#ece9e4]/55 md:text-[11px]">{pick(f.name, lang)}</p>
                     <div className="min-w-0">
-                      <p className="overflow-x-auto whitespace-nowrap font-mono2 text-sm text-[#ff4d00] md:text-base">{f.expr}</p>
+                      <p className="break-words font-mono2 text-sm text-[#ff4d00] md:text-base">{f.expr}</p>
                       <p className="mt-2 text-sm leading-relaxed text-[#ece9e4]/65 md:text-base">{pick(f.note, lang)}</p>
                     </div>
                   </div>

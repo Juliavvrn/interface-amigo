@@ -243,7 +243,7 @@ const _projects: Project[] = [
           },
           {
             name: L('Satellite field suppression and spoofing', 'Подавление спутникового поля и подмена координат'),
-            expr: 'NSats < 6  ∧  HDop > 2.5  within Δt < 2 s;   ∫a·dt ≠ v_GNSS  ∧  FS > 0',
+            expr: 'NSats < 6  ∧  HDop > 2.5  (Δt < 2 s);   ∫a·dt ≠ v_GNSS  ∧  FS > 0',
             note: L('A synchronous drop in satellites with a geometry jump means suppression. A mismatch between inertial and satellite velocity plus an estimator fault flag means spoofing.', 'Синхронное падение числа спутников со скачком геометрического фактора — подавление. Расхождение инерциальной и спутниковой скорости при аварийном флаге оценщика — подмена координат.'),
           },
         ],
