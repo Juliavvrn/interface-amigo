@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Fonts must support Cyrillic (site is Russian-only); display/body use one Cyrillic grotesk, mono uses a Cyrillic monospace — Syne/Space Grotesk lacked Cyrillic.
+- Case page head (title/description/keywords/JSON-LD) is built from Russian fields in routes/works.$slug.tsx — every case gets its own metadata automatically.
