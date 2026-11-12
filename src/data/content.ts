@@ -156,10 +156,6 @@ const _projects: Project[] = [
         'A local desktop tool for rapid technical assessment of autonomous platforms based on onboard logs. It evaluates assembly and repair quality, flags degrading components before they fail, and reconstructs the root cause of incidents. It runs fully offline in an air-gapped environment on Windows and Linux laptops.',
         'Локальное десктоп-приложение для экспресс-оценки технического состояния автономных платформ по бортовым журналам. Комплекс проверяет качество сборки и ремонта, выявляет деградацию узлов до отказа и восстанавливает первопричину происшествий. Работает полностью автономно, в закрытом контуре без выхода в интернет, на ноутбуках под Windows и Linux.'
       ),
-      L(
-        'Target users: assembly and acceptance-test centers, service workshops, operator training centers and fleet operators. The tool reads the two common open-autopilot log formats, DataFlash (.bin) and ULog (.ulg), and returns a formal verdict: fit, maintenance required, or unfit.',
-        'Пользователи: центры сборки и заводских испытаний, сервисные мастерские, учебные центры подготовки операторов и эксплуатанты парков техники. Комплекс читает два распространённых формата открытых автопилотов, DataFlash (.bin) и ULog (.ulg), и выдаёт формализованный вердикт: годен, требует ТО или не годен.'
-      ),
     ],
     gallery: [work3, work6],
     metrics: [
