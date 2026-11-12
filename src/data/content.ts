@@ -429,11 +429,27 @@ else:
     ],
     gallery: [work5, work4],
     metrics: [
-      { value: L('85 — 92%', '85 — 92%'), label: L('Synthetic-organic parity in independent comparison studies. Measured across thematic overlap, depth & qualitative alignment.', 'Синтетико-органическая паритетность в независимых сравнительных исследованиях. Измерено по тематическому перекрытию, глубине и качественному соответствию.') },
+      { value: L('85 — 92%', '85 — 92%'), label: L('Synthetic-organic parity in independent comparison studies. Measured across thematic overlap, depth & qualitative alignment.', 'Совпадение с ответами реальных респондентов в сравнительных исследованиях. Измерено по тематическому перекрытию, глубине и качественному соответствию.') },
       { value: L('$2-60', '$2-60'), label: L('Per interview, versus $100+ with traditional research agencies. No recruitment fees, no scheduling overhead.', 'За интервью, против $100+ в традиционных исследовательских агентствах. Без рекрутинговых сборов и накладных на планирование.') },
-      { value: L('Your data is private and belongs to you alone.', 'Ваши данные принадлежат только вам'), label: L('Measured across thematic overlap, depth & qualitative alignment.', 'Измерено по тематическому перекрытию, глубине и качественному соответствию.') },
+      { value: L('Private', 'Приватно'), label: L('Research data belongs only to its owner and is not used to train models.', 'Данные исследований принадлежат только владельцу и не используются для обучения моделей.') },
     ],
     caseStudy: [
+      {
+        label: L('How metrics are calculated', 'Как считаются метрики'),
+        paragraphs: [],
+        formulas: [
+          {
+            name: L('Parity with real respondents', 'Совпадение с реальными респондентами'),
+            expr: 'Parity = |T_synth ∩ T_real| / |T_real|',
+            note: L('T are the themes found in synthetic and real interviews on the same brief. Result: 85–92%.', 'T — темы, найденные в синтетических и реальных интервью по одному брифу. Результат: 85–92%.'),
+          },
+          {
+            name: L('Cost per interview', 'Стоимость интервью'),
+            expr: 'C = (tokens_in · p_in + tokens_out · p_out) / N_interviews',
+            note: L('Depends on model and depth: $2–60 versus $100+ for agency research.', 'Зависит от модели и глубины: $2–60 против $100+ в агентском исследовании.'),
+          },
+        ],
+      },
       {
         label: L('Why it exists', 'Зачем это нужно'),
         paragraphs: [
@@ -681,6 +697,22 @@ else:
       { value: L('98%', '98%'), label: L('Document parse success rate', 'Успешность парсинга документов') },
     ],
     caseStudy: [
+      {
+        label: L('How metrics are calculated', 'Как считаются метрики'),
+        paragraphs: [],
+        formulas: [
+          {
+            name: L('Audit time saved', 'Экономия времени аудита'),
+            expr: 'Saving = 1 − t_after / t_before = 1 − 1/6 ≈ 83%',
+            note: L('Six-fold faster cycle equals roughly 83% less time.', 'Ускорение цикла в 6 раз даёт сокращение времени примерно на 83%.'),
+          },
+          {
+            name: L('Parse success rate', 'Успешность парсинга'),
+            expr: 'P = N_parsed / N_uploaded',
+            note: L('Share of uploaded documents parsed without manual fixes: 98%.', 'Доля загруженных документов, разобранных без ручной правки: 98%.'),
+          },
+        ],
+      },
       {
         label: L('Product purpose', 'Назначение продукта'),
         paragraphs: [
@@ -969,6 +1001,22 @@ else:
       { value: L('0', '0'), label: L('Unencrypted user records', 'Незашифрованных записей пользователя') },
     ],
     caseStudy: [
+      {
+        label: L('How metrics are calculated', 'Как считаются метрики'),
+        paragraphs: [],
+        formulas: [
+          {
+            name: L('Completion rate', 'Завершаемость'),
+            expr: 'CR = N_completed / N_started',
+            note: L('94% for the step-by-step flow versus standard questionnaires.', '94% для пошагового потока против обычных опросников.'),
+          },
+          {
+            name: L('Normalized score', 'Нормализованный балл'),
+            expr: 'S = 100 · (x − x_min) / (x_max − x_min)',
+            note: L('Each scale is brought to 0–100 for the wellbeing radar.', 'Каждая шкала приводится к 0–100 для радара благополучия.'),
+          },
+        ],
+      },
       {
         label: L('Context', 'Контекст'),
         paragraphs: [
@@ -1259,6 +1307,27 @@ else:
       { value: L('0.12 / h', '0,12 / ч'), label: L('False alarm rate per hour', 'Ложных срабатываний в час') },
     ],
     caseStudy: [
+      {
+        label: L('How metrics are calculated', 'Как считаются метрики'),
+        paragraphs: [],
+        formulas: [
+          {
+            name: L('Sensitivity', 'Чувствительность'),
+            expr: 'Se = TP / (TP + FN)',
+            note: L('Share of pre-ictal episodes caught on the validation cohort: 94.6%.', 'Доля пойманных предиктальных эпизодов на валидационной когорте: 94,6%.'),
+          },
+          {
+            name: L('False alarm rate', 'Частота ложных тревог'),
+            expr: 'FAR = FP / T_record [1/h]',
+            note: L('False alarms per hour of recording: 0.12.', 'Ложные тревоги на час записи: 0,12.'),
+          },
+          {
+            name: L('Line-noise notch', 'Режекция сетевой помехи'),
+            expr: 'H(z) = (1 − 2cos(ω₀)z⁻¹ + z⁻²) / (1 − 2r·cos(ω₀)z⁻¹ + r²z⁻²),  ω₀ = 2π·f₀/f_s',
+            note: L('f₀ = 50 Hz in Russia/EU, 60 Hz in US; r sets notch width.', 'f₀ = 50 Гц в России и Европе, 60 Гц в США; r задаёт ширину режекции.'),
+          },
+        ],
+      },
       {
         label: L('Context & adaptation scope', 'Контекст и рамки адаптации'),
         paragraphs: [
@@ -1571,6 +1640,10 @@ else:
       L(
         'AIIM is my research initiative into forming stable, humanized AI identities. I developed its methodology, parameter tables, knowledge-base architecture, and anti-drift system as a practical bridge between cognitive psychology, medical thinking, and AI engineering. The research is implemented as a live platform at ai-im.tech.',
         'AIIM — это моя исследовательская инициатива в области формирования устойчивой гуманизированной идентичности ИИ. Я разработала её методологию, таблицы параметров, архитектуру базы знаний и систему антидрифт как практическую связь между когнитивной психологией, медицинским мышлением и инженерией ИИ. Исследование реализовано в виде действующей платформы на ai-im.tech.'
+      ),
+      L(
+        'The platform is used by Aalto University in its AI ethics projects. The approach builds on my University of Helsinki Ethics of AI certification: transparency, accountability and predictable agent behavior are embedded in the identity architecture itself.',
+        'Платформа используется Университетом Аалто в проектах по этике ИИ. Подход опирается на мою сертификацию Ethics of AI Хельсинкского университета: прозрачность, подотчётность и предсказуемость поведения агента заложены в саму архитектуру идентичности.'
       ),
       L(
         'The core distinction is Identity > Intellect. Its behavioral identity is encoded through twelve aspects, maturity levels, states, and delta-priorities, then protected by identity checkpoints and an anti-drift system. The model, prompts, knowledge sources, voice, and integrations remain replaceable.',
