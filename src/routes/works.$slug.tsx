@@ -2,11 +2,22 @@ import { createFileRoute } from "@tanstack/react-router";
 import ProjectPage from "../components/ProjectPage";
 import { getProject } from "../data/content";
 
+// Short titles for search results only; on-page titles stay full.
+const SEO_TITLES: Record<string, string> = {
+  "telemetry-diagnostics": "Предиктивная диагностика по телеметрии",
+  "secure-llm-gateway": "Защищённый LLM-шлюз (On-Premise)",
+  "industrial-monitoring": "AI-платформа синтетических исследований",
+  "audit-it": "Автоматизация аудита",
+  "mindcare": "Скрининг ментального здоровья",
+  "neurosignal": "Аналитика потоковых сигналов",
+  "aiim": "Когнитивная ОС для ИИ-агентов",
+};
+
 export const Route = createFileRoute("/works/$slug")({
   head: ({ params }) => {
     const project = getProject(params.slug);
     const title = project
-      ? `${project.title.ru} — кейс Юлии Вересовой`
+      ? `${SEO_TITLES[params.slug] ?? project.title.ru} — кейс Ю. Вересовой`
       : "Кейс — Юлия Вересова";
     const description = project
       ? `${project.title.ru}. ${project.description[0]?.ru ?? ''}`.replace(/\s+/g, ' ').slice(0, 157).replace(/\s\S*$/, '') + '…'

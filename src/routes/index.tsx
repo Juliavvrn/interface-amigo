@@ -8,14 +8,14 @@ import Awards from "../sections/Awards";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Юлия Вересова — Technical Product Owner | AI, HMI, автономные системы" },
+      { title: "Юлия Вересова — Technical Product Owner, продакт-менеджер и консультант по ИИ | AI, HMI, автономные системы" },
       {
         name: "description",
         content:
           "Technical Product Owner с инженерным бэкграундом и медицинским образованием. Запуск MVP под ключ, взаимодействие человек-машина (HMI), этика и надежность ИИ-систем.",
       },
       { name: "keywords", content: KEYWORDS_META },
-      { property: "og:title", content: "Юлия Вересова — Technical Product Owner | AI, HMI, автономные системы" },
+      { property: "og:title", content: "Юлия Вересова — Technical Product Owner, продакт-менеджер и консультант по ИИ | AI, HMI, автономные системы" },
       {
         property: "og:description",
         content:
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/")({
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { name: "twitter:image", content: "https://juliaveresova.ru/og-image.jpg" },
-      { name: "twitter:title", content: "Юлия Вересова — Technical Product Owner | AI, HMI, автономные системы" },
+      { name: "twitter:title", content: "Юлия Вересова — Technical Product Owner, продакт-менеджер и консультант по ИИ | AI, HMI, автономные системы" },
       {
         name: "twitter:description",
         content:
