@@ -15,6 +15,7 @@ export const Route = createFileRoute("/works/$slug")({
       ? [project.title.ru, project.domain.ru, project.category.ru, project.stack.ru, 'Юлия Вересова', 'Technical Product Owner', 'кейс'].join(', ')
       : 'Юлия Вересова, кейс';
     const url = `https://juliaveresova.ru/works/${params.slug}`;
+    const ogImage = project ? `https://juliaveresova.ru/og/${params.slug}.jpg` : "https://juliaveresova.ru/og-image.jpg";
 
     return {
       meta: [
@@ -27,11 +28,14 @@ export const Route = createFileRoute("/works/$slug")({
         { property: "og:description", content: description },
         { property: "og:type", content: "article" },
         { property: "og:url", content: url },
-        { property: "og:image", content: "https://juliaveresova.ru/og-image.jpg" },
+        { property: "og:image", content: ogImage },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
+        { property: "og:image:alt", content: title },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: description },
-        { name: "twitter:image", content: "https://juliaveresova.ru/og-image.jpg" },
+        { name: "twitter:image", content: ogImage },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [
@@ -52,7 +56,7 @@ export const Route = createFileRoute("/works/$slug")({
                   name: "Юлия Вересова",
                   url: "https://juliaveresova.ru",
                 },
-                image: "https://juliaveresova.ru/og-image.jpg",
+                image: ogImage,
               },
               {
                 "@type": "BreadcrumbList",
