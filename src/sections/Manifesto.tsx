@@ -7,10 +7,8 @@ export default function Manifesto() {
   const { t } = useI18n()
   const [educationOpen, setEducationOpen] = useState(false)
 
-  const text = t(
-    'Technical Product Owner with an engineering background in machine learning and a medical education. I deliver turnkey complex tech products — AI, autonomous systems, telemetry and HMI: from R&D and self-assembled working MVPs to coordinating the engineering team and bringing solutions to production.\nI define technical specifications, API contracts and acceptance criteria, bridging the gap between business goals and development. I specialize in human-machine interaction design, deploying agentic pipelines (LLM, RAG, multi-agent scenarios), and validating model reliability along with protecting sensitive data. I build for hard constraints: low latency, realtime protocols (WebRTC, WebSockets), edge computing, unstable or offline connectivity and deterministic behavior with no failures or hallucinations in critical scenarios.',
-    'Technical Product Owner с инженерным бэкграундом в машинном обучении и медицинским образованием. Реализую под ключ сложные технологические продукты — AI, автономные системы, телеметрия и HMI: от R&D-исследований и самостоятельной сборки работающих MVP до синхронизации инженерной команды и вывода решений в промышленную эксплуатацию.\nФормирую технические спецификации, API-контракты и критерии приемки, устраняя разрыв между бизнес-задачами и разработкой. Специализируюсь на проектировании взаимодействия человек-машина, внедрении агентных пайплайнов (LLM, RAG, мультиагентные сценарии), а также на валидации надежности моделей и защите чувствительных данных. Проектирую системы для жёстких ограничений: low-latency, realtime-протоколы (WebRTC, WebSockets), edge-вычисления, работа при нестабильной связи и офлайн, детерминированное поведение без сбоев и «галлюцинаций» в критических сценариях.'
-  )
+  const text =
+    'Technical Product Owner, разработчик ПО и консультант по ИИ. По первому образованию врач, по второму — специалист по информационным системам.\nЧто делаю: пишу программы под конкретную задачу — анализ телеметрии и сигналов с датчиков, защита данных при работе с нейросетями, интерфейсы операторов, медицинские сервисы. Консультирую команды, как встроить ИИ в продукт безопасно и с пользой.\nКак работаю: ставлю задачу и ТЗ, собираю рабочую версию, тестирую и передаю команде документированный код.'
   const paragraphs = text.split('\n')
 
   return (

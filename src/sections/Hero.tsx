@@ -55,8 +55,8 @@ export default function Hero() {
           transition={{ delay: 0.65, duration: 0.9, ease }}
         >
           <span className="sr-only">Юлия Вересова — </span>
-          Technical Product Owner и разработчик{' '}
-          <span className="text-[#ff4d00]">интеллектуальных систем полного цикла</span>
+          Разрабатываю ПО и консультирую по внедрению ИИ{' '}
+          <span className="text-[#ff4d00]">для автономных систем и медицины</span>
         </motion.h1>
 
         <motion.p
@@ -65,8 +65,8 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.72, duration: 0.9, ease }}
         >
-          Проектирую и запускаю под ключ целевые программные комплексы для автономных систем,
-          промышленности и медицины — от постановки задачи до рабочего продукта.
+          Пишу программы для анализа телеметрии, защиты данных при работе с нейросетями
+          и интерфейсы операторов. Помогаю командам спроектировать и внедрить ИИ — от ТЗ до рабочего продукта.
         </motion.p>
 
         <motion.div
