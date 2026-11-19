@@ -85,32 +85,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "google", content: "notranslate" },
       { name: "keywords", content: KEYWORDS_META },
-      { title: "Юлия Вересова — Technical Product Owner, разработка ИИ-систем, HMI и аналитики телеметрии" },
+      { title: "Юлия Вересова — разработка программных комплексов и консалтинг по ИИ | Technical Product Owner" },
       { name: "application-name", content: "Julia Veresova" },
       { name: "apple-mobile-web-app-title", content: "Юлия Вересова" },
       { name: "theme-color", content: "#0a0a0a" },
       {
         name: "description",
         content:
-          "Проектирование и запуск под ключ целевых программных комплексов для автономных систем и MedTech: шлюзы деанонимизации данных, диагностика бортовой телеметрии, интерфейсы управления HMI и продуктовый консалтинг.",
+          "Разработка целевых программных комплексов для автономных систем, промышленности и MedTech: диагностика по бортовой телеметрии, шлюзы деанонимизации данных, интерфейсы управления (HMI). Консалтинг по архитектуре и внедрению ИИ.",
       },
       { property: "og:site_name", content: "Julia Veresova" },
-      { property: "og:title", content: "Юлия Вересова — Technical Product Owner, разработка ИИ-систем, HMI и аналитики телеметрии" },
+      { property: "og:title", content: "Юлия Вересова — разработка программных комплексов и консалтинг по ИИ | Technical Product Owner" },
       {
         property: "og:description",
         content:
-          "Проектирование и запуск под ключ целевых программных комплексов для автономных систем и MedTech: шлюзы деанонимизации данных, диагностика бортовой телеметрии, интерфейсы управления HMI и продуктовый консалтинг.",
+          "Разработка целевых программных комплексов для автономных систем, промышленности и MedTech: диагностика по бортовой телеметрии, шлюзы деанонимизации данных, интерфейсы управления (HMI). Консалтинг по архитектуре и внедрению ИИ.",
       },
       { property: "og:type", content: "profile" },
       { property: "profile:first_name", content: "Юлия" },
       { property: "profile:last_name", content: "Вересова" },
       { property: "og:locale", content: "ru_RU" },
             { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Юлия Вересова — Technical Product Owner, разработка ИИ-систем, HMI и аналитики телеметрии" },
+      { name: "twitter:title", content: "Юлия Вересова — разработка программных комплексов и консалтинг по ИИ | Technical Product Owner" },
       {
         name: "twitter:description",
         content:
-          "Проектирование и запуск под ключ целевых программных комплексов для автономных систем и MedTech: шлюзы деанонимизации данных, диагностика бортовой телеметрии, интерфейсы управления HMI и продуктовый консалтинг.",
+          "Разработка целевых программных комплексов для автономных систем, промышленности и MedTech: диагностика по бортовой телеметрии, шлюзы деанонимизации данных, интерфейсы управления (HMI). Консалтинг по архитектуре и внедрению ИИ.",
       },
 
       { name: "robots", content: "index, follow" },
