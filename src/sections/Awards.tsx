@@ -38,12 +38,11 @@ export default function Awards() {
       <div className="grid gap-12 md:grid-cols-[1fr_1fr] md:gap-20">
         <div>
           <p className="mb-6 font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#ff4d00]">
-            {t('Research', 'Исследования')}
+            Исследования · человек и автономная система
           </p>
-          {t(
-            'My research focuses on the epistemology of artificial intelligence, the analysis of cognitive biases in the perception of language models, and the evaluation of how complex digital systems influence behavioral patterns, decision-making, and human–technology interaction. In this context, I study the technical foundations of these systems, the psychology of human attachment to AI, trust, safety, action alignment, as well as the social and politico-economic aspects of interaction at the scale of society.\nStudying the safety and predictability of agents directly serves the controllability of autonomous systems and lowers the cost of operator error.',
-            'Моя научно-исследовательская деятельность сосредоточена на изучении эпистемологии искусственного интеллекта, анализе когнитивных искажений в восприятии языковых моделей и оценке того, как сложные цифровые системы влияют на паттерны поведения, принятие решений и взаимодействие человека с технологиями. В этом контексте исследуются технические основы систем, психология привязанности человека к ИИ, доверие, безопасность, согласованность действий, а также социальные и политико-экономические аспекты взаимодействия в масштабах общества.\nИзучение безопасности и предсказуемости агентов напрямую решает задачи управляемости автономных систем и снижения цены ошибки оператора.'
-          ).split('\n').map((paragraph, i) => (
+          {(
+            'Общая тема моих кейсов и статей — как человек доверяет автономной системе и где эта система может ошибиться. Врач, получающий подсказку от ИИ, и оператор, управляющий автономной платформой, сталкиваются с одними рисками: избыточное доверие, манипулятивные механики интерфейса, утечка данных и непредсказуемое поведение модели.\nИсследования о когнитивных искажениях, манипуляциях в интерфейсах и барьерах полной автономности ИИ прямо ложатся в продукты: шлюзы данных, диагностику по телеметрии, HMI с низкой когнитивной нагрузкой и аудит поведения ИИ-помощников.'
+          )).split('\n').map((paragraph, i) => (
             <p
               key={i}
               className={`max-w-xl font-display font-semibold leading-[1.15] tracking-tight text-[#ece9e4]/60 ${i === 0 ? 'text-lg md:text-2xl' : 'mt-8 text-base md:text-xl'}`}

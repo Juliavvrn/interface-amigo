@@ -44,9 +44,6 @@ export default function Manifesto() {
           >
             {t('Education', 'Образование')}
           </button>
-          <p className="mt-10 max-w-4xl font-mono2 text-[10px] uppercase leading-[2] tracking-[0.2em] text-[#ece9e4]/50 md:text-[11px]">
-            TECHNICAL PRODUCT OWNERSHIP · END-TO-END DELIVERY · HUMAN-MACHINE INTERACTION · AGENTIC WORKFLOWS & LLM · RAG PIPELINES · LOW-LATENCY & REALTIME (WEBRTC, WEBSOCKETS) · EDGE & OFFLINE-FIRST · PYTHON & REST APIS · DATA SCIENCE & ML · AI SAFETY & COMPLIANCE
-          </p>
         </motion.div>
 
       </div>

@@ -10,7 +10,7 @@ const requests = [
   { t: 'Автоматизировать аудит документации', d: 'Контроль соблюдения регламентов, проверка технической документации и стабилизация поведения ИИ-помощников.' },
 ]
 
-const bring = ['Краткое описание задачи и ограничений', 'Пример данных или логов (можно обезличенных)', 'Сроки и что считается результатом']
+const bring = ['Краткое описание задачи и ограничений', 'Пример данных или логов (можно обезличенных)', 'Что считается результатом']
 const notDo = ['Не обучаю и не дообучаю собственные нейросети', 'Не берусь за проекты без понятного критерия результата', 'Не называю заказчиков и не раскрываю их данные']
 
 export default function Requests() {
@@ -39,7 +39,7 @@ export default function Requests() {
       <div className="mt-16 grid gap-6 md:grid-cols-2">
         <div className="border border-[#ff4d00]/40 p-6 md:p-8">
           <h3 className="font-display text-xl font-semibold">Первый разбор задачи</h3>
-          <p className="mt-3 text-sm text-[#ece9e4]/60">Чтобы за одну встречу понять объём и сроки, пришлите:</p>
+          <p className="mt-3 text-sm text-[#ece9e4]/60">Чтобы за одну встречу понять задачу, пришлите:</p>
           <ul className="mt-4 space-y-2 text-sm">
             {bring.map((b) => (
               <li key={b} className="flex gap-3"><span className="text-[#ff4d00]">→</span>{b}</li>
