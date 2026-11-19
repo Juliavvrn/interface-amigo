@@ -81,25 +81,16 @@ export default function Footer() {
         <div className="mt-8 divide-y divide-[#ece9e4]/10 border-t border-[#ece9e4]/10">
           {[
             {
-              title: 'Разработка продукта под ключ',
-              desc: t(
-                'End-to-end delivery of products and MVPs: from hypothesis validation and engineering prototyping to handoff to development and release.',
-                'Реализация продуктов и MVP под ключ: от валидации гипотез и инженерного прототипирования до передачи в разработку и вывода решения в релиз.'
-              ),
+              title: 'Запуск целевого продукта под ключ',
+              desc: 'Полный цикл: проектирование логики и API-контрактов, сборка рабочего прототипа, тестирование и передача чистого документированного кода вашей команде. Фиксированная стоимость.',
             },
             {
-              title: 'Technical Product Owner\n(полная занятость / контракт)',
-              desc: t(
-                'Embedded in the team: decomposing business requirements, drafting technical specs, API contracts and acceptance criteria.',
-                'Работа в контуре команды: декомпозиция бизнес-требований, составление технических спецификаций, API-контрактов и критериев приемки (Acceptance Criteria).'
-              ),
+              title: 'Technical Product Owner на проект\n(контракт / ретейнер)',
+              desc: 'Постановка ТЗ для смежных инженеров, включая разработчиков железа и прошивок, контроль интеграций, управление бэклогом и приёмка работ.',
             },
             {
-              title: 'Консалтинг по AI-стратегии и этике',
-              desc: t(
-                'Product strategy audit and consulting: ethical risk expertise, reviewing model behavior logic and human-machine interaction scenarios. Defining acceptable AI boundaries, preventing manipulative mechanics and forming recommendations for safe integration into product.',
-                'Аудит продуктовой стратегии и консультации: экспертиза этических рисков, проверка логики поведения моделей и сценариев взаимодействия человек-машина. Определение допустимых границ работы ИИ, предотвращение манипулятивных механик и формирование рекомендаций по безопасной интеграции решений в продукт.'
-              ),
+              title: 'Консультации',
+              desc: 'Разбор задачи до старта разработки: архитектура, риски, этика и допустимые границы работы ИИ, рекомендации по безопасной интеграции в продукт.',
             },
           ].map((item) => (
             <div key={item.title} className="grid gap-2 py-6 md:grid-cols-[minmax(0,320px)_1fr] md:gap-10">

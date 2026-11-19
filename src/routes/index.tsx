@@ -3,23 +3,24 @@ import { KEYWORDS_META, SEO_CLUSTERS } from "../lib/seo-keywords";
 import Hero from "../sections/Hero";
 import Manifesto from "../sections/Manifesto";
 import Works from "../sections/Works";
+import Requests from "../sections/Requests";
 import Awards from "../sections/Awards";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Юлия Вересова — Technical Product Owner, продакт-менеджер и консультант по ИИ | AI, HMI, автономные системы" },
+      { title: "Юлия Вересова — Technical Product Owner, разработка ИИ-систем, HMI и аналитики телеметрии" },
       {
         name: "description",
         content:
-          "Technical Product Owner с инженерным бэкграундом и медицинским образованием. Запуск MVP под ключ, взаимодействие человек-машина (HMI), этика и надежность ИИ-систем.",
+          "Проектирование и запуск под ключ целевых программных комплексов для автономных систем и MedTech: шлюзы деанонимизации данных, диагностика бортовой телеметрии, интерфейсы управления HMI и продуктовый консалтинг.",
       },
       { name: "keywords", content: KEYWORDS_META },
-      { property: "og:title", content: "Юлия Вересова — Technical Product Owner, продакт-менеджер и консультант по ИИ | AI, HMI, автономные системы" },
+      { property: "og:title", content: "Юлия Вересова — Technical Product Owner, разработка ИИ-систем, HMI и аналитики телеметрии" },
       {
         property: "og:description",
         content:
-          "Разработка продуктов и MVP под ключ: AI, MedTech и NeuroTech. Взаимодействие человек-машина, постановка технических спецификаций, аудит этики и надежности моделей.",
+          "Проектирование и запуск под ключ целевых программных комплексов для автономных систем и MedTech: шлюзы деанонимизации данных, диагностика бортовой телеметрии, интерфейсы управления HMI и продуктовый консалтинг.",
       },
       { property: "og:type", content: "profile" },
       { property: "og:url", content: "https://juliaveresova.ru/" },
@@ -28,11 +29,11 @@ export const Route = createFileRoute("/")({
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { name: "twitter:image", content: "https://juliaveresova.ru/og-image.jpg" },
-      { name: "twitter:title", content: "Юлия Вересова — Technical Product Owner, продакт-менеджер и консультант по ИИ | AI, HMI, автономные системы" },
+      { name: "twitter:title", content: "Юлия Вересова — Technical Product Owner, разработка ИИ-систем, HMI и аналитики телеметрии" },
       {
         name: "twitter:description",
         content:
-          "Разработка продуктов и MVP под ключ: AI, MedTech и NeuroTech. Взаимодействие человек-машина, технические спецификации, аудит этики и надежности моделей.",
+          "Проектирование и запуск под ключ целевых программных комплексов для автономных систем и MedTech: шлюзы деанонимизации данных, диагностика бортовой телеметрии, интерфейсы управления HMI и продуктовый консалтинг.",
       },
 
     ],
@@ -66,6 +67,7 @@ function Home() {
     <main>
       <Hero />
       <Manifesto />
+      <Requests />
       <Works />
       <Awards />
     </main>
