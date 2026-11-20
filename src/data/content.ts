@@ -236,14 +236,9 @@ const _projects: Project[] = [
             note: L('In steady hover: 120–250 µs is moderate imbalance; > 250 µs indicates a failed controller phase, a damaged blade or a deformed arm.', 'В установившемся висении значения 120–250 мкс указывают на умеренный дисбаланс; значения > 250 мкс указывают на отказ фазы регулятора, разрушение лопасти или деформацию луча.'),
           },
           {
-            name: L('Radio link suppression', 'Подавление радиоканала'),
-            expr: 'dRSSI/dt < −20 dBm/s  ∧  SNR < 6 dB  ∧  TxBuf = 0',
-            note: L('All three conditions must hold at once, which separates external interference from ordinary range loss.', 'Одновременное выполнение всех трёх условий позволяет отличить внешние помехи от обычной потери дальности.'),
-          },
-          {
-            name: L('Satellite field suppression and spoofing', 'Подавление спутникового поля и подмена координат'),
-            expr: 'NSats < 6  ∧  HDop > 2.5  (Δt < 2 s);   ∫a·dt ≠ v_GNSS  ∧  FS > 0',
-            note: L('A synchronous drop in satellites with a geometry jump means suppression. A mismatch between inertial and satellite velocity plus an estimator fault flag means spoofing.', 'Синхронное падение числа спутников со скачком геометрического фактора указывает на подавление. Расхождение инерциальной и спутниковой скорости при аварийном флаге оценщика указывает на подмену координат.'),
+            name: L('Link and navigation quality', 'Качество каналов связи и навигации'),
+            expr: 'Q_link = f(RSSI, SNR, TxBuf);   Q_nav = f(NSats, HDop, |v_INS − v_GNSS|)',
+            note: L('Composite quality indices flag degradation of the communication and navigation channels. Threshold values are calibrated per project and are not published.', 'Сводные индексы качества фиксируют деградацию каналов связи и навигации. Пороговые значения калибруются под конкретный проект и не публикуются.'),
           },
         ],
       },
@@ -506,8 +501,8 @@ else:
         'Кейс по проектированию архитектуры: централизованная on-premise платформа объединяет территориально распределённые стационарные и мобильные станции наблюдения за воздушной обстановкой в единую информационную систему с одним рабочим местом оператора. Платформа собирает наблюдения с оборудования разных производителей, контролирует техническое состояние станций, хранит единую историю событий и формирует аналитику и отчётность.'
       ),
       L(
-        'This is a design case. The value delivered is the architecture itself: an independent data model, integration contracts and verifiable requirements developed from public standards and open protocols.',
-        'В кейсе представлен результат архитектурного проектирования. Независимая модель данных, интеграционные контракты и проверяемые требования сформированы на основе общедоступных технических стандартов и открытых протоколов.'
+        'Conceptual software platform architecture on demo data. No integrations with real equipment are claimed. The value delivered is the architecture itself: an independent data model, integration contracts and verifiable requirements developed from public standards and open protocols.',
+        'Концептуальная архитектура программной платформы на демонстрационных данных. Интеграции с реальным оборудованием не заявлены. Независимая модель данных, интеграционные контракты и проверяемые требования сформированы на основе общедоступных технических стандартов и открытых протоколов.'
       ),
     ],
     gallery: [work2],
