@@ -5,8 +5,8 @@ import { getProject } from "../data/content";
 // Short titles for search results only; on-page titles stay full.
 const SEO_TITLES: Record<string, string> = {
   "telemetry-diagnostics": "Предиктивная диагностика по телеметрии",
-  "engineering-platform-architecture": "Архитектура инженерной платформы",
-  "multi-station-monitoring-architecture": "Архитектура платформы мониторинга сети станций",
+  "engineering-platform-architecture": "Платформа управления испытаниями",
+  "multi-station-monitoring-architecture": "Мониторинг сети станций наблюдения",
   "secure-llm-gateway": "Защищённый LLM-шлюз (On-Premise)",
   "audit-it": "ИИ-проверка документации по регламентам",
   "mindcare": "Скрининг ментального здоровья",

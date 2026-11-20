@@ -301,7 +301,7 @@ else:
   },
   {
     slug: 'engineering-platform-architecture',
-    title: L('Closed Engineering Platform Architecture & Acceptance Design', 'Архитектура закрытой инженерной платформы управления испытаниями'),
+    title: L('Closed Engineering Test-Management Platform Design', 'Закрытая платформа управления испытаниями'),
     category: L('System Design · On-Premise · Consulting', 'Проектирование систем · On-Premise · Консалтинг'),
     domain: L('Autonomous Platforms / Engineering Infrastructure', 'Автономные платформы / Инженерная инфраструктура'),
     stack: L('React · TypeScript · Python · FastAPI · PostgreSQL · Parquet · MinIO · Docker', 'React · TypeScript · Python · FastAPI · PostgreSQL · Parquet · MinIO · Docker'),
@@ -487,7 +487,7 @@ else:
   },
   {
     slug: 'multi-station-monitoring-architecture',
-    title: L('Distributed Sensor Station Monitoring Platform Architecture', 'Архитектура платформы мониторинга распределённой сети сенсорных станций'),
+    title: L('Distributed Sensor Station Monitoring Platform Design', 'Платформа мониторинга сети станций'),
     category: L('System Design · On-Premise · Multi-Vendor', 'Проектирование систем · On-Premise · Мультивендорная интеграция'),
     domain: L('Airspace Observation / Distributed Infrastructure', 'Наблюдение за воздушной обстановкой / Распределённая инфраструктура'),
     stack: L('React · TypeScript · FastAPI · PostgreSQL · Redis · Celery · WebSocket · MapLibre · MinIO · Docker', 'React · TypeScript · FastAPI · PostgreSQL · Redis · Celery · WebSocket · MapLibre · MinIO · Docker'),
