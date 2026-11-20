@@ -129,6 +129,7 @@ const projectOrder: Record<string, number> = {
   'secure-llm-gateway': -1,
   'telemetry-diagnostics': -0.5,
   'engineering-platform-architecture': -0.4,
+  'multi-station-monitoring-architecture': -0.35,
   'neurosignal': 0,
   'aiim': 2,
   'mindcare': 3,
@@ -479,6 +480,204 @@ else:
           {
             title: L('Success scenario 3', 'Сценарий успеха 3'),
             body: L('A test lead can see the campaign history, configurations, findings and approval results.', 'Руководитель испытаний видит историю кампании, конфигурации, замечания и результаты согласований.'),
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'multi-station-monitoring-architecture',
+    title: L('Distributed Sensor Station Monitoring Platform Architecture', 'Архитектура платформы мониторинга распределённой сети сенсорных станций'),
+    category: L('System Design · On-Premise · Multi-Vendor', 'Проектирование систем · On-Premise · Мультивендорная интеграция'),
+    domain: L('Airspace Observation / Distributed Infrastructure', 'Наблюдение за воздушной обстановкой / Распределённая инфраструктура'),
+    stack: L('React · TypeScript · FastAPI · PostgreSQL · Redis · Celery · WebSocket · MapLibre · MinIO · Docker', 'React · TypeScript · FastAPI · PostgreSQL · Redis · Celery · WebSocket · MapLibre · MinIO · Docker'),
+    year: '2026',
+    kind: 'architecture',
+    img: work2,
+    deliverables: [
+      L('System Architecture', 'Архитектура системы'),
+      L('Unified Observation Model', 'Единая модель наблюдений'),
+      L('Integration Layer', 'Интеграционный слой'),
+      L('Non-functional Requirements', 'Нефункциональные требования'),
+    ],
+    description: [
+      L(
+        'An architecture design engagement: a centralized on-premise platform that unites geographically distributed stationary and mobile sensor stations into a single information system with one operator workstation. The platform collects observations from equipment of different vendors, monitors station health, keeps a single event history and provides analytics and reporting.',
+        'Кейс по проектированию архитектуры: централизованная on-premise платформа объединяет территориально распределённые стационарные и мобильные станции наблюдения за воздушной обстановкой в единую информационную систему с одним рабочим местом оператора. Платформа собирает наблюдения с оборудования разных производителей, контролирует техническое состояние станций, хранит единую историю событий и формирует аналитику и отчётность.'
+      ),
+      L(
+        'This is a design case. The value delivered is the architecture itself: an independent data model, integration contracts and verifiable requirements developed from public standards and open protocols.',
+        'В кейсе представлен результат архитектурного проектирования. Независимая модель данных, интеграционные контракты и проверяемые требования сформированы на основе общедоступных технических стандартов и открытых протоколов.'
+      ),
+    ],
+    gallery: [work2],
+    metrics: [
+      { value: L('12', '12'), label: L('Functional modules', 'Функциональных модулей') },
+      { value: L('4', '4'), label: L('Independent applications in the modular monolith', 'Независимых приложения в составе модульного монолита') },
+      { value: L('3', '3'), label: L('Timestamps per event for latency control', 'Временные метки у каждого события для контроля задержек') },
+    ],
+    caseStudy: [
+      {
+        label: L('Problem & approach', 'Задача и подход'),
+        paragraphs: [
+          L(
+            'Each station ships with its own vendor software, so an operator has to connect to every station separately. Observations are scattered, the technical state of the network is invisible and there is no single history for analysis.',
+            'Каждая станция поставляется со своим программным обеспечением производителя, поэтому оператору приходится подключаться к каждой станции отдельно. Наблюдения разрознены, техническое состояние сети не видно целиком, единая история для анализа отсутствует.'
+          ),
+          L(
+            'The central design decision is a layer of independent integration adapters. Every vendor protocol is translated into one unified observation model, so the rest of the platform never depends on a specific manufacturer.',
+            'Центральное проектное решение представляет собой слой независимых интеграционных адаптеров. Протокол каждого производителя преобразуется в единую модель наблюдений, поэтому остальная платформа не зависит от конкретного поставщика оборудования.'
+          ),
+          L(
+            'The system is limited to observation, registration, visualization, equipment monitoring and reporting. It performs no active influence on observed objects and no automatic threat classification: unknown affiliation is never interpreted as hostile.',
+            'Система ограничена наблюдением, регистрацией, визуализацией, мониторингом оборудования и отчётностью. Активного воздействия на наблюдаемые объекты и автоматической классификации угроз в ней нет: неизвестная принадлежность объекта никогда не трактуется как враждебная.'
+          ),
+        ],
+        diagram: {
+          title: L('Overall system architecture', 'Общая архитектура системы'),
+          columns: 5,
+          nodes: [
+            { id: 'st', label: L('Field level', 'Полевой уровень'), sublabel: L('Stations A · B · N', 'Станции A · B · N') },
+            { id: 'gw', label: L('Integration level', 'Интеграционный уровень'), sublabel: L('Gateway · adapters · validation', 'Шлюз · адаптеры · валидация') },
+            { id: 'core', label: L('Central platform', 'Центральная платформа'), sublabel: L('API · RBAC · events · alerts', 'API · RBAC · события · предупреждения') },
+            { id: 'store', label: L('Storage level', 'Уровень хранения'), sublabel: L('PostgreSQL · Redis · Object Storage', 'PostgreSQL · Redis · Object Storage') },
+            { id: 'ui', label: L('User level', 'Пользовательский уровень'), sublabel: L('Dashboard · station map', 'Главная панель · карта станций') },
+          ],
+          edges: [{ from: 'st', to: 'gw' }, { from: 'gw', to: 'core' }, { from: 'core', to: 'store' }, { from: 'core', to: 'ui' }],
+        },
+      },
+      {
+        label: L('Functional architecture', 'Функциональная архитектура'),
+        paragraphs: [
+          L(
+            'The platform is decomposed into twelve modules. Each serves one role group: operators, senior operators, technical specialists, administrators, managers and auditors.',
+            'Платформа разделена на двенадцать модулей. Каждый обслуживает свою группу ролей: операторов, старших операторов, технических специалистов, администраторов, руководителей и аудиторов.'
+          ),
+        ],
+        tables: [
+          {
+            title: L('Modules', 'Модули'),
+            columns: [L('Module', 'Модуль'), L('Purpose', 'Назначение')],
+            rows: [
+              [L('Dashboard', 'Главная панель'), L('Network summary, recent observations, alerts', 'Сводка по сети, последние наблюдения, предупреждения')],
+              [L('Station Map', 'Карта станций'), L('Locations, statuses, confirmed coverage only', 'Расположение, статусы, только подтверждённые зоны покрытия')],
+              [L('Station Registry', 'Реестр станций'), L('Digital passport of every station', 'Цифровой паспорт каждой станции')],
+              [L('Detection Events', 'События обнаружения'), L('Central observation log with source reference', 'Централизованный журнал наблюдений со ссылкой на источник')],
+              [L('Observation History', 'История наблюдений'), L('Chronology and record matching', 'Хронология и сопоставление записей')],
+              [L('Analytics', 'Аналитика'), L('Activity by period, station and source', 'Активность по периодам, станциям и источникам')],
+              [L('Station Health', 'Техническое состояние'), L('Availability, latency, sensor state', 'Доступность, задержки, состояние сенсоров')],
+              [L('Alerts & Incidents', 'Предупреждения и инциденты'), L('Connection loss, failures, incident handling', 'Потеря связи, сбои, работа с инцидентами')],
+              [L('Reports', 'Отчётность'), L('Periodic and formal PDF reports', 'Периодические и формальные PDF-отчёты')],
+              [L('Administration', 'Администрирование'), L('Users, roles, station settings', 'Пользователи, роли, настройки станций')],
+              [L('Audit Log', 'Журнал действий'), L('Every user action and configuration change', 'Каждое действие пользователя и изменение конфигурации')],
+              [L('Integration Center', 'Центр интеграций'), L('Adapters, versions, connection checks', 'Адаптеры, версии, проверка соединений')],
+            ],
+          },
+        ],
+      },
+      {
+        label: L('Integration layer & event pipeline', 'Интеграционный слой и обработка событий'),
+        paragraphs: [
+          L(
+            'Every adapter is a versioned contract: vendor, supported model, protocol version, message types, input validation schema, error handler and connection check. The adapter only translates data and never decides whether an observed object is a threat.',
+            'Каждый адаптер оформлен как версионированный контракт: производитель, поддерживаемая модель, версия протокола, типы сообщений, схема проверки входных данных, обработчик ошибок и проверка соединения. Адаптер только преобразует данные и не принимает решений о характере наблюдаемого объекта.'
+          ),
+          L(
+            'The event pipeline is idempotent: repeated delivery never creates duplicates, failed messages go to a retry queue and a separate error log, raw messages are stored apart from normalized data.',
+            'Конвейер обработки событий идемпотентен: повторная доставка не создаёт дубликатов, ошибочные сообщения попадают в очередь повторных попыток и отдельный журнал ошибок, исходные сообщения хранятся отдельно от нормализованных данных.'
+          ),
+        ],
+        diagram: {
+          title: L('Event processing pipeline', 'Конвейер обработки событий'),
+          columns: 5,
+          nodes: [
+            { id: 'rx', label: L('Receive', 'Приём'), sublabel: L('Station gateway', 'Шлюз станций') },
+            { id: 'ad', label: L('Adapt', 'Преобразование'), sublabel: L('Vendor adapter', 'Адаптер производителя') },
+            { id: 'val', label: L('Validate', 'Проверка'), sublabel: L('Schema · completeness', 'Схема · полнота') },
+            { id: 'dd', label: L('Deduplicate', 'Дедупликация'), sublabel: L('Idempotency key', 'Ключ идемпотентности') },
+            { id: 'sv', label: L('Store & publish', 'Сохранение и публикация'), sublabel: L('Database · WebSocket', 'База данных · WebSocket') },
+          ],
+          edges: [{ from: 'rx', to: 'ad' }, { from: 'ad', to: 'val' }, { from: 'val', to: 'dd' }, { from: 'dd', to: 'sv' }],
+        },
+        formulas: [
+          {
+            name: L('Transport latency', 'Задержка доставки'),
+            expr: 'Δ_доставки = received_at − observed_at',
+            note: L('Time from the event at the source to its arrival at the server.', 'Время от события на источнике до поступления на сервер.'),
+          },
+          {
+            name: L('Processing latency', 'Задержка обработки'),
+            expr: 'Δ_обработки = processed_at − received_at',
+            note: L('Time spent in validation, normalization and storage.', 'Время на проверку, нормализацию и сохранение.'),
+          },
+          {
+            name: L('Station availability', 'Доступность станции'),
+            expr: 'A = T_связи / T_периода × 100%',
+            note: L('Share of the period during which the station delivered data or heartbeats.', 'Доля периода, в течение которого станция передавала данные или контрольные сигналы.'),
+          },
+        ],
+      },
+      {
+        label: L('Unified observation model', 'Единая модель наблюдений'),
+        paragraphs: [
+          L(
+            'The model separates three entities. One station can carry several sensors, and one object can be registered by several stations.',
+            'Модель разделяет три сущности. Одна станция может нести несколько сенсоров, один объект может быть зарегистрирован несколькими станциями.'
+          ),
+        ],
+        diagram: {
+          title: L('Core entities', 'Основные сущности'),
+          columns: 4,
+          nodes: [
+            { id: 'station', label: L('Station', 'Станция'), sublabel: L('Physical site', 'Физическая станция') },
+            { id: 'sensor', label: L('Sensor', 'Сенсор'), sublabel: L('Installed on station', 'Установлен на станции') },
+            { id: 'obs', label: L('Observation', 'Наблюдение'), sublabel: L('Single registered event', 'Единичное зарегистрированное событие') },
+            { id: 'raw', label: L('Raw message', 'Исходное сообщение'), sublabel: L('Stored separately', 'Хранится отдельно') },
+          ],
+          edges: [{ from: 'station', to: 'sensor' }, { from: 'sensor', to: 'obs' }, { from: 'obs', to: 'raw' }],
+        },
+        findings: [
+          { title: L('Three timestamps', 'Три временные метки'), body: L('observed_at, received_at and processed_at are stored in UTC for every event.', 'Для каждого события в UTC хранятся observed_at, received_at и processed_at.') },
+          { title: L('Primary source', 'Первичный источник'), body: L('Every observation keeps a link to the station, sensor and original message.', 'Каждое наблюдение хранит ссылку на станцию, сенсор и исходное сообщение.') },
+          { title: L('Incomplete data is marked', 'Маркировка неполных данных'), body: L('Records with insufficient completeness are flagged instead of being silently accepted.', 'Записи с недостаточной полнотой помечаются как неполные.') },
+          { title: L('Configuration is journaled', 'Журналирование конфигурации'), body: L('Every change to a station configuration is recorded in the audit log.', 'Каждое изменение конфигурации станции фиксируется в журнале действий.') },
+        ],
+      },
+      {
+        label: L('Technical architecture & security', 'Техническая архитектура и безопасность'),
+        paragraphs: [
+          L(
+            'The chosen shape is a modular monolith with asynchronous event processing and four applications: web interface, API, background worker and station gateway. Adapters and handlers run in isolated processes, which keeps deployment simple while leaving room for scaling.',
+            'Выбранная платформа представляет собой модульный монолит с асинхронной обработкой событий из четырёх приложений: веб-интерфейса, API, фонового обработчика и шлюза станций. Адаптеры и обработчики работают в изолированных процессах. Такая схема упрощает развёртывание и сохраняет запас для масштабирования.'
+          ),
+          L(
+            'Deployment is fully on-premise inside the corporate network or VPN, with no public registration, RBAC with least privilege, MFA, TLS, encrypted backups and regular restore checks. For air-gapped sites the design includes local container images, offline update packages and no mandatory external APIs.',
+            'Развёртывание полностью on-premise внутри корпоративной сети или VPN: без публичной регистрации, с RBAC и минимальными привилегиями, MFA, TLS, шифрованием резервных копий и регулярной проверкой восстановления. Для изолированных площадок предусмотрены локальные образы контейнеров, офлайн-пакеты обновлений и отсутствие обязательных внешних API.'
+          ),
+        ],
+        diagram: {
+          title: L('Request sequence', 'Последовательность обработки'),
+          columns: 5,
+          nodes: [
+            { id: 'stn', label: L('Station', 'Станция'), sublabel: L('1. Sends event', '1. Передаёт событие') },
+            { id: 'gwy', label: L('Gateway', 'Шлюз'), sublabel: L('2. Accepts and queues', '2. Принимает и ставит в очередь') },
+            { id: 'wrk', label: L('Worker', 'Обработчик'), sublabel: L('3. Normalizes and stores', '3. Нормализует и сохраняет') },
+            { id: 'api', label: L('API', 'API'), sublabel: L('4. Updates network state', '4. Обновляет состояние сети') },
+            { id: 'op', label: L('Operator', 'Оператор'), sublabel: L('5. Sees event in real time', '5. Видит событие в реальном времени') },
+          ],
+          edges: [{ from: 'stn', to: 'gwy' }, { from: 'gwy', to: 'wrk' }, { from: 'wrk', to: 'api' }, { from: 'api', to: 'op' }],
+        },
+        tables: [
+          {
+            title: L('Design scenario', 'Проектный сценарий'),
+            columns: [L('Parameter', 'Параметр'), L('Assumption', 'Допущение')],
+            rows: [
+              [L('Stations', 'Станции'), L('10–50', '10–50')],
+              [L('Users', 'Пользователи'), L('5–20', '5–20')],
+              [L('Operating mode', 'Режим работы'), L('24/7', '24/7')],
+              [L('Network', 'Сеть'), L('LAN / VPN', 'LAN / VPN')],
+              [L('Event updates', 'Обновление событий'), L('Near real-time', 'Близко к реальному времени')],
+            ],
           },
         ],
       },

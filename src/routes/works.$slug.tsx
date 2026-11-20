@@ -6,6 +6,7 @@ import { getProject } from "../data/content";
 const SEO_TITLES: Record<string, string> = {
   "telemetry-diagnostics": "Предиктивная диагностика по телеметрии",
   "engineering-platform-architecture": "Архитектура инженерной платформы",
+  "multi-station-monitoring-architecture": "Архитектура платформы мониторинга сети станций",
   "secure-llm-gateway": "Защищённый LLM-шлюз (On-Premise)",
   "audit-it": "ИИ-проверка документации по регламентам",
   "mindcare": "Скрининг ментального здоровья",
