@@ -21,21 +21,23 @@ export default function Works() {
       <p className="mb-4 font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#ff4d00]">Доказательства в реальных проектах</p>
       <h2 className="mb-8 font-display text-5xl font-extrabold tracking-tighter md:mb-10 md:text-7xl">Кейсы</h2>
 
-      <div className="mb-10 flex flex-wrap gap-2 md:mb-12" role="tablist" aria-label="Тип кейсов">
-        {FILTERS.map((f) => (
-          <button
-            key={f.key}
-            role="tab"
-            aria-selected={filter === f.key}
-            onClick={() => setFilter(f.key)}
-            className={`border px-4 py-2 font-mono2 text-[11px] uppercase tracking-[0.2em] transition-colors duration-300 md:px-5 md:py-2.5 ${
-              filter === f.key
-                ? 'border-[#ff4d00] bg-[#ff4d00] text-[#0a0a0a]'
-                : 'border-[#ece9e4]/20 text-[#ece9e4]/60 hover:border-[#ff4d00]/60 hover:text-[#ece9e4]'
-            }`}
-          >
-            {f.label}
-          </button>
+      <div className="mb-10 flex flex-wrap items-baseline gap-x-3 gap-y-2 font-mono2 text-[11px] uppercase tracking-[0.2em] md:mb-12 md:text-xs" role="tablist" aria-label="Тип кейсов">
+        {FILTERS.map((f, i) => (
+          <span key={f.key} className="flex items-baseline gap-3">
+            {i > 0 && <span aria-hidden className="text-[#ece9e4]/30">/</span>}
+            <button
+              role="tab"
+              aria-selected={filter === f.key}
+              onClick={() => setFilter(f.key)}
+              className={`transition-colors duration-300 ${
+                filter === f.key
+                  ? 'text-[#ff4d00]'
+                  : 'text-[#ece9e4]/40 hover:text-[#ece9e4]'
+              }`}
+            >
+              {f.label}
+            </button>
+          </span>
         ))}
       </div>
 
