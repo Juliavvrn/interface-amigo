@@ -127,6 +127,7 @@ function L(en: string, ru: string): Localized {
 const projectOrder: Record<string, number> = {
   'secure-llm-gateway': -1,
   'telemetry-diagnostics': -0.5,
+  'engineering-platform-architecture': -0.4,
   'neurosignal': 0,
   'aiim': 2,
   'mindcare': 3,
@@ -291,6 +292,191 @@ else:
           { title: L('processing/', 'processing/'), body: L('Time-series alignment, window filtering and fast rolling statistics.', 'Выравнивание временных рядов, оконная фильтрация, быстрые скользящие статистики.') },
           { title: L('diagnostics/', 'diagnostics/'), body: L('Vibration, power, radio environment checks and the root cause graph.', 'Проверки вибронагрузки, силовой части, радиообстановки и граф первопричин.') },
           { title: L('ui/ · reporting/', 'ui/ · reporting/'), body: L('Streamlit interface with time-synced Plotly charts and a formal PDF passport of the inspection.', 'Интерфейс на Streamlit с синхронизированными по времени графиками Plotly и формализованный PDF-паспорт проверки.') },
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'engineering-platform-architecture',
+    title: L('Closed Engineering Platform Architecture & Acceptance Design', 'Архитектура закрытой инженерной платформы управления испытаниями'),
+    category: L('System Design · On-Premise · Consulting', 'Проектирование систем · On-Premise · Консалтинг'),
+    domain: L('Autonomous Platforms / Engineering Infrastructure', 'Автономные платформы / Инженерная инфраструктура'),
+    stack: L('React · TypeScript · Python · FastAPI · PostgreSQL · Parquet · MinIO · Docker', 'React · TypeScript · Python · FastAPI · PostgreSQL · Parquet · MinIO · Docker'),
+    year: '2026',
+    img: work4,
+    deliverables: [
+      L('System Architecture', 'Архитектура системы'),
+      L('Data Model', 'Модель данных'),
+      L('Acceptance Criteria', 'Критерии приёмки'),
+      L('Rollout Plan', 'План внедрения'),
+    ],
+    description: [
+      L(
+        'An architecture design engagement: a closed on-premise engineering platform that links every test flight of an autonomous platform to an immutable snapshot of its exact configuration — components, firmware and parameters. The deliverable is a complete, development-ready design: functional architecture, data model, security model and verifiable acceptance criteria.',
+        'Кейс по проектированию архитектуры: закрытая инженерная платформа, которая связывает каждый испытательный полёт автономной платформы с неизменяемым снимком её точной конфигурации — комплектующих, прошивки и параметров. Результат работы — полный проект, готовый к передаче в разработку: функциональная архитектура, модель данных, модель безопасности и проверяемые критерии приёмки.'
+      ),
+      L(
+        'This is a design case, not a deployed product: the value delivered is the architecture itself — decisions, constraints and acceptance criteria that let an engineering team build the system without re-opening fundamental questions.',
+        'Это кейс по архитектуре, а не о внедрённом продукте: ценность работы — сама спроектированная система, её решения, ограничения и критерии приёмки, которые позволяют команде разработки строить продукт, не возвращаясь к фундаментальным вопросам.'
+      ),
+    ],
+    gallery: [work4],
+    metrics: [
+      { value: L('12', '12'), label: L('Functional modules with delivery priorities', 'Функциональных модулей с приоритетами поставки') },
+      { value: L('23', '23'), label: L('Verifiable acceptance criteria for the first release', 'Проверяемых критериев приёмки первого релиза') },
+      { value: L('9', '9'), label: L('Roles in the access control model', 'Ролей в модели разграничения доступа') },
+    ],
+    caseStudy: [
+      {
+        label: L('Problem & approach', 'Задача и подход'),
+        paragraphs: [
+          L(
+            'Off-the-shelf flight log viewers answer the question "what happened in this flight", but not the question an engineering organization actually needs: "what exactly did we test, in which configuration, what did we find and who approved the result". Knowledge lives in personal files and spreadsheets of individual specialists, and the technical history of each unit is impossible to reconstruct.',
+            'Готовые просмотрщики полётных журналов отвечают на вопрос «что произошло в этом полёте», но не на вопрос, который реально нужен инженерной организации: «что именно мы испытывали, в какой конфигурации, что обнаружили и кто утвердил результат». Знания хранятся в личных файлах и таблицах отдельных специалистов, а техническую историю каждого изделия восстановить невозможно.'
+          ),
+          L(
+            'The central design decision: every flight is bound to an immutable configuration snapshot taken at the moment of the test. If an engineer later replaces a component, older flights keep their original snapshot — so the effect of any design change can be measured against comparable tests instead of being guessed.',
+            'Центральное проектное решение: каждый полёт привязывается к неизменяемому снимку конфигурации на момент испытания. Если позже инженер заменил компонент, старые полёты сохраняют исходный снимок — поэтому влияние любого изменения конструкции измеряется на сопоставимых испытаниях, а не угадывается.'
+          ),
+          L(
+            'The system deliberately does not control flights, does not send commands to autopilots and does not replace formal certification procedures: it analyzes and documents engineering data without substituting the responsibility of the engineer.',
+            'Система принципиально не управляет полётом, не отправляет команды автопилотам и не подменяет утверждённые процедуры испытаний: она анализирует и документирует инженерные данные, не заменяя ответственность инженера.'
+          ),
+        ],
+        diagram: {
+          title: L('Engineering history chain', 'Цепочка инженерной истории'),
+          columns: 5,
+          nodes: [
+            { id: 'model', label: L('Model & revision', 'Модель и ревизия'), sublabel: L('Design versions', 'Версии конструкции') },
+            { id: 'unit', label: L('Serial unit', 'Серийное изделие'), sublabel: L('Digital passport', 'Цифровой паспорт') },
+            { id: 'snap', label: L('Configuration snapshot', 'Снимок конфигурации'), sublabel: L('Immutable', 'Неизменяемый') },
+            { id: 'flight', label: L('Test flight', 'Испытательный полёт'), sublabel: L('Telemetry & events', 'Телеметрия и события') },
+            { id: 'appr', label: L('Conclusion & approval', 'Заключение и согласование'), sublabel: L('Author · date · status', 'Автор · дата · статус') },
+          ],
+          edges: [{ from: 'model', to: 'unit' }, { from: 'unit', to: 'snap' }, { from: 'snap', to: 'flight' }, { from: 'flight', to: 'appr' }],
+        },
+      },
+      {
+        label: L('Functional architecture', 'Функциональная архитектура'),
+        paragraphs: [
+          L(
+            'The system is decomposed into twelve modules with explicit delivery priorities: P0 is the mandatory core of the first working release, P1 extends production processes, P2 adds intelligent capabilities after enough data has been accumulated.',
+            'Система разделена на двенадцать модулей с явными приоритетами поставки: P0 — обязательное ядро первого рабочего релиза, P1 — расширение производственных процессов, P2 — интеллектуальные возможности после накопления данных.'
+          ),
+        ],
+        tables: [
+          {
+            title: L('Modules and priorities', 'Модули и приоритеты'),
+            columns: [L('Module', 'Модуль'), L('Purpose', 'Назначение'), L('Priority', 'Приоритет')],
+            rows: [
+              [L('Dashboard', 'Главная панель'), L('State of tests and fleet in 30 seconds', 'Состояние испытаний и парка за 30 секунд'), L('P0', 'P0')],
+              [L('Aircraft Registry', 'Реестр изделий'), L('Digital technical passport of each unit', 'Цифровой технический паспорт каждого изделия'), L('P0', 'P0')],
+              [L('Configuration Management', 'Управление конфигурациями'), L('Versioned design, BOM and parameter sets', 'Версии конструкции, спецификаций и параметров'), L('P0', 'P0')],
+              [L('Flight Test Management', 'Управление испытаниями'), L('Campaigns, test plans, results, approvals', 'Кампании, программы, результаты, согласования'), L('P0', 'P0')],
+              [L('Flight Log Analyzer', 'Анализ бортовых журналов'), L('Two autopilot formats, maps, synced charts', 'Два формата автопилотов, карта, синхронные графики'), L('P0', 'P0')],
+              [L('Diagnostics Engine', 'Диагностический движок'), L('Deviation detection per model and configuration', 'Выявление отклонений с учётом модели и конфигурации'), L('P0', 'P0')],
+              [L('Component Management', 'Учёт компонентов'), L('Component history and condition', 'История и состояние комплектующих'), L('P1', 'P1')],
+              [L('Engineering Changes', 'Инженерные изменения'), L('Change requests and approval history', 'Запросы на изменение и история согласований'), L('P1', 'P1')],
+              [L('Maintenance & NCR', 'Обслуживание и несоответствия'), L('Repairs, nonconformities, corrective actions', 'Ремонты, несоответствия, корректирующие действия'), L('P1', 'P1')],
+              [L('Documentation & Reports', 'Документация и отчёты'), L('Technical documents and formal PDF reports', 'Технические документы и формальные PDF-отчёты'), L('P1', 'P1')],
+              [L('Configuration Impact Analysis', 'Анализ влияния конфигурации'), L('Comparing design revisions under comparable conditions', 'Сравнение ревизий конструкции в сопоставимых условиях'), L('P1', 'P1')],
+              [L('AI Engineering Assistant', 'ИИ-ассистент инженера'), L('Local assistant over the internal knowledge base', 'Локальный ассистент над внутренней базой знаний'), L('P2', 'P2')],
+            ],
+          },
+        ],
+      },
+      {
+        label: L('Data model design rules', 'Правила проектирования модели данных'),
+        paragraphs: [
+          L(
+            'The database is designed as an engineering history of the product, not as a list of aircraft and flights. Five mandatory rules protect the evidentiary value of the data.',
+            'База данных спроектирована как инженерная история изделия, а не как список аппаратов и полётов. Пять обязательных правил защищают доказательную ценность данных.'
+          ),
+        ],
+        findings: [
+          {
+            title: L('History is immutable', 'Неизменяемость истории'),
+            body: L('Source files, approved configurations, completed tests and diagnostic results can never be silently overwritten.', 'Исходные файлы, утверждённые конфигурации, завершённые испытания и результаты диагностики нельзя молча перезаписать.'),
+          },
+          {
+            title: L('Everything is versioned', 'Версионирование'),
+            body: L('All versions of designs, BOMs, autopilot parameter sets and diagnostic rules are preserved.', 'Сохраняются все версии конструкций, спецификаций, наборов параметров автопилота и диагностических правил.'),
+          },
+          {
+            title: L('Every metric has a source', 'Происхождение данных'),
+            body: L('Each metric carries its source file, parser, source field, timestamp and unit of measure.', 'Каждый показатель хранит источник: исходный файл, парсер, поле источника, временную метку и единицу измерения.'),
+          },
+          {
+            title: L('Every flight is bound to a unit', 'Связь с изделием'),
+            body: L('Each flight references the serial number and the configuration snapshot at the moment of the test.', 'Каждый полёт связан с серийным номером изделия и снимком конфигурации на момент испытания.'),
+          },
+          {
+            title: L('Approvals are traceable', 'История согласований'),
+            body: L('Who created, who reviewed, who approved and when — visible in the system for every result.', 'Кто создал, кто проверил, кто утвердил и когда — видно в системе для каждого результата.'),
+          },
+        ],
+        tables: [
+          {
+            title: L('Storage split', 'Разделение хранилищ'),
+            columns: [L('Store', 'Хранилище'), L('Content', 'Содержимое')],
+            rows: [
+              [L('PostgreSQL', 'PostgreSQL'), L('Metadata, relations, time and signal indexes', 'Метаданные, связи, индексы по интервалам и сигналам')],
+              [L('Parquet', 'Parquet'), L('Telemetry time series, compact columnar layout', 'Временные ряды телеметрии, колоночное хранение')],
+              [L('MinIO', 'MinIO'), L('Source logs and documents, SHA-256 integrity control', 'Исходные журналы и документы, контроль целостности SHA-256')],
+            ],
+          },
+        ],
+      },
+      {
+        label: L('Technical architecture & security', 'Техническая архитектура и безопасность'),
+        paragraphs: [
+          L(
+            'The chosen shape is a modular monolith with three independent executables — web interface, API and a background worker for log processing — deployed entirely inside the corporate infrastructure. The architecture is air-gap ready from day one: offline Docker images, pinned dependency versions, maps without external APIs, no telemetry sent to the vendor.',
+            'Выбранная форма — модульный монолит из трёх независимых исполняемых приложений: веб-интерфейс, API и фоновый обработчик журналов. Всё разворачивается внутри корпоративной инфраструктуры. Архитектура с первого дня готова к полной изоляции: офлайн-образы, зафиксированные версии зависимостей, карты без внешних API, никакой телеметрии разработчику.'
+          ),
+          L(
+            'Logs are treated as untrusted input: parsers run in restricted worker processes with CPU, memory, time and filesystem limits. Access control follows least privilege across nine roles, and approvals use versioned, append-only records rather than a simple "updated at" field.',
+            'Журналы рассматриваются как недоверенные входные данные: парсеры запускаются в ограниченных рабочих процессах с лимитами процессора, памяти, времени и доступа к файловой системе. Доступ строится по принципу минимально необходимых полномочий для девяти ролей, а согласования ведутся версионированным append-only журналом, а не обычным полем «обновлено».'
+          ),
+        ],
+        diagram: {
+          title: L('Deployment inside the perimeter', 'Развёртывание внутри контура'),
+          columns: 5,
+          nodes: [
+            { id: 'users', label: L('Corporate users', 'Пользователи'), sublabel: L('Engineers · QA · managers', 'Инженеры · ОТК · руководители') },
+            { id: 'proxy', label: L('Reverse proxy', 'Обратный прокси'), sublabel: L('TLS · request limits', 'TLS · лимиты запросов') },
+            { id: 'web', label: L('Web + API', 'Веб + API'), sublabel: L('React · FastAPI', 'React · FastAPI') },
+            { id: 'worker', label: L('Worker', 'Обработчик'), sublabel: L('Parsing · analytics', 'Парсинг · аналитика') },
+            { id: 'data', label: L('Data layer', 'Слой данных'), sublabel: L('PostgreSQL · MinIO · Parquet', 'PostgreSQL · MinIO · Parquet') },
+          ],
+          edges: [{ from: 'users', to: 'proxy' }, { from: 'proxy', to: 'web' }, { from: 'web', to: 'worker' }, { from: 'worker', to: 'data' }, { from: 'web', to: 'data' }],
+        },
+      },
+      {
+        label: L('Acceptance criteria', 'Критерии приёмки'),
+        paragraphs: [
+          L(
+            'The design fixes in advance what the organization must receive: not a working interface, but a verifiable set of capabilities. The first release has 23 acceptance criteria — from "deploys on the company\'s own server" and "source logs remain immutable" to "backups restore successfully" and "verified to work without internet access".',
+            'Проект заранее фиксирует, что именно должна получить организация: не работающий интерфейс, а проверяемый набор возможностей. Для первого релиза определены 23 критерия приёмки — от «разворачивается на собственном сервере» и «исходные журналы остаются неизменными» до «резервные копии успешно восстанавливаются» и «проверена работа без доступа к интернету».'
+          ),
+          L(
+            'Acceptance requires a prepared test dataset: logs of both autopilot families, different firmware versions, incomplete and damaged files, flights with known technical events, and pairs of comparable flights before and after a configuration change — without them it is impossible to prove that the impact analysis detects real changes rather than drawing pretty charts.',
+            'Для приёмки заранее определён тестовый набор: журналы обоих семейств автопилотов, разные версии прошивок, неполные и повреждённые файлы, полёты с известными техническими событиями и пары сопоставимых полётов до и после изменения конфигурации — без них невозможно доказать, что анализ влияния конфигурации обнаруживает реальные изменения, а не строит красивые графики.'
+          ),
+        ],
+        findings: [
+          {
+            title: L('Success scenario 1', 'Сценарий успеха 1'),
+            body: L('An engineer can open any registered unit and reconstruct its full technical history.', 'Инженер может открыть любое зарегистрированное изделие и восстановить его техническую историю.'),
+          },
+          {
+            title: L('Success scenario 2', 'Сценарий успеха 2'),
+            body: L('An engineer can walk the full path from a raw log to a substantiated diagnostic conclusion.', 'Инженер может пройти путь от исходного журнала до обоснованного диагностического заключения.'),
+          },
+          {
+            title: L('Success scenario 3', 'Сценарий успеха 3'),
+            body: L('A test lead can see the campaign history, configurations, findings and approval results.', 'Руководитель испытаний видит историю кампании, конфигурации, замечания и результаты согласований.'),
+          },
         ],
       },
     ],
