@@ -8,8 +8,6 @@ import certFmri2 from '@/assets/cert-Coursera_QSC2YYKUAOLI.png'
 import certHbr from '@/assets/cert-hbr.png'
 import certClemson from '@/assets/cert-clemson.png'
 import certHelsinki from '@/assets/cert-helsinki.png'
-import certAlison from '@/assets/cert-alison.png'
-import certGreatLearning from '@/assets/cert-greatlearning.png'
 
 interface Props {
   open: boolean
@@ -117,18 +115,6 @@ export default function EducationModal({ open, onClose }: Props) {
       org: 'University of Helsinki',
       date: t('Jul 4, 2025', '4 июля 2025'),
       image: certHelsinki,
-    },
-    {
-      title: 'AI Governance and Ethics',
-      org: 'Alison',
-      date: t('Jul 4, 2025', '4 июля 2025'),
-      image: certAlison,
-    },
-    {
-      title: 'AI Ethics for Beginners',
-      org: 'Great Learning',
-      date: t('Jul 4, 2025', '4 июля 2025'),
-      image: certGreatLearning,
     },
   ]
 

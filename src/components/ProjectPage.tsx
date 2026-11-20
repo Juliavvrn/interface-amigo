@@ -226,7 +226,6 @@ type CaseVariant = 'system' | 'signal' | 'audit' | 'timeline' | 'editorial'
 const CASE_VARIANTS: CaseVariant[] = ['system', 'signal', 'audit', 'timeline', 'editorial']
 
 function getCaseVariant(slug: string): CaseVariant {
-  if (slug === 'industrial-monitoring') return 'signal'
   if (slug === 'audit-it') return 'audit'
   if (slug === 'clinicscribe') return 'timeline'
   if (slug === 'aiim') return 'editorial'

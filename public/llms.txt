@@ -26,7 +26,6 @@ Telegram: https://t.me/julianvrn
 - [Локальный шлюз защищённой работы с данными и облачными LLM](https://juliaveresova.ru/works/secure-llm-gateway): псевдонимизация, шифрование AES-256 и работа в закрытом контуре.
 - [Автономный комплекс предиктивной диагностики по бортовой телеметрии](https://juliaveresova.ru/works/telemetry-diagnostics): офлайн-диагностика автономных платформ, анализ первопричин происшествий, работа в закрытом контуре.
 - [Предиктивная аналитика потоковых сигналов](https://juliaveresova.ru/works/neurosignal): обработка телеметрии в реальном времени, фильтрация шумов и предиктивная аналитика.
-- [Платформа синтетических исследований и промышленного мониторинга](https://juliaveresova.ru/works/industrial-monitoring)
 - [Когнитивная операционная система для ИИ-агентов](https://juliaveresova.ru/works/aiim)
 - [MindCare — платформа клинической оценки ментального здоровья](https://juliaveresova.ru/works/mindcare)
-- [Audit IT — ИИ-платформа аудита и управления рисками](https://juliaveresova.ru/works/audit-it)
+- [ИИ-проверка документации на соответствие регламентам](https://juliaveresova.ru/works/audit-it)
