@@ -111,6 +111,7 @@ export interface Project {
   domain: Localized
   stack: Localized
   year: string
+  kind: 'product' | 'architecture'
   img: string
   link?: string
   deliverables: Localized[]
@@ -144,6 +145,7 @@ const _projects: Project[] = [
     domain: L('Autonomous Platforms / Flight Data Analysis', 'Автономные платформы / Анализ бортовых журналов'),
     stack: L('Python · NumPy · Pandas · pymavlink · pyulog · Streamlit · Plotly · PyInstaller', 'Python · NumPy · Pandas · pymavlink · pyulog · Streamlit · Plotly · PyInstaller'),
     year: '2026',
+    kind: 'product',
     img: work3,
     deliverables: [
       L('Diagnostic Rule Engine', 'Диагностический движок'),
@@ -303,6 +305,7 @@ else:
     domain: L('Autonomous Platforms / Engineering Infrastructure', 'Автономные платформы / Инженерная инфраструктура'),
     stack: L('React · TypeScript · Python · FastAPI · PostgreSQL · Parquet · MinIO · Docker', 'React · TypeScript · Python · FastAPI · PostgreSQL · Parquet · MinIO · Docker'),
     year: '2026',
+    kind: 'architecture',
     img: work4,
     deliverables: [
       L('System Architecture', 'Архитектура системы'),
@@ -488,6 +491,7 @@ else:
     domain: L('Data Protection / Closed-Loop Infrastructure', 'Защита данных / Закрытый контур'),
     stack: L('Python 3.13 · FastAPI · SQLAlchemy 2.0 · SQLCipher · React 19 · TanStack Router · Electron · Tesseract 5 · Natasha · AES-256-GCM · Ed25519', 'Python 3.13 · FastAPI · SQLAlchemy 2.0 · SQLCipher · React 19 · TanStack Router · Electron · Tesseract 5 · Natasha · AES-256-GCM · Ed25519'),
     year: '2026',
+    kind: 'product',
     img: work5,
     deliverables: [
       L('Security Architecture', 'Архитектура безопасности'),
@@ -594,6 +598,7 @@ else:
     domain: L('Compliance / RegTech', 'Комплаенс / RegTech'),
     stack: L('React 18 · Vite · Supabase · PostgreSQL · Edge Functions', 'React 18 · Vite · Supabase · PostgreSQL · Edge Functions'),
     year: '2025',
+    kind: 'product',
     img: work5,
     deliverables: [
       L('Product Strategy', 'Продуктовая стратегия'),
@@ -898,6 +903,7 @@ else:
     domain: L('HealthTech / Self-Screening', 'HealthTech / Самоскрининг'),
     stack: L('React · TypeScript · Tailwind CSS · Vite · Lucide Icons', 'React · TypeScript · Tailwind CSS · Vite · Lucide Icons'),
     year: '2025',
+    kind: 'product',
     img: work3,
     deliverables: [
       L('Product Design', 'Продуктовый дизайн'),
@@ -1204,6 +1210,7 @@ else:
     domain: L('Streaming Data / Sensor Signal Processing', 'Потоковые данные / Обработка сигналов с датчиков'),
     stack: L('React · TypeScript · WebAssembly (DSP) · WebGL · ONNX Runtime · Python / FastAPI', 'React · TypeScript · WebAssembly (DSP) · WebGL · ONNX Runtime · Python / FastAPI'),
     year: '2026',
+    kind: 'product',
     img: work4,
     deliverables: [
       L('Systems Architecture', 'Системная архитектура'),
@@ -1544,6 +1551,7 @@ else:
     domain: L('AI Infrastructure / Agent Platform', 'AI-инфраструктура / Платформа агентов'),
     stack: L('React 19 · TypeScript · Vite · Tailwind CSS · shadcn/ui · Supabase · PostgreSQL · pgvector · Edge Functions · OpenAI-compatible API', 'React 19 · TypeScript · Vite · Tailwind CSS · shadcn/ui · Supabase · PostgreSQL · pgvector · Edge Functions · OpenAI-compatible API'),
     year: '2025–2026',
+    kind: 'product',
     img: work2,
     link: 'https://ai-im.tech',
     metrics: [

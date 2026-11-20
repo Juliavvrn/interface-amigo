@@ -401,15 +401,11 @@ export default function ProjectPage() {
         </motion.h1>
 
         <motion.div
-          className="mt-10 grid grid-cols-2 gap-8 border-t border-[#ece9e4]/15 pt-8 md:grid-cols-4"
+          className="mt-10 grid grid-cols-2 gap-8 border-t border-[#ece9e4]/15 pt-8 md:grid-cols-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
-          <div>
-            <p className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-[#ece9e4]/40">{t('Year', 'Год')}</p>
-            <p className="mt-2 text-sm text-[#ece9e4]/80">{project.year}</p>
-          </div>
           <div>
             <p className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-[#ece9e4]/40">{t('Sector', 'Сфера')}</p>
             <p className="mt-2 text-sm text-[#ece9e4]/80">{pick(project.domain, lang)}</p>
