@@ -490,7 +490,7 @@ else:
     title: L('Distributed Sensor Station Monitoring Platform Design', 'Платформа мониторинга сети станций'),
     category: L('System Design · On-Premise · Multi-Vendor', 'Проектирование систем · On-Premise · Мультивендорная интеграция'),
     domain: L('Airspace Observation / Distributed Infrastructure', 'Наблюдение за воздушной обстановкой / Распределённая инфраструктура'),
-    stack: L('React · TypeScript · FastAPI · PostgreSQL · Redis · Celery · WebSocket · MapLibre · MinIO · Docker', 'React · TypeScript · FastAPI · PostgreSQL · Redis · Celery · WebSocket · MapLibre · MinIO · Docker'),
+    stack: L('React · TypeScript · Python · FastAPI · PostgreSQL · Redis · Celery · WebSocket · MapLibre · MinIO · Docker', 'React · TypeScript · Python · FastAPI · PostgreSQL · Redis · Celery · WebSocket · MapLibre · MinIO · Docker'),
     year: '2026',
     kind: 'architecture',
     img: work2,
