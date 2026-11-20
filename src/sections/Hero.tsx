@@ -14,7 +14,7 @@ export default function Hero() {
       <div className="relative h-[62vh] overflow-hidden md:h-auto">
         <motion.img
           src="/julia-veresova-portrait.webp"
-          alt="Юлия Вересова — Technical Product Owner, AI и автономные системы"
+          alt="Юлия Вересова, Technical Product Owner, AI и автономные системы"
           style={{ y: imgY }}
           initial={{ opacity: 0, scale: 1.06 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -54,7 +54,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.65, duration: 0.9, ease }}
         >
-          <span className="sr-only">Юлия Вересова — </span>
+          <span className="sr-only">Юлия Вересова. </span>
           Разработка программных комплексов и консалтинг по внедрению ИИ{' '}
           <span className="text-[#ff4d00]">в автономных системах и MedTech</span>
         </motion.h1>

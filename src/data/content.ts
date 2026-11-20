@@ -169,7 +169,7 @@ const _projects: Project[] = [
         paragraphs: [
           L(
             'After a field incident or a repair, engineers spend hours reading raw logs by hand, and conclusions depend on personal experience. Data cannot be uploaded to cloud services, and sensors write at different rates, from 5 to 400 Hz. The product turns this into a repeatable check with a clear verdict.',
-            'После происшествия или ремонта инженеры часами вручную разбирают сырые журналы, а выводы зависят от личного опыта. Выгружать данные в облачные сервисы нельзя, а датчики пишут с разной частотой — от 5 до 400 Гц. Продукт превращает это в воспроизводимую проверку с понятным вердиктом.'
+            'Ручной анализ исходных журналов после происшествия или ремонта занимает часы и зависит от опыта специалиста. Ограничения на передачу данных в облачные сервисы и различная частота записи датчиков от 5 до 400 Гц усложняют обработку. Продукт превращает это в воспроизводимую проверку с понятным вердиктом.'
           ),
           L(
             'All continuous signals are brought to a single 20 ms (50 Hz) grid by linear interpolation. Discrete flight modes and failsafe flags use zero-order hold, so a mode switch is never smeared between two samples.',
@@ -208,14 +208,14 @@ const _projects: Project[] = [
         paragraphs: [
           L(
             'Every rule is a formula with explicit thresholds, so a verdict can be checked by hand and defended in an acceptance protocol.',
-            'Каждое правило — формула с явными порогами, поэтому вердикт можно проверить вручную и обосновать в протоколе приёмки.'
+            'Каждое правило задаётся формулой с явными порогами, поэтому вердикт можно проверить вручную и обосновать в протоколе приёмки.'
           ),
         ],
         formulas: [
           {
             name: L('Frame vibration', 'Вибрация рамы'),
             expr: 'p99(max(|aX|, |aY|)),  p99(|aZ|)',
-            note: L('Normal ≤ 15 m/s² · warning 15–30 m/s² (worn dampers, play) · critical > 30 m/s². X/Y dominance points to rotor imbalance or bent shafts; Z dominance to blade-plane mismatch or bearing play.', 'Норма ≤ 15 м/с² · предупреждение 15–30 м/с² (износ демпферов, люфты) · критично > 30 м/с². Доминирование X/Y указывает на разбаланс роторов или погнутые валы, доминирование Z — на разнобой плоскостей вращения лопастей или люфт подшипников.'),
+            note: L('Normal ≤ 15 m/s² · warning 15–30 m/s² (worn dampers, play) · critical > 30 m/s². X/Y dominance points to rotor imbalance or bent shafts; Z dominance to blade-plane mismatch or bearing play.', 'Норма ≤ 15 м/с² · предупреждение 15–30 м/с² (износ демпферов, люфты) · критично > 30 м/с². Доминирование X/Y указывает на разбаланс роторов или погнутые валы, доминирование Z указывает на разнобой плоскостей вращения лопастей или люфт подшипников.'),
           },
           {
             name: L('Accelerometer clipping', 'Клиппинг акселерометра'),
@@ -225,22 +225,22 @@ const _projects: Project[] = [
           {
             name: L('Battery internal resistance', 'Внутреннее сопротивление батареи'),
             expr: 'R_int = (V_pre − V_post) / (I_post − I_pre)',
-            note: L('Measured on a sharp throttle step: ΔI > 10 A within Δt ≤ 0.5 s. Above 0.045 Ω the pack is degraded or the cells are too cold.', 'Считается на резком наборе газа: ΔI > 10 А за Δt ≤ 0,5 с. Выше 0,045 Ом — деградация аккумулятора или переохлаждение ячеек.'),
+            note: L('Measured on a sharp throttle step: ΔI > 10 A within Δt ≤ 0.5 s. Above 0.045 Ω the pack is degraded or the cells are too cold.', 'Считается на резком наборе газа: ΔI > 10 А за Δt ≤ 0,5 с. Сопротивление выше 0,045 Ом указывает на деградацию аккумулятора или переохлаждение ячеек.'),
           },
           {
             name: L('Thrust asymmetry', 'Асимметрия тяги'),
             expr: 'ΔPWM = max_i(PWM_i) − min_j(PWM_j)',
-            note: L('In steady hover: 120–250 µs is moderate imbalance; > 250 µs indicates a failed controller phase, a damaged blade or a deformed arm.', 'В установившемся висении: 120–250 мкс — умеренный дисбаланс; > 250 мкс — отказ фазы регулятора, разрушение лопасти или деформация луча.'),
+            note: L('In steady hover: 120–250 µs is moderate imbalance; > 250 µs indicates a failed controller phase, a damaged blade or a deformed arm.', 'В установившемся висении значения 120–250 мкс указывают на умеренный дисбаланс; значения > 250 мкс указывают на отказ фазы регулятора, разрушение лопасти или деформацию луча.'),
           },
           {
             name: L('Radio link suppression', 'Подавление радиоканала'),
             expr: 'dRSSI/dt < −20 dBm/s  ∧  SNR < 6 dB  ∧  TxBuf = 0',
-            note: L('All three conditions must hold at once, which separates external interference from ordinary range loss.', 'Все три условия должны выполняться одновременно — так внешние помехи отличаются от обычной потери дальности.'),
+            note: L('All three conditions must hold at once, which separates external interference from ordinary range loss.', 'Одновременное выполнение всех трёх условий позволяет отличить внешние помехи от обычной потери дальности.'),
           },
           {
             name: L('Satellite field suppression and spoofing', 'Подавление спутникового поля и подмена координат'),
             expr: 'NSats < 6  ∧  HDop > 2.5  (Δt < 2 s);   ∫a·dt ≠ v_GNSS  ∧  FS > 0',
-            note: L('A synchronous drop in satellites with a geometry jump means suppression. A mismatch between inertial and satellite velocity plus an estimator fault flag means spoofing.', 'Синхронное падение числа спутников со скачком геометрического фактора — подавление. Расхождение инерциальной и спутниковой скорости при аварийном флаге оценщика — подмена координат.'),
+            note: L('A synchronous drop in satellites with a geometry jump means suppression. A mismatch between inertial and satellite velocity plus an estimator fault flag means spoofing.', 'Синхронное падение числа спутников со скачком геометрического фактора указывает на подавление. Расхождение инерциальной и спутниковой скорости при аварийном флаге оценщика указывает на подмену координат.'),
           },
         ],
       },
@@ -249,7 +249,7 @@ const _projects: Project[] = [
         paragraphs: [
           L(
             'The main trap in incident analysis is mistaking impact damage for the cause of a fall. The engine finds the moment T₀ of the first critical event: a failsafe trigger, roll or pitch beyond 60°, or motors stopping in the air.',
-            'Главная ловушка разбора происшествий — принять разрушения от удара о землю за причину падения. Движок находит момент T₀ первого критического события: срабатывание failsafe, крен или тангаж больше 60° либо отключение моторов в воздухе.'
+            'Главный риск при анализе происшествий заключается в ошибочной трактовке разрушений от удара о землю как причины падения. Движок находит момент T₀ первого критического события: срабатывание failsafe, крен или тангаж больше 60° либо отключение моторов в воздухе.'
           ),
           L(
             'Only anomalies inside the window [T₀ − 5 s; T₀] are candidates for the root cause. Vibration peaks, voltage sags and sensor faults after T₀ are classified as secondary consequences and excluded from the cause graph.',
@@ -284,7 +284,7 @@ else:
         paragraphs: [
           L(
             'The product is modular so every layer can be debugged on its own. It ships as a single offline package built with PyInstaller in onedir mode, which keeps start-up fast despite heavy signal-processing libraries. A launcher starts the local interface without a separate browser setup.',
-            'Продукт модульный: каждый слой отлаживается отдельно. Поставляется одним офлайн-дистрибутивом, собранным PyInstaller в режиме onedir, — это сокращает время старта тяжёлых библиотек обработки сигналов. Лаунчер сам открывает локальный интерфейс, без отдельной настройки.'
+            'Продукт модульный: каждый слой отлаживается отдельно. Поставка одним офлайн-дистрибутивом, собранным PyInstaller в режиме onedir, сокращает время старта тяжёлых библиотек обработки сигналов. Лаунчер сам открывает локальный интерфейс, без отдельной настройки.'
           ),
         ],
         modules: [
@@ -313,11 +313,11 @@ else:
     description: [
       L(
         'An architecture design engagement: a closed on-premise engineering platform that links every test flight of an autonomous platform to an immutable snapshot of its exact configuration — components, firmware and parameters. The deliverable is a complete, development-ready design: functional architecture, data model, security model and verifiable acceptance criteria.',
-        'Кейс по проектированию архитектуры: закрытая инженерная платформа, которая связывает каждый испытательный полёт автономной платформы с неизменяемым снимком её точной конфигурации — комплектующих, прошивки и параметров. Результат работы — полный проект, готовый к передаче в разработку: функциональная архитектура, модель данных, модель безопасности и проверяемые критерии приёмки.'
+        'Кейс по проектированию архитектуры: закрытая инженерная платформа, которая связывает каждый испытательный полёт автономной платформы с неизменяемым снимком её точной конфигурации, включающим комплектующие, прошивку и параметры. Результат работы представляет собой полный проект, готовый к передаче в разработку: функциональная архитектура, модель данных, модель безопасности и проверяемые критерии приёмки.'
       ),
       L(
         'This is a design case, not a deployed product: the value delivered is the architecture itself — decisions, constraints and acceptance criteria that let an engineering team build the system without re-opening fundamental questions.',
-        'Это кейс по архитектуре, а не о внедрённом продукте: ценность работы — сама спроектированная система, её решения, ограничения и критерии приёмки, которые позволяют команде разработки строить продукт, не возвращаясь к фундаментальным вопросам.'
+        'В кейсе представлен результат архитектурного проектирования. Внедрение продукта находится за рамками этой работы. Спроектированная система, принятые решения, ограничения и критерии приёмки формируют основу для последующей разработки.'
       ),
     ],
     gallery: [work4],
@@ -332,11 +332,11 @@ else:
         paragraphs: [
           L(
             'Off-the-shelf flight log viewers answer the question "what happened in this flight", but not the question an engineering organization actually needs: "what exactly did we test, in which configuration, what did we find and who approved the result". Knowledge lives in personal files and spreadsheets of individual specialists, and the technical history of each unit is impossible to reconstruct.',
-            'Готовые просмотрщики полётных журналов отвечают на вопрос «что произошло в этом полёте», но не на вопрос, который реально нужен инженерной организации: «что именно мы испытывали, в какой конфигурации, что обнаружили и кто утвердил результат». Знания хранятся в личных файлах и таблицах отдельных специалистов, а техническую историю каждого изделия восстановить невозможно.'
+            'Готовые просмотрщики полётных журналов отвечают на вопрос «что произошло в этом полёте», но не на вопрос, который реально нужен инженерной организации: «что именно мы испытывали, в какой конфигурации, что обнаружили и кто утвердил результат». Хранение знаний в разрозненных файлах и таблицах затрудняет восстановление технической истории каждого изделия.'
           ),
           L(
             'The central design decision: every flight is bound to an immutable configuration snapshot taken at the moment of the test. If an engineer later replaces a component, older flights keep their original snapshot — so the effect of any design change can be measured against comparable tests instead of being guessed.',
-            'Центральное проектное решение: каждый полёт привязывается к неизменяемому снимку конфигурации на момент испытания. Если позже инженер заменил компонент, старые полёты сохраняют исходный снимок — поэтому влияние любого изменения конструкции измеряется на сопоставимых испытаниях, а не угадывается.'
+            'Центральное проектное решение: каждый полёт привязывается к неизменяемому снимку конфигурации на момент испытания. Если позже инженер заменил компонент, старые полёты сохраняют исходный снимок. Это позволяет измерять влияние любого изменения конструкции на сопоставимых испытаниях.'
           ),
           L(
             'The system deliberately does not control flights, does not send commands to autopilots and does not replace formal certification procedures: it analyzes and documents engineering data without substituting the responsibility of the engineer.',
@@ -361,7 +361,7 @@ else:
         paragraphs: [
           L(
             'The system is decomposed into twelve modules with explicit delivery priorities: P0 is the mandatory core of the first working release, P1 extends production processes, P2 adds intelligent capabilities after enough data has been accumulated.',
-            'Система разделена на двенадцать модулей с явными приоритетами поставки: P0 — обязательное ядро первого рабочего релиза, P1 — расширение производственных процессов, P2 — интеллектуальные возможности после накопления данных.'
+            'Система разделена на двенадцать модулей с явными приоритетами поставки: P0 включает обязательное ядро первого рабочего релиза, P1 расширяет производственные процессы, P2 добавляет интеллектуальные возможности после накопления данных.'
           ),
         ],
         tables: [
@@ -390,7 +390,7 @@ else:
         paragraphs: [
           L(
             'The database is designed as an engineering history of the product, not as a list of aircraft and flights. Five mandatory rules protect the evidentiary value of the data.',
-            'База данных спроектирована как инженерная история изделия, а не как список аппаратов и полётов. Пять обязательных правил защищают доказательную ценность данных.'
+            'База данных спроектирована для хранения полной инженерной истории изделия. Пять обязательных правил защищают доказательную ценность данных.'
           ),
         ],
         findings: [
@@ -412,7 +412,7 @@ else:
           },
           {
             title: L('Approvals are traceable', 'История согласований'),
-            body: L('Who created, who reviewed, who approved and when — visible in the system for every result.', 'Кто создал, кто проверил, кто утвердил и когда — видно в системе для каждого результата.'),
+            body: L('Who created, who reviewed, who approved and when — visible in the system for every result.', 'Для каждого результата система фиксирует авторов создания, проверки и утверждения, время каждого действия.'),
           },
         ],
         tables: [
@@ -432,11 +432,11 @@ else:
         paragraphs: [
           L(
             'The chosen shape is a modular monolith with three independent executables — web interface, API and a background worker for log processing — deployed entirely inside the corporate infrastructure. The architecture is air-gap ready from day one: offline Docker images, pinned dependency versions, maps without external APIs, no telemetry sent to the vendor.',
-            'Выбранная форма — модульный монолит из трёх независимых исполняемых приложений: веб-интерфейс, API и фоновый обработчик журналов. Всё разворачивается внутри корпоративной инфраструктуры. Архитектура с первого дня готова к полной изоляции: офлайн-образы, зафиксированные версии зависимостей, карты без внешних API, никакой телеметрии разработчику.'
+            'Выбранная платформа представляет собой модульный монолит из трёх независимых исполняемых приложений: веб-интерфейса, API и фонового обработчика журналов. Всё разворачивается внутри корпоративной инфраструктуры. Архитектура с первого дня готова к полной изоляции: офлайн-образы, зафиксированные версии зависимостей, карты без внешних API, никакой телеметрии разработчику.'
           ),
           L(
             'Logs are treated as untrusted input: parsers run in restricted worker processes with CPU, memory, time and filesystem limits. Access control follows least privilege across nine roles, and approvals use versioned, append-only records rather than a simple "updated at" field.',
-            'Журналы рассматриваются как недоверенные входные данные: парсеры запускаются в ограниченных рабочих процессах с лимитами процессора, памяти, времени и доступа к файловой системе. Доступ строится по принципу минимально необходимых полномочий для девяти ролей, а согласования ведутся версионированным append-only журналом, а не обычным полем «обновлено».'
+            'Журналы рассматриваются как недоверенные входные данные: парсеры запускаются в ограниченных рабочих процессах с лимитами процессора, памяти, времени и доступа к файловой системе. Доступ строится по принципу минимально необходимых полномочий для девяти ролей. История согласований ведётся в версионированном append-only журнале, который сохраняет последовательность действий и исключает перезапись существующих записей.'
           ),
         ],
         diagram: {
@@ -457,11 +457,11 @@ else:
         paragraphs: [
           L(
             'The design fixes in advance what the organization must receive: not a working interface, but a verifiable set of capabilities. The first release has 23 acceptance criteria — from "deploys on the company\'s own server" and "source logs remain immutable" to "backups restore successfully" and "verified to work without internet access".',
-            'Проект заранее фиксирует, что именно должна получить организация: не работающий интерфейс, а проверяемый набор возможностей. Для первого релиза определены 23 критерия приёмки — от «разворачивается на собственном сервере» и «исходные журналы остаются неизменными» до «резервные копии успешно восстанавливаются» и «проверена работа без доступа к интернету».'
+            'Проект заранее фиксирует проверяемый набор возможностей системы. Для первого релиза определены 23 критерия приёмки: от «разворачивается на собственном сервере» и «исходные журналы остаются неизменными» до «резервные копии успешно восстанавливаются» и «проверена работа без доступа к интернету».'
           ),
           L(
             'Acceptance requires a prepared test dataset: logs of both autopilot families, different firmware versions, incomplete and damaged files, flights with known technical events, and pairs of comparable flights before and after a configuration change — without them it is impossible to prove that the impact analysis detects real changes rather than drawing pretty charts.',
-            'Для приёмки заранее определён тестовый набор: журналы обоих семейств автопилотов, разные версии прошивок, неполные и повреждённые файлы, полёты с известными техническими событиями и пары сопоставимых полётов до и после изменения конфигурации — без них невозможно доказать, что анализ влияния конфигурации обнаруживает реальные изменения, а не строит красивые графики.'
+            'Для приёмки заранее определён тестовый набор: журналы обоих семейств автопилотов, разные версии прошивок, неполные и повреждённые файлы, полёты с известными техническими событиями и пары сопоставимых полётов до и после изменения конфигурации. Этот набор позволяет проверить, что анализ влияния конфигурации обнаруживает реальные изменения.'
           ),
         ],
         findings: [
@@ -498,11 +498,11 @@ else:
     description: [
       L(
         'A software gateway deployed inside a closed corporate perimeter (on-premise) that lets specialists use cloud LLMs without sending personal data outside. Before a request leaves the perimeter, the gateway performs reversible pseudonymization: names, IDs, policy numbers, addresses and phones are replaced with tokens, and dates are shifted by a random offset. Only de-identified text reaches the model; the answer is re-identified locally.',
-        'Программный шлюз, который разворачивается внутри закрытого контура организации (on-premise) и позволяет специалистам использовать облачные LLM, не вынося персональные данные за периметр. Перед отправкой запроса шлюз выполняет обратимую псевдонимизацию: ФИО, СНИЛС, полисы, адреса и телефоны заменяются токенами, а даты сдвигаются на случайное число дней. В облако уходит только обезличенный текст, а ответ модели восстанавливается локально.'
+        'Программный шлюз, который разворачивается внутри закрытого контура организации (on-premise) и позволяет специалистам использовать облачные LLM, не вынося персональные данные за периметр. Перед отправкой запроса шлюз выполняет обратимую псевдонимизацию: ФИО, СНИЛС, полисы, адреса и телефоны заменяются токенами. Даты сдвигаются на случайное число дней. В облако уходит только обезличенный текст. Ответ модели восстанавливается локально.'
       ),
       L(
         'The pilot domain is clinical work under 152-FZ (personal data) and 323-FZ (medical confidentiality), one of the strictest regulatory environments for data channels. The same architecture applies to any closed-loop infrastructure where data must not leave the perimeter.',
-        'Пилотная область — клиническая работа в рамках 152-ФЗ о персональных данных и 323-ФЗ о врачебной тайне, одной из самых строгих сред для каналов передачи данных. Та же архитектура применима к любой инфраструктуре закрытого контура, где данные не должны покидать периметр.'
+        'Пилотной областью стала клиническая работа в рамках 152-ФЗ о персональных данных и 323-ФЗ о врачебной тайне, одной из самых строгих сред для каналов передачи данных. Та же архитектура применима к любой инфраструктуре закрытого контура, где данные не должны покидать периметр.'
       ),
     ],
     gallery: [work5],
@@ -559,7 +559,7 @@ else:
           ),
           L(
             'An append-only audit log records every login, edit, pseudonymization operation and decision, meeting article 18.1 of 152-FZ. A separate access log records who opened a record and when, without storing its contents. Backups are encrypted archives containing the SQLCipher database and key.',
-            'Неизменяемый (append-only) журнал аудита фиксирует каждый вход, изменение, операцию псевдонимизации и принятое решение в соответствии со ст. 18.1 152-ФЗ. Отдельный журнал доступа записывает, кто и когда открывал карту, не сохраняя её содержимое. Резервные копии — зашифрованные архивы с базой SQLCipher и ключом.'
+            'Неизменяемый (append-only) журнал аудита фиксирует каждый вход, изменение, операцию псевдонимизации и принятое решение в соответствии со ст. 18.1 152-ФЗ. Отдельный журнал доступа записывает, кто и когда открывал карту, не сохраняя её содержимое. Резервные копии хранятся в зашифрованных архивах с базой SQLCipher и ключом.'
           ),
         ],
         tables: [
@@ -581,7 +581,7 @@ else:
         paragraphs: [
           L(
             'Beyond the gateway, the product is a full desktop workstation (Electron, NSIS installer): OCR of paper scans, entity extraction, 24 critical-threshold rules with red-flag alerts, decision support with logged reasoning, scheduling and a shared document library. Records export to HL7 FHIR JSON, Word and PDF, and full databases move between sites as ZIP archives.',
-            'Помимо шлюза, продукт — полноценное десктопное рабочее место (Electron, установщик NSIS): OCR бумажных сканов, извлечение сущностей, 24 правила критических порогов с красными флагами, поддержка принятия решений с фиксацией обоснования, расписание и общая база документов. Карты выгружаются в HL7 FHIR JSON, Word и PDF, а база целиком переносится между площадками в ZIP-архиве.'
+            'Продукт также представляет собой полноценное десктопное рабочее место (Electron, установщик NSIS): OCR бумажных сканов, извлечение сущностей, 24 правила критических порогов с красными флагами, поддержка принятия решений с фиксацией обоснования, расписание и общая база документов. Карты выгружаются в HL7 FHIR JSON, Word и PDF. База целиком переносится между площадками в ZIP-архиве.'
           ),
         ],
       },
@@ -605,7 +605,7 @@ else:
     description: [
       L(
         'A Russian-language B2B SaaS platform for mandatory financial statement audits. It guides an auditor through a ten-stage review, from reconciliation and cross-checks to audit reporting, while keeping every document, response, status, token cost, and result connected to one audit session.',
-        'Платформа автоматизированной проверки документации на соответствие регламенту с помощью ИИ. Комплекс ведёт специалиста по фиксированной методологии из десяти этапов — от сверки и проверки взаимосвязей между документами до итогового заключения, сохраняя связь каждого вывода с исходным документом. Первое внедрение — обязательный аудит отчётности; та же архитектура применима к проверке технической документации, ТЗ и внутренних регламентов.'
+        'Платформа автоматизированной проверки документации на соответствие регламенту с помощью ИИ. Комплекс ведёт специалиста по фиксированной методологии из десяти этапов: от сверки и проверки взаимосвязей между документами до итогового заключения, сохраняя связь каждого вывода с исходным документом. Первое внедрение охватывает обязательный аудит отчётности; та же архитектура применима к проверке технической документации, ТЗ и внутренних регламентов.'
       ),
       L(
         'I translated a detailed technical specification into a product structure with protected workspaces, staged AI streaming, SHA-256 document deduplication, controlled retries, quality checks, Word export, and an admin layer for operational visibility. After deployment the platform reduced the time spent on a full audit cycle by roughly six times, replacing weeks of manual reconciliation and drafting with a guided, traceable workflow.',
@@ -640,7 +640,7 @@ else:
         paragraphs: [
           L(
             'Mandatory audit work combines large document sets, repeated reconciliations, strict reporting formats, and a high cost of missing context. An auditor needs to load financial statements, accounting policies, registers, contracts, and supporting files, then move through a fixed methodology without losing the relationship between a source document and an audit conclusion.',
-            'Обязательный аудит объединяет большие массивы документов, повторяющиеся сверки, строгие форматы отчётности и высокую цену потерянного контекста. Аудитору нужно загрузить отчётность, учётную политику, регистры, договоры и подтверждающие файлы, а затем пройти фиксированную методологию, сохраняя связь между исходным документом и выводом аудита.'
+            'Обязательный аудит объединяет большие массивы документов, повторяющиеся сверки, строгие форматы отчётности и высокую цену потерянного контекста. Аудитору нужно загрузить отчётность, учётную политику, регистры, договоры и подтверждающие файлы и затем пройти фиксированную методологию, сохраняя связь между исходным документом и выводом аудита.'
           ),
           L(
             'The platform turns this work into a controlled sequence. Every stage has required inputs, a visible status, a result format, and a manual completion action. The audit session becomes the single container for the team, documents, generated answers, summaries, and final report.',
@@ -652,7 +652,7 @@ else:
             title: L('After deployment, audit time dropped by roughly six times.', 'После внедрения время аудита сократилось примерно в шесть раз.'),
             body: L(
               'The product specification targets a reduction of 70 to 80 percent in the time spent on the first reconciliation stage. In practice, the full audit cycle compressed by about six times once the platform replaced manual reconciliation and drafting with a guided, traceable workflow. Repeated document uploads are charged once through content hashing, and a completed stage can be extended with new documents through a merge step.',
-              'Техническое задание закладывает сокращение времени на первом этапе сверки на 70–80 процентов. На практике полный цикл аудита сжался примерно в шесть раз, когда платформа заменила ручную сверку и составление черновиков управляемым прослеживаемым процессом. Повторная загрузка документа оплачивается один раз благодаря хешированию содержимого, а завершённый этап можно дополнить новыми документами через шаг объединения.'
+              'Техническое задание закладывает сокращение времени на первом этапе сверки на 70–80 процентов. На практике полный цикл аудита сжался примерно в шесть раз, когда платформа заменила ручную сверку и составление черновиков управляемым прослеживаемым процессом. Повторная загрузка документа оплачивается один раз благодаря хешированию содержимого. Завершённый этап можно дополнить новыми документами через шаг объединения.'
             ),
           },
           {
@@ -742,7 +742,7 @@ else:
           ),
           L(
             'Row Level Security scopes audit_sessions and profiles by auth.uid(). Messages, session files, and stage summaries inherit access through the session owner. Usage logs accept inserts only through a server role. The audit-docs bucket stays private, and downloads use signed URLs with a user-folder prefix check.',
-            'Row Level Security ограничивает audit_sessions и profiles через auth.uid(). Сообщения, файлы сессии и сводки этапов получают доступ через владельца сессии. Usage logs принимают записи только через серверную роль. Bucket audit-docs остаётся приватным, а скачивание выполняется по подписанным URL с проверкой префикса пользовательской папки.'
+            'Row Level Security ограничивает audit_sessions и profiles через auth.uid(). Сообщения, файлы сессии и сводки этапов получают доступ через владельца сессии. Usage logs принимают записи только через серверную роль. Bucket audit-docs остаётся приватным. Скачивание выполняется по подписанным URL с проверкой префикса пользовательской папки.'
           ),
         ],
         diagram: {
@@ -826,7 +826,7 @@ else:
           },
           {
             title: L('Session management', 'Управление сессиями'),
-            body: L('Create, list, sort, and delete audit sessions. The sidebar exposes active audits, while an empty state guides the first session. Deletion cascades through messages, files, and stage summaries.', 'Создание, просмотр, сортировка и удаление сессий аудита. Sidebar показывает активные проверки, а empty state ведёт к созданию первой сессии. Удаление каскадно очищает сообщения, файлы и сводки этапов.'),
+            body: L('Create, list, sort, and delete audit sessions. The sidebar exposes active audits, while an empty state guides the first session. Deletion cascades through messages, files, and stage summaries.', 'Создание, просмотр, сортировка и удаление сессий аудита. Sidebar показывает активные проверки. Empty state ведёт к созданию первой сессии. Удаление каскадно очищает сообщения, файлы и сводки этапов.'),
           },
           {
             title: L('Audit workflow', 'Аудит-воркфлоу'),
@@ -842,15 +842,15 @@ else:
           },
           {
             title: L('Export', 'Экспорт'),
-            body: L('The final report and individual stage results export to .docx. Result Card tags become section headings, amounts become table values, and the filename uses the audit title with a date in YYYY-MM-DD format.', 'Итоговый отчёт и результаты отдельных этапов экспортируются в .docx. Теги Result Card превращаются в заголовки разделов, суммы становятся значениями таблицы, а имя файла получает название аудита и дату в формате YYYY-MM-DD.'),
+            body: L('The final report and individual stage results export to .docx. Result Card tags become section headings, amounts become table values, and the filename uses the audit title with a date in YYYY-MM-DD format.', 'Итоговый отчёт и результаты отдельных этапов экспортируются в .docx. Теги Result Card превращаются в заголовки разделов, суммы становятся значениями таблицы. Имя файла получает название аудита и дату в формате YYYY-MM-DD.'),
           },
           {
             title: L('Admin analytics', 'Административная аналитика'),
-            body: L('Administrators see requests, tokens, projects, and period filters. Metrics load through a server function after a role check. User conversations remain private while operational totals support cost and performance monitoring.', 'Администраторы видят запросы, токены, проекты и фильтры периода. Метрики загружаются серверной функцией после проверки роли. Пользовательские диалоги остаются приватными, а агрегаты помогают контролировать стоимость и производительность.'),
+            body: L('Administrators see requests, tokens, projects, and period filters. Metrics load through a server function after a role check. User conversations remain private while operational totals support cost and performance monitoring.', 'Администраторы видят запросы, токены, проекты и фильтры периода. Метрики загружаются серверной функцией после проверки роли. Пользовательские диалоги остаются приватными. Агрегаты помогают контролировать стоимость и производительность.'),
           },
           {
             title: L('Profile & settings', 'Профиль и настройки'),
-            body: L('The profile area contains email, registration date, password change, theme selection, and sign out. Theme state persists per profile and the password form validates length and confirmation before submission.', 'Раздел профиля содержит email, дату регистрации, смену пароля, выбор темы и выход. Тема сохраняется в профиле, а форма пароля проверяет длину и совпадение подтверждения до отправки.'),
+            body: L('The profile area contains email, registration date, password change, theme selection, and sign out. Theme state persists per profile and the password form validates length and confirmation before submission.', 'Раздел профиля содержит email, дату регистрации, смену пароля, выбор темы и выход. Тема сохраняется в профиле. Форма пароля проверяет длину и совпадение подтверждения до отправки.'),
           },
         ],
       },
@@ -859,7 +859,7 @@ else:
         paragraphs: [
           L(
             'The specification defines a measurable MVP: at least 85 percent of started stages are completed, regeneration stays at or below 5 percent, average tokens per stage remain under 120,000, document parsing reaches 98 percent success, the first verdict arrives within 15 minutes, cache hits exceed 30 percent, and at least 60 percent of sessions reach export.',
-            'Спецификация задаёт измеримый MVP: не менее 85 процентов начатых этапов завершаются, доля повторных генераций не превышает 5 процентов, средний расход составляет менее 120 000 токенов на этап, успешность парсинга достигает 98 процентов, первый вердикт появляется за 15 минут, доля cache hit превышает 30 процентов, а экспорт достигается минимум в 60 процентах сессий.'
+            'Спецификация задаёт измеримый MVP: не менее 85 процентов начатых этапов завершаются, доля повторных генераций не превышает 5 процентов, средний расход составляет менее 120 000 токенов на этап, успешность парсинга достигает 98 процентов, первый вердикт появляется за 15 минут, доля cache hit превышает 30 процентов и экспорт достигается минимум в 60 процентах сессий.'
           ),
           L(
             'I delivered the product logic as a documented system of routes, states, database entities, security policies, server functions, UI states, and generation stages. The result gives an audit team a predictable path from document upload to a structured conclusion and a reusable technical foundation for future audit domains.',
@@ -987,7 +987,7 @@ else:
             ),
             quote: L(
               'In moments of anxiety the interface must not demand cognitive effort. Every question should feel like a safe dialogue, not an interrogation.',
-              'В моменты тревоги интерфейс не должен требовать когнитивных усилий. Каждый вопрос должен ощущаться не как допрос, а как безопасный диалог.'
+              'В моменты тревоги интерфейс не должен требовать когнитивных усилий. Каждый вопрос должен поддерживать ощущение безопасного диалога.'
             ),
           },
         ],
@@ -1214,7 +1214,7 @@ else:
     description: [
       L(
         'A realtime platform for multichannel sensor telemetry: streaming ingestion, noise filtering, artifact rejection and predictive analytics on high-frequency time series. The pilot domain is EEG — multichannel signals of enormous volume, where manual review of multi-day recordings takes an expert hours to catch single anomalous events.',
-        'Платформа обработки многоканальной телеметрии с датчиков в реальном времени: потоковый приём данных, фильтрация шумов, подавление артефактов и предиктивная аналитика высокочастотных временных рядов. Пилотная область — ЭЭГ: многоканальные сигналы колоссального объёма, где ручной разбор многосуточных записей занимает у эксперта часы ради поиска единичных аномальных событий.'
+        'Платформа обработки многоканальной телеметрии с датчиков в реальном времени: потоковый приём данных, фильтрация шумов, подавление артефактов и предиктивная аналитика высокочастотных временных рядов. Пилотной областью стала ЭЭГ: многоканальные сигналы колоссального объёма, где ручной разбор многосуточных записей занимает у эксперта часы ради поиска единичных аномальных событий.'
       ),
       L(
         'The project sits between engineering and a professional upskilling track in neurotechnology: I designed the architecture and built a platform for intelligent analysis and preprocessing of brain bioelectrical activity, adapting Neural Systems Lab (University of Washington) research to Russian clinical protocols and functional diagnostics standards.',
@@ -1317,7 +1317,7 @@ else:
             title: L('Transparency over black box', 'Прозрачность вместо черного ящика'),
             body: L(
               'A clinician needs frequency slices, power spectral density and graphoelement morphology, not a binary label.',
-              'В клинической нейрофизиологии алгоритм черного ящика бесполезен. Врачу необходима не просто бинарная метка приступа, а прозрачная верификация: частотный срез, спектральная плотность мощности и морфология графоэлементов.'
+              'В клинической нейрофизиологии алгоритм черного ящика бесполезен. Врачу необходима прозрачная верификация результата: частотный срез, спектральная плотность мощности и морфология графоэлементов.'
             ),
           },
         ],
@@ -1327,7 +1327,7 @@ else:
         paragraphs: [
           L(
             'From raw biosignal ingestion to hybrid inference, every stage is explicit and inspectable.',
-            'От приема сырого биосигнала до гибридного инференса — каждая стадия конвейера явная и проверяемая.'
+            'Каждая стадия конвейера от приема сырого биосигнала до гибридного инференса явная и проверяемая.'
           ),
         ],
         diagram: {
@@ -1380,7 +1380,7 @@ else:
             ),
             quote: L(
               'We need to predict the transition into the pre-ictal phase, not just state that a seizure happened.',
-              'Нам необходимо не просто констатировать факт приступа, а прогнозировать переход в предиктальную фазу.'
+              'Нам необходимо прогнозировать переход в предиктальную фазу.'
             ),
           },
         ],
@@ -1402,7 +1402,7 @@ else:
             title: L('02. Dynamic montage matrix switcher', '02. Матричный коммутатор монтажей'),
             body: L(
               'The montage matrix recomputes potential differences between derivations on the fly without re-reading the file: longitudinal bipolar (Double Banana) for focal zones by phase reversal, average reference for diffuse generalised activity, Cz-referential for express screening of cortical rhythms.',
-              'Матричный коммутатор монтажей на лету пересчитывает разность потенциалов между отведениями без повторного чтения файла: продольный биполярный (Double Banana) — локализация фокальных зон по феномену противофазы, усредненный референт — выявление диффузной генерализованной активности, Cz-референциальный — экспресс-скрининг базовых корковых ритмов.'
+              'Матричный коммутатор монтажей на лету пересчитывает разность потенциалов между отведениями без повторного чтения файла: продольный биполярный (Double Banana) обеспечивает локализацию фокальных зон по феномену противофазы, усредненный референт выявляет диффузную генерализованную активность, Cz-референциальный используется для экспресс-скрининга базовых корковых ритмов.'
             ),
           },
           {
@@ -1433,7 +1433,7 @@ else:
         paragraphs: [
           L(
             'Ingestion, hardware-adapted DSP and topological montage feed two parallel branches — spectral extraction and hybrid inference — that converge into a clinical report.',
-            'Прием данных, аппаратно-адаптированный DSP и топологический монтаж питают две параллельные ветви — спектральное извлечение и гибридный инференс, — которые сходятся в клиническом отчете.'
+            'Прием данных, аппаратно-адаптированный DSP и топологический монтаж передают данные в две параллельные ветви: спектральное извлечение и гибридный инференс. Результаты обеих ветвей объединяются в клиническом отчете.'
           ),
         ],
         diagram: {
@@ -1470,10 +1470,10 @@ else:
             title: L('Design system specification', 'Спецификация дизайн-системы'),
             columns: [L('Layer', 'Слой'), L('Specification', 'Спецификация'), L('Clinical reference', 'Клинический ориентир')],
             rows: [
-              [L('Rhythm colour coding', 'Цветовое кодирование ритмов'), L('Delta 0.5–4 Hz deep blue · Theta 4–8 Hz cyan · Alpha 8–13 Hz green · Beta 13–30 Hz amber', 'Дельта 0,5–4 Гц — глубокий синий · Тета 4–8 Гц — циан · Альфа 8–13 Гц — зеленый · Бета 13–30 Гц — янтарный'), L('IFCN band conventions', 'Диапазоны по конвенции IFCN')],
+              [L('Rhythm colour coding', 'Цветовое кодирование ритмов'), L('Delta 0.5–4 Hz deep blue · Theta 4–8 Hz cyan · Alpha 8–13 Hz green · Beta 13–30 Hz amber', 'Дельта 0,5–4 Гц: глубокий синий · Тета 4–8 Гц: циан · Альфа 8–13 Гц: зеленый · Бета 13–30 Гц: янтарный'), L('IFCN band conventions', 'Диапазоны по конвенции IFCN')],
               [L('DSP & filter controls', 'Управление DSP и фильтрами'), L('Notch 50 Hz (Q = 30) · high-pass 0.5 Hz / 24 dB · low-pass 30 Hz / 24 dB', 'Режекция 50 Гц (Q = 30) · ФВЧ 0,5 Гц / 24 дБ · ФНЧ 30 Гц / 24 дБ'), L('GOST R IEC 60601-2-26', 'ГОСТ Р МЭК 60601-2-26')],
               [L('Timebase & calibration', 'Развертка и калибровка'), L('30 mm/s sweep · 7 µV/mm amplitude · measuring grid', 'Развертка 30 мм/с · амплитуда 7 µV/mm · измерительная сетка'), L('Standard clinical montage sheet', 'Стандартный клинический лист монтажа')],
-              [L('Clinical event labels', 'Метки клинических событий'), L('SW spike-and-wave 3 Hz · POLY polyspike complex · EMG muscle artifact suppressed', 'SW — пик-медленная волна 3 Гц · POLY — полиспайк-комплекс · EMG — подавленный мышечный артефакт'), L('Reviewed and confirmed by the clinician', 'Проверяется и подтверждается врачом')],
+              [L('Clinical event labels', 'Метки клинических событий'), L('SW spike-and-wave 3 Hz · POLY polyspike complex · EMG muscle artifact suppressed', 'SW: пик-медленная волна 3 Гц · POLY: полиспайк-комплекс · EMG: подавленный мышечный артефакт'), L('Reviewed and confirmed by the clinician', 'Проверяется и подтверждается врачом')],
               [L('Channel detail widget', 'Виджет детализации канала'), L('Amplitude pk-pk · theta/beta PSD ratio · phase synchrony', 'Амплитуда pk-pk · отношение PSD тета/бета · фазовая синхронность'), L('Verification before labelling an event', 'Верификация до присвоения метки события')],
               [L('Pre-ictal risk gauge', 'Шкала предиктального риска'), L('State · prediction horizon in seconds · alarm status · sensitivity mode', 'Состояние · горизонт прогноза в секундах · статус тревоги · режим чувствительности'), L('Strict mode sensitivity 94.6%', 'Строгий режим, чувствительность 94,6%')],
             ],
@@ -1561,7 +1561,7 @@ else:
     description: [
       L(
         'AIIM is my research initiative into forming stable, humanized AI identities. I developed its methodology, parameter tables, knowledge-base architecture, and anti-drift system as a practical bridge between cognitive psychology, medical thinking, and AI engineering. The research is implemented as a live platform at ai-im.tech.',
-        'AIIM — это моя исследовательская инициатива в области формирования устойчивой гуманизированной идентичности ИИ. Я разработала её методологию, таблицы параметров, архитектуру базы знаний и систему антидрифт как практическую связь между когнитивной психологией, медицинским мышлением и инженерией ИИ. Исследование реализовано в виде действующей платформы на ai-im.tech.'
+        'AIIM представляет собой мою исследовательскую инициативу в области формирования устойчивой гуманизированной идентичности ИИ. Я разработала её методологию, таблицы параметров, архитектуру базы знаний и систему антидрифт как практическую связь между когнитивной психологией, медицинским мышлением и инженерией ИИ. Исследование реализовано в виде действующей платформы на ai-im.tech.'
       ),
       L(
         'The platform is used by Aalto University in its AI ethics projects. The approach builds on my University of Helsinki Ethics of AI certification: transparency, accountability and predictable agent behavior are embedded in the identity architecture itself.',
@@ -1569,7 +1569,7 @@ else:
       ),
       L(
         'The core distinction is Identity > Intellect. Its behavioral identity is encoded through twelve aspects, maturity levels, states, and delta-priorities, then protected by identity checkpoints and an anti-drift system. The model, prompts, knowledge sources, voice, and integrations remain replaceable.',
-        'Ключевой принцип: «Идентичность важнее интеллекта». Поведенческая идентичность кодируется через двенадцать аспектов, уровни зрелости, состояния и дельта-приоритеты, а затем защищается контрольными точками идентичности и системой защиты от дрейфа. Модель, промпты, источники знаний, голос и интеграции остаются заменяемыми.'
+        'Ключевой принцип: «Идентичность важнее интеллекта». Поведенческая идентичность кодируется через двенадцать аспектов, уровни зрелости, состояния и дельта-приоритеты и затем защищается контрольными точками идентичности и системой защиты от дрейфа. Модель, промпты, источники знаний, голос и интеграции остаются заменяемыми.'
       ),
     ],
     gallery: [work2, work5],
@@ -1598,7 +1598,7 @@ else:
             title: L('The platform is model-agnostic by design.', 'Платформа не привязана к одной модели.'),
             body: L(
               'OpenAI, Anthropic, Google, custom OpenAI-compatible providers, voice providers, Firecrawl, email, and automation tools can sit behind the same agent configuration. The identity and data model remain portable when the underlying provider changes, while the anti-drift layer checks whether behavior still belongs to the encoded profile.',
-              'Разные поставщики моделей, голосовые сервисы, почтовые и автоматизационные инструменты могут работать за одной конфигурацией агента. Модель идентичности и данных остаётся переносимой при смене поставщика, а слой защиты от дрейфа проверяет, сохраняется ли поведение внутри закодированного профиля.'
+              'Разные поставщики моделей, голосовые сервисы, почтовые и автоматизационные инструменты могут работать за одной конфигурацией агента. Модель идентичности и данных остаётся переносимой при смене поставщика. Слой защиты от дрейфа проверяет, сохраняется ли поведение внутри закодированного профиля.'
             ),
           },
         ],
@@ -1629,7 +1629,7 @@ else:
         ],
         tables: [
           {
-            title: L('Aspects — 12 identity dimensions', 'Аспекты — 12 измерений идентичности'),
+            title: L('Aspects — 12 identity dimensions', 'Аспекты: 12 измерений идентичности'),
             columns: [L('Code', 'Код'), L('Aspect', 'Аспект'), L('Category', 'Категория'), L('Effect on behavior', 'Влияние на поведение')],
             rows: [
               [L('wi', 'wi'), L('Goal-Orientation', 'Целеустремлённость'), L('Cognitive', 'Когнитивная'), L('Determination and volition; raises assertiveness and strength of opinion.', 'Воля и настойчивость; усиливает уверенность и твёрдость мнения.')],
@@ -1647,7 +1647,7 @@ else:
             ],
           },
           {
-            title: L('Plans — 5 processing layers', 'Планы — 5 слоёв обработки'),
+            title: L('Plans — 5 processing layers', 'Планы: 5 слоёв обработки'),
             columns: [L('Plan', 'План'), L('Purpose', 'Назначение')],
             rows: [
               [L('Core', 'Core'), L('Base cognition layer.', 'Базовый слой мышления.')],
@@ -1658,7 +1658,7 @@ else:
             ],
           },
           {
-            title: L('Maturity levels — 4 depth tiers', 'Уровни зрелости — 4 ступени глубины'),
+            title: L('Maturity levels — 4 depth tiers', 'Уровни зрелости: 4 ступени глубины'),
             columns: [L('Level', 'Уровень'), L('Retrieval depth', 'Глубина поиска'), L('Chain of thought', 'Цепочка рассуждений'), L('Verbosity (words)', 'Объём (слов)'), L('Self-check', 'Самопроверка')],
             rows: [
               [L('1 · Surface', '1 · Поверхностный'), L('0–1', '0–1'), L('off', 'выключена'), L('10–50', '10–50'), L('none', 'нет')],
@@ -1677,7 +1677,7 @@ else:
               [L('Style module', 'Модуль стиля'), L('long_sentences, slang, obscenity, sarcasm, emotional_intensity, formality, warmth, monotony, speed, disfluency, fillers, false_start_probability', 'длина фраз, сленг, обсценность, сарказм, эмоциональность, формальность, теплота, монотонность, темп, сбивчивость, филлеры, вероятность фальстарта'), L('Linguistic surface of speech (0.0–1.0 each).', 'Языковая поверхность речи (0.0–1.0 каждый).')],
               [L('Disfluency model', 'Модель сбивчивости'), L('never 0.00 · periodically 0.10–0.15 (≤15%) · frequently 0.30–0.60 (30–60%)', 'никогда 0.00 · периодически 0.10–0.15 (≤15%) · часто 0.30–0.60 (30–60%)'), L('Frequency of fillers and restarts.', 'Частота филлеров и перезапусков фраз.')],
               [L('Transient emotional state', 'Кратковременные эмоции'), L('emotion (fatigue, joy, irritation, boredom, anxiety, excitement), intensity, decay', 'эмоция (усталость, радость, раздражение, скука, тревога, воодушевление), интенсивность, затухание'), L('Short-term affect that fades over the dialogue.', 'Кратковременный аффект, затухающий по ходу диалога.')],
-              [L('Cognitive bias profile', 'Профиль когнитивных искажений'), L('confirmation, catastrophizing, optimism, negativity, self-serving — intensity 0.0–1.0', 'подтверждения, катастрофизация, оптимизм, негативизм, самозащита — интенсивность 0.0–1.0'), L('Selective interpretation of the user input.', 'Избирательная интерпретация ввода пользователя.')],
+              [L('Cognitive bias profile', 'Профиль когнитивных искажений'), L('confirmation, catastrophizing, optimism, negativity, self-serving — intensity 0.0–1.0', 'подтверждения, катастрофизация, оптимизм, негативизм, самозащита; интенсивность 0.0–1.0'), L('Selective interpretation of the user input.', 'Избирательная интерпретация ввода пользователя.')],
               [L('Self-disclosure', 'Самораскрытие'), L('level 0.0–1.0, style (warm, cautious, direct, emotional), boundaries', 'уровень 0.0–1.0, стиль (тёплый, осторожный, прямой, эмоциональный), границы'), L('How personal the agent is allowed to be.', 'Насколько личным может быть агент.')],
               [L('Dynamics', 'Динамика'), L('drift 0.0–1.0, volatility 0.0–1.0', 'дрейф 0.0–1.0, волатильность 0.0–1.0'), L('Rate of personality change across a session.', 'Скорость изменения личности в рамках сессии.')],
               [L('Conflict logic', 'Логика конфликта'), L('OpinionRigidity (flexible 0.0–0.3 · balanced 0.4–0.6 · unyielding 0.7–1.0), ConflictBehaviorModel (avoidant · rational · confrontational)', 'Жёсткость мнения (гибкое 0.0–0.3 · сбалансированное 0.4–0.6 · непреклонное 0.7–1.0), Модель поведения (избегание · рациональное · конфронтация)'), L('Behavior under disagreement.', 'Поведение при несогласии.')],
@@ -1811,11 +1811,11 @@ else:
         paragraphs: [
           L(
             'The external API is designed to be OpenAI-compatible: POST /v1/chat/completions with a Bearer external API key, model, messages, optional stream, and optional external session. Requests are logged to dialog_history, request counters are incremented, and errors are mapped to clear client responses. This makes the same agent available to a game server, a web application, a customer-support surface, or an n8n workflow.',
-            'Внешний интерфейс спроектирован как совместимый с OpenAI: запрос чата с ключом доступа, моделью, сообщениями, необязательной потоковой передачей и внешней сессией. Запросы записываются в историю диалогов, счётчики увеличиваются, а ошибки преобразуются в понятные ответы клиента. Один и тот же агент становится доступен игровому серверу, веб-приложению, интерфейсу поддержки или рабочему процессу в n8n.'
+            'Внешний интерфейс спроектирован как совместимый с OpenAI: запрос чата с ключом доступа, моделью, сообщениями, необязательной потоковой передачей и внешней сессией. Запросы записываются в историю диалогов, счётчики увеличиваются. Ошибки преобразуются в понятные ответы клиента. Один и тот же агент становится доступен игровому серверу, веб-приложению, интерфейсу поддержки или рабочему процессу в n8n.'
           ),
           L(
             'AIIM remains an evolving research initiative and a live implementation of the methodology. The public platform at ai-im.tech provides the practical layer, while the research materials document the model, parameter tables, verification logic, and scenarios developed from medical and psychological practice.',
-            'AIIM остаётся развивающейся исследовательской инициативой и действующей реализацией методологии. Публичная платформа на ai-im.tech представляет практический слой, а исследовательские материалы описывают модель, таблицы параметров, логику верификации и сценарии, разработанные на основе медицинской и психологической практики.'
+            'AIIM остаётся развивающейся исследовательской инициативой и действующей реализацией методологии. Публичная платформа на ai-im.tech представляет практический слой. Исследовательские материалы описывают модель, таблицы параметров, логику верификации и сценарии, разработанные на основе медицинской и психологической практики.'
           ),
         ],
         findings: [

@@ -17,11 +17,11 @@ export const Route = createFileRoute("/works/$slug")({
   head: ({ params }) => {
     const project = getProject(params.slug);
     const title = project
-      ? `${SEO_TITLES[params.slug] ?? project.title.ru} — кейс Ю. Вересовой`
-      : "Кейс — Юлия Вересова";
+      ? `${SEO_TITLES[params.slug] ?? project.title.ru}. Кейс Ю. Вересовой`
+      : "Кейс Юлии Вересовой";
     const description = project
       ? `${project.title.ru}. ${project.description[0]?.ru ?? ''}`.replace(/\s+/g, ' ').slice(0, 157).replace(/\s\S*$/, '') + '…'
-      : "Кейс Юлии Вересовой — Technical Product Owner в AI, HMI и автономных системах.";
+      : "Кейс Юлии Вересовой, Technical Product Owner в AI, HMI и автономных системах.";
     const keywords = project
       ? [project.title.ru, project.domain.ru, project.category.ru, project.stack.ru, 'Юлия Вересова', 'Technical Product Owner', 'кейс'].join(', ')
       : 'Юлия Вересова, кейс';

@@ -85,7 +85,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "google", content: "notranslate" },
       { name: "keywords", content: KEYWORDS_META },
-      { title: "Юлия Вересова — разработка программных комплексов и консалтинг по ИИ | Technical Product Owner" },
+      { title: "Юлия Вересова: разработка программных комплексов и консалтинг по ИИ | Technical Product Owner" },
       { name: "application-name", content: "Julia Veresova" },
       { name: "apple-mobile-web-app-title", content: "Юлия Вересова" },
       { name: "theme-color", content: "#0a0a0a" },
@@ -95,7 +95,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Разработка целевых программных комплексов для автономных систем, промышленности и MedTech: диагностика по бортовой телеметрии, шлюзы деанонимизации данных, интерфейсы управления (HMI). Консалтинг по архитектуре и внедрению ИИ.",
       },
       { property: "og:site_name", content: "Julia Veresova" },
-      { property: "og:title", content: "Юлия Вересова — разработка программных комплексов и консалтинг по ИИ | Technical Product Owner" },
+      { property: "og:title", content: "Юлия Вересова: разработка программных комплексов и консалтинг по ИИ | Technical Product Owner" },
       {
         property: "og:description",
         content:
@@ -106,7 +106,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "profile:last_name", content: "Вересова" },
       { property: "og:locale", content: "ru_RU" },
             { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Юлия Вересова — разработка программных комплексов и консалтинг по ИИ | Technical Product Owner" },
+      { name: "twitter:title", content: "Юлия Вересова: разработка программных комплексов и консалтинг по ИИ | Technical Product Owner" },
       {
         name: "twitter:description",
         content:

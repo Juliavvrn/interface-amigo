@@ -9,14 +9,14 @@ import Awards from "../sections/Awards";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Юлия Вересова — разработка программных комплексов и консалтинг по ИИ | Technical Product Owner" },
+      { title: "Юлия Вересова: разработка программных комплексов и консалтинг по ИИ | Technical Product Owner" },
       {
         name: "description",
         content:
           "Разработка целевых программных комплексов для автономных систем, промышленности и MedTech: диагностика по бортовой телеметрии, шлюзы деанонимизации данных, интерфейсы управления (HMI). Консалтинг по архитектуре и внедрению ИИ.",
       },
       { name: "keywords", content: KEYWORDS_META },
-      { property: "og:title", content: "Юлия Вересова — разработка программных комплексов и консалтинг по ИИ | Technical Product Owner" },
+      { property: "og:title", content: "Юлия Вересова: разработка программных комплексов и консалтинг по ИИ | Technical Product Owner" },
       {
         property: "og:description",
         content:
@@ -29,7 +29,7 @@ export const Route = createFileRoute("/")({
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { name: "twitter:image", content: "https://juliaveresova.ru/og-image.jpg" },
-      { name: "twitter:title", content: "Юлия Вересова — разработка программных комплексов и консалтинг по ИИ | Technical Product Owner" },
+      { name: "twitter:title", content: "Юлия Вересова: разработка программных комплексов и консалтинг по ИИ | Technical Product Owner" },
       {
         name: "twitter:description",
         content:

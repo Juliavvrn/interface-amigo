@@ -77,7 +77,7 @@ function ChartPanel({ chart }: { chart: CaseStudyChart }) {
             {pick(chart.title, lang)}
           </p>
           <p className="font-mono2 text-[10px] uppercase tracking-[0.2em] text-[#ece9e4]/35">
-            0 — {max}
+            от 0 до {max}
           </p>
         </div>
         <div className="space-y-6">
