@@ -34,7 +34,7 @@ export default function Hero() {
           transition={{ delay: 0.3, duration: 0.8, ease }}
         >
           <span translate="no" className="notranslate" lang="en">
-            TECHNICAL PRODUCT OWNER · AI · HMI · AUTONOMOUS SYSTEMS
+            TECHNICAL PRODUCT OWNER · UAS · AI · HMI · AUTONOMOUS SYSTEMS
           </span>
         </motion.p>
 
@@ -55,8 +55,8 @@ export default function Hero() {
           transition={{ delay: 0.65, duration: 0.9, ease }}
         >
           <span className="sr-only">Юлия Вересова. </span>
-          Разработка программных комплексов и консалтинг по внедрению ИИ{' '}
-          <span className="text-[#ff4d00]">в автономных системах и MedTech</span>
+          Управление проектами и разработка программных комплексов{' '}
+          <span className="text-[#ff4d00]">в сфере БАС</span>, консалтинг по внедрению ИИ
         </motion.h1>
 
         <motion.p
@@ -65,9 +65,9 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.72, duration: 0.9, ease }}
         >
-          Проектирую и разрабатываю целевые программные комплексы для автономных систем, промышленности
-          и медицины: диагностика по бортовой телеметрии, шлюзы деанонимизации данных, интерфейсы
-          управления (HMI). Консультирую по архитектуре и безопасному внедрению ИИ в продукт.
+          Специализируюсь на управлении проектами и разработке в сфере беспилотных авиационных систем
+          (БАС): диагностика по бортовой телеметрии, интерфейсы управления (HMI), закрытые контуры
+          данных. Смежный вектор R&D: MedTech и безопасное внедрение ИИ в продукт.
         </motion.p>
 
         <motion.div
