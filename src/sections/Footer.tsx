@@ -36,8 +36,8 @@ export default function Footer() {
       >
         <p className="font-display text-[clamp(13px,2.9vw,30px)] font-medium leading-[1.05] tracking-tight text-[#ece9e4]">
           {t(
-            'Open to UAS project management and development projects, Technical Product Owner roles (full-time / contract) and collaboration on targeted AI products',
-            'Открыта к проектам в сфере БАС (управление проектами, разработка), предложениям на позицию Technical Product Owner (штат / контракт) и сотрудничеству над целевыми проектами в сложных технологических продуктах и AI'
+            'Open to Technical Product Owner roles (full-time / contract) and collaboration on targeted projects',
+            'Открыта к предложениям на позицию Technical Product Owner (штат / контракт) и сотрудничеству над целевыми проектами'
           )}
         </p>
 
